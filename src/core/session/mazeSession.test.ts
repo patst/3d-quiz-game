@@ -1,26 +1,72 @@
 import { describe, expect, it } from 'vitest';
 import { generateMaze } from '../maze/generate';
-import { MazeSession } from './mazeSession';
+import { distancesFrom, findPath } from '../maze/pathfinding';
+import { isFloor, tileIndex, type Tile } from '../maze/types';
+import { MazeSession, TAP_WALK } from './mazeSession';
+
+const manhattan = (a: Tile, b: Tile) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
 describe('MazeSession', () => {
-  it('emits goalReached once when walking the path to the goal', () => {
+  it('emits goalReached once when walking to the goal', () => {
     const maze = generateMaze({ cols: 4, rows: 4, braid: 0, seed: 3 });
     const session = new MazeSession(maze);
-    const path = session.pathTo(maze.goal)!;
+    const path = findPath(maze, maze.start, maze.goal)!;
     const events = path.slice(1).flatMap((t) => session.arrive(t));
     expect(events).toEqual([{ type: 'goalReached' }]);
     expect(session.isFinished).toBe(true);
     expect(session.pathTo(maze.start)).toBeNull();
   });
 
-  it('snaps taps on walls to a floor tile', () => {
-    const maze = generateMaze({ cols: 4, rows: 4, braid: 0, seed: 3 });
-    const path = new MazeSession(maze).pathTo({ x: 0, y: 0 });
-    expect(path?.[path.length - 1]).toEqual(maze.start);
-  });
-
   it('blocks steps into walls', () => {
     const maze = generateMaze({ cols: 4, rows: 4, braid: 0, seed: 3 });
     expect(new MazeSession(maze).step({ x: -1, y: 0 })).toBeNull();
+  });
+});
+
+describe('tap-to-walk does not solve the maze', () => {
+  it('never walks further than TAP_WALK.maxSteps or around hedges', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const maze = generateMaze({ cols: 5, rows: 5, braid: 0.35, seed });
+      const session = new MazeSession(maze);
+      for (let y = 0; y < maze.height; y++) {
+        for (let x = 0; x < maze.width; x++) {
+          const path = session.pathTo({ x, y });
+          if (!path) continue;
+          const end = path[path.length - 1]!;
+          expect(path.length - 1).toBeLessThanOrEqual(TAP_WALK.maxSteps);
+          expect(path.length - 1).toBeLessThanOrEqual(manhattan(maze.start, end) + TAP_WALK.maxDetour);
+          for (const t of path) expect(isFloor(maze, t)).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('tapping the goal does not reach it when the way is long', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const maze = generateMaze({ cols: 5, rows: 5, braid: 0.35, seed });
+      const steps = distancesFrom(maze, maze.start)[tileIndex(maze, maze.goal)]!;
+      if (steps <= TAP_WALK.maxSteps) continue;
+      const path = new MazeSession(maze).pathTo(maze.goal);
+      const end = path?.[path.length - 1];
+      expect(end).not.toEqual(maze.goal);
+    }
+  });
+
+  it('walks straight down an open corridor to the tapped tile', () => {
+    const maze = generateMaze({ cols: 5, rows: 5, braid: 0, seed: 7 });
+    const session = new MazeSession(maze);
+    // Find a floor tile two steps straight from start.
+    const target = [
+      { x: maze.start.x + 2, y: maze.start.y },
+      { x: maze.start.x, y: maze.start.y + 2 },
+    ].find((t) => isFloor(maze, t) && isFloor(maze, { x: (t.x + maze.start.x) / 2, y: (t.y + maze.start.y) / 2 }))!;
+    expect(session.pathTo(target)?.at(-1)).toEqual(target);
+  });
+
+  it('snaps taps on walls to a nearby floor tile', () => {
+    const maze = generateMaze({ cols: 4, rows: 4, braid: 0, seed: 3 });
+    const path = new MazeSession(maze).pathTo({ x: 0, y: 0 });
+    // Start is the closest floor to the corner, so the avatar stays put.
+    expect(path).toBeNull();
   });
 });

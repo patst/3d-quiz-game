@@ -60,3 +60,63 @@ export function nearestFloor(maze: Grid, target: Tile): Tile | null {
   }
   return best;
 }
+
+export interface DirectWalkOptions {
+  /** Maximum number of steps one tap may move the avatar. */
+  maxSteps: number;
+  /**
+   * How many extra steps (beyond the straight grid distance) a route may take.
+   * Small values mean the avatar never walks "around" hedges to reach a tapped spot,
+   * so tapping the goal does not solve the maze.
+   */
+  maxDetour: number;
+}
+
+/**
+ * Tap-to-walk path that does NOT solve the maze for the child.
+ *
+ * Only tiles that are close (≤ maxSteps) and reachable almost directly
+ * (path length ≤ grid distance + maxDetour) are allowed destinations. Of those, the
+ * one closest to `target` is chosen (ties: shorter walk). Returns the path including
+ * `from`, or null if the avatar would not move.
+ */
+export function directWalkPath(maze: Grid, from: Tile, target: Tile, opts: DirectWalkOptions): Tile[] | null {
+  if (!isFloor(maze, from)) return null;
+  const size = maze.width * maze.height;
+  const dist = new Array<number>(size).fill(-1);
+  const parent = new Array<number>(size).fill(-1);
+  dist[tileIndex(maze, from)] = 0;
+  const queue: Tile[] = [from];
+  let best = from;
+  let bestScore = (from.x - target.x) ** 2 + (from.y - target.y) ** 2;
+  let bestSteps = 0;
+
+  for (let head = 0; head < queue.length; head++) {
+    const t = queue[head]!;
+    const d = dist[tileIndex(maze, t)]!;
+    if (d >= opts.maxSteps) continue;
+    for (const dir of DIRECTIONS) {
+      const n = { x: t.x + dir.x, y: t.y + dir.y };
+      const ni = tileIndex(maze, n);
+      if (!isFloor(maze, n) || dist[ni] !== -1) continue;
+      dist[ni] = d + 1;
+      parent[ni] = tileIndex(maze, t);
+      queue.push(n);
+      const gridDistance = Math.abs(n.x - from.x) + Math.abs(n.y - from.y);
+      if (d + 1 > gridDistance + opts.maxDetour) continue;
+      const score = (n.x - target.x) ** 2 + (n.y - target.y) ** 2;
+      if (score < bestScore || (score === bestScore && d + 1 < bestSteps)) {
+        best = n;
+        bestScore = score;
+        bestSteps = d + 1;
+      }
+    }
+  }
+
+  if (sameTile(best, from)) return null;
+  const path: Tile[] = [];
+  for (let i = tileIndex(maze, best); i !== -1; i = parent[i]!) {
+    path.push({ x: i % maze.width, y: Math.floor(i / maze.width) });
+  }
+  return path.reverse();
+}

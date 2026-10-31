@@ -1,7 +1,13 @@
-import { findPath, nearestFloor } from '../maze/pathfinding';
+import { directWalkPath, type DirectWalkOptions } from '../maze/pathfinding';
 import { isFloor, sameTile, type Maze, type Tile } from '../maze/types';
 
 export type SessionEvent = { type: 'goalReached' };
+
+/**
+ * Tap-to-walk limits (game-design §5): roughly what is visible around the avatar, and
+ * no walking around hedges — the child has to find the way through the maze.
+ */
+export const TAP_WALK: DirectWalkOptions = { maxSteps: 6, maxDetour: 0 };
 
 /**
  * Rules of one maze run, independent of rendering.
@@ -23,11 +29,13 @@ export class MazeSession {
     return this.finished;
   }
 
-  /** Path for a tap/click on any tile (walls snap to the nearest floor). */
+  /**
+   * Path for a tap/click on any tile. The avatar walks only a short, direct way towards
+   * the tapped spot (see TAP_WALK) — it never solves the maze on its own.
+   */
   pathTo(target: Tile, from: Tile = this.current): Tile[] | null {
     if (this.finished) return null;
-    const goal = isFloor(this.maze, target) ? target : nearestFloor(this.maze, target);
-    return goal ? findPath(this.maze, from, goal) : null;
+    return directWalkPath(this.maze, from, target, TAP_WALK);
   }
 
   /** One step in a direction (keyboard), or null if blocked. */

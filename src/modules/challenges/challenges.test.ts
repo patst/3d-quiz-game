@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { speechText } from '../../content/de/speech';
+import { allSpokenTexts, speechText } from '../../content/de/speech';
 import { createRng } from '../../core/rng';
 import { challengeTypes, getChallengeType } from '.';
 import type { AdditionData } from './math-addition';
@@ -23,6 +23,17 @@ describe.each(challengeTypes.map((t) => [t.id, t] as const))('%s', (_id, type) =
         // Every spoken line has a German template.
         expect(speechText(inst.prompt).length).toBeGreaterThan(0);
         expect(speechText(inst.explanation).length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('every generated sentence has a pre-generated clip (is enumerated)', () => {
+    const spoken = new Set(allSpokenTexts());
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= SEEDS; seed++) {
+        const inst = type.generate({ rng: createRng(seed * 17 + level), level });
+        expect(spoken.has(speechText(inst.prompt))).toBe(true);
+        expect(spoken.has(speechText(inst.explanation))).toBe(true);
       }
     }
   });

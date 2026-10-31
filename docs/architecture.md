@@ -122,7 +122,8 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Profiles & save | `src/core/profile`, `src/core/save` | versioned `SaveDoc` + `migrateSave`; IndexedDB store in `src/app/storage.ts`, key namespaced by `BASE_URL` |
 | 3D view | `src/render/MazeView.ts` | instanced hedges, inverted-hull outlines, toon gradient, tap-to-walk + keys, camera follow |
 | Avatars | `src/render/avatars/animals.ts` | procedural animals (ADR-0006) |
-| Speech | `src/audio/speech.ts` | Web Speech fallback, local German voices only |
+| Speech | `src/audio/speech.ts`, `src/audio/clipId.ts`, `public/audio/de/` | pre-generated whole-sentence clips (ADR-0007) → local Web Speech fallback |
+| Audio pipeline | `scripts/generate-audio.ts`, `scripts/check-audio.ts`, `docs/audio.md` | Piper, run locally; CI checks completeness |
 | World | `src/modules/worlds/forest` | theme colours + maze size |
 | Challenges | `src/core/challenges`, `src/modules/challenges/{math-count,math-addition}` | logic + generic answer flow |
 | Chests | `MazeSession` (`chests`, `solveChest`, `skipChest`), `src/render/props.ts`, world `chests` config | placed in dead ends; fixed levels until M4 |

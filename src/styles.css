@@ -799,9 +799,9 @@ button {
 
 .tier-badge {
   position: absolute;
-  top: -18px;
-  left: -10px;
-  font-size: 44px;
+  top: 6px;
+  left: 8px;
+  font-size: 34px;
   filter: drop-shadow(2px 2px 0 rgba(43, 34, 51, 0.6));
 }
 
@@ -818,4 +818,147 @@ button {
 .skill-line {
   font-size: 0.85rem;
   color: #4a4155;
+}
+
+/* ---------- M5 views ---------- */
+.find-area {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.listen-icon {
+  font-size: 72px;
+  animation: pop 0.6s;
+}
+
+.big-number {
+  font-size: clamp(3rem, 16vw, 4.5rem);
+  font-weight: 900;
+}
+
+.big-number.solved {
+  color: #2a9d3a;
+  animation: pop 0.4s;
+}
+
+.place-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ten-bar {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  padding: 2px;
+  border: 2px solid #3a86ff;
+  border-radius: 6px;
+}
+
+.ones {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  max-width: 60px;
+}
+
+.unit-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff7a59;
+  display: inline-block;
+}
+
+.ten-bar .unit-dot {
+  background: #3a86ff;
+}
+
+.task-object.crossed {
+  opacity: 0.35;
+  position: relative;
+}
+
+.task-object.crossed::after {
+  content: '✖';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #e63946;
+  font-size: 0.8em;
+}
+
+.compare-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.compare-side {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  max-height: 38vh;
+  border: 4px solid var(--ink);
+  border-radius: 18px;
+  background: #fffbea;
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+}
+
+.compare-side.wrong {
+  opacity: 0.3;
+  box-shadow: none;
+}
+
+.compare-side.correct {
+  background: #d8f5d0;
+  border-color: #2a9d3a;
+}
+
+.pattern-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.pattern-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+}
+
+.pattern-item {
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  line-height: 1;
+}
+
+.pattern-item.unit-start {
+  margin-left: 14px;
+  border-left: 3px dashed #c4621a;
+  padding-left: 8px;
+}
+
+.pattern-item.missing {
+  min-width: 1.4em;
+  text-align: center;
+  border: 3px dashed var(--ink);
+  border-radius: 10px;
+  color: #6b6175;
+}
+
+.number-button.symbol {
+  font-size: 2.2rem;
 }

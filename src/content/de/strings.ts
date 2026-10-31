@@ -168,7 +168,11 @@ export const de = {
   /** Challenge type names for the parents area. */
   challengeNames: {
     'math.count': 'Zählen',
+    'math.find-number': 'Zahlen erkennen',
+    'math.compare': 'Mengen vergleichen',
     'math.addition': 'Plus rechnen',
+    'math.subtraction': 'Minus rechnen',
+    'math.pattern': 'Muster fortsetzen',
   } as Record<string, string>,
   challenge: {
     listen: 'Nochmal hören',

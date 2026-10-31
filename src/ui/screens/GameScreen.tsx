@@ -102,9 +102,15 @@ export function GameScreen({
     const seed = forced !== null ? forced + round : randomSeed();
     const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
     setLostAnimal(animal);
+    // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
+    const only = new URLSearchParams(window.location.search).get('challenge');
+    const allowed = world.chests.challenges.filter((c) => !only || c.typeId === only);
     const chests = planChests(
       createRng(seed ^ 0x2545f491),
-      world.chests.challenges.map((c) => ({ type: getChallengeType(c.typeId), startLevel: c.startLevel })),
+      (allowed.length > 0 ? allowed : world.chests.challenges).map((c) => ({
+        type: getChallengeType(c.typeId),
+        startLevel: c.startLevel,
+      })),
       skillsRef.current,
       world.chests.count,
     );

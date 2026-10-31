@@ -131,6 +131,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.9 (2026-11-01): M5 — full v1 math catalogue: Zahl hören & finden (1–10 / 1–20 / 10–100 with digit-twin distractors, e.g. 47 vs 74; the shown text never reveals the number), Mengen vergleichen (tap the bigger group; level 3 digits only), Minus (pictures crossed out → ≤ 20 with borrowing), Muster fortsetzen (AB → ABC/AAB → AABB/ABCD). Chests draw from all six types.
 - v1.8 (2026-11-01): M4 — adaptive difficulty per challenge type: 2 clean solves in a row (≤ 1 wrong try) at/above the child's level → level up; 2 struggles (hint or solution needed) at/below → level down; skips only count in statistics. Each maze has one bronze (level −1, 1★), one silver (level, 2★) and one gold chest (level +1, 3★); the child chooses which to open. Start levels: Zählen 2 (1–10), Plus 1 (≤ 5). Parents area shows the level per type.
 - v1.7 (2026-11-01): M3c — parents area behind a gate (type a number given as a word, e.g. "dreiundvierzig"): rename/delete profiles, stats per child, "Aufgaben vorlesen" on/off, save export/import (JSON file). Parents area is not spoken (adults read). Session time limit postponed.
 - v1.6 (2026-11-01): M3b — six lost friends rescued in order (Küken, Ferkel, Welpe, Lamm, Häschen, Kätzchen; afterwards random). Rescued friends appear in "Meine Tierfreunde" (wardrobe) and one can follow the avatar as a pet; a new friend becomes the pet automatically if none is chosen.

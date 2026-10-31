@@ -8,7 +8,11 @@ export const forestWorld: WorldTheme = {
     count: 3,
     challenges: [
       { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
+      { typeId: 'math.find-number', startLevel: 1 }, // 1–10
+      { typeId: 'math.compare', startLevel: 1 }, // 1–5, clear difference
       { typeId: 'math.addition', startLevel: 1 }, // sum ≤ 5 with pictures
+      { typeId: 'math.subtraction', startLevel: 1 }, // ≤ 5 with pictures
+      { typeId: 'math.pattern', startLevel: 1 }, // AB AB
     ],
   },
   colors: {

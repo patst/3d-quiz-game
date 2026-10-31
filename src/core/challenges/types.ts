@@ -28,6 +28,11 @@ export interface ChallengeInstance<TData = unknown> {
   choices: readonly Choice[];
   correctChoiceId: string;
   prompt: SpeechLine;
+  /**
+   * Text shown instead of the spoken prompt, when showing it would give the answer away
+   * (e.g. "Tippe auf die 7" is spoken, "Welche Zahl hörst du?" is shown).
+   */
+  promptDisplay?: SpeechLine;
   /** Spoken when the solution is revealed after the last wrong try. */
   explanation: SpeechLine;
 }

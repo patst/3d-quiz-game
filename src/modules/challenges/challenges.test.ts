@@ -18,7 +18,7 @@ describe.each(challengeTypes.map((t) => [t.id, t] as const))('%s', (_id, type) =
         expect(new Set(values).size).toBe(values.length);
         expect(new Set(inst.choices.map((c) => c.id)).size).toBe(values.length);
         expect(inst.choices.filter((c) => c.id === inst.correctChoiceId)).toHaveLength(1);
-        expect(values.length).toBeGreaterThanOrEqual(3);
+        expect(values.length).toBeGreaterThanOrEqual(2);
         for (const v of values) expect(v).toBeGreaterThanOrEqual(0);
         // Every spoken line has a German template.
         expect(speechText(inst.prompt).length).toBeGreaterThan(0);
@@ -34,6 +34,7 @@ describe.each(challengeTypes.map((t) => [t.id, t] as const))('%s', (_id, type) =
         const inst = type.generate({ rng: createRng(seed * 17 + level), level });
         expect(spoken.has(speechText(inst.prompt))).toBe(true);
         expect(spoken.has(speechText(inst.explanation))).toBe(true);
+        if (inst.promptDisplay) expect(speechText(inst.promptDisplay).length).toBeGreaterThan(0);
       }
     }
   });
@@ -101,6 +102,65 @@ describe('math.addition', () => {
       const inst = type.generate({ rng: createRng(level), level });
       const d = inst.data as AdditionData;
       expect(inst.choices.find((c) => c.id === inst.correctChoiceId)?.value).toBe(d.a + d.b);
+    }
+  });
+});
+
+describe('math.find-number', () => {
+  const type = getChallengeType('math.find-number');
+  it('never shows the number in the displayed prompt; level 3 often offers the digit twin', () => {
+    let twins = 0;
+    for (let seed = 1; seed <= 300; seed++) {
+      const inst = type.generate({ rng: createRng(seed), level: 3 });
+      const n = (inst.data as { number: number }).number;
+      expect(speechText(inst.promptDisplay!)).not.toContain(String(n));
+      const twin = Number(String(n).split('').reverse().join(''));
+      if (twin !== n && inst.choices.some((c) => c.value === twin)) twins++;
+    }
+    expect(twins).toBeGreaterThan(100);
+  });
+});
+
+describe('math.subtraction', () => {
+  const type = getChallengeType('math.subtraction');
+  it('results are never negative; level 5 always borrows', () => {
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const d = type.generate({ rng: createRng(seed), level }).data as { a: number; b: number; difference: number };
+        expect(d.difference).toBeGreaterThanOrEqual(1);
+        if (level === 4) expect(d.a % 10).toBeGreaterThanOrEqual(d.b);
+        if (level === 5) expect(d.a % 10).toBeLessThan(d.b);
+      }
+    }
+  });
+});
+
+describe('math.compare', () => {
+  const type = getChallengeType('math.compare');
+  it('the correct side has more; level 1 differs by at least 2', () => {
+    for (let seed = 1; seed <= 300; seed++) {
+      const inst = type.generate({ rng: createRng(seed), level: 1 });
+      const d = inst.data as { left: number; right: number };
+      const correct = inst.choices.find((c) => c.id === inst.correctChoiceId)!;
+      expect(correct.value).toBe(Math.max(d.left, d.right));
+      expect(Math.abs(d.left - d.right)).toBeGreaterThanOrEqual(2);
+    }
+  });
+});
+
+describe('math.pattern', () => {
+  const type = getChallengeType('math.pattern');
+  it('the answer continues the period of the shown sequence', () => {
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const seq = (inst.data as { sequence: number[] }).sequence;
+        const answer = inst.choices.find((c) => c.id === inst.correctChoiceId)!.value;
+        // Smallest period p consistent with the shown sequence predicts the answer.
+        const p = [1, 2, 3, 4].find((len) => seq.every((v, i) => i < len || v === seq[i - len]))!;
+        expect(answer).toBe(seq[seq.length - p]);
+        expect(seq.length).toBeGreaterThanOrEqual(4);
+      }
     }
   });
 });

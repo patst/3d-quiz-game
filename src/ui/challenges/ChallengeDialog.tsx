@@ -21,7 +21,8 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
   const [attempt, setAttempt] = useState<AttemptState>(initialAttempt);
   const [feedback, setFeedback] = useState<AttemptFeedback | null>(null);
   const [confirmSkip, setConfirmSkip] = useState(false);
-  const View = challengeViews[challenge.typeId];
+  const entry = challengeViews[challenge.typeId];
+  const View = entry?.View;
 
   const sayPrompt = () => speech().speak(speechText(challenge.prompt));
   useEffect(() => {
@@ -47,12 +48,28 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
           {TIER_ICONS[chest.tier]}
         </span>
         <button className="prompt" onClick={sayPrompt} aria-label={de.challenge.listen}>
-          <span aria-hidden>🔊</span> {speechText(challenge.prompt)}
+          <span aria-hidden>🔊</span> {speechText(challenge.promptDisplay ?? challenge.prompt)}
         </button>
 
-        {View && <View data={challenge.data} hint={feedback === 'hint' || feedback === 'reveal'} solved={finished} />}
+        {View && (
+          <View
+            data={challenge.data}
+            hint={feedback === 'hint' || feedback === 'reveal'}
+            solved={finished}
+            answers={
+              entry.ownsChoices
+                ? {
+                    choices: challenge.choices,
+                    wrongChoiceIds: attempt.wrongChoiceIds,
+                    correctChoiceId: challenge.correctChoiceId,
+                    onChoose: choose,
+                  }
+                : undefined
+            }
+          />
+        )}
 
-        {!finished && (
+        {!finished && !entry?.ownsChoices && (
           <div className="choice-buttons">
             {challenge.choices.map((c) => {
               const wrong = attempt.wrongChoiceIds.includes(c.id);
@@ -82,7 +99,7 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
               <p className="feedback reveal">{speechText(challenge.explanation)}</p>
             ) : (
               <p className="feedback correct">
-                {speechText({ key: 'feedback.correct' })} <strong>{correctValue}</strong>
+                {speechText({ key: 'feedback.correct' })} {!entry?.ownsChoices && <strong>{correctValue}</strong>}
               </p>
             )}
             <p className="stars-won">⭐ {de.challenge.starsWon(attempt.stars)}</p>

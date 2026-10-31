@@ -40,7 +40,8 @@ npm run e2e         # Playwright smoke tests (desktop + mobile viewport)
 npm run build       # production build; BASE_PATH env sets the deploy sub-path
 npm run audio:generate  # (re)generate speech clips — see docs/audio.md
 ```
-`?seed=N` in the URL forces a maze seed (reproducible bug reports).
+`?seed=N` in the URL forces a maze seed (reproducible bug reports); `?challenge=<typeId>` puts
+only that challenge type into the chests (review a new challenge quickly).
 
 ## Conventions
 - `src/core/` is pure TypeScript (ESLint enforces: no Three.js/React/presentation imports).

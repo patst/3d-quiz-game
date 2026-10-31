@@ -26,6 +26,9 @@ const plural = (p: Params) => objectNames[p.object as CountObject]?.[1] ?? '';
 const range = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => from + i);
 const none = () => [{}];
 
+/** All (a, b) with 1 ≤ b < a ≤ 20 — covers every subtraction level. */
+const subtractionPairs = () => range(2, 20).flatMap((a) => range(1, a - 1).map((b) => ({ a, b, difference: a - b })));
+
 /** All (a, b) with a, b ≥ 1 and a + b ≤ 20 — covers every addition level. */
 const additionPairs = () => range(1, 19).flatMap((a) => range(1, 20 - a).map((b) => ({ a, b, sum: a + b })));
 
@@ -41,6 +44,22 @@ export const speechTemplates: Record<string, Template> = {
   },
   'math.addition.prompt': { render: (p) => `Was ist ${p.a} plus ${p.b}?`, variants: additionPairs },
   'math.addition.explain': { render: (p) => `${p.a} plus ${p.b} ist ${p.sum}.`, variants: additionPairs },
+  'math.find-number.prompt': { render: (p) => `Tippe auf die Zahl ${p.n}.`, variants: () => range(1, 100).map((n) => ({ n })) },
+  'math.find-number.display': { render: () => 'Welche Zahl hörst du? Tippe sie an!', variants: none },
+  'math.find-number.explain': { render: (p) => `Schau, das ist die ${p.n}.`, variants: () => range(1, 100).map((n) => ({ n })) },
+  'math.subtraction.prompt': { render: (p) => `Was ist ${p.a} minus ${p.b}?`, variants: subtractionPairs },
+  'math.subtraction.explain': { render: (p) => `${p.a} minus ${p.b} ist ${p.difference}.`, variants: subtractionPairs },
+  'math.compare.prompt': {
+    render: (p) => `Wo sind mehr ${plural(p)}?`,
+    variants: () => COUNT_OBJECTS.map((object) => ({ object })),
+  },
+  'math.compare.prompt-digits': { render: () => 'Welche Zahl ist größer?', variants: none },
+  'math.compare.explain': {
+    render: (p) => `${p.big} ist mehr als ${p.small}.`,
+    variants: () => range(2, 20).flatMap((big) => range(1, big - 1).map((small) => ({ big, small }))),
+  },
+  'math.pattern.prompt': { render: () => 'Was kommt als Nächstes?', variants: none },
+  'math.pattern.explain': { render: () => 'Schau, so geht das Muster weiter.', variants: none },
   'feedback.correct': { render: () => 'Super gemacht!', variants: none },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },

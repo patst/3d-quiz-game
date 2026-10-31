@@ -133,5 +133,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Animal friends | `src/core/profile/lostAnimals.ts`, `src/render/avatars/lostAnimals.ts`, pet following in `MazeView.updatePet` | save v3 adds rescued, pet |
 | Parents area | `src/ui/parents/` (`ParentGate`, `ParentsArea`), `content/de/numbers.ts` | save v4 adds `settings` (speech); `setSpeechEnabled` in audio |
 | Adaptive difficulty | `src/core/skills/skillModel.ts` (`recordOutcome`, `planChests`, tiers) | save v5 adds `skills` per challenge type; world config holds start levels |
+| Views with own answers | `ChallengeViewEntry.ownsChoices` in `src/ui/challenges/index.ts` (compare, pattern); `ChallengeInstance.promptDisplay` hides spoken answers | `?challenge=<typeId>` limits chests to one type (review/E2E) |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

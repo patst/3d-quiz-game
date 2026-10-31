@@ -56,6 +56,8 @@ export class MazeView {
   private markerAge = Infinity;
   private disposed = false;
   private paused = false;
+  /** Smoothed point on the ground the camera looks at. */
+  private focus: THREE.Vector3 | null = null;
   private readonly chestViews = new Map<string, { root: THREE.Group; lid: THREE.Object3D; beacon: THREE.Object3D }>();
 
   constructor(private readonly opts: MazeViewOptions) {
@@ -370,10 +372,27 @@ export class MazeView {
     // Steep, diorama-like view; portrait screens need more distance to show enough maze.
     const zoom = aspect < 0.8 ? 1.45 : aspect < 1.2 ? 1.2 : 1;
     const offset = new THREE.Vector3(0, 9 * zoom, 4.2 * zoom);
-    const desired = this.avatar.position.clone().setY(0).add(offset);
-    this.camera.position.lerp(desired, Math.min(1, dt * 4));
-    const look = this.avatar.position.clone().setY(0.4);
-    this.camera.lookAt(look);
+
+    // Rough size of the visible ground area around the focus point.
+    const dist = offset.length();
+    const halfTan = Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2));
+    const elevation = Math.atan2(offset.y, offset.z);
+    const spanDepth = (2 * dist * halfTan) / Math.sin(elevation);
+    const spanWidth = 2 * dist * halfTan * aspect;
+
+    // Follow the avatar, but don't show empty grass beyond the maze edges: if the maze
+    // fits on screen along an axis, centre it; otherwise clamp the focus to the maze.
+    const { width, height } = this.opts.session.maze;
+    const target = new THREE.Vector3(
+      clampFocus(this.avatar.position.x, width, spanWidth),
+      0,
+      clampFocus(this.avatar.position.z, height, spanDepth),
+    );
+    if (this.focus === null) this.focus = target.clone();
+    else this.focus.lerp(target, Math.min(1, dt * 4));
+
+    this.camera.position.copy(this.focus).add(offset);
+    this.camera.lookAt(this.focus.x, 0.4, this.focus.z);
   }
 
   private resize(): void {
@@ -390,6 +409,17 @@ export class MazeView {
   private publishTile(): void {
     this.opts.container.dataset.avatarTile = `${this.tile.x},${this.tile.y}`;
   }
+}
+
+/**
+ * Camera focus along one axis. Tiles span [-0.5, size - 0.5]; `span` is the visible extent.
+ */
+function clampFocus(pos: number, size: number, span: number): number {
+  const margin = 0.6;
+  const min = -0.5 + span / 2 - margin;
+  const max = size - 0.5 - span / 2 + margin;
+  if (min >= max) return (size - 1) / 2;
+  return Math.min(max, Math.max(min, pos));
 }
 
 function lerpAngle(a: number, b: number, t: number): number {

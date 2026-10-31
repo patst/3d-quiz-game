@@ -1,0 +1,39 @@
+name: PR Preview
+
+# Publishes each PR to https://<owner>.github.io/<repo>/pr-preview/pr-<N>/ and removes it
+# when the PR is closed (ADR-0005).
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    # Fork PRs have no write token; skip them.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        if: github.event.action != 'closed'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: github.event.action != 'closed'
+      - run: npm run build
+        if: github.event.action != 'closed'
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/pr-preview/pr-${{ github.event.number }}/
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview

@@ -1112,3 +1112,15 @@ button {
   width: 20px;
   height: 20px;
 }
+
+.break-overlay {
+  z-index: 30;
+  background: rgba(43, 34, 51, 0.6);
+}
+
+.toggle select {
+  font: inherit;
+  padding: 4px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+}

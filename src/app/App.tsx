@@ -23,6 +23,20 @@ export function App() {
   const { doc, update } = useSave(store);
   const [screen, setScreen] = useState<Screen>({ name: 'profiles' });
   const [gateOpen, setGateOpen] = useState(false);
+  // Play-time limit: counted from the first maze of this app session (memory only).
+  const [sessionStart, setSessionStart] = useState<number | null>(null);
+  const [now, setNow] = useState(() => Date.now());
+  const limitMinutes = doc?.settings.sessionMinutes ?? 0;
+  const startGame = () => {
+    setSessionStart((s) => s ?? Date.now());
+    setScreen({ name: 'game' });
+  };
+  useEffect(() => {
+    if (!limitMinutes) return;
+    const id = window.setInterval(() => setNow(Date.now()), 15_000);
+    return () => window.clearInterval(id);
+  }, [limitMinutes]);
+  const breakDue = limitMinutes > 0 && sessionStart !== null && now - sessionStart >= limitMinutes * 60_000;
   const speechOn = doc?.settings.speech ?? true;
 
   useEffect(() => setSpeechEnabled(speechOn), [speechOn]);
@@ -48,6 +62,11 @@ export function App() {
         }
         onDelete={(id) => update((d) => removeProfile(d, id))}
         onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
+        onSessionMinutes={(minutes) => update((d) => updateSettings(d, { sessionMinutes: minutes }))}
+        onEndBreak={() => {
+          setSessionStart(null);
+          setNow(Date.now());
+        }}
         onImport={(raw) => update(() => migrateSave(raw))}
         onClose={() => setScreen({ name: 'profiles' })}
       />
@@ -63,7 +82,7 @@ export function App() {
         onBack={() => setScreen({ name: 'profiles' })}
         onCreate={(name: string, avatar: Avatar) => {
           update((d) => addProfile(d, createProfile({ id: newId(), name, avatar, now: Date.now() })));
-          setScreen({ name: 'game' });
+          startGame();
         }}
       />
     );
@@ -73,6 +92,7 @@ export function App() {
     return (
       <GameScreen
         profile={active}
+        breakDue={breakDue}
         onHome={() => setScreen({ name: 'profiles' })}
         onStars={(stars) =>
           update((d) =>
@@ -139,7 +159,7 @@ export function App() {
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
-        setScreen({ name: 'game' });
+        startGame();
       }}
       onNew={() => setScreen({ name: 'create' })}
       onParents={() => setGateOpen(true)}

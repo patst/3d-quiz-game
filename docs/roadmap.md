@@ -12,4 +12,11 @@ with a real child before building breadth.
 | **M4 Adaptive difficulty** | Skill model, levels per challenge, bronze/silver/gold chests | Unit-tested skill model; second playtest |
 | **M5 Math breadth** | Full v1 math catalogue | — |
 | **M6 German challenges** | Word bank (~95 words with pictures; grow towards 150), Anlaut/Silben/Reime/Lesen | — |
-| **M7 Polish & PWA** | Offline install, parents area stats, performance pass | Lighthouse PWA pass, works offline |
+| **M7 Polish & PWA** (PR stack 1–7, 2026-11-01: M3a–M7 implemented, awaiting review) | Offline install, parents area stats, performance pass | Lighthouse PWA pass, works offline |
+
+## Next (proposal, after the playtest)
+- Playtest with the owner's child using `docs/playtests/README.md`; adjust start levels,
+  tap distance, voice speed from findings.
+- Grow the word bank towards 150 words; record letter sounds ("mmm") for Anlaut tasks.
+- Second world (e.g. Unterwasser with guide Ida) via `src/modules/worlds/`.
+- Home base (tree house) to place collected items (game-design §7, "later").

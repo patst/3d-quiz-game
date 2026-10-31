@@ -11,9 +11,11 @@ export const SAVE_VERSION = 6;
 export interface Settings {
   /** Read instructions aloud (game-design §2: on by default). */
   speech: boolean;
+  /** Optional play-time limit per session in minutes; 0 = off (game-design §8). */
+  sessionMinutes: number;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speech: true };
+export const DEFAULT_SETTINGS: Settings = { speech: true, sessionMinutes: 0 };
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;

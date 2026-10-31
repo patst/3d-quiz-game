@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { allClipUrls } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import { MAX_NAME_LENGTH, type Profile } from '../../core/profile/profile';
 import type { SaveDoc } from '../../core/save/save';
@@ -11,6 +12,8 @@ interface Props {
   onToggleChallenge: (id: string, typeId: string, enabled: boolean) => void;
   onDelete: (id: string) => void;
   onSpeech: (on: boolean) => void;
+  onSessionMinutes: (minutes: number) => void;
+  onEndBreak: () => void;
   onImport: (raw: unknown) => void;
   onClose: () => void;
 }
@@ -33,10 +36,39 @@ function SkillList({ profile }: { profile: Profile }) {
 }
 
 /** Parents area (behind the gate): profiles, settings, backup. Not spoken; adults read it. */
-export function ParentsArea({ doc, onRename, onToggleChallenge, onDelete, onSpeech, onImport, onClose }: Props) {
+export function ParentsArea({
+  doc,
+  onRename,
+  onToggleChallenge,
+  onDelete,
+  onSpeech,
+  onSessionMinutes,
+  onEndBreak,
+  onImport,
+  onClose,
+}: Props) {
   const [confirmDelete, setConfirmDelete] = useState<Profile | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [offline, setOffline] = useState<string | null>(null);
+
+  // Fetching every clip lets the service worker cache them (ADR-0008).
+  const downloadVoice = async () => {
+    try {
+      const urls = await allClipUrls();
+      let done = 0;
+      const worker = async () => {
+        for (let url = urls.pop(); url; url = urls.pop()) {
+          await fetch(url);
+          setOffline(de.parents.offlineProgress(++done, done + urls.length));
+        }
+      };
+      await Promise.all(Array.from({ length: 6 }, worker));
+      setOffline(de.parents.offlineDone);
+    } catch {
+      setOffline(de.parents.offlineFailed);
+    }
+  };
 
   const exportSave = () => {
     const blob = new Blob([JSON.stringify(doc, null, 1)], { type: 'application/json' });
@@ -117,6 +149,35 @@ export function ParentsArea({ doc, onRename, onToggleChallenge, onDelete, onSpee
           <input type="checkbox" checked={doc.settings.speech} onChange={(e) => onSpeech(e.target.checked)} />
           {de.parents.speech}
         </label>
+        <label className="toggle">
+          {de.parents.sessionLimit}
+          <select
+            value={doc.settings.sessionMinutes}
+            onChange={(e) => onSessionMinutes(Number(e.target.value))}
+            aria-label={de.parents.sessionLimit}
+          >
+            <option value={0}>{de.parents.sessionOff}</option>
+            {[15, 20, 30, 45].map((m) => (
+              <option key={m} value={m}>
+                {de.parents.sessionMinutes(m)}
+              </option>
+            ))}
+          </select>
+        </label>
+        {doc.settings.sessionMinutes > 0 && (
+          <button className="button secondary small" onClick={onEndBreak}>
+            {de.parents.endBreak}
+          </button>
+        )}
+      </section>
+
+      <section className="parents-card">
+        <h2>{de.parents.offlineTitle}</h2>
+        <p className="hint-text">{de.parents.offlineText}</p>
+        <button className="button secondary small" onClick={() => void downloadVoice()}>
+          {de.parents.offlineDownload}
+        </button>
+        {offline && <p aria-live="polite">{offline}</p>}
       </section>
 
       <section className="parents-card">

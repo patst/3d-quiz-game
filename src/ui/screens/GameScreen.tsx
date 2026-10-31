@@ -22,6 +22,8 @@ import { ChallengeDialog } from '../challenges/ChallengeDialog';
 
 interface Props {
   profile: Profile;
+  /** Parent-set play time is over: show the break screen (after a running challenge). */
+  breakDue: boolean;
   onHome: () => void;
   onStars: (stars: number) => void;
   onMazeCompleted: () => void;
@@ -51,6 +53,7 @@ function route(path: Tile[]): string {
 
 export function GameScreen({
   profile,
+  breakDue,
   onHome,
   onStars,
   onMazeCompleted,
@@ -171,7 +174,11 @@ export function GameScreen({
     [profile.inventory, profile.stars],
   );
 
-  const blocked = Boolean(openChest) || showPicker || wardrobeOpen || goalStars !== null;
+  const showBreak = breakDue && !openChest;
+  const blocked = Boolean(openChest) || showPicker || wardrobeOpen || goalStars !== null || showBreak;
+  useEffect(() => {
+    if (showBreak) speech().speak(de.breakTime.speak);
+  }, [showBreak]);
   useEffect(() => {
     viewRef.current?.setPaused(blocked);
   }, [blocked]);
@@ -218,6 +225,21 @@ export function GameScreen({
 
       {wardrobeOpen && (
         <Wardrobe profile={profile} onToggle={onToggleEquip} onSetPet={onSetPet} onClose={() => setWardrobeOpen(false)} />
+      )}
+
+      {showBreak && (
+        <div className="overlay break-overlay" role="dialog" aria-modal data-testid="break">
+          <div className="dialog">
+            <div className="dialog-icon" aria-hidden>
+              🦉💤
+            </div>
+            <h2>{de.breakTime.title}</h2>
+            <p>{de.breakTime.text}</p>
+            <button className="button primary" aria-label={de.game.home} onClick={onHome}>
+              🏠
+            </button>
+          </div>
+        </div>
       )}
 
       {goalStars !== null && (

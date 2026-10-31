@@ -70,6 +70,7 @@ class ClipSpeechProvider implements SpeechProvider {
   private manifest: Promise<Set<string>>;
   /** One reused element: once unlocked by a user gesture, iOS lets it play later clips. */
   private readonly audio = new Audio();
+  private objectUrl: string | null = null;
   /** Incremented on every speak/stop so late-loading clips of old requests stay silent. */
   private request = 0;
 
@@ -95,8 +96,20 @@ class ClipSpeechProvider implements SpeechProvider {
         this.fallback.speak(text);
         return;
       }
-      this.audio.src = `${AUDIO_BASE}${id}.mp3`;
-      this.audio.play().catch(() => this.fallback.speak(text));
+      // A plain fetch (not the media element's range requests) gets a full 200 response
+      // that the service worker can cache for offline use.
+      fetch(`${AUDIO_BASE}${id}.mp3`)
+        .then((r) => (r.ok ? r.blob() : Promise.reject(new Error(String(r.status)))))
+        .then((blob) => {
+          if (request !== this.request) return;
+          if (this.objectUrl) URL.revokeObjectURL(this.objectUrl);
+          this.objectUrl = URL.createObjectURL(blob);
+          this.audio.src = this.objectUrl;
+          return this.audio.play();
+        })
+        .catch(() => {
+          if (request === this.request) this.fallback.speak(text);
+        });
     });
   }
 
@@ -125,4 +138,11 @@ const muted: SpeechProvider = { speak: () => undefined, stop: () => provider?.st
 export function speech(): SpeechProvider {
   provider ??= new ClipSpeechProvider(new WebSpeechProvider());
   return enabled ? provider : muted;
+}
+
+/** URLs of all voice clips (parents area: download everything for offline use). */
+export async function allClipUrls(): Promise<string[]> {
+  const r = await fetch(`${AUDIO_BASE}manifest.json`);
+  const manifest = (await r.json()) as ClipManifest;
+  return Object.keys(manifest.clips).map((id) => `${AUDIO_BASE}${id}.mp3`);
 }

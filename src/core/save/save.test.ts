@@ -28,7 +28,7 @@ describe('save document', () => {
     expect(doc.version).toBe(6);
     expect(doc.profiles[0]?.disabledChallenges).toEqual([]);
     expect(doc.profiles[0]?.skills).toEqual({});
-    expect(doc.settings).toEqual({ speech: true });
+    expect(doc.settings).toEqual({ speech: true, sessionMinutes: 0 });
     expect(doc.activeProfileId).toBe('a');
     expect(doc.profiles[0]).toMatchObject({ stars: 23, jar: 3, pendingRewards: 2, inventory: [], equipped: {} });
     // v2 → v3: finished mazes mean the chick was rescued.

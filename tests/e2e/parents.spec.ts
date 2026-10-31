@@ -73,3 +73,19 @@ test('parents area shows the learning level per challenge type', async ({ page }
   for (const digit of String(target)) await gate.getByRole('button', { name: digit, exact: true }).click();
   await expect(page.getByText('Zählen: Stufe 3 von 3 · 8 gelöst, davon 6 ohne Fehler')).toBeVisible();
 });
+
+test('a parent-set play time shows a friendly break screen', async ({ page }) => {
+  await page.clock.install();
+  await seedSave(page, {
+    version: 6,
+    activeProfileId: null,
+    settings: { speech: true, sessionMinutes: 15 },
+    profiles: [profileFixture({ pendingRewards: 0 })],
+  });
+  await page.getByRole('button', { name: /Testkind/ }).click();
+  await expect(page.getByTestId('game-canvas').locator('canvas')).toBeVisible();
+  await expect(page.getByTestId('break')).toHaveCount(0);
+  await page.clock.fastForward('16:00');
+  await expect(page.getByTestId('break')).toBeVisible();
+  await expect(page.getByText('Zeit für eine Pause!')).toBeVisible();
+});

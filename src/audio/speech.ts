@@ -112,8 +112,17 @@ class ClipSpeechProvider implements SpeechProvider {
 }
 
 let provider: SpeechProvider | null = null;
+let enabled = true;
+
+/** Parents can turn reading aloud off (settings.speech). Text is always shown anyway. */
+export function setSpeechEnabled(value: boolean): void {
+  enabled = value;
+  if (!value) provider?.stop();
+}
+
+const muted: SpeechProvider = { speak: () => undefined, stop: () => provider?.stop() };
 
 export function speech(): SpeechProvider {
   provider ??= new ClipSpeechProvider(new WebSpeechProvider());
-  return provider;
+  return enabled ? provider : muted;
 }

@@ -1,6 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { setSpeechEnabled } from '../audio/speech';
+import { ParentGate } from '../ui/parents/ParentGate';
+import { ParentsArea } from '../ui/parents/ParentsArea';
 import { createProfile, type Avatar } from '../core/profile/profile';
-import { addProfile, setActiveProfile, updateProfile } from '../core/save/save';
+import { addProfile, migrateSave, removeProfile, setActiveProfile, updateProfile, updateSettings } from '../core/save/save';
+import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
 import { getRewardItem } from '../modules/rewards/catalog';
 import { CreateProfileScreen } from '../ui/screens/CreateProfileScreen';
@@ -9,14 +13,33 @@ import { ProfileSelectScreen } from '../ui/screens/ProfileSelectScreen';
 import { createIdbStore, newId } from './storage';
 import { useSave } from './useSave';
 
-type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'game' };
+type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'game' } | { name: 'parents' };
 
 export function App() {
   const store = useMemo(() => createIdbStore(), []);
   const { doc, update } = useSave(store);
   const [screen, setScreen] = useState<Screen>({ name: 'profiles' });
+  const [gateOpen, setGateOpen] = useState(false);
+  const speechOn = doc?.settings.speech ?? true;
+
+  useEffect(() => setSpeechEnabled(speechOn), [speechOn]);
 
   if (!doc) return <div className="loading" />;
+
+  if (screen.name === 'parents') {
+    return (
+      <ParentsArea
+        doc={doc}
+        onRename={(id, name) =>
+          update((d) => updateProfile(d, id, (p) => ({ ...p, name: name.trim().slice(0, MAX_NAME_LENGTH) })))
+        }
+        onDelete={(id) => update((d) => removeProfile(d, id))}
+        onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
+        onImport={(raw) => update(() => migrateSave(raw))}
+        onClose={() => setScreen({ name: 'profiles' })}
+      />
+    );
+  }
 
   const active = doc.profiles.find((p) => p.id === doc.activeProfileId) ?? null;
 
@@ -88,13 +111,25 @@ export function App() {
   }
 
   return (
-    <ProfileSelectScreen
+    <>
+      <ProfileSelectScreen
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
         setScreen({ name: 'game' });
       }}
       onNew={() => setScreen({ name: 'create' })}
-    />
+      onParents={() => setGateOpen(true)}
+      />
+      {gateOpen && (
+        <ParentGate
+          onPass={() => {
+            setGateOpen(false);
+            setScreen({ name: 'parents' });
+          }}
+          onCancel={() => setGateOpen(false)}
+        />
+      )}
+    </>
   );
 }

@@ -131,5 +131,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Test hooks | `data-test-route-chest`, `data-test-route-goal` (only with `?seed=`) | arrow-key routes for E2E |
 | Rewards | `src/core/rewards/rewards.ts` (jar, offer, equip), `src/modules/rewards/catalog.ts`, `src/render/avatars/accessories.ts`, `src/render/trails.ts`, `src/ui/rewards/` | save v2 adds jar, pendingRewards, inventory, equipped |
 | Animal friends | `src/core/profile/lostAnimals.ts`, `src/render/avatars/lostAnimals.ts`, pet following in `MazeView.updatePet` | save v3 adds rescued, pet |
+| Parents area | `src/ui/parents/` (`ParentGate`, `ParentsArea`), `content/de/numbers.ts` | save v4 adds `settings` (speech); `setSpeechEnabled` in audio |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

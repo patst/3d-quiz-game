@@ -5,12 +5,21 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 3;
+export const SAVE_VERSION = 4;
+
+/** Device-wide settings, changed in the parents area. */
+export interface Settings {
+  /** Read instructions aloud (game-design §2: on by default). */
+  speech: boolean;
+}
+
+export const DEFAULT_SETTINGS: Settings = { speech: true };
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;
   profiles: Profile[];
   activeProfileId: string | null;
+  settings: Settings;
 }
 
 /** Storage backend. Implemented outside core (IndexedDB in app/, in-memory in tests). */
@@ -20,7 +29,7 @@ export interface SaveStore {
 }
 
 export function emptySave(): SaveDoc {
-  return { version: SAVE_VERSION, profiles: [], activeProfileId: null };
+  return { version: SAVE_VERSION, profiles: [], activeProfileId: null, settings: { ...DEFAULT_SETTINGS } };
 }
 
 /** Migrations keyed by the version they upgrade *from*. */
@@ -49,6 +58,8 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
       return { ...p, rescued: done ? ['chick'] : [], pet: done ? 'chick' : null };
     }),
   }),
+  // v3 → v4: device settings.
+  3: (doc) => ({ ...doc, version: 4, settings: { ...DEFAULT_SETTINGS } }),
 };
 
 /** Turns whatever was stored into a valid current SaveDoc; never throws. */
@@ -65,10 +76,12 @@ export function migrateSave(raw: unknown): SaveDoc {
   if (version !== SAVE_VERSION || !Array.isArray(doc.profiles)) return emptySave();
   const profiles = doc.profiles as Profile[];
   const active = typeof doc.activeProfileId === 'string' ? doc.activeProfileId : null;
+  const settings = (doc.settings && typeof doc.settings === 'object' ? doc.settings : {}) as Partial<Settings>;
   return {
     version: SAVE_VERSION,
     profiles,
     activeProfileId: profiles.some((p) => p.id === active) ? active : null,
+    settings: { ...DEFAULT_SETTINGS, ...settings },
   };
 }
 
@@ -91,4 +104,8 @@ export function updateProfile(doc: SaveDoc, id: string, change: (p: Profile) => 
 
 export function setActiveProfile(doc: SaveDoc, id: string | null): SaveDoc {
   return { ...doc, activeProfileId: id };
+}
+
+export function updateSettings(doc: SaveDoc, change: Partial<Settings>): SaveDoc {
+  return { ...doc, settings: { ...doc.settings, ...change } };
 }

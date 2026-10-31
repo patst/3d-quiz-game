@@ -94,6 +94,38 @@ export const de = {
     hint: 'Tippe auf einen Freund, damit er mit dir läuft.',
     newFriend: (name: string) => `Neuer Freund: ${name}!`,
   },
+  /** Parents area: adults read this, so it is not spoken. */
+  parents: {
+    button: 'Eltern',
+    gateTitle: 'Nur für Eltern',
+    gateQuestion: (word: string) => `Bitte tippe die Zahl „${word}“.`,
+    gateWrong: 'Das war leider nicht richtig.',
+    cancel: 'Abbrechen',
+    title: 'Elternbereich',
+    profiles: 'Kinder',
+    name: 'Name',
+    stats: (stars: number, mazes: number, friends: number, items: number) =>
+      [
+        `${stars} ${stars === 1 ? 'Stern' : 'Sterne'}`,
+        `${mazes} ${mazes === 1 ? 'Labyrinth' : 'Labyrinthe'}`,
+        `${friends} ${friends === 1 ? 'Tierfreund' : 'Tierfreunde'}`,
+        `${items} ${items === 1 ? 'Sache' : 'Sachen'}`,
+      ].join(' · '),
+    delete: 'Löschen',
+    deleteConfirm: (name: string) => `${name} wirklich löschen? Alle Sterne und Sachen gehen verloren.`,
+    deleteYes: 'Ja, löschen',
+    deleteNo: 'Nein',
+    settings: 'Einstellungen',
+    speech: 'Aufgaben vorlesen',
+    backup: 'Spielstand',
+    export: 'Spielstand sichern',
+    import: 'Spielstand laden',
+    importDone: 'Spielstand geladen.',
+    importFailed: 'Die Datei konnte nicht gelesen werden.',
+    importConfirm: 'Der aktuelle Spielstand wird ersetzt. Fortfahren?',
+    privacy: 'Alle Daten bleiben auf diesem Gerät. Es gibt keine Konten, keine Werbung und kein Tracking.',
+    close: 'Zurück',
+  },
   rewards: {
     jarLabel: (n: number) => `Sternenglas: ${n} von 10`,
     jarHint: (missing: number) =>

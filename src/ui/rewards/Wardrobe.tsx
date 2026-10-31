@@ -6,15 +6,18 @@ import { REWARD_SLOTS } from '../../core/rewards/rewards';
 import { rewardCatalog } from '../../modules/rewards/catalog';
 import { AvatarPreview } from '../../render/AvatarPreview';
 import { rewardIcons } from '../rewardIcons';
+import { LOST_ANIMALS, type LostAnimal } from '../../core/profile/lostAnimals';
+import { lostAnimalIcons } from '../lostAnimalIcons';
 
 interface Props {
   profile: Profile;
   onToggle: (itemId: string) => void;
+  onSetPet: (animal: LostAnimal | null) => void;
   onClose: () => void;
 }
 
 /** Collection album + dressing room. Unfound items are shown as silhouettes. */
-export function Wardrobe({ profile, onToggle, onClose }: Props) {
+export function Wardrobe({ profile, onToggle, onSetPet, onClose }: Props) {
   const previewRef = useRef<HTMLDivElement>(null);
   const preview = useRef<AvatarPreview | null>(null);
 
@@ -69,6 +72,32 @@ export function Wardrobe({ profile, onToggle, onClose }: Props) {
             </div>
           </section>
         ))}
+        <section className="wardrobe-section" data-testid="friends">
+          <h3>{de.friends.title}</h3>
+          <p className="hint-text">{de.friends.hint}</p>
+          <div className="wardrobe-items">
+            {LOST_ANIMALS.map((animal) => {
+              const has = profile.rescued.includes(animal);
+              const name = de.lostAnimals[animal].name;
+              const active = profile.pet === animal;
+              return (
+                <button
+                  key={animal}
+                  className={`wardrobe-item ${has ? 'owned' : 'locked'} ${active ? 'worn' : ''}`}
+                  disabled={!has}
+                  aria-pressed={active}
+                  aria-label={has ? name : de.rewards.locked}
+                  onClick={() => {
+                    speech().speak(name);
+                    onSetPet(active ? null : animal);
+                  }}
+                >
+                  <span aria-hidden>{lostAnimalIcons[animal]}</span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
         <button className="button primary" onClick={onClose}>
           {de.rewards.back}
         </button>

@@ -7,6 +7,8 @@ import type { Tile } from '../../core/maze/types';
 import type { Profile } from '../../core/profile/profile';
 import { createRng, randomSeed } from '../../core/rng';
 import { rewardOffer } from '../../core/rewards/rewards';
+import { isLostAnimal, nextLostAnimal, type LostAnimal } from '../../core/profile/lostAnimals';
+import { lostAnimalIcons } from '../lostAnimalIcons';
 import { rewardCatalog } from '../../modules/rewards/catalog';
 import { RewardPicker } from '../rewards/RewardPicker';
 import { StarJar } from '../rewards/StarJar';
@@ -24,6 +26,8 @@ interface Props {
   onMazeCompleted: () => void;
   onChooseReward: (itemId: string | null) => void;
   onToggleEquip: (itemId: string) => void;
+  onRescue: (animal: LostAnimal) => void;
+  onSetPet: (animal: LostAnimal | null) => void;
 }
 
 /** Seed can be forced via ?seed=123 (reproducible bug reports / E2E tests). */
@@ -43,7 +47,16 @@ function route(path: Tile[]): string {
     .join('');
 }
 
-export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChooseReward, onToggleEquip }: Props) {
+export function GameScreen({
+  profile,
+  onHome,
+  onStars,
+  onMazeCompleted,
+  onChooseReward,
+  onToggleEquip,
+  onRescue,
+  onSetPet,
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sessionRef = useRef<MazeSession | null>(null);
   const viewRef = useRef<MazeView | null>(null);
@@ -52,10 +65,21 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChoose
   const [openChest, setOpenChest] = useState<{ chest: Chest; visit: number } | null>(null);
   const [wardrobeOpen, setWardrobeOpen] = useState(false);
   const equippedRef = useRef(profile.equipped);
-  const callbacks = useRef({ onStars, onMazeCompleted });
+  const rescuedRef = useRef(profile.rescued);
+  const pet = profile.pet && isLostAnimal(profile.pet) ? profile.pet : null;
+  const petRef = useRef(pet);
+  const [lostAnimal, setLostAnimal] = useState<LostAnimal>('chick');
+  const callbacks = useRef({ onStars, onMazeCompleted, onRescue });
   useEffect(() => {
-    callbacks.current = { onStars, onMazeCompleted };
-  }, [onStars, onMazeCompleted]);
+    callbacks.current = { onStars, onMazeCompleted, onRescue };
+  }, [onStars, onMazeCompleted, onRescue]);
+  useEffect(() => {
+    rescuedRef.current = profile.rescued;
+  }, [profile.rescued]);
+  useEffect(() => {
+    petRef.current = pet;
+    viewRef.current?.setPet(pet);
+  }, [pet]);
 
   // Outfit changes are applied to the running maze (no rebuild).
   useEffect(() => {
@@ -69,6 +93,8 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChoose
     const world = getWorld('forest');
     const forced = seedFromUrl();
     const seed = forced !== null ? forced + round : randomSeed();
+    const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
+    setLostAnimal(animal);
     const session = new MazeSession(generateMaze({ ...world.maze, seed }), {
       count: world.chests.count,
       stars: world.chests.stars,
@@ -92,19 +118,22 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChoose
       world,
       avatar: profile.avatar,
       equipped: equippedRef.current,
+      lostAnimal: animal,
+      pet: petRef.current,
       onEvent: (ev) => {
         if (ev.type === 'chestReached') {
           view.setPaused(true);
           setOpenChest({ chest: session.chest(ev.chestId), visit: ++visits });
         } else if (ev.type === 'goalReached') {
           setGoalStars(session.starsEarned);
-          speech().speak(de.game.speakGoal);
+          speech().speak(de.lostAnimals[animal].speakGoal);
+          callbacks.current.onRescue(animal);
           callbacks.current.onMazeCompleted();
         }
       },
     });
     viewRef.current = view;
-    speech().speak(de.game.speakStart);
+    speech().speak(de.lostAnimals[animal].speakStart);
     return () => {
       view.dispose();
       viewRef.current = null;
@@ -134,8 +163,8 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChoose
         <button className="round-button" aria-label={de.game.home} onClick={onHome}>
           🏠
         </button>
-        <button className="guide-bubble" onClick={() => speech().speak(de.game.speakStart)}>
-          <span aria-hidden>🦉</span> {de.game.hint}
+        <button className="guide-bubble" onClick={() => speech().speak(de.lostAnimals[lostAnimal].speakStart)}>
+          <span aria-hidden>🦉</span> {de.lostAnimals[lostAnimal].hint}
         </button>
         <div className="hud-right">
           <StarJar jar={profile.jar} />
@@ -164,17 +193,17 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChoose
       {showPicker && <RewardPicker offer={offer} onChoose={onChooseReward} />}
 
       {wardrobeOpen && (
-        <Wardrobe profile={profile} onToggle={onToggleEquip} onClose={() => setWardrobeOpen(false)} />
+        <Wardrobe profile={profile} onToggle={onToggleEquip} onSetPet={onSetPet} onClose={() => setWardrobeOpen(false)} />
       )}
 
       {goalStars !== null && (
         <div className="overlay" role="dialog" aria-modal>
           <div className="dialog">
             <div className="dialog-icon" aria-hidden>
-              🐥
+              {lostAnimalIcons[lostAnimal]}
             </div>
             <h2>{de.game.goalTitle}</h2>
-            <p>{de.game.goalText}</p>
+            <p>{de.lostAnimals[lostAnimal].goalText}</p>
             <p className="stars-won">⭐ {de.game.goalStars(goalStars)}</p>
             <div className="button-row">
               <button className="button secondary" aria-label={de.game.home} onClick={onHome}>

@@ -30,4 +30,6 @@ test('walk through the whole maze, skipping chests, and rescue the chick', async
   await page.getByRole('button', { name: 'Neues Labyrinth' }).click();
   await expect(page.getByRole('heading', { name: 'Juhu!' })).toBeHidden();
   await expect(canvas).toHaveAttribute('data-avatar-tile', '1,1');
+  // The chick is rescued; the next maze hides the piglet.
+  await expect(page.getByRole('button', { name: /Finde das verirrte Ferkel/ })).toBeVisible();
 });

@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 2;
+export const SAVE_VERSION = 3;
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;
@@ -38,6 +38,15 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
         inventory: [],
         equipped: {},
       };
+    }),
+  }),
+  // v2 → v3: rescued animal friends. Everyone who finished a maze has rescued the chick.
+  2: (doc) => ({
+    ...doc,
+    version: 3,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => {
+      const done = typeof p.mazesCompleted === 'number' && p.mazesCompleted > 0;
+      return { ...p, rescued: done ? ['chick'] : [], pet: done ? 'chick' : null };
     }),
   }),
 };

@@ -9,7 +9,9 @@ import { TrailEmitter } from './trails';
 import { createRng } from '../core/rng';
 import type { MazeSession, SessionEvent } from '../core/session/mazeSession';
 import type { WorldTheme } from '../modules/worlds/types';
-import { buildAnimal, buildChick } from './avatars/animals';
+import { buildAnimal } from './avatars/animals';
+import { buildLostAnimal } from './avatars/lostAnimals';
+import type { LostAnimal } from '../core/profile/lostAnimals';
 import { buildChest } from './props';
 import { disposeObject, OUTLINE_COLOR, toonMaterial } from './toon';
 
@@ -18,6 +20,10 @@ export interface MazeViewOptions {
   session: MazeSession;
   avatar: Avatar;
   equipped: Equipped;
+  /** The friend waiting at the goal. */
+  lostAnimal: LostAnimal;
+  /** Rescued friend following the avatar, if any. */
+  pet: LostAnimal | null;
   world: WorldTheme;
   onEvent: (event: SessionEvent) => void;
 }
@@ -61,6 +67,9 @@ export class MazeView {
   private disposed = false;
   private paused = false;
   private readonly trail: TrailEmitter;
+  private petModel: THREE.Group | null = null;
+  /** Tile the avatar was on before the current one (the pet walks there). */
+  private previousTile: Tile | null = null;
   /** Smoothed point on the ground the camera looks at. */
   private focus: THREE.Vector3 | null = null;
   private readonly chestViews = new Map<string, { root: THREE.Group; lid: THREE.Object3D; beacon: THREE.Object3D }>();
@@ -87,7 +96,7 @@ export class MazeView {
     this.avatar.position.set(this.tile.x, 0, this.tile.y);
     this.scene.add(this.avatar);
 
-    this.chick = buildChick();
+    this.chick = buildLostAnimal(opts.lostAnimal);
     this.chick.position.set(session.maze.goal.x, 0, session.maze.goal.y);
     this.scene.add(this.chick);
 
@@ -124,6 +133,7 @@ export class MazeView {
     window.addEventListener('blur', this.onBlur);
 
     this.publishTile();
+    this.setPet(opts.pet);
     this.renderer.setAnimationLoop(() => this.frame());
   }
 
@@ -139,9 +149,24 @@ export class MazeView {
     window.removeEventListener('keyup', this.onKeyUp);
     window.removeEventListener('blur', this.onBlur);
     this.trail.dispose();
+    this.setPet(null);
     disposeObject(this.scene);
     this.renderer.dispose();
     canvas.remove();
+  }
+
+  /** Shows (or hides) the pet that follows the avatar. */
+  setPet(pet: LostAnimal | null): void {
+    if (this.petModel) {
+      this.scene.remove(this.petModel);
+      disposeObject(this.petModel);
+      this.petModel = null;
+    }
+    if (!pet) return;
+    this.petModel = buildLostAnimal(pet);
+    this.petModel.scale.multiplyScalar(0.8);
+    this.petModel.position.copy(this.avatar.position).add(new THREE.Vector3(0, 0, -0.45));
+    this.scene.add(this.petModel);
   }
 
   /** Changes worn items without rebuilding the maze. */
@@ -315,6 +340,7 @@ export class MazeView {
     this.chick.rotation.y = Math.sin(this.elapsed * 1.5) * 0.6;
     this.animateChests(dt);
     this.trail.update(dt, this.avatar.position, this.path.length > 0);
+    this.updatePet(dt);
 
     this.markerAge += dt;
     const markerMat = this.marker.material as THREE.MeshBasicMaterial;
@@ -352,6 +378,7 @@ export class MazeView {
       pos.set(target.x, 0, target.z);
       this.path.shift();
       if (!sameTile(next, this.tile)) {
+        this.previousTile = this.tile;
         this.tile = next;
         this.publishTile();
         for (const ev of this.opts.session.arrive(next)) {
@@ -365,6 +392,25 @@ export class MazeView {
     } else {
       flat.addScaledVector(delta.normalize(), stepLen);
       pos.set(flat.x, Math.abs(Math.sin(this.elapsed * 14)) * 0.08, flat.z);
+    }
+  }
+
+  private updatePet(dt: number): void {
+    const pet = this.petModel;
+    if (!pet) return;
+    const prev = this.previousTile;
+    // Follow one tile behind; keep a little distance when the avatar stands still.
+    const target = prev ? new THREE.Vector3(prev.x, 0, prev.y) : this.avatar.position.clone().add(new THREE.Vector3(0, 0, -0.45));
+    const toAvatar = this.avatar.position.clone().setY(0).sub(target);
+    if (toAvatar.length() > 0.5) target.add(toAvatar.multiplyScalar(0.35));
+    const delta = target.sub(pet.position.clone().setY(0));
+    const dist = delta.length();
+    if (dist > 0.01) {
+      pet.position.addScaledVector(delta.normalize(), Math.min(dist, WALK_SPEED * 1.1 * dt));
+      pet.rotation.y = lerpAngle(pet.rotation.y, Math.atan2(delta.x, delta.z), Math.min(1, dt * 10));
+      pet.position.y = Math.abs(Math.sin(this.elapsed * 16)) * 0.06;
+    } else {
+      pet.position.y = 0;
     }
   }
 

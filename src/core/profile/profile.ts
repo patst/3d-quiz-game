@@ -31,6 +31,10 @@ export interface Profile {
   inventory: string[];
   /** Worn item per slot. */
   equipped: Equipped;
+  /** Rescued animal friends (LostAnimal ids), in rescue order. */
+  rescued: string[];
+  /** Rescued friend that follows the avatar, or null. */
+  pet: string | null;
 }
 
 export const MAX_PROFILES = 6;
@@ -48,5 +52,7 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     pendingRewards: 0,
     inventory: [],
     equipped: {},
+    rescued: [],
+    pet: null,
   };
 }

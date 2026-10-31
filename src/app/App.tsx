@@ -57,6 +57,21 @@ export function App() {
             }),
           )
         }
+        onRescue={(animal) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) =>
+              p.rescued.includes(animal)
+                ? p
+                : // A newly rescued friend follows the child right away if no pet is chosen.
+                  { ...p, rescued: [...p.rescued, animal], pet: p.pet ?? animal },
+            ),
+          )
+        }
+        onSetPet={(animal) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => (animal === null || p.rescued.includes(animal) ? { ...p, pet: animal } : p)),
+          )
+        }
         onToggleEquip={(itemId) =>
           update((d) =>
             updateProfile(d, active.id, (p) => {

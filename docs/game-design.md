@@ -131,6 +131,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.6 (2026-11-01): M3b — six lost friends rescued in order (Küken, Ferkel, Welpe, Lamm, Häschen, Kätzchen; afterwards random). Rescued friends appear in "Meine Tierfreunde" (wardrobe) and one can follow the avatar as a pet; a new friend becomes the pet automatically if none is chosen.
 - v1.5 (2026-11-01): M3a implemented — star jar in the HUD (10 slots, tap = "Noch N Sterne"), pick 1 of 3 items from different slots, 18 items (6 hats, 4 glasses, 4 neck items, 4 trails), wardrobe (🎒) with silhouettes for unfound items. Existing stars from older saves are converted into jar + rewards.
 - v1.4 (2026-10-31): guide voice = cheerful "Thorsten emotional (amused)", lively speaking rate (owner choice after voice samples).
 - v1.3 (2026-10-31): M2 chests use one tier (2 stars) and fixed levels (Zählen 1–10, Plus ≤ 10 mit Bildern) until adaptive difficulty (M4); answer buttons are sorted ascending.

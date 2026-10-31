@@ -32,6 +32,8 @@ export function profileFixture(overrides: Record<string, unknown> = {}) {
     pendingRewards: 1,
     inventory: [],
     equipped: {},
+    rescued: [],
+    pet: null,
     ...overrides,
   };
 }

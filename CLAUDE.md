@@ -38,6 +38,7 @@ npm run dev         # dev server (http://localhost:5173)
 npm run check       # lint + typecheck + unit tests — run before every push
 npm run e2e         # Playwright smoke tests (desktop + mobile viewport)
 npm run build       # production build; BASE_PATH env sets the deploy sub-path
+npm run audio:generate  # (re)generate speech clips — see docs/audio.md
 ```
 `?seed=N` in the URL forces a maze seed (reproducible bug reports).
 
@@ -46,5 +47,7 @@ npm run build       # production build; BASE_PATH env sets the deploy sub-path
 - All randomness via `core/rng.ts`; never `Math.random()` in core.
 - New challenge type → `src/modules/challenges/<id>/` (see architecture §3.1).
   New world → `src/modules/worlds/<id>/` + register in `modules/worlds/index.ts`.
+- Anything the child hears must be in `src/content/de/speech.ts` (templates with `variants`
+  or `staticSpokenTexts`); then run `npm run audio:generate` and commit the clips.
 - Save format changes → bump `SAVE_VERSION` and add a migration in `core/save/save.ts`.
 - Every PR gets a preview URL (ADR-0005); check it on a phone-sized viewport.

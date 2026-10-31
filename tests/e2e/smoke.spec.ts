@@ -32,3 +32,12 @@ test('profile survives a reload', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Wer spielt?' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Frosch/ })).toBeVisible();
 });
+
+test('plays a pre-generated voice clip when the game starts', async ({ page }) => {
+  const clip = page.waitForRequest((r) => /\/audio\/de\/[0-9a-z]+\.mp3$/.test(r.url()));
+  await createProfile(page);
+  const request = await clip;
+  const response = await request.response();
+  // Media elements use range requests (206).
+  expect([200, 206]).toContain(response?.status());
+});

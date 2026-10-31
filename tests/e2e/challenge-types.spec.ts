@@ -3,7 +3,16 @@ import { expect, test } from '@playwright/test';
 const KEYS: Record<string, string> = { U: 'ArrowUp', R: 'ArrowRight', D: 'ArrowDown', L: 'ArrowLeft' };
 test.describe.configure({ timeout: 120_000 });
 
-for (const type of ['math.find-number', 'math.subtraction', 'math.compare', 'math.pattern']) {
+for (const type of [
+  'math.find-number',
+  'math.subtraction',
+  'math.compare',
+  'math.pattern',
+  'german.initial-sound',
+  'german.syllables',
+  'german.rhyme',
+  'german.read-word',
+]) {
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');
     await page.goto(`./?seed=11&challenge=${type}`);
@@ -20,7 +29,7 @@ for (const type of ['math.find-number', 'math.subtraction', 'math.compare', 'mat
     await expect(challenge.getByTestId('task-area')).toBeVisible();
     const next = challenge.getByRole('button', { name: 'Weiter' });
     for (let i = 0; i < 4 && !(await next.isVisible()); i++) {
-      await challenge.locator('.number-button:not([disabled]), .compare-side:not([disabled])').first().click();
+      await challenge.locator('.number-button:not([disabled]), .compare-side:not([disabled]), .picture-button:not([disabled])').first().click();
     }
     await next.click();
     await expect(challenge).toBeHidden();

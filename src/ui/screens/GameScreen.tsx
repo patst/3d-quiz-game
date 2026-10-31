@@ -70,6 +70,10 @@ export function GameScreen({
   const equippedRef = useRef(profile.equipped);
   const rescuedRef = useRef(profile.rescued);
   const skillsRef = useRef(profile.skills);
+  const disabledRef = useRef(profile.disabledChallenges);
+  useEffect(() => {
+    disabledRef.current = profile.disabledChallenges;
+  }, [profile.disabledChallenges]);
   useEffect(() => {
     skillsRef.current = profile.skills;
   }, [profile.skills]);
@@ -104,7 +108,8 @@ export function GameScreen({
     setLostAnimal(animal);
     // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
     const only = new URLSearchParams(window.location.search).get('challenge');
-    const allowed = world.chests.challenges.filter((c) => !only || c.typeId === only);
+    const enabled = world.chests.challenges.filter((c) => !disabledRef.current.includes(c.typeId));
+    const allowed = (enabled.length > 0 ? enabled : world.chests.challenges).filter((c) => !only || c.typeId === only);
     const chests = planChests(
       createRng(seed ^ 0x2545f491),
       (allowed.length > 0 ? allowed : world.chests.challenges).map((c) => ({

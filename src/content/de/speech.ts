@@ -1,6 +1,7 @@
 import type { SpeechLine } from '../../core/challenges/types';
 import { COUNT_OBJECTS, type CountObject } from '../../modules/challenges/objects';
 import { de } from './strings';
+import { WORDS } from './words';
 
 /** German names of countable objects: [singular, plural]. */
 export const objectNames: Record<CountObject, readonly [string, string]> = {
@@ -60,6 +61,42 @@ export const speechTemplates: Record<string, Template> = {
   },
   'math.pattern.prompt': { render: () => 'Was kommt als Nächstes?', variants: none },
   'math.pattern.explain': { render: () => 'Schau, so geht das Muster weiter.', variants: none },
+  'german.initial.prompt': {
+    render: (p) => `Mit welchem Buchstaben beginnt ${p.word}?`,
+    variants: () => WORDS.filter((w) => w.initial).map((w) => ({ word: w.word })),
+  },
+  'german.initial.explain': {
+    render: (p) => `${p.word} beginnt mit ${p.letter}.`,
+    variants: () => WORDS.filter((w) => w.initial).map((w) => ({ word: w.word, letter: w.initial! })),
+  },
+  'german.syllables.prompt': {
+    render: (p) => `Wie viele Silben hat ${p.word}? Klatsch mit!`,
+    variants: () => WORDS.map((w) => ({ word: w.word })),
+  },
+  'german.syllables.explain': {
+    render: (p) => {
+      const word = WORDS.find((w) => w.word === p.word);
+      const parts = word?.syllables ?? [String(p.word)];
+      return `${parts.join(', ')}. ${parts.length === 1 ? 'Das ist eine Silbe.' : `Das sind ${parts.length} Silben.`}`;
+    },
+    variants: () => WORDS.map((w) => ({ word: w.word })),
+  },
+  'german.rhyme.prompt': {
+    render: (p) => `Was reimt sich auf ${p.word}?`,
+    variants: () => WORDS.filter((w) => w.rhyme).map((w) => ({ word: w.word })),
+  },
+  'german.rhyme.explain': {
+    render: (p) => `${p.word} und ${p.match} reimen sich.`,
+    variants: () =>
+      WORDS.filter((w) => w.rhyme).flatMap((a) =>
+        WORDS.filter((b) => b.rhyme === a.rhyme && b.id !== a.id).map((b) => ({ word: a.word, match: b.word })),
+      ),
+  },
+  'german.read.prompt': { render: () => 'Lies das Wort. Welches Bild passt?', variants: none },
+  'german.read.explain': {
+    render: (p) => `Das Wort heißt ${p.word}.`,
+    variants: () => WORDS.map((w) => ({ word: w.word })),
+  },
   'feedback.correct': { render: () => 'Super gemacht!', variants: none },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
@@ -82,6 +119,8 @@ export const staticSpokenTexts: readonly string[] = [
   de.rewards.allCollected,
   ...Object.values(de.rewards.items),
   ...range(1, 10).map((n) => de.rewards.jarHint(n)),
+  // Single words, for the speaker buttons on pictures (rhyme, read-word).
+  ...WORDS.map((w) => w.word),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

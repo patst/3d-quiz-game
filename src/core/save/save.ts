@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 5;
+export const SAVE_VERSION = 6;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -65,6 +65,15 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
     ...doc,
     version: 5,
     profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({ ...p, skills: {} })),
+  }),
+  // v5 → v6: per-child challenge selection; everything on.
+  5: (doc) => ({
+    ...doc,
+    version: 6,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({
+      ...p,
+      disabledChallenges: [],
+    })),
   }),
 };
 

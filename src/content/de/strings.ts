@@ -119,6 +119,9 @@ export const de = {
     skillLine: (name: string, level: number, max: number, solved: number, firstTry: number) =>
       `${name}: Stufe ${level} von ${max} · ${solved} gelöst, davon ${firstTry} ohne Fehler`,
     noSkills: 'Noch keine Aufgaben gelöst.',
+    challengesTitle: 'Aufgaben',
+    subjects: { math: 'Mathe', german: 'Deutsch' } as Record<string, string>,
+    readingNote: 'Tipp: „Wörter lesen“ ausschalten, solange Ihr Kind noch nicht liest.',
     settings: 'Einstellungen',
     speech: 'Aufgaben vorlesen',
     backup: 'Spielstand',
@@ -173,6 +176,10 @@ export const de = {
     'math.addition': 'Plus rechnen',
     'math.subtraction': 'Minus rechnen',
     'math.pattern': 'Muster fortsetzen',
+    'german.initial-sound': 'Anlaute hören',
+    'german.syllables': 'Silben klatschen',
+    'german.rhyme': 'Reime finden',
+    'german.read-word': 'Wörter lesen',
   } as Record<string, string>,
   challenge: {
     listen: 'Nochmal hören',

@@ -36,6 +36,16 @@ export function App() {
         onRename={(id, name) =>
           update((d) => updateProfile(d, id, (p) => ({ ...p, name: name.trim().slice(0, MAX_NAME_LENGTH) })))
         }
+        onToggleChallenge={(id, typeId, enabled) =>
+          update((d) =>
+            updateProfile(d, id, (p) => ({
+              ...p,
+              disabledChallenges: enabled
+                ? p.disabledChallenges.filter((t) => t !== typeId)
+                : [...new Set([...p.disabledChallenges, typeId])],
+            })),
+          )
+        }
         onDelete={(id) => update((d) => removeProfile(d, id))}
         onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
         onImport={(raw) => update(() => migrateSave(raw))}

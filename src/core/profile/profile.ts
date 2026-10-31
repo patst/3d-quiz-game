@@ -38,6 +38,8 @@ export interface Profile {
   pet: string | null;
   /** Adaptive difficulty per challenge type id (M4). */
   skills: Record<string, SkillState>;
+  /** Challenge type ids switched off by parents (e.g. reading for pre-readers). */
+  disabledChallenges: string[];
 }
 
 export const MAX_PROFILES = 6;
@@ -58,5 +60,6 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     rescued: [],
     pet: null,
     skills: {},
+    disabledChallenges: [],
   };
 }

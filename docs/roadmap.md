@@ -11,5 +11,5 @@ with a real child before building breadth.
 | **M3 Rewards & profile** (PRs: M3a jar+rewards, M3b animals+pets, M3c parents area) | Star jar → choose-1-of-3 rewards, collection album, pets, parent gate + profile management | Progress survives reload |
 | **M4 Adaptive difficulty** | Skill model, levels per challenge, bronze/silver/gold chests | Unit-tested skill model; second playtest |
 | **M5 Math breadth** | Full v1 math catalogue | — |
-| **M6 German challenges** | Word bank ≥ 150 words, Anlaut/Silben/Reime | — |
+| **M6 German challenges** | Word bank (~95 words with pictures; grow towards 150), Anlaut/Silben/Reime/Lesen | — |
 | **M7 Polish & PWA** | Offline install, parents area stats, performance pass | Lighthouse PWA pass, works offline |

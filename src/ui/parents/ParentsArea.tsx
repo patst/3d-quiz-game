@@ -8,6 +8,7 @@ import { challengeTypes } from '../../modules/challenges';
 interface Props {
   doc: SaveDoc;
   onRename: (id: string, name: string) => void;
+  onToggleChallenge: (id: string, typeId: string, enabled: boolean) => void;
   onDelete: (id: string) => void;
   onSpeech: (on: boolean) => void;
   onImport: (raw: unknown) => void;
@@ -32,7 +33,7 @@ function SkillList({ profile }: { profile: Profile }) {
 }
 
 /** Parents area (behind the gate): profiles, settings, backup. Not spoken; adults read it. */
-export function ParentsArea({ doc, onRename, onDelete, onSpeech, onImport, onClose }: Props) {
+export function ParentsArea({ doc, onRename, onToggleChallenge, onDelete, onSpeech, onImport, onClose }: Props) {
   const [confirmDelete, setConfirmDelete] = useState<Profile | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -81,6 +82,27 @@ export function ParentsArea({ doc, onRename, onDelete, onSpeech, onImport, onClo
               </label>
               <small>{de.parents.stats(p.stars, p.mazesCompleted, p.rescued.length, p.inventory.length)}</small>
               <SkillList profile={p} />
+              <details className="challenge-toggles">
+                <summary>{de.parents.challengesTitle}</summary>
+                {(['math', 'german'] as const).map((subject) => (
+                  <fieldset key={subject}>
+                    <legend>{de.parents.subjects[subject]}</legend>
+                    {challengeTypes
+                      .filter((t) => t.subject === subject)
+                      .map((t) => (
+                        <label key={t.id} className="toggle small">
+                          <input
+                            type="checkbox"
+                            checked={!p.disabledChallenges.includes(t.id)}
+                            onChange={(e) => onToggleChallenge(p.id, t.id, e.target.checked)}
+                          />
+                          {de.challengeNames[t.id]}
+                        </label>
+                      ))}
+                  </fieldset>
+                ))}
+                <small>{de.parents.readingNote}</small>
+              </details>
             </div>
             <button className="button secondary small" onClick={() => setConfirmDelete(p)}>
               {de.parents.delete}

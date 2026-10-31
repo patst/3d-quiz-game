@@ -134,5 +134,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Parents area | `src/ui/parents/` (`ParentGate`, `ParentsArea`), `content/de/numbers.ts` | save v4 adds `settings` (speech); `setSpeechEnabled` in audio |
 | Adaptive difficulty | `src/core/skills/skillModel.ts` (`recordOutcome`, `planChests`, tiers) | save v5 adds `skills` per challenge type; world config holds start levels |
 | Views with own answers | `ChallengeViewEntry.ownsChoices` in `src/ui/challenges/index.ts` (compare, pattern); `ChallengeInstance.promptDisplay` hides spoken answers | `?challenge=<typeId>` limits chests to one type (review/E2E) |
+| German word bank | `src/content/de/words.ts` (word, emoji, syllables, initial, rhyme) used by `src/modules/challenges/german-*` | modules may read content data; consistency tests in `words.test.ts`; save v6 adds `disabledChallenges` |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

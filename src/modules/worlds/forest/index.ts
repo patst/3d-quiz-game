@@ -13,6 +13,10 @@ export const forestWorld: WorldTheme = {
       { typeId: 'math.addition', startLevel: 1 }, // sum ≤ 5 with pictures
       { typeId: 'math.subtraction', startLevel: 1 }, // ≤ 5 with pictures
       { typeId: 'math.pattern', startLevel: 1 }, // AB AB
+      { typeId: 'german.initial-sound', startLevel: 1 }, // consonant vs vowel
+      { typeId: 'german.syllables', startLevel: 1 }, // 1–2 syllables
+      { typeId: 'german.rhyme', startLevel: 1 },
+      { typeId: 'german.read-word', startLevel: 1 }, // 2–3 letter words in capitals
     ],
   },
   colors: {

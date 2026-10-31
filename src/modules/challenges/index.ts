@@ -1,4 +1,8 @@
 import type { ChallengeType } from '../../core/challenges/types';
+import { germanInitialSound } from './german-initial-sound';
+import { germanReadWord } from './german-read-word';
+import { germanRhyme } from './german-rhyme';
+import { germanSyllables } from './german-syllables';
 import { mathAddition } from './math-addition';
 import { mathCompare } from './math-compare';
 import { mathCount } from './math-count';
@@ -18,6 +22,10 @@ export const challengeTypes: readonly ChallengeType[] = [
   mathAddition,
   mathSubtraction,
   mathPattern,
+  germanInitialSound,
+  germanSyllables,
+  germanRhyme,
+  germanReadWord,
 ] as ChallengeType[];
 
 export function getChallengeType(id: string): ChallengeType {

@@ -962,3 +962,153 @@ button {
 .number-button.symbol {
   font-size: 2.2rem;
 }
+
+/* ---------- M6 German views ---------- */
+.word-area {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.word-picture {
+  font-size: clamp(64px, 22vw, 96px);
+  line-height: 1;
+}
+
+.say-word {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #e8f6ff;
+  font-size: 1.2rem;
+  padding: 4px 10px;
+}
+
+.word-text {
+  font-size: clamp(1.8rem, 9vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.letter-gap {
+  display: inline-block;
+  min-width: 0.8em;
+  color: var(--primary);
+}
+
+.letter-solved {
+  color: #2a9d3a;
+}
+
+.syllables {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.syllable {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pop 0.4s both;
+}
+
+.clap {
+  font-size: 1.4rem;
+}
+
+.rhyme-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.rhyme-target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.picture-choices {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.picture-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.picture-button {
+  width: min(96px, 22vw);
+  height: min(96px, 22vw);
+  font-size: min(56px, 13vw);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.picture-choice.wrong {
+  opacity: 0.3;
+}
+
+.picture-choice.correct .picture-button {
+  background: #d8f5d0;
+  border-color: #2a9d3a;
+}
+
+.word-caption {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.read-word {
+  padding: 18px;
+  text-align: center;
+  font-size: clamp(2.4rem, 12vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.challenge-toggles {
+  margin-top: 6px;
+}
+
+.challenge-toggles summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.challenge-toggles fieldset {
+  border: none;
+  padding: 4px 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.challenge-toggles legend {
+  font-weight: 700;
+  padding: 0;
+}
+
+.toggle.small {
+  font-size: 0.95rem;
+}
+
+.toggle.small input {
+  width: 20px;
+  height: 20px;
+}

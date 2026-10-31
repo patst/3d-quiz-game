@@ -39,7 +39,8 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
   };
 
   const finished = attempt.finished;
-  const correctValue = challenge.choices.find((c) => c.id === challenge.correctChoiceId)?.value;
+  const correctChoice = challenge.choices.find((c) => c.id === challenge.correctChoiceId);
+  const correctValue = correctChoice?.label ?? correctChoice?.value;
 
   return (
     <div className="overlay challenge-overlay" role="dialog" aria-modal data-testid="challenge">
@@ -80,7 +81,7 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
                   disabled={wrong}
                   onClick={() => choose(c.id)}
                 >
-                  {c.value}
+                  {c.label ?? c.value}
                 </button>
               );
             })}

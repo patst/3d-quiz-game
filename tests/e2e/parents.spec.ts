@@ -34,6 +34,12 @@ test('parent gate, rename and delete a profile, toggle speech', async ({ page })
   await page.getByRole('button', { name: 'Ja, löschen' }).click();
   await expect(area.getByTestId('parents-profile')).toHaveCount(1);
 
+  // Switch off reading for the first child.
+  await area.locator('details summary').first().click();
+  const reading = area.getByRole('checkbox', { name: 'Wörter lesen' }).first();
+  await reading.uncheck();
+  await expect(reading).not.toBeChecked();
+
   const speech = area.getByRole('checkbox', { name: 'Aufgaben vorlesen' });
   await speech.uncheck();
   await expect(speech).not.toBeChecked();

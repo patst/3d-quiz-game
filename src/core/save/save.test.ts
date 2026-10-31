@@ -25,7 +25,8 @@ describe('save document', () => {
       profiles: [{ id: 'a', name: 'A', avatar: { animal: 'cat', color: '#f4a3c0' }, createdAt: 0, stars: 23, mazesCompleted: 2 }],
     };
     const doc = migrateSave(v1);
-    expect(doc.version).toBe(5);
+    expect(doc.version).toBe(6);
+    expect(doc.profiles[0]?.disabledChallenges).toEqual([]);
     expect(doc.profiles[0]?.skills).toEqual({});
     expect(doc.settings).toEqual({ speech: true });
     expect(doc.activeProfileId).toBe('a');

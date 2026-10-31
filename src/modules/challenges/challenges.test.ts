@@ -164,3 +164,62 @@ describe('math.pattern', () => {
     }
   });
 });
+
+describe('german challenges', () => {
+  it('initial sound: correct letter is the word initial; level 1 avoids similar letters', async () => {
+    const { WORDS, SIMILAR_LETTERS } = await import('../../content/de/words');
+    const type = getChallengeType('german.initial-sound');
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const word = WORDS.find((w) => w.id === (inst.data as { wordId: string }).wordId)!;
+        const correct = inst.choices.find((c) => c.id === inst.correctChoiceId)!;
+        expect(correct.label).toBe(word.initial);
+        expect(new Set(inst.choices.map((c) => c.label)).size).toBe(inst.choices.length);
+        if (level === 1) {
+          for (const c of inst.choices) expect(SIMILAR_LETTERS[word.initial!] ?? []).not.toContain(c.label);
+        }
+      }
+    }
+  });
+
+  it('syllables: answer is the syllable count', async () => {
+    const { WORDS } = await import('../../content/de/words');
+    const type = getChallengeType('german.syllables');
+    for (let seed = 1; seed <= 300; seed++) {
+      const inst = type.generate({ rng: createRng(seed), level: 3 });
+      const word = WORDS.find((w) => w.id === (inst.data as { wordId: string }).wordId)!;
+      expect(inst.choices.find((c) => c.id === inst.correctChoiceId)!.value).toBe(word.syllables.length);
+    }
+  });
+
+  it('rhyme: exactly one option rhymes with the target', async () => {
+    const { WORDS } = await import('../../content/de/words');
+    const type = getChallengeType('german.rhyme');
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const d = inst.data as { targetId: string; options: string[] };
+        const target = WORDS.find((w) => w.id === d.targetId)!;
+        const rhyming = d.options.filter((id) => WORDS.find((w) => w.id === id)!.rhyme === target.rhyme);
+        expect(rhyming).toHaveLength(1);
+        expect(d.options[Number(inst.correctChoiceId.slice(1))]).toBe(rhyming[0]);
+        expect(new Set(d.options).size).toBe(d.options.length);
+      }
+    }
+  });
+
+  it('read word: the correct picture is the shown word; level 1 words are short', async () => {
+    const { WORDS } = await import('../../content/de/words');
+    const type = getChallengeType('german.read-word');
+    for (let level = 1; level <= type.levels; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const d = inst.data as { wordId: string; options: string[] };
+        expect(d.options[Number(inst.correctChoiceId.slice(1))]).toBe(d.wordId);
+        expect(new Set(d.options).size).toBe(d.options.length);
+        if (level === 1) expect(WORDS.find((w) => w.id === d.wordId)!.word.length).toBeLessThanOrEqual(3);
+      }
+    }
+  });
+});

@@ -6,9 +6,11 @@ import type { AvatarAnimal } from '../../core/profile/profile';
  */
 export const de = {
   appTitle: 'Labyrinth-Abenteuer',
-  guide: {
-    name: 'Olli',
-    species: 'Eule',
+  /** Guide characters (game-design §3). Olli guides world 1; Ida and Rick later worlds. */
+  guides: {
+    olli: { name: 'Olli', species: 'Eule' },
+    ida: { name: 'Ida', species: 'Igel' },
+    rick: { name: 'Rick', species: 'Waschbär' },
   },
   profiles: {
     whoIsPlaying: 'Wer spielt?',

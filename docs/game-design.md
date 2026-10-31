@@ -27,7 +27,7 @@ a 5-year-old recognises some digits and can do very easy addition.
 - **Scenario v1: "Tierfreunde retten"** — animal friends got lost in the maze garden.
   Each maze has one lost animal at the goal. Reaching it rescues the animal.
 - Guide characters speak all instructions and cheer. Approved names: **Olli** (Eule,
-  guide of world 1), **Ida** (Igel) and **Rick** (animal **[Q]**) for later worlds.
+  guide of world 1), **Ida** (Igel) and **Rick** (Waschbär / raccoon) for later worlds.
   Do not use the name "Fini".
 - v1 has **one world** (Zauberwald / garden hedge maze). Further worlds with their own
   scenarios (Unterwasser, Weltraum, …) come later via the world-module extension point.
@@ -129,5 +129,6 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.1 (2026-10-31): Rick is a raccoon (Waschbär).
 - v1.0 (2026-10-31): approved. Guide names Olli/Ida/Rick, animal avatars, local profiles
   from the start, pick-1-of-3 rewards confirmed.

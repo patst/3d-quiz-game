@@ -502,3 +502,167 @@ button {
   font-size: 2.2rem;
   min-width: 96px;
 }
+
+/* ---------- star jar & rewards ---------- */
+.hud-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.star-jar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 8px;
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  background: #fff6c8;
+  box-shadow: var(--shadow);
+}
+
+.jar-icon {
+  font-size: 1.6rem;
+}
+
+.jar-slots {
+  display: grid;
+  grid-template-columns: repeat(5, 16px);
+  gap: 2px;
+}
+
+.jar-slot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #c9b98a;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #e0a800;
+  background: #fff;
+}
+
+.jar-slot.filled {
+  border-color: #e0a800;
+  background: #ffe066;
+  animation: pop 0.4s cubic-bezier(0.3, 1.6, 0.6, 1);
+}
+
+@media (max-width: 480px) {
+  .guide-bubble {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+  .hud .round-button {
+    width: 54px;
+    height: 54px;
+    font-size: 26px;
+  }
+  .jar-slots {
+    grid-template-columns: repeat(5, 12px);
+  }
+  .jar-slot {
+    width: 12px;
+    height: 12px;
+    font-size: 9px;
+    line-height: 9px;
+    border-width: 1.5px;
+  }
+  .jar-icon {
+    display: none;
+  }
+}
+
+.reward-overlay,
+.wardrobe-overlay {
+  z-index: 15;
+}
+
+.reward-choices {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.reward-card {
+  width: min(120px, 28vw);
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #fffbea;
+}
+
+.reward-icon {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.reward-name {
+  font-weight: 800;
+  font-size: clamp(0.75rem, 3.4vw, 1rem);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  text-align: center;
+}
+
+.wardrobe-dialog {
+  width: min(100%, 560px);
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-preview.small {
+  width: 150px;
+  height: 150px;
+}
+
+.hint-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b6175;
+}
+
+.wardrobe-section {
+  width: 100%;
+}
+
+.wardrobe-section h3 {
+  margin: 8px 0 6px;
+  font-size: 1.1rem;
+}
+
+.wardrobe-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wardrobe-item {
+  width: 64px;
+  height: 64px;
+  font-size: 34px;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.wardrobe-item.locked {
+  filter: grayscale(1) brightness(0.2);
+  opacity: 0.35;
+  border-style: dashed;
+}
+
+.wardrobe-item.worn {
+  background: #ffe066;
+  outline: 4px solid var(--primary);
+  outline-offset: 2px;
+}

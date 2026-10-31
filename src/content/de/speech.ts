@@ -59,6 +59,11 @@ export const staticSpokenTexts: readonly string[] = [
   de.game.speakStart,
   de.game.speakGoal,
   ...Object.values(de.animals),
+  de.rewards.speakPick,
+  de.rewards.thanks,
+  de.rewards.allCollected,
+  ...Object.values(de.rewards.items),
+  ...range(1, 10).map((n) => de.rewards.jarHint(n)),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

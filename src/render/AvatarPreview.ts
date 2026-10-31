@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { Avatar } from '../core/profile/profile';
+import type { Equipped } from '../core/rewards/rewards';
 import { buildAnimal } from './avatars/animals';
 import { disposeObject } from './toon';
 
@@ -36,12 +37,12 @@ export class AvatarPreview {
     });
   }
 
-  setAvatar(avatar: Avatar): void {
+  setAvatar(avatar: Avatar, equipped: Equipped = {}): void {
     if (this.model) {
       this.scene.remove(this.model);
       disposeObject(this.model);
     }
-    this.model = buildAnimal(avatar);
+    this.model = buildAnimal(avatar, equipped);
     this.scene.add(this.model);
   }
 

@@ -1,10 +1,11 @@
 import { MAX_PROFILES, type Profile } from '../profile/profile';
+import { JAR_SIZE } from '../rewards/rewards';
 
 /**
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 1;
+export const SAVE_VERSION = 2;
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;
@@ -23,7 +24,23 @@ export function emptySave(): SaveDoc {
 }
 
 /** Migrations keyed by the version they upgrade *from*. */
-const migrations: Record<number, (doc: Record<string, unknown>) => Record<string, unknown>> = {};
+const migrations: Record<number, (doc: Record<string, unknown>) => Record<string, unknown>> = {
+  // v1 → v2: star jar and rewards. Stars earned before get converted into jar + rewards.
+  1: (doc) => ({
+    ...doc,
+    version: 2,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => {
+      const stars = typeof p.stars === 'number' ? p.stars : 0;
+      return {
+        ...p,
+        jar: stars % JAR_SIZE,
+        pendingRewards: Math.floor(stars / JAR_SIZE),
+        inventory: [],
+        equipped: {},
+      };
+    }),
+  }),
+};
 
 /** Turns whatever was stored into a valid current SaveDoc; never throws. */
 export function migrateSave(raw: unknown): SaveDoc {

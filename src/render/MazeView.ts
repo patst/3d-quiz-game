@@ -3,6 +3,9 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 import type { Tile } from '../core/maze/types';
 import { DIRECTIONS, sameTile } from '../core/maze/types';
 import type { Avatar } from '../core/profile/profile';
+import type { Equipped } from '../core/rewards/rewards';
+import { setOutfit } from './avatars/accessories';
+import { TrailEmitter } from './trails';
 import { createRng } from '../core/rng';
 import type { MazeSession, SessionEvent } from '../core/session/mazeSession';
 import type { WorldTheme } from '../modules/worlds/types';
@@ -14,6 +17,7 @@ export interface MazeViewOptions {
   container: HTMLElement;
   session: MazeSession;
   avatar: Avatar;
+  equipped: Equipped;
   world: WorldTheme;
   onEvent: (event: SessionEvent) => void;
 }
@@ -56,6 +60,7 @@ export class MazeView {
   private markerAge = Infinity;
   private disposed = false;
   private paused = false;
+  private readonly trail: TrailEmitter;
   /** Smoothed point on the ground the camera looks at. */
   private focus: THREE.Vector3 | null = null;
   private readonly chestViews = new Map<string, { root: THREE.Group; lid: THREE.Object3D; beacon: THREE.Object3D }>();
@@ -77,7 +82,8 @@ export class MazeView {
     this.buildLights();
     this.buildMaze();
 
-    this.avatar = buildAnimal(opts.avatar);
+    this.avatar = buildAnimal(opts.avatar, opts.equipped);
+    this.trail = new TrailEmitter(this.scene, opts.equipped.trail);
     this.avatar.position.set(this.tile.x, 0, this.tile.y);
     this.scene.add(this.avatar);
 
@@ -132,9 +138,16 @@ export class MazeView {
     window.removeEventListener('keydown', this.onKeyDown);
     window.removeEventListener('keyup', this.onKeyUp);
     window.removeEventListener('blur', this.onBlur);
+    this.trail.dispose();
     disposeObject(this.scene);
     this.renderer.dispose();
     canvas.remove();
+  }
+
+  /** Changes worn items without rebuilding the maze. */
+  setEquipped(equipped: Equipped): void {
+    setOutfit(this.avatar, this.opts.avatar.animal, equipped);
+    this.trail.setKind(equipped.trail);
   }
 
   /** Stops movement and input while a challenge dialog is open. */
@@ -301,6 +314,7 @@ export class MazeView {
     this.chick.position.y = Math.abs(Math.sin(this.elapsed * 4)) * 0.12;
     this.chick.rotation.y = Math.sin(this.elapsed * 1.5) * 0.6;
     this.animateChests(dt);
+    this.trail.update(dt, this.avatar.position, this.path.length > 0);
 
     this.markerAge += dt;
     const markerMat = this.marker.material as THREE.MeshBasicMaterial;

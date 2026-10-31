@@ -1,0 +1,21 @@
+/** Emoji icons for reward items in 2D lists (3D models: render/avatars/accessories.ts). */
+export const rewardIcons: Record<string, string> = {
+  'party-hat': '🥳',
+  crown: '👑',
+  'top-hat': '🎩',
+  cap: '🧢',
+  'flower-wreath': '🌼',
+  'wizard-hat': '🧙',
+  'round-glasses': '👓',
+  sunglasses: '🕶️',
+  'star-glasses': '⭐',
+  'heart-glasses': '💖',
+  scarf: '🧣',
+  cape: '🦸',
+  'bow-tie': '🎀',
+  medal: '🏅',
+  sparkles: '✨',
+  hearts: '💕',
+  bubbles: '🫧',
+  rainbow: '🌈',
+};

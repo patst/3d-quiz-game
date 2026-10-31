@@ -1,11 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import { generateMaze } from '../../core/maze/generate';
 import { findPath } from '../../core/maze/pathfinding';
 import type { Tile } from '../../core/maze/types';
 import type { Profile } from '../../core/profile/profile';
-import { randomSeed } from '../../core/rng';
+import { createRng, randomSeed } from '../../core/rng';
+import { rewardOffer } from '../../core/rewards/rewards';
+import { rewardCatalog } from '../../modules/rewards/catalog';
+import { RewardPicker } from '../rewards/RewardPicker';
+import { StarJar } from '../rewards/StarJar';
+import { Wardrobe } from '../rewards/Wardrobe';
 import { MazeSession, type Chest } from '../../core/session/mazeSession';
 import { getChallengeType } from '../../modules/challenges';
 import { getWorld } from '../../modules/worlds';
@@ -17,6 +22,8 @@ interface Props {
   onHome: () => void;
   onStars: (stars: number) => void;
   onMazeCompleted: () => void;
+  onChooseReward: (itemId: string | null) => void;
+  onToggleEquip: (itemId: string) => void;
 }
 
 /** Seed can be forced via ?seed=123 (reproducible bug reports / E2E tests). */
@@ -36,17 +43,25 @@ function route(path: Tile[]): string {
     .join('');
 }
 
-export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props) {
+export function GameScreen({ profile, onHome, onStars, onMazeCompleted, onChooseReward, onToggleEquip }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sessionRef = useRef<MazeSession | null>(null);
   const viewRef = useRef<MazeView | null>(null);
   const [round, setRound] = useState(0);
   const [goalStars, setGoalStars] = useState<number | null>(null);
   const [openChest, setOpenChest] = useState<{ chest: Chest; visit: number } | null>(null);
+  const [wardrobeOpen, setWardrobeOpen] = useState(false);
+  const equippedRef = useRef(profile.equipped);
   const callbacks = useRef({ onStars, onMazeCompleted });
   useEffect(() => {
     callbacks.current = { onStars, onMazeCompleted };
   }, [onStars, onMazeCompleted]);
+
+  // Outfit changes are applied to the running maze (no rebuild).
+  useEffect(() => {
+    equippedRef.current = profile.equipped;
+    viewRef.current?.setEquipped(profile.equipped);
+  }, [profile.equipped]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -76,6 +91,7 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props)
       session,
       world,
       avatar: profile.avatar,
+      equipped: equippedRef.current,
       onEvent: (ev) => {
         if (ev.type === 'chestReached') {
           view.setPaused(true);
@@ -97,10 +113,19 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props)
     };
   }, [profile.avatar, round]);
 
-  const closeChest = () => {
-    setOpenChest(null);
-    viewRef.current?.setPaused(false);
-  };
+  const closeChest = () => setOpenChest(null);
+
+  // A full star jar waits until no other dialog is open.
+  const showPicker = profile.pendingRewards > 0 && !openChest && goalStars === null && !wardrobeOpen;
+  const offer = useMemo(
+    () => rewardOffer(rewardCatalog, profile.inventory, createRng(profile.inventory.length * 7919 + profile.stars)),
+    [profile.inventory, profile.stars],
+  );
+
+  const blocked = Boolean(openChest) || showPicker || wardrobeOpen || goalStars !== null;
+  useEffect(() => {
+    viewRef.current?.setPaused(blocked);
+  }, [blocked]);
 
   return (
     <main className="screen game-screen">
@@ -112,8 +137,11 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props)
         <button className="guide-bubble" onClick={() => speech().speak(de.game.speakStart)}>
           <span aria-hidden>🦉</span> {de.game.hint}
         </button>
-        <div className="star-counter" data-testid="star-counter" aria-label={de.game.starsTotal(profile.stars)}>
-          <span aria-hidden>⭐</span> <span key={profile.stars} className="star-count">{profile.stars}</span>
+        <div className="hud-right">
+          <StarJar jar={profile.jar} />
+          <button className="round-button" aria-label={de.rewards.wardrobe} data-testid="wardrobe-button" onClick={() => setWardrobeOpen(true)}>
+            🎒
+          </button>
         </div>
       </div>
 
@@ -131,6 +159,12 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props)
             closeChest();
           }}
         />
+      )}
+
+      {showPicker && <RewardPicker offer={offer} onChoose={onChooseReward} />}
+
+      {wardrobeOpen && (
+        <Wardrobe profile={profile} onToggle={onToggleEquip} onClose={() => setWardrobeOpen(false)} />
       )}
 
       {goalStars !== null && (

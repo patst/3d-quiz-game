@@ -1,3 +1,5 @@
+import type { Equipped } from '../rewards/rewards';
+
 /** Animal avatars a child can choose (game-design §2/§7). Display names live in content/de. */
 export const AVATAR_ANIMALS = ['bunny', 'bear', 'cat', 'frog', 'penguin'] as const;
 export type AvatarAnimal = (typeof AVATAR_ANIMALS)[number];
@@ -21,6 +23,14 @@ export interface Profile {
   stars: number;
   /** Number of mazes finished. */
   mazesCompleted: number;
+  /** Stars in the star jar (0..JAR_SIZE-1). */
+  jar: number;
+  /** Full jars whose reward has not been chosen yet. */
+  pendingRewards: number;
+  /** Owned reward item ids. */
+  inventory: string[];
+  /** Worn item per slot. */
+  equipped: Equipped;
 }
 
 export const MAX_PROFILES = 6;
@@ -34,5 +44,9 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     createdAt: input.now,
     stars: 0,
     mazesCompleted: 0,
+    jar: 0,
+    pendingRewards: 0,
+    inventory: [],
+    equipped: {},
   };
 }

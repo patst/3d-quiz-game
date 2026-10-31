@@ -52,7 +52,7 @@ export function buildChest(): THREE.Group {
   return root;
 }
 
-function starGeometry(outer: number, inner: number, depth: number): THREE.ExtrudeGeometry {
+export function starGeometry(outer: number, inner: number, depth: number): THREE.ExtrudeGeometry {
   const shape = new THREE.Shape();
   for (let i = 0; i < 10; i++) {
     const r = i % 2 === 0 ? outer : inner;

@@ -2,6 +2,7 @@ import type { ChallengeInstance, ChallengeType } from '../challenges/types';
 import { directWalkPath, type DirectWalkOptions } from '../maze/pathfinding';
 import { isFloor, sameTile, type Maze, type Tile } from '../maze/types';
 import { createRng } from '../rng';
+import type { ChestTier } from '../skills/skillModel';
 
 export type SessionEvent =
   | { type: 'goalReached' }
@@ -20,17 +21,14 @@ export interface Chest {
   tile: Tile;
   state: ChestState;
   challenge: ChallengeInstance;
+  tier: ChestTier;
   /** Stars for solving with at most one wrong try (game-design §7). */
   stars: number;
 }
 
-/** Which challenges the chests of a maze contain. */
+/** What each chest of a maze contains (see core/skills planChests). */
 export interface ChestPlan {
-  count: number;
-  /** Candidates, used round-robin in random order. */
-  challenges: ReadonlyArray<{ type: ChallengeType; level: number }>;
-  /** Single chest tier in M2 (bronze/silver/gold arrive in M4). */
-  stars: number;
+  chests: ReadonlyArray<{ type: ChallengeType; level: number; tier: ChestTier; stars: number }>;
 }
 
 /**
@@ -113,17 +111,16 @@ export class MazeSession {
 }
 
 function placeChests(maze: Maze, plan: ChestPlan): Chest[] {
-  if (plan.challenges.length === 0) return [];
   const rng = createRng(maze.seed ^ 0x51ed27);
-  const order = rng.shuffle(plan.challenges);
-  return maze.stationCandidates.slice(0, plan.count).map((tile, i) => {
-    const { type, level } = order[i % order.length]!;
+  return maze.stationCandidates.slice(0, plan.chests.length).map((tile, i) => {
+    const { type, level, tier, stars } = plan.chests[i]!;
     return {
       id: `chest-${i}`,
       tile,
       state: 'closed' as ChestState,
       challenge: type.generate({ rng, level }),
-      stars: plan.stars,
+      tier,
+      stars,
     };
   });
 }

@@ -7,10 +7,9 @@ export const forestWorld: WorldTheme = {
   chests: {
     count: 3,
     challenges: [
-      { typeId: 'math.count', level: 2 }, // 1–10 objects
-      { typeId: 'math.addition', level: 2 }, // sum ≤ 10 with pictures
+      { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
+      { typeId: 'math.addition', startLevel: 1 }, // sum ≤ 5 with pictures
     ],
-    stars: 2,
   },
   colors: {
     sky: '#bfe8ff',

@@ -14,6 +14,7 @@ import { RewardPicker } from '../rewards/RewardPicker';
 import { StarJar } from '../rewards/StarJar';
 import { Wardrobe } from '../rewards/Wardrobe';
 import { MazeSession, type Chest } from '../../core/session/mazeSession';
+import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
 import { getChallengeType } from '../../modules/challenges';
 import { getWorld } from '../../modules/worlds';
 import { MazeView } from '../../render/MazeView';
@@ -27,6 +28,7 @@ interface Props {
   onChooseReward: (itemId: string | null) => void;
   onToggleEquip: (itemId: string) => void;
   onRescue: (animal: LostAnimal) => void;
+  onChallengeResult: (typeId: string, level: number, outcome: ChallengeOutcome) => void;
   onSetPet: (animal: LostAnimal | null) => void;
 }
 
@@ -56,6 +58,7 @@ export function GameScreen({
   onToggleEquip,
   onRescue,
   onSetPet,
+  onChallengeResult,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const sessionRef = useRef<MazeSession | null>(null);
@@ -66,6 +69,10 @@ export function GameScreen({
   const [wardrobeOpen, setWardrobeOpen] = useState(false);
   const equippedRef = useRef(profile.equipped);
   const rescuedRef = useRef(profile.rescued);
+  const skillsRef = useRef(profile.skills);
+  useEffect(() => {
+    skillsRef.current = profile.skills;
+  }, [profile.skills]);
   const pet = profile.pet && isLostAnimal(profile.pet) ? profile.pet : null;
   const petRef = useRef(pet);
   const [lostAnimal, setLostAnimal] = useState<LostAnimal>('chick');
@@ -95,11 +102,13 @@ export function GameScreen({
     const seed = forced !== null ? forced + round : randomSeed();
     const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
     setLostAnimal(animal);
-    const session = new MazeSession(generateMaze({ ...world.maze, seed }), {
-      count: world.chests.count,
-      stars: world.chests.stars,
-      challenges: world.chests.challenges.map((c) => ({ type: getChallengeType(c.typeId), level: c.level })),
-    });
+    const chests = planChests(
+      createRng(seed ^ 0x2545f491),
+      world.chests.challenges.map((c) => ({ type: getChallengeType(c.typeId), startLevel: c.startLevel })),
+      skillsRef.current,
+      world.chests.count,
+    );
+    const session = new MazeSession(generateMaze({ ...world.maze, seed }), { chests });
     sessionRef.current = session;
     container.dataset.goalTile = `${session.maze.goal.x},${session.maze.goal.y}`;
     if (forced !== null && session.chests.length > 0) {
@@ -178,13 +187,17 @@ export function GameScreen({
         <ChallengeDialog
           key={`${openChest.chest.id}-${openChest.visit}`}
           chest={openChest.chest}
-          onSolved={(stars) => {
+          onSolved={(stars, outcome) => {
+            const { challenge } = openChest.chest;
             sessionRef.current?.solveChest(openChest.chest.id, stars);
+            onChallengeResult(challenge.typeId, challenge.level, outcome);
             callbacks.current.onStars(stars);
             closeChest();
           }}
           onSkip={() => {
+            const { challenge } = openChest.chest;
             sessionRef.current?.skipChest(openChest.chest.id);
+            onChallengeResult(challenge.typeId, challenge.level, { kind: 'skipped' });
             closeChest();
           }}
         />

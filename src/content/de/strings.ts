@@ -115,6 +115,10 @@ export const de = {
     deleteConfirm: (name: string) => `${name} wirklich löschen? Alle Sterne und Sachen gehen verloren.`,
     deleteYes: 'Ja, löschen',
     deleteNo: 'Nein',
+    skills: 'Lernstand',
+    skillLine: (name: string, level: number, max: number, solved: number, firstTry: number) =>
+      `${name}: Stufe ${level} von ${max} · ${solved} gelöst, davon ${firstTry} ohne Fehler`,
+    noSkills: 'Noch keine Aufgaben gelöst.',
     settings: 'Einstellungen',
     speech: 'Aufgaben vorlesen',
     backup: 'Spielstand',
@@ -161,6 +165,11 @@ export const de = {
       rainbow: 'Regenbogenspur',
     } as Record<string, string>,
   },
+  /** Challenge type names for the parents area. */
+  challengeNames: {
+    'math.count': 'Zählen',
+    'math.addition': 'Plus rechnen',
+  } as Record<string, string>,
   challenge: {
     listen: 'Nochmal hören',
     skip: 'Überspringen',

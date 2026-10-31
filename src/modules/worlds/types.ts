@@ -7,13 +7,12 @@ export interface WorldTheme {
   /** Maze size in cells. */
   maze: { cols: number; rows: number; braid: number };
   /**
-   * Treasure chests per maze and which challenges they hold (challenge type id + level).
-   * Fixed levels until the adaptive skill model arrives (M4).
+   * Treasure chests per maze and the challenge types they may hold, with the level a new
+   * child starts at. Actual levels adapt per child (core/skills, M4).
    */
   chests: {
     count: number;
-    challenges: ReadonlyArray<{ typeId: string; level: number }>;
-    stars: number;
+    challenges: ReadonlyArray<{ typeId: string; startLevel: number }>;
   };
   colors: {
     sky: string;

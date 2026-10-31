@@ -6,6 +6,9 @@ import { createProfile, type Avatar } from '../core/profile/profile';
 import { addProfile, migrateSave, removeProfile, setActiveProfile, updateProfile, updateSettings } from '../core/save/save';
 import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
+import { initialSkill, recordOutcome } from '../core/skills/skillModel';
+import { getChallengeType } from '../modules/challenges';
+import { getWorld } from '../modules/worlds';
 import { getRewardItem } from '../modules/rewards/catalog';
 import { CreateProfileScreen } from '../ui/screens/CreateProfileScreen';
 import { GameScreen } from '../ui/screens/GameScreen';
@@ -88,6 +91,16 @@ export function App() {
                 : // A newly rescued friend follows the child right away if no pet is chosen.
                   { ...p, rescued: [...p.rescued, animal], pet: p.pet ?? animal },
             ),
+          )
+        }
+        onChallengeResult={(typeId, level, outcome) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => {
+              const type = getChallengeType(typeId);
+              const start = getWorld('forest').chests.challenges.find((c) => c.typeId === typeId)?.startLevel ?? 1;
+              const current = p.skills[typeId] ?? initialSkill(start);
+              return { ...p, skills: { ...p.skills, [typeId]: recordOutcome(current, outcome, level, type.levels) } };
+            }),
           )
         }
         onSetPet={(animal) =>

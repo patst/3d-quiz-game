@@ -23,6 +23,7 @@ test('walk to a chest, solve the challenge and earn stars', async ({ page }) => 
   const challenge = page.getByTestId('challenge');
   await expect(challenge).toBeVisible();
   await expect(page.getByTestId('star-jar')).toHaveAttribute('data-jar', '0');
+  await expect(challenge.locator('[data-tier]')).toHaveAttribute('data-tier', /^(bronze|silver|gold)$/);
 
   // Tap number buttons until the challenge is finished (correct or revealed).
   const next = challenge.getByRole('button', { name: 'Weiter' });

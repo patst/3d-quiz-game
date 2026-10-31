@@ -791,3 +791,31 @@ button {
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
+
+/* ---------- chest tiers ---------- */
+.challenge-dialog {
+  position: relative;
+}
+
+.tier-badge {
+  position: absolute;
+  top: -18px;
+  left: -10px;
+  font-size: 44px;
+  filter: drop-shadow(2px 2px 0 rgba(43, 34, 51, 0.6));
+}
+
+.challenge-dialog.tier-gold {
+  border-color: #c99a00;
+  box-shadow: 0 8px 0 #c99a00;
+}
+
+.skill-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.skill-line {
+  font-size: 0.85rem;
+  color: #4a4155;
+}

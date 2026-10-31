@@ -3,6 +3,7 @@ import { de } from '../../content/de/strings';
 import { MAX_NAME_LENGTH, type Profile } from '../../core/profile/profile';
 import type { SaveDoc } from '../../core/save/save';
 import { animalIcons } from '../animalIcons';
+import { challengeTypes } from '../../modules/challenges';
 
 interface Props {
   doc: SaveDoc;
@@ -11,6 +12,23 @@ interface Props {
   onSpeech: (on: boolean) => void;
   onImport: (raw: unknown) => void;
   onClose: () => void;
+}
+
+function SkillList({ profile }: { profile: Profile }) {
+  const entries = Object.entries(profile.skills);
+  if (entries.length === 0) return <small className="skill-line">{de.parents.noSkills}</small>;
+  return (
+    <ul className="skill-list" aria-label={de.parents.skills}>
+      {entries.map(([typeId, s]) => {
+        const max = challengeTypes.find((t) => t.id === typeId)?.levels ?? s.level;
+        return (
+          <li key={typeId} className="skill-line">
+            {de.parents.skillLine(de.challengeNames[typeId] ?? typeId, s.level, max, s.solved, s.firstTry)}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 /** Parents area (behind the gate): profiles, settings, backup. Not spoken; adults read it. */
@@ -62,6 +80,7 @@ export function ParentsArea({ doc, onRename, onDelete, onSpeech, onImport, onClo
                 />
               </label>
               <small>{de.parents.stats(p.stars, p.mazesCompleted, p.rescued.length, p.inventory.length)}</small>
+              <SkillList profile={p} />
             </div>
             <button className="button secondary small" onClick={() => setConfirmDelete(p)}>
               {de.parents.delete}

@@ -101,7 +101,7 @@ export class MazeView {
     this.scene.add(this.chick);
 
     for (const chest of session.chests) {
-      const root = buildChest();
+      const root = buildChest(chest.tier);
       root.position.set(chest.tile.x, 0, chest.tile.y);
       root.rotation.y = this.chestFacing(chest.tile);
       this.scene.add(root);

@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 4;
+export const SAVE_VERSION = 5;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -60,6 +60,12 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
   }),
   // v3 → v4: device settings.
   3: (doc) => ({ ...doc, version: 4, settings: { ...DEFAULT_SETTINGS } }),
+  // v4 → v5: adaptive difficulty starts fresh (world start levels).
+  4: (doc) => ({
+    ...doc,
+    version: 5,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({ ...p, skills: {} })),
+  }),
 };
 
 /** Turns whatever was stored into a valid current SaveDoc; never throws. */

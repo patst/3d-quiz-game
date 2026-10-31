@@ -4,11 +4,14 @@ import { speechText } from '../../content/de/speech';
 import { de } from '../../content/de/strings';
 import { initialAttempt, submitAnswer, type AttemptFeedback, type AttemptState } from '../../core/challenges/attempt';
 import type { Chest } from '../../core/session/mazeSession';
+import type { ChallengeOutcome } from '../../core/skills/skillModel';
 import { challengeViews } from '.';
+
+const TIER_ICONS = { bronze: '🥉', silver: '🥈', gold: '🥇' } as const;
 
 interface Props {
   chest: Chest;
-  onSolved: (stars: number) => void;
+  onSolved: (stars: number, outcome: ChallengeOutcome) => void;
   onSkip: () => void;
 }
 
@@ -39,7 +42,10 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
 
   return (
     <div className="overlay challenge-overlay" role="dialog" aria-modal data-testid="challenge">
-      <div className="dialog challenge-dialog">
+      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier}>
+        <span className="tier-badge" aria-hidden>
+          {TIER_ICONS[chest.tier]}
+        </span>
         <button className="prompt" onClick={sayPrompt} aria-label={de.challenge.listen}>
           <span aria-hidden>🔊</span> {speechText(challenge.prompt)}
         </button>
@@ -80,7 +86,15 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
               </p>
             )}
             <p className="stars-won">⭐ {de.challenge.starsWon(attempt.stars)}</p>
-            <button className="button primary" onClick={() => onSolved(attempt.stars)}>
+            <button
+              className="button primary"
+              onClick={() =>
+                onSolved(
+                  attempt.stars,
+                  feedback === 'reveal' ? { kind: 'revealed' } : { kind: 'solved', wrongTries: attempt.wrongChoiceIds.length },
+                )
+              }
+            >
               {de.challenge.continue}
             </button>
           </div>

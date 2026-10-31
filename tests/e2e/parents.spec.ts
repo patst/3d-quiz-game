@@ -47,3 +47,23 @@ test('parent gate, rename and delete a profile, toggle speech', async ({ page })
   await page.getByRole('button', { name: /Eltern/ }).click();
   await expect(page.getByTestId('parent-gate')).toBeVisible();
 });
+
+test('parents area shows the learning level per challenge type', async ({ page }) => {
+  await seedSave(page, {
+    version: 5,
+    activeProfileId: null,
+    settings: { speech: true },
+    profiles: [
+      profileFixture({
+        pendingRewards: 0,
+        skills: { 'math.count': { level: 3, streak: 0, attempts: 9, firstTry: 6, solved: 8, revealed: 1, skipped: 0 } },
+      }),
+    ],
+  });
+  await page.getByRole('button', { name: /Eltern/ }).click();
+  const gate = page.getByTestId('parent-gate');
+  const word = await gate.locator('.gate-question').getAttribute('data-target-word');
+  const target = Array.from({ length: 100 }, (_, n) => n).find((n) => numberWord(n) === word)!;
+  for (const digit of String(target)) await gate.getByRole('button', { name: digit, exact: true }).click();
+  await expect(page.getByText('Zählen: Stufe 3 von 3 · 8 gelöst, davon 6 ohne Fehler')).toBeVisible();
+});

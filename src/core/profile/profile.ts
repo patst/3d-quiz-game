@@ -1,4 +1,5 @@
 import type { Equipped } from '../rewards/rewards';
+import type { SkillState } from '../skills/skillModel';
 
 /** Animal avatars a child can choose (game-design §2/§7). Display names live in content/de. */
 export const AVATAR_ANIMALS = ['bunny', 'bear', 'cat', 'frog', 'penguin'] as const;
@@ -35,6 +36,8 @@ export interface Profile {
   rescued: string[];
   /** Rescued friend that follows the avatar, or null. */
   pet: string | null;
+  /** Adaptive difficulty per challenge type id (M4). */
+  skills: Record<string, SkillState>;
 }
 
 export const MAX_PROFILES = 6;
@@ -54,5 +57,6 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     equipped: {},
     rescued: [],
     pet: null,
+    skills: {},
   };
 }

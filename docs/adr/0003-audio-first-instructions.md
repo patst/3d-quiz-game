@@ -1,8 +1,8 @@
 # ADR-0003: Spoken instructions — build-time neural TTS clips, browser TTS fallback
 
-- **Status:** Proposed (revised 2026-10-31 after owner asked to evaluate on-the-fly TTS)
+- **Status:** Accepted (owner, 2026-10-31)
 - **Date:** 2026-10-31
-- **Deciders:** owner (pending), agent
+- **Deciders:** owner, agent
 
 ## Context
 Pre-readers must hear every instruction. Challenges are auto-generated, so sentences vary.
@@ -21,7 +21,7 @@ Key insight: generated **math** prompts are combinations of a small template set
 numbers 0–100 (+ picture nouns like "Äpfel"). Every possible sentence can be stitched
 from pre-generated clips, so on-the-fly generation is not *needed* for v1.
 
-## Decision (proposed)
+## Decision
 - **Primary: C.** Prompts are expressed as `SpeechLine` = template id + slots; the audio
   layer plays clip sequences. A CI step generates/updates clips; a check fails if a
   template or slot value has no clip.

@@ -1,7 +1,7 @@
 # Game Design Document
 
-**Status:** DRAFT v0.2 — owner answered round 1 (2026-10-31). Items marked **[Q]** are
-open questions (see `open-questions.md`); **[Proposal]** = agent suggestion not yet confirmed.
+**Status:** APPROVED v1.0 (owner, 2026-10-31). Changes require owner sign-off; record them
+in the changelog at the end. Items marked **[Q]** are open (see `open-questions.md`).
 
 ## 1. Vision
 Children (5–7, Vorschule to 2. Klasse) explore small, colourful 3D comic-style mazes with
@@ -26,7 +26,9 @@ a 5-year-old recognises some digits and can do very easy addition.
 ## 3. Story & world (v1)
 - **Scenario v1: "Tierfreunde retten"** — animal friends got lost in the maze garden.
   Each maze has one lost animal at the goal. Reaching it rescues the animal.
-- A **guide character** speaks all instructions and cheers. **[Q: which animal/name]**
+- Guide characters speak all instructions and cheer. Approved names: **Olli** (Eule,
+  guide of world 1), **Ida** (Igel) and **Rick** (animal **[Q]**) for later worlds.
+  Do not use the name "Fini".
 - v1 has **one world** (Zauberwald / garden hedge maze). Further worlds with their own
   scenarios (Unterwasser, Weltraum, …) come later via the world-module extension point.
 
@@ -42,6 +44,13 @@ start maze → walk → find chest (optional) → solve or skip → stars into j
   "Überspringen" button asks for **confirmation** (big ✓ / ✗ icons, spoken question
   "Möchtest du diese Aufgabe wirklich überspringen?"). A skipped chest stays closed and can
   be retried while in the maze.
+
+## 4a. Avatar & profiles
+- The child plays a **comic animal**: Hase, Bär, Katze, Frosch, Pinguin (more later),
+  in one of 6 colours. Rewards (hats, pets, trails) are added on top of the animal.
+- **Local profiles from the start:** up to 6 children per device. Profile screen
+  "Wer spielt?" shows each child's animal; the name is optional and typed by a parent.
+  Deleting profiles will live in the parents area (behind the parent gate).
 
 ## 5. Controls
 - **Mobile:** tap on the floor → avatar walks there (grid pathfinding).
@@ -104,7 +113,7 @@ All outcomes feed the skill model.
 - Parent gate (e.g. "Tippe die Zahl dreiundvierzig").
 - Per child: practised skills, success rates, enable/disable challenge types,
   "Vorlesen" on/off, optional session time limit.
-- Multiple child profiles per device. **[Q: needed in v1?]**
+- Manage child profiles (rename, delete).
 
 ## 9. Non-functional
 - German only (UI and audio). Code in English.
@@ -118,3 +127,7 @@ All outcomes feed the skill model.
 ## 10. Out of scope for v1
 German challenges (planned next), more worlds/scenarios, multiplayer, teacher mode,
 cloud sync, other languages, speech-recognition answers.
+
+## Changelog
+- v1.0 (2026-10-31): approved. Guide names Olli/Ida/Rick, animal avatars, local profiles
+  from the start, pick-1-of-3 rewards confirmed.

@@ -1,6 +1,6 @@
 # Architecture
 
-**Status:** PROPOSED — awaiting owner approval. Rationale for key choices is in `docs/adr/`.
+**Status:** APPROVED (owner, 2026-10-31). Rationale for key choices is in `docs/adr/`.
 
 ## 1. Tech stack (see ADR-0002)
 | Concern | Choice |
@@ -9,12 +9,12 @@
 | Build / dev server | Vite |
 | 3D rendering | Three.js (vanilla, wrapped in our own thin layer) |
 | 2D UI (menus, challenge screens, parents area) | React DOM overlay on top of the canvas |
-| State | Small typed store (Zustand) for UI state; game core is plain TS |
+| State | React state + `useSave` hook; add a store (Zustand) only when screens need shared state |
 | Persistence | IndexedDB (via `idb-keyval`), versioned save format with migrations |
-| Audio | Howler.js; pre-generated German speech files (see ADR-0003) |
+| Audio | `SpeechProvider` interface; pre-generated clips (M2) + Web Speech fallback (ADR-0003) |
 | Offline / install | PWA via `vite-plugin-pwa` |
 | Tests | Vitest (unit, core logic), Playwright (E2E smoke on mobile + desktop viewports) |
-| Lint/format | ESLint + Prettier |
+| Lint | ESLint (flat config) incl. an import guard that keeps `core/` free of Three.js/React |
 | CI/CD | GitHub Actions → GitHub Pages, preview per PR (ADR-0005) |
 
 ## 2. Layering
@@ -102,3 +102,17 @@ tests/e2e/
 docs/ (game-design, architecture, adr/, roadmap, open-questions)
 .github/workflows/ ci.yml deploy.yml pr-preview.yml
 ```
+
+## 8. As built (M1)
+| Area | File(s) | Notes |
+|---|---|---|
+| Seeded RNG | `src/core/rng.ts` | mulberry32 |
+| Maze generation | `src/core/maze/generate.ts` | DFS perfect maze + braiding (loops); goal = farthest cell; `stationCandidates` prepared for M2 chests |
+| Pathfinding | `src/core/maze/pathfinding.ts` | BFS on tile grid |
+| Maze rules | `src/core/session/mazeSession.ts` | renderer asks for paths, reports arrivals → events |
+| Profiles & save | `src/core/profile`, `src/core/save` | versioned `SaveDoc` + `migrateSave`; IndexedDB store in `src/app/storage.ts`, key namespaced by `BASE_URL` |
+| 3D view | `src/render/MazeView.ts` | instanced hedges, inverted-hull outlines, toon gradient, tap-to-walk + keys, camera follow |
+| Avatars | `src/render/avatars/animals.ts` | procedural animals (ADR-0006) |
+| Speech | `src/audio/speech.ts` | Web Speech fallback, local German voices only |
+| World | `src/modules/worlds/forest` | theme colours + maze size |
+| Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

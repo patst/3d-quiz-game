@@ -53,7 +53,9 @@ start maze → walk → find chest (optional) → solve or skip → stars into j
   Deleting profiles will live in the parents area (behind the parent gate).
 
 ## 5. Controls
-- **Mobile:** tap on the floor → avatar walks there (grid pathfinding).
+- **Mobile:** tap on the floor → avatar walks towards it, but only a **short, direct way**
+  (max. 6 tiles, never around a hedge). Tapping the chick far away must not solve the
+  maze; the child finds the route by tapping step by step.
 - **Desktop:** arrow keys / WASD + click-to-walk.
 - Camera follows automatically; no manual camera control required.
 
@@ -129,6 +131,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.2 (2026-10-31): tap-to-walk limited to short, direct walks (owner feedback after M1).
 - v1.1 (2026-10-31): Rick is a raccoon (Waschbär).
 - v1.0 (2026-10-31): approved. Guide names Olli/Ida/Rick, animal avatars, local profiles
   from the start, pick-1-of-3 rewards confirmed.

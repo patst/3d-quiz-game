@@ -131,6 +131,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.3 (2026-10-31): M2 chests use one tier (2 stars) and fixed levels (Zählen 1–10, Plus ≤ 10 mit Bildern) until adaptive difficulty (M4); answer buttons are sorted ascending.
 - v1.2 (2026-10-31): tap-to-walk limited to short, direct walks (owner feedback after M1).
 - v1.1 (2026-10-31): Rick is a raccoon (Waschbär).
 - v1.0 (2026-10-31): approved. Guide names Olli/Ida/Rick, animal avatars, local profiles

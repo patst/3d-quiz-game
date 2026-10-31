@@ -1,13 +1,37 @@
+import type { ChallengeInstance, ChallengeType } from '../challenges/types';
 import { directWalkPath, type DirectWalkOptions } from '../maze/pathfinding';
 import { isFloor, sameTile, type Maze, type Tile } from '../maze/types';
+import { createRng } from '../rng';
 
-export type SessionEvent = { type: 'goalReached' };
+export type SessionEvent =
+  | { type: 'goalReached' }
+  | { type: 'chestReached'; chestId: string };
 
 /**
  * Tap-to-walk limits (game-design §5): roughly what is visible around the avatar, and
  * no walking around hedges — the child has to find the way through the maze.
  */
 export const TAP_WALK: DirectWalkOptions = { maxSteps: 6, maxDetour: 0 };
+
+export type ChestState = 'closed' | 'solved' | 'skipped';
+
+export interface Chest {
+  id: string;
+  tile: Tile;
+  state: ChestState;
+  challenge: ChallengeInstance;
+  /** Stars for solving with at most one wrong try (game-design §7). */
+  stars: number;
+}
+
+/** Which challenges the chests of a maze contain. */
+export interface ChestPlan {
+  count: number;
+  /** Candidates, used round-robin in random order. */
+  challenges: ReadonlyArray<{ type: ChallengeType; level: number }>;
+  /** Single chest tier in M2 (bronze/silver/gold arrive in M4). */
+  stars: number;
+}
 
 /**
  * Rules of one maze run, independent of rendering.
@@ -16,9 +40,15 @@ export const TAP_WALK: DirectWalkOptions = { maxSteps: 6, maxDetour: 0 };
 export class MazeSession {
   private current: Tile;
   private finished = false;
+  readonly chests: Chest[];
+  private earned = 0;
 
-  constructor(readonly maze: Maze) {
+  constructor(
+    readonly maze: Maze,
+    plan?: ChestPlan,
+  ) {
     this.current = maze.start;
+    this.chests = plan ? placeChests(maze, plan) : [];
   }
 
   get position(): Tile {
@@ -27,6 +57,17 @@ export class MazeSession {
 
   get isFinished(): boolean {
     return this.finished;
+  }
+
+  /** Stars earned in this maze. */
+  get starsEarned(): number {
+    return this.earned;
+  }
+
+  chest(id: string): Chest {
+    const chest = this.chests.find((c) => c.id === id);
+    if (!chest) throw new Error(`Unknown chest ${id}`);
+    return chest;
   }
 
   /**
@@ -53,6 +94,36 @@ export class MazeSession {
       this.finished = true;
       return [{ type: 'goalReached' }];
     }
-    return [];
+    // Closed and skipped chests open their challenge; skipped ones can be retried.
+    const chest = this.chests.find((c) => c.state !== 'solved' && sameTile(c.tile, tile));
+    return chest ? [{ type: 'chestReached', chestId: chest.id }] : [];
   }
+
+  solveChest(id: string, stars: number): void {
+    const chest = this.chest(id);
+    if (chest.state === 'solved') return;
+    chest.state = 'solved';
+    this.earned += stars;
+  }
+
+  skipChest(id: string): void {
+    const chest = this.chest(id);
+    if (chest.state !== 'solved') chest.state = 'skipped';
+  }
+}
+
+function placeChests(maze: Maze, plan: ChestPlan): Chest[] {
+  if (plan.challenges.length === 0) return [];
+  const rng = createRng(maze.seed ^ 0x51ed27);
+  const order = rng.shuffle(plan.challenges);
+  return maze.stationCandidates.slice(0, plan.count).map((tile, i) => {
+    const { type, level } = order[i % order.length]!;
+    return {
+      id: `chest-${i}`,
+      tile,
+      state: 'closed' as ChestState,
+      challenge: type.generate({ rng, level }),
+      stars: plan.stars,
+    };
+  });
 }

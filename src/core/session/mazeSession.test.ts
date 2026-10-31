@@ -70,3 +70,51 @@ describe('tap-to-walk does not solve the maze', () => {
     expect(path).toBeNull();
   });
 });
+
+describe('chests', () => {
+  const fakeType = {
+    id: 'fake',
+    subject: 'math' as const,
+    skills: [],
+    levels: 1,
+    generate: () => ({
+      typeId: 'fake',
+      level: 1,
+      data: null,
+      choices: [{ id: 'c0', value: 1 }],
+      correctChoiceId: 'c0',
+      prompt: { key: 'p' },
+      explanation: { key: 'e' },
+    }),
+  };
+  const plan = { count: 3, challenges: [{ type: fakeType, level: 1 }], stars: 2 };
+
+  it('places chests on distinct floor tiles that are not start or goal', () => {
+    for (let seed = 1; seed <= 100; seed++) {
+      const maze = generateMaze({ cols: 5, rows: 5, braid: 0.35, seed });
+      const session = new MazeSession(maze, plan);
+      expect(session.chests).toHaveLength(3);
+      const keys = new Set(session.chests.map((c) => `${c.tile.x},${c.tile.y}`));
+      expect(keys.size).toBe(3);
+      for (const c of session.chests) {
+        expect(isFloor(maze, c.tile)).toBe(true);
+        expect(c.tile).not.toEqual(maze.start);
+        expect(c.tile).not.toEqual(maze.goal);
+      }
+    }
+  });
+
+  it('opens a chest on arrival, can be skipped and retried, solved only once', () => {
+    const maze = generateMaze({ cols: 5, rows: 5, braid: 0.35, seed: 9 });
+    const session = new MazeSession(maze, plan);
+    const chest = session.chests[0]!;
+    expect(session.arrive(chest.tile)).toEqual([{ type: 'chestReached', chestId: chest.id }]);
+    session.skipChest(chest.id);
+    expect(chest.state).toBe('skipped');
+    expect(session.arrive(chest.tile)).toEqual([{ type: 'chestReached', chestId: chest.id }]);
+    session.solveChest(chest.id, 2);
+    session.solveChest(chest.id, 2);
+    expect(session.starsEarned).toBe(2);
+    expect(session.arrive(chest.tile)).toEqual([]);
+  });
+});

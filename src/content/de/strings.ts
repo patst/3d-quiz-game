@@ -42,5 +42,17 @@ export const de = {
     speakGoal: 'Juhu! Du hast das Küken gefunden. Super gemacht!',
     nextMaze: 'Neues Labyrinth',
     controlsHint: 'Tippe auf den Weg, um zu laufen.',
+    starsTotal: (n: number) => `${n} Sterne`,
+    goalStars: (n: number) =>
+      n === 0 ? 'Öffne beim nächsten Mal eine Schatzkiste!' : `Du hast ${n} ${n === 1 ? 'Stern' : 'Sterne'} gesammelt!`,
+  },
+  challenge: {
+    listen: 'Nochmal hören',
+    skip: 'Überspringen',
+    skipQuestion: 'Möchtest du diese Aufgabe wirklich überspringen?',
+    skipYes: 'Ja, überspringen',
+    skipNo: 'Nein, weiter rechnen',
+    continue: 'Weiter',
+    starsWon: (n: number) => `+${n} ${n === 1 ? 'Stern' : 'Sterne'}`,
   },
 } as const;

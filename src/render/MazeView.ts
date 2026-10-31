@@ -7,6 +7,7 @@ import { createRng } from '../core/rng';
 import type { MazeSession, SessionEvent } from '../core/session/mazeSession';
 import type { WorldTheme } from '../modules/worlds/types';
 import { buildAnimal, buildChick } from './avatars/animals';
+import { buildChest } from './props';
 import { disposeObject, OUTLINE_COLOR, toonMaterial } from './toon';
 
 export interface MazeViewOptions {
@@ -54,6 +55,8 @@ export class MazeView {
   private elapsed = 0;
   private markerAge = Infinity;
   private disposed = false;
+  private paused = false;
+  private readonly chestViews = new Map<string, { root: THREE.Group; lid: THREE.Object3D; beacon: THREE.Object3D }>();
 
   constructor(private readonly opts: MazeViewOptions) {
     const { container, session, world } = opts;
@@ -79,6 +82,18 @@ export class MazeView {
     this.chick = buildChick();
     this.chick.position.set(session.maze.goal.x, 0, session.maze.goal.y);
     this.scene.add(this.chick);
+
+    for (const chest of session.chests) {
+      const root = buildChest();
+      root.position.set(chest.tile.x, 0, chest.tile.y);
+      root.rotation.y = this.chestFacing(chest.tile);
+      this.scene.add(root);
+      this.chestViews.set(chest.id, {
+        root,
+        lid: root.getObjectByName('lid')!,
+        beacon: root.getObjectByName('beacon')!,
+      });
+    }
 
     this.marker = new THREE.Mesh(
       new THREE.RingGeometry(0.25, 0.38, 32),
@@ -120,7 +135,20 @@ export class MazeView {
     canvas.remove();
   }
 
+  /** Stops movement and input while a challenge dialog is open. */
+  setPaused(paused: boolean): void {
+    this.paused = paused;
+    this.path = [];
+    this.heldKeys.length = 0;
+  }
+
   // ---------- scene ----------
+
+  /** Chests face the open side of their (dead-end) tile. */
+  private chestFacing(tile: Tile): number {
+    const dir = DIRECTIONS.find((d) => this.opts.session.step(d, tile));
+    return dir ? Math.atan2(dir.x, dir.y) : 0;
+  }
 
   private buildLights(): void {
     this.scene.add(new THREE.HemisphereLight('#ffffff', '#6b8f4e', 1.6));
@@ -216,7 +244,7 @@ export class MazeView {
   private onPointerUp = (e: PointerEvent) => {
     const down = this.pointerDown;
     this.pointerDown = null;
-    if (!down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 20) return;
+    if (this.paused || !down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 20) return;
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(
       ((e.clientX - rect.left) / rect.width) * 2 - 1,
@@ -240,9 +268,15 @@ export class MazeView {
   private onKeyDown = (e: KeyboardEvent) => {
     if (!(e.code in KEY_DIRS)) return;
     e.preventDefault();
+    if (this.paused) return;
     if (!this.heldKeys.includes(e.code)) this.heldKeys.push(e.code);
     // Keyboard overrides a tap path once the current step is done.
     if (this.path.length > 1) this.path = this.path.slice(0, 1);
+    // A short key tap always moves one tile, even if released before the next frame.
+    if (this.path.length === 0 && !e.repeat) {
+      const next = this.opts.session.step(KEY_DIRS[e.code]!, this.tile);
+      if (next) this.path = [next];
+    }
   };
 
   private onKeyUp = (e: KeyboardEvent) => {
@@ -264,6 +298,7 @@ export class MazeView {
 
     this.chick.position.y = Math.abs(Math.sin(this.elapsed * 4)) * 0.12;
     this.chick.rotation.y = Math.sin(this.elapsed * 1.5) * 0.6;
+    this.animateChests(dt);
 
     this.markerAge += dt;
     const markerMat = this.marker.material as THREE.MeshBasicMaterial;
@@ -304,7 +339,7 @@ export class MazeView {
         this.tile = next;
         this.publishTile();
         for (const ev of this.opts.session.arrive(next)) {
-          if (ev.type === 'goalReached') {
+          if (ev.type === 'goalReached' || ev.type === 'chestReached') {
             this.path = [];
             this.heldKeys.length = 0;
           }
@@ -314,6 +349,19 @@ export class MazeView {
     } else {
       flat.addScaledVector(delta.normalize(), stepLen);
       pos.set(flat.x, Math.abs(Math.sin(this.elapsed * 14)) * 0.08, flat.z);
+    }
+  }
+
+  private animateChests(dt: number): void {
+    for (const chest of this.opts.session.chests) {
+      const view = this.chestViews.get(chest.id);
+      if (!view) continue;
+      const solved = chest.state === 'solved';
+      const targetLid = solved ? -1.8 : 0;
+      view.lid.rotation.x += (targetLid - view.lid.rotation.x) * Math.min(1, dt * 5);
+      view.beacon.visible = !solved;
+      view.beacon.position.y = 1.0 + Math.sin(this.elapsed * 3 + view.root.position.x) * 0.08;
+      view.beacon.rotation.y += dt * 1.5;
     }
   }
 

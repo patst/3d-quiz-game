@@ -26,6 +26,7 @@ export const speechTemplates: Record<string, (p: Params) => string> = {
   'feedback.correct': () => 'Super gemacht!',
   'feedback.tryAgain': () => 'Fast! Versuch es nochmal.',
   'feedback.hint': () => 'Ich helfe dir. Schau genau hin!',
+  'feedback.skipQuestion': () => 'Möchtest du diese Aufgabe wirklich überspringen?',
 };
 
 export function speechText(line: SpeechLine): string {

@@ -36,6 +36,7 @@ export function App() {
       <GameScreen
         profile={active}
         onHome={() => setScreen({ name: 'profiles' })}
+        onStars={(stars) => update((d) => updateProfile(d, active.id, (p) => ({ ...p, stars: p.stars + stars })))}
         onMazeCompleted={() =>
           update((d) => updateProfile(d, active.id, (p) => ({ ...p, mazesCompleted: p.mazesCompleted + 1 })))
         }

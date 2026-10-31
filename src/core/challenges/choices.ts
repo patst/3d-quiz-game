@@ -3,7 +3,7 @@ import type { Choice } from './types';
 
 /**
  * Builds `count` unique number choices including `correct`, with distractors close to it
- * (±1, ±2, …) inside [min, max]. Returns shuffled choices and the id of the correct one.
+ * (±1, ±2, …) inside [min, max]. Returns ascending choices and the id of the correct one.
  */
 export function numberChoices(
   rng: Rng,
@@ -24,7 +24,8 @@ export function numberChoices(
     if (values.size >= count) break;
     values.add(v);
   }
-  const ordered = rng.shuffle([...values]);
+  // Ascending like a number line: easier for young children than random order.
+  const ordered = [...values].sort((a, b) => a - b);
   const choices = ordered.map((value, i) => ({ id: `c${i}`, value }));
   const correctChoiceId = choices.find((c) => c.value === correct)!.id;
   return { choices, correctChoiceId };

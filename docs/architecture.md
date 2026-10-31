@@ -124,5 +124,8 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Avatars | `src/render/avatars/animals.ts` | procedural animals (ADR-0006) |
 | Speech | `src/audio/speech.ts` | Web Speech fallback, local German voices only |
 | World | `src/modules/worlds/forest` | theme colours + maze size |
-| Challenges | `src/core/challenges`, `src/modules/challenges/{math-count,math-addition}` | M2 PR A; no UI yet |
+| Challenges | `src/core/challenges`, `src/modules/challenges/{math-count,math-addition}` | logic + generic answer flow |
+| Chests | `MazeSession` (`chests`, `solveChest`, `skipChest`), `src/render/props.ts`, world `chests` config | placed in dead ends; fixed levels until M4 |
+| Challenge UI | `src/ui/challenges/` (`ChallengeDialog`, view registry, `CountView`, `AdditionView`) | answer buttons sorted ascending (number line) |
+| Test hook | `data-test-route-chest` (only with `?seed=`) | arrow-key route to the nearest chest for E2E |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

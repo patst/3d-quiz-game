@@ -4,9 +4,9 @@ An educational 3D maze game in the browser for German-speaking children (5–7 y
 Children explore comic-style mazes and solve small math and German challenges to earn
 rewards for their avatar.
 
-**Status:** M1 tech spike — walkable maze, animal avatars, local profiles.
+**Status:** M2 vertical slice — maze with treasure-chest math challenges, voice, stars. Ready for the first playtest ([checklist](docs/playtests/README.md)).
 
-Play: https://patst.github.io/3d-quiz-game/ (after the first deploy from `main`)
+Play: https://patst.github.io/3d-quiz-game/
 
 ```bash
 npm ci && npm run dev

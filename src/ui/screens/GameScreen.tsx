@@ -67,6 +67,9 @@ export function GameScreen({ profile, onHome, onStars, onMazeCompleted }: Props)
       const nearest = paths.reduce((a, b) => (b.length < a.length ? b : a));
       container.dataset.testRouteChest = route(nearest);
     }
+    if (forced !== null) {
+      container.dataset.testRouteGoal = route(findPath(session.maze, session.maze.start, session.maze.goal) ?? []);
+    }
     let visits = 0;
     const view = new MazeView({
       container,

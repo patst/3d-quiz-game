@@ -1,7 +1,7 @@
 """Synthesise many sentences with one Piper voice load.
 
 Reads JSON lines {"id": ..., "text": ...} from stdin and writes <out_dir>/<id>.wav.
-Usage: python piper_batch.py <model.onnx> <out_dir> <length_scale>
+Usage: python piper_batch.py <model.onnx> <out_dir> <length_scale> [speaker_id]
 """
 import json
 import sys
@@ -11,7 +11,8 @@ from pathlib import Path
 from piper import PiperVoice, SynthesisConfig
 
 model, out_dir, length_scale = sys.argv[1], Path(sys.argv[2]), float(sys.argv[3])
-config = SynthesisConfig(length_scale=length_scale)
+speaker_id = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[4] != '' else None
+config = SynthesisConfig(length_scale=length_scale, speaker_id=speaker_id)
 out_dir.mkdir(parents=True, exist_ok=True)
 voice = PiperVoice.load(model)
 for line in sys.stdin:

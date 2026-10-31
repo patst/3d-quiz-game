@@ -45,21 +45,30 @@ Rules:
 
 ## 3. Extension points
 ### 3.1 Challenge types (`src/modules/challenges/<id>/`)
+Split into a **logic part** (pure TS, `core/challenges/types.ts`) and a **view** (React,
+registered in `src/ui/challenges/`, added in M2 PR B), so `core/` stays React-free.
 ```ts
-export interface ChallengeType<TData = unknown, TAnswer = unknown> {
-  id: string;                      // "math.count-objects"
-  subject: SubjectId;              // "math" | "german" | ...
-  skills: SkillId[];               // e.g. ["math.counting.1-10"]
+export interface ChallengeType<TData> {
+  id: string;                      // "math.count"
+  subject: SubjectId;              // "math" | "german"
+  skills: readonly string[];       // for the skill model (M4)
   levels: number;                  // 1..levels
-  generate(ctx: { rng: Rng; level: number; content: ContentRepo }): ChallengeInstance<TData>;
-  check(instance: ChallengeInstance<TData>, answer: TAnswer): CheckResult; // correct + hint level
-  View: React.ComponentType<ChallengeViewProps<TData, TAnswer>>;           // presentation
-  speech(instance: ChallengeInstance<TData>): SpeechLine[];               // what the guide says
+  generate(ctx: { rng: Rng; level: number }): ChallengeInstance<TData>;
+}
+interface ChallengeInstance<TData> {
+  typeId; level; data: TData;      // what the view draws
+  choices: Choice[]; correctChoiceId: string;   // tappable answers
+  prompt: SpeechLine; explanation: SpeechLine;  // template key + slots (ADR-0003)
 }
 ```
-Each module registers itself in `modules/challenges/index.ts`. Adding a challenge =
-one folder + one line of registration + tests. Every module ships a generator property
-test ("for 1000 seeds × each level: instance is valid and solvable").
+- Generic answer flow (`core/challenges/attempt.ts`): correct / tryAgain / hint / reveal
+  and stars, shared by all types (game-design §6.4).
+- Distractor helper: `core/challenges/choices.ts`.
+- German speech templates: `src/content/de/speech.ts` (`speechText(line)`).
+- Registry: `src/modules/challenges/index.ts`. Adding a challenge = one folder + one
+  registry line + view + speech templates. `challenges.test.ts` runs a generic property
+  test over every registered type (1000 seeds × every level: valid, solvable, all speech
+  keys have templates).
 
 ### 3.2 Worlds / themes (`src/modules/worlds/<id>/`)
 A world declares: tile set (meshes/materials), palette, music, station prop, maze size
@@ -115,4 +124,5 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Avatars | `src/render/avatars/animals.ts` | procedural animals (ADR-0006) |
 | Speech | `src/audio/speech.ts` | Web Speech fallback, local German voices only |
 | World | `src/modules/worlds/forest` | theme colours + maze size |
+| Challenges | `src/core/challenges`, `src/modules/challenges/{math-count,math-addition}` | M2 PR A; no UI yet |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

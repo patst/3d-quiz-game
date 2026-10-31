@@ -1,29 +1,38 @@
-# ADR-0003: Audio-first instructions with pre-generated German speech
+# ADR-0003: Spoken instructions — build-time neural TTS clips, browser TTS fallback
 
-- **Status:** Proposed
+- **Status:** Proposed (revised 2026-10-31 after owner asked to evaluate on-the-fly TTS)
 - **Date:** 2026-10-31
 - **Deciders:** owner (pending), agent
 
 ## Context
-Many 5–6 year olds cannot read. Every instruction must be spoken. Challenges are
-auto-generated, so the set of sentences is large but structured.
+Pre-readers must hear every instruction. Challenges are auto-generated, so sentences vary.
+Owner asked whether speech can be generated **on the fly in the browser**.
 
 ## Options considered
-1. **Browser Web Speech API** at runtime — zero assets, but German voice quality and
-   availability vary wildly across devices (some Android/desktop have none), offline unreliable.
-2. **Cloud TTS at runtime** — good quality, but needs network, costs, and sends data off
-   device (privacy issue for kids' app).
-3. **Offline TTS at build time** (e.g. Piper, open-source German voices) → static audio
-   files. Generated prompts are built from **sentence templates + clips** (numbers 0–100,
-   words from the word bank).
-4. Human recordings — best quality, but not agentic-friendly; can replace (3) later file by file.
+| Option | Quality | Offline | Download | Privacy | Notes |
+|---|---|---|---|---|---|
+| A. **Web Speech API** (`speechSynthesis`, OS voices) | Varies: decent on iOS/macOS ("Anna"), Windows, most Android; robotic or missing on some devices | Only with local voices | 0 | Some voices are cloud voices (e.g. Chrome desktop "Google Deutsch" sends text to Google) — filter on `voice.localService` | Truly on the fly, any sentence. Voice differs per device. |
+| B. **Neural TTS in the browser** (Piper/VITS model via ONNX Runtime Web / WASM) | Good, identical everywhere | Yes, after download | ~20–75 MB per German voice + runtime | Fully local | On the fly, but heavy first download for phones; synthesis latency on low-end devices |
+| C. **Build-time neural TTS** (same Piper voice, run in CI) → static audio clips | Good, identical everywhere | Yes | Small (all v1 clips ≈ 1–3 MB) | Fully local | Needs sentences known at build time |
+| D. Cloud TTS at runtime | Very good | No | 0 | Sends data off device | Violates ADR-0004 |
+| E. Human recordings | Best | Yes | Small | Local | Not agentic; can replace C clip by clip later |
+
+Key insight: generated **math** prompts are combinations of a small template set and
+numbers 0–100 (+ picture nouns like "Äpfel"). Every possible sentence can be stitched
+from pre-generated clips, so on-the-fly generation is not *needed* for v1.
 
 ## Decision (proposed)
-Option 3, with Web Speech API as fallback for missing clips during development. Audio
-manifest keyed by string id; a CI check fails if a string has no audio.
+- **Primary: C.** Prompts are expressed as `SpeechLine` = template id + slots; the audio
+  layer plays clip sequences. A CI step generates/updates clips; a check fails if a
+  template or slot value has no clip.
+- **Fallback: A.** If a clip is missing (e.g. new content during development), use
+  `speechSynthesis` with a **local** German voice; if none exists, show text only.
+- **Not now: B.** Revisit when German challenges need free-form sentences that cannot be
+  stitched, or as an optional "download better voice" setting. The audio layer has one
+  `SpeechProvider` interface so B can be added without touching challenges.
 
 ## Consequences
-- Challenge generators must express prompts as `SpeechLine[]` (template id + slots), not
-  free text.
-- A script `scripts/generate-audio` is part of the content pipeline.
-- Owner may later swap in recorded voices for the guide character.
+- Consistent, child-friendly voice on all devices with a tiny download.
+- `scripts/generate-audio` + CI job; voice model downloaded in CI only, never shipped.
+- Stitched sentences may sound slightly choppy; mitigate with whole-sentence clips for
+  the most frequent prompts.

@@ -1,8 +1,8 @@
 # ADR-0002: Three.js + TypeScript + React UI overlay as game stack
 
-- **Status:** Proposed
+- **Status:** Accepted (owner, 2026-10-31)
 - **Date:** 2026-10-31
-- **Deciders:** owner (pending), agent
+- **Deciders:** owner, agent
 
 ## Context
 Requirements: 3D comic look, runs in mobile + desktop browsers, small download, extensible,
@@ -20,7 +20,7 @@ disfavours editor-centric engines with binary scene files.
 | Godot (web export) | Real engine, editor, good 2D/3D | 30–40 MB WASM download, slow start on phones, iOS Safari quirks, scene files edited best in editor |
 | Unity WebGL | Mature | Heavy builds, poor mobile web, binary assets, editor-dependent — bad fit |
 
-## Decision (proposed)
+## Decision
 - **Three.js** for the 3D maze world, wrapped in `src/render/`.
 - **React (DOM overlay)** for all 2D UI incl. challenge screens: crisp text, big
   accessible buttons, easy layout across phone/desktop, easy to test.

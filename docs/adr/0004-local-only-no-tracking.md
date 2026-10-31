@@ -1,15 +1,15 @@
 # ADR-0004: Local-only data, no accounts, no tracking
 
-- **Status:** Proposed
+- **Status:** Accepted (owner, 2026-10-31)
 - **Date:** 2026-10-31
-- **Deciders:** owner (pending), agent
+- **Deciders:** owner, agent
 
 ## Context
 Users are young children in Germany (DSGVO / GDPR, Art. 8 consent for children's data).
 A backend adds cost, legal duties and operational work.
 
-## Decision (proposed)
-- Static site, no backend. All progress in IndexedDB on the device.
+## Decision
+- Static site, no backend. All progress in IndexedDB on the device (persistent; not `sessionStorage`, which is cleared when the tab closes). Hosting: see ADR-0005.
 - No analytics, no ads, no third-party requests at runtime (fonts/assets self-hosted).
 - Export/import of a save file for backup / moving devices.
 

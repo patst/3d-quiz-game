@@ -15,7 +15,7 @@
 | Offline / install | PWA via `vite-plugin-pwa` |
 | Tests | Vitest (unit, core logic), Playwright (E2E smoke on mobile + desktop viewports) |
 | Lint/format | ESLint + Prettier |
-| CI/CD | GitHub Actions → GitHub Pages (static hosting) |
+| CI/CD | GitHub Actions → GitHub Pages, preview per PR (ADR-0005) |
 
 ## 2. Layering
 ```
@@ -73,15 +73,16 @@ challenges or rewards.
 ## 4. Content pipeline
 - `content/de/strings.ts` — every UI/speech text, keyed.
 - `content/words/*.json` — word bank: `{ word, syllables, initialSound, rhymeGroup, image, audio }`.
-- Speech audio is **generated at build/dev time** from text by an offline TTS
-  (candidate: Piper with a German voice) into `public/audio/`, listed in a manifest.
-  Generated challenge prompts are composed from fixed sentence templates + number/word
-  clips so that every possible sentence has audio. (ADR-0003)
+- Speech audio is **generated at build time** by an offline neural TTS (Piper, German
+  voice) into `public/audio/`, listed in a manifest. Generated prompts are composed from
+  fixed sentence templates + number/word clips so every possible sentence has audio.
+  Fallback: browser `speechSynthesis` with a local German voice. All behind one
+  `SpeechProvider` interface so in-browser neural TTS can be added later. (ADR-0003)
 - Art: CC0 asset packs (e.g. Kenney, Quaternius) + procedural geometry with a shared
   toon material and outline pass. Licenses tracked in `ASSETS.md`.
 
 ## 5. Persistence
-Local only (ADR-0004). One save document per child profile:
+Local only (ADR-0004). Save keys namespaced per deployment (main vs. PR preview, ADR-0005). One save document per child profile:
 `{ version, profile, inventory, skillModel, progress, settings }`. Migrations in
 `core/save/migrations.ts`. Export/import as file for backup.
 
@@ -99,4 +100,5 @@ content/
 public/audio/ public/models/
 tests/e2e/
 docs/ (game-design, architecture, adr/, roadmap, open-questions)
+.github/workflows/ ci.yml deploy.yml pr-preview.yml
 ```

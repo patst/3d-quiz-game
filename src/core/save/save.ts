@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 6;
+export const SAVE_VERSION = 7;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -77,6 +77,15 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
     profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({
       ...p,
       disabledChallenges: [],
+    })),
+  }),
+  // v6 → v7: maze levels. All mazes so far were in the forest.
+  6: (doc) => ({
+    ...doc,
+    version: 7,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({
+      ...p,
+      levels: { forest: typeof p.mazesCompleted === 'number' ? p.mazesCompleted : 0 },
     })),
   }),
 };

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { playPling } from '../../audio/sfx';
+import { playFanfare, playPling } from '../../audio/sfx';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import { generateMaze } from '../../core/maze/generate';
@@ -15,6 +15,7 @@ import { RewardPicker } from '../rewards/RewardPicker';
 import { StarJar } from '../rewards/StarJar';
 import { Wardrobe } from '../rewards/Wardrobe';
 import { MazeSession, type Chest } from '../../core/session/mazeSession';
+import { currentLevel, levelSpec } from '../../core/progress/levels';
 import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
 import { getChallengeType } from '../../modules/challenges';
 import { getWorld } from '../../modules/worlds';
@@ -27,7 +28,7 @@ interface Props {
   breakDue: boolean;
   onHome: () => void;
   onStars: (stars: number) => void;
-  onMazeCompleted: () => void;
+  onMazeCompleted: (worldId: string) => void;
   onChooseReward: (itemId: string | null) => void;
   onToggleEquip: (itemId: string) => void;
   onRescue: (animal: LostAnimal) => void;
@@ -74,6 +75,11 @@ export function GameScreen({
   const equippedRef = useRef(profile.equipped);
   const rescuedRef = useRef(profile.rescued);
   const skillsRef = useRef(profile.skills);
+  const levelsRef = useRef(profile.levels);
+  useEffect(() => {
+    levelsRef.current = profile.levels;
+  }, [profile.levels]);
+  const [level, setLevel] = useState(1);
   const disabledRef = useRef(profile.disabledChallenges);
   useEffect(() => {
     disabledRef.current = profile.disabledChallenges;
@@ -106,6 +112,8 @@ export function GameScreen({
     const container = containerRef.current;
     if (!container) return;
     const world = getWorld('forest');
+    const spec = levelSpec(currentLevel(levelsRef.current[world.id]));
+    setLevel(spec.level);
     const forced = seedFromUrl();
     const seed = forced !== null ? forced + round : randomSeed();
     const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
@@ -121,9 +129,11 @@ export function GameScreen({
         startLevel: c.startLevel,
       })),
       skillsRef.current,
-      world.chests.count,
+      spec.chests,
     );
-    const session = new MazeSession(generateMaze({ ...world.maze, seed }), { chests });
+    const session = new MazeSession(generateMaze({ cols: spec.cols, rows: spec.rows, braid: world.maze.braid, seed }), {
+      chests,
+    });
     sessionRef.current = session;
     container.dataset.goalTile = `${session.maze.goal.x},${session.maze.goal.y}`;
     if (forced !== null && session.chests.length > 0) {
@@ -151,9 +161,10 @@ export function GameScreen({
           setOpenChest({ chest: session.chest(ev.chestId), visit: ++visits });
         } else if (ev.type === 'goalReached') {
           setGoalStars(session.starsEarned);
+          playFanfare();
           speech().speak(de.lostAnimals[animal].speakGoal);
           callbacks.current.onRescue(animal);
-          callbacks.current.onMazeCompleted();
+          callbacks.current.onMazeCompleted(world.id);
         }
       },
     });
@@ -193,6 +204,9 @@ export function GameScreen({
           🏠
         </button>
         <button className="guide-bubble" onClick={() => speech().speak(de.lostAnimals[lostAnimal].speakStart)}>
+          <span className="level-pill" data-testid="level">
+            {de.levels.badge(level)}
+          </span>
           <span aria-hidden>🦉</span> {de.lostAnimals[lostAnimal].hint}
         </button>
         <div className="hud-right">
@@ -252,6 +266,10 @@ export function GameScreen({
             </div>
             <h2>{de.game.goalTitle}</h2>
             <p>{de.lostAnimals[lostAnimal].goalText}</p>
+            <p className="level-done">🏆 {de.levels.done(level)}</p>
+            {levelSpec(level + 1).cols * levelSpec(level + 1).rows > levelSpec(level).cols * levelSpec(level).rows && (
+              <p className="hint-text">{de.levels.bigger}</p>
+            )}
             <p className="stars-won">⭐ {de.game.goalStars(goalStars)}</p>
             <div className="button-row">
               <button className="button secondary" aria-label={de.game.home} onClick={onHome}>
@@ -264,7 +282,7 @@ export function GameScreen({
                   setRound((r) => r + 1);
                 }}
               >
-                {de.game.nextMaze}
+                {de.levels.next(level + 1)}
               </button>
             </div>
           </div>

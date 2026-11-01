@@ -3,9 +3,8 @@ import type { WorldTheme } from '../types';
 /** v1 world: "Zauberwald" hedge maze (game-design §3). */
 export const forestWorld: WorldTheme = {
   id: 'forest',
-  maze: { cols: 5, rows: 5, braid: 0.35 },
+  maze: { braid: 0.35 },
   chests: {
-    count: 3,
     challenges: [
       { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
       { typeId: 'math.find-number', startLevel: 1 }, // 1–10

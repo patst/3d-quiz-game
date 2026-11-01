@@ -38,7 +38,6 @@ export const de = {
     home: 'Zurück zum Start',
 
     goalTitle: 'Juhu!',
-    nextMaze: 'Neues Labyrinth',
     controlsHint: 'Tippe auf den Weg, um zu laufen.',
     starsTotal: (n: number) => `${n} Sterne`,
     goalStars: (n: number) =>
@@ -104,6 +103,7 @@ export const de = {
     title: 'Elternbereich',
     profiles: 'Kinder',
     name: 'Name',
+    levelLine: (level: number) => `Labyrinth-Level ${level}`,
     stats: (stars: number, mazes: number, friends: number, items: number) =>
       [
         `${stars} ${stars === 1 ? 'Stern' : 'Sterne'}`,
@@ -149,6 +149,12 @@ export const de = {
     title: 'Zeit für eine Pause!',
     text: 'Super gespielt! Deine Tierfreunde warten bis zum nächsten Mal auf dich.',
     speak: 'Super gespielt! Jetzt ist Zeit für eine Pause. Bis bald!',
+  },
+  levels: {
+    badge: (n: number) => `Level ${n}`,
+    done: (n: number) => `Level ${n} geschafft!`,
+    next: (n: number) => `Weiter zu Level ${n}`,
+    bigger: 'Das nächste Labyrinth wird größer!',
   },
   rewards: {
     jarLabel: (n: number) => `Sternenglas: ${n} von 10`,

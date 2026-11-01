@@ -1178,3 +1178,36 @@ button {
     transform: scale(1) rotate(0);
   }
 }
+
+/* ---------- levels ---------- */
+.guide-bubble {
+  position: relative;
+}
+
+.level-pill {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  padding: 1px 10px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #fff;
+  background: #3a86ff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+.level-done {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #3a86ff;
+  margin: 4px 0;
+}
+
+.profile-level {
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: #ffffffcc;
+  border-radius: 999px;
+  padding: 1px 10px;
+}

@@ -22,6 +22,7 @@ export function ProfileSelectScreen({ profiles, onSelect, onNew, onParents }: Pr
                 {animalIcons[p.avatar.animal]}
               </span>
               <span className="profile-name">{p.name || de.animals[p.avatar.animal]}</span>
+              <span className="profile-level">{de.levels.badge(Math.max(1, ...Object.values(p.levels ?? {}).map((n) => n + 1)))}</span>
             </button>
           </li>
         ))}

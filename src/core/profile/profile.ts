@@ -40,6 +40,8 @@ export interface Profile {
   skills: Record<string, SkillState>;
   /** Challenge type ids switched off by parents (e.g. reading for pre-readers). */
   disabledChallenges: string[];
+  /** Finished mazes per world id; level = finished + 1 (roadmap M8). */
+  levels: Record<string, number>;
 }
 
 export const MAX_PROFILES = 6;
@@ -61,5 +63,6 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     pet: null,
     skills: {},
     disabledChallenges: [],
+    levels: {},
   };
 }

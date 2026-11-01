@@ -131,6 +131,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.14 (2026-11-01): M8 maze levels — level per child and world = finished mazes + 1. Level 1 is 4×4 cells, +1 row/column per level up to 9×9 (level 11); 3 chests, 4 from level 5, 5 from level 8. Level badge on the guide bubble and on the profile card; goal shows "Level N geschafft!" with a fanfare and "Weiter zu Level N+1".
 - v1.13 (2026-11-01): voice switched to Piper "Thorsten high" (clearer German; the cheerful emotional voice mispronounced words). A paid TTS (child voice) stays an option (roadmap M12). Playtest successful; next: maze levels, underwater world, tree house.
 - v1.12 (2026-11-01, owner feedback): correct answers play a random cheerful jingle + confetti and show a random praise word (Toll!, Spitze!, …) instead of the spoken "Super gemacht!"; soft bloop on wrong answers, fanfare for a full star jar, pling for chests; parents can switch sounds off. Heart/sparkle trails larger, camera-facing, with white border. Number hint: one row of ten dots (5+5) per ten, ones in the last row.
 - v1.11 (2026-11-01): M7 — installable PWA, offline after the first visit (voice clips cached when played or via "Stimme für offline speichern"); optional play-time limit (15/20/30/45 min) set by parents: a friendly break screen appears after the current challenge, parents can end the break in the parents area.

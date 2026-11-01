@@ -115,6 +115,7 @@ export function ParentsArea({
                 />
               </label>
               <small>{de.parents.stats(p.stars, p.mazesCompleted, p.rescued.length, p.inventory.length)}</small>
+              <small>{de.parents.levelLine(Math.max(1, ...Object.values(p.levels).map((n) => n + 1)))}</small>
               <SkillList profile={p} />
               <details className="challenge-toggles">
                 <summary>{de.parents.challengesTitle}</summary>

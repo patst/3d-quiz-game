@@ -150,8 +150,14 @@ export function App() {
             }),
           )
         }
-        onMazeCompleted={() =>
-          update((d) => updateProfile(d, active.id, (p) => ({ ...p, mazesCompleted: p.mazesCompleted + 1 })))
+        onMazeCompleted={(worldId) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => ({
+              ...p,
+              mazesCompleted: p.mazesCompleted + 1,
+              levels: { ...p.levels, [worldId]: (p.levels[worldId] ?? 0) + 1 },
+            })),
+          )
         }
       />
     );

@@ -36,6 +36,7 @@ export function profileFixture(overrides: Record<string, unknown> = {}) {
     pet: null,
     skills: {},
     disabledChallenges: [],
+    levels: {},
     ...overrides,
   };
 }

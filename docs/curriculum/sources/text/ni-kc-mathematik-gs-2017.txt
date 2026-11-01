@@ -1,0 +1,2168 @@
+Kerncurriculum
+für die Grundschule
+Schuljahrgänge 1 – 4
+
+
+
+
+Mathematik
+An der Weiterentwicklung des Kerncurriculums für das Unterrichtsfach Mathematik in den Schuljahr-
+gängen 1 - 4 waren die nachstehend genannten Personen beteiligt:
+
+
+
+Heike Buddenberg, Osnabrück
+
+Annemarie Engels, Osnabrück
+
+Silke Feltrup, Celle
+
+Ricarda Hedtfeld, Vechta
+
+Dr. Meike Lierse, Hannover
+
+Adina Müller, Oldenburg
+
+
+
+
+Die Ergebnisse des gesetzlich vorgeschriebenen Anhörungsverfahrens sind berücksichtigt worden.
+
+
+
+
+Herausgegeben vom Niedersächsischen Kultusministerium (2017)
+
+30159 Hannover, Schiffgraben 12
+
+
+
+
+Druck:
+
+unidruck
+
+Weidendamm 19
+
+30167 Hannover
+
+
+
+
+Das Kerncurriculum kann als “PDF-Datei” vom Niedersächsischen Bildungsserver (NIBIS)
+
+(http://www.cuvo.nibis.de) heruntergeladen werden.
+Inhalt                                                                        Seite
+1        Bildungsbeitrag des Faches                                            5
+2        Kompetenzorientierter Unterricht                                      6
+2.1      Kompetenzbereiche                                                     6
+2.1.1    Prozessbezogene Kompetenzen                                           7
+2.1.2    Inhaltsbezogene Kompetenzen                                           9
+2.2      Kompetenzentwicklung                                                 11
+2.2.1    Wesentliche Aspekte der Unterrichtsgestaltung                        12
+2.2.2    Aufgaben und Anforderungsbereiche                                    15
+2.2.3    Üben und Entdecken                                                   15
+2.2.4    Sicherung von Basiskompetenzen                                       16
+2.3      Der Beitrag des Mathematikunterrichts zu fachübergreifenden
+         Bildungsbereichen                                                    16
+2.4      Individualisierung                                                   19
+3        Erwartete Kompetenzen                                                21
+3.1      Prozessbezogene Kompetenzen                                          22
+3.1.1    Mathematisches Kommunizieren                                         22
+3.1.2    Mathematisches Argumentieren                                         23
+3.1.3    Mathematisches Darstellen                                            24
+3.1.4    Mathematisches Problemlösen                                          25
+3.1.5    Mathematisches Modellieren                                           26
+3.2      Inhaltsbezogene Kompetenzen                                          27
+3.2.1    Zahlen und Operationen                                               27
+3.2.2    Raum und Form                                                        32
+3.2.3    Größen und Messen                                                    35
+3.2.4    Daten und Zufall                                                     37
+3.3      Zusammenführung von Kompetenzen                                      39
+4        Leistungsfeststellung und Leistungsbewertung                         41
+5        Aufgaben der Fachkonferenz                                           44
+
+Anhang
+(A1)     Operatoren                                                           45
+(A2)     Beispiel für ein Aufgabenformat zur natürlichen Differenzierung im
+         inklusiven Unterricht                                                47
+(A3)     Voraussetzungen für das Mathematiklernen                             49
+(A4)     Glossar                                                              51
+(A5)     Fachbegriffe und Zeichen                                             55
+1       Bildungsbeitrag des Faches
+
+Die Mathematik und ihre Art der Erkenntnisgewinnung sind eine historisch gewachsene kulturelle Er-
+rungenschaft. Mathematische Begriffe und Methoden entwickelten sich an Fragestellungen und Prob-
+lemen, die auch an gesellschaftliche und praktische Interessen gebunden sind. Mathematik ist kein
+abgeschlossener Wissenskanon, sondern lebendiges und fantasievolles Handeln, das auf menschli-
+cher Kreativität, Ästhetik und Rationalität beruht.
+
+Mathematik begegnet den Schülerinnen und Schülern überall in der sie umgebenden Welt. Durch den
+Mathematikunterricht in der Grundschule erwerben die Schülerinnen und Schüler anwendungsfähiges
+fachliches Wissen und Können sowie Fähigkeiten und Einstellungen, die ihnen helfen, in ihrem Alltag
+zunehmend handlungsfähig zu sein und ihre Lebenswelt mathematisch zu durchdringen. Die Schüle-
+rinnen und Schüler lernen im Sinne der Anwendungsorientierung, mathematisch erfassbare Aspekte
+in ihrer Lebenswelt zu erklären und sie in die Sprache der Mathematik zu übertragen. Mathematik
+erleichtert den Schülerinnen und Schülern die Orientierung in einer durch Technik und Fortschritt ge-
+prägten Welt und ermöglicht dadurch die aktive Teilnahme am gesellschaftlichen Leben und verant-
+wortliches Verhalten. Im Sinne der fachübergreifenden Bildungsbereiche Bildung für nachhaltige Ent-
+wicklung, Mobilität und Verbraucherbildung können soziale, ökologische, ökonomische und politische
+Zusammenhänge unter Verwendung mathematischer Begriffe und Methoden beschrieben werden.
+Der Unterricht im Fach Mathematik sensibilisiert dafür, wechselseitige Abhängigkeiten zu erkennen,
+Wertmaßstäbe für eigenes Handeln und ein Verständnis für gesellschaftliche Entscheidungen zu ent-
+wickeln. Darüber hinaus leistet der Mathematikunterricht einen Beitrag zu einer positiven Grundhal-
+tung im mathematisch-naturwissenschaftlichen und technologischen Bereich (MINT) und gegenüber
+anderen fachübergreifenden Bildungsbereichen (vgl. 2.3).
+
+In einer diskursiven Unterrichtskultur fördert der Mathematikunterricht die intellektuelle Entwicklung
+und trägt maßgeblich zur allgemeinen Denkentwicklung bei. Dieses geschieht im Sinne der Strukturo-
+rientierung unter anderem durch das Erkunden und Untersuchen von Zusammenhängen, das Entwi-
+ckeln und Sichtbarmachen von Mustern und Strukturen, das Systematisieren und Verallgemeinern
+von Einzelfällen sowie das Begründen von Aussagen. Dadurch bilden die Schülerinnen und Schüler
+zunehmend eine Fragehaltung aus und schärfen ihre Wahrnehmungs- und Kritikfähigkeit. Sie erwei-
+tern ihre Fähigkeiten in Bezug auf planvolles und strukturiertes Vorgehen, Entwicklung von Alternati-
+ven sowie auf die systematische Überprüfung zuvor aufgestellter Vermutungen. Der Erwerb inhaltsbe-
+zogener Kompetenzen (vgl. 3.2) im Mathematikunterricht ist somit nicht Selbstzweck, sondern dient im
+Wesentlichen auch der Herausbildung übergreifender prozessbezogener Kompetenzen (vgl. 3.1).
+
+Der Mathematikunterricht in der Grundschule knüpft an die individuellen Lernvoraussetzungen, ma-
+thematischen Alltagserfahrungen und Denkstrukturen der Schülerinnen und Schüler an und führt die
+in den vorschulischen Einrichtungen geleistete Arbeit fort. Er stärkt die Schülerpersönlichkeit, vermit-
+telt Selbstvertrauen und fördert eine positive Grundeinstellung zur Mathematik. Dabei regt ein Mathe-
+matikunterricht, der wesentliche Aspekte der Unterrichtsgestaltung berücksichtigt (vgl. 2.2.), zu vertie-
+fenden mathematischen Aktivitäten an und fördert das selbstständige, systematische und
+selbstreflektierte Arbeiten und Denken.
+
+
+
+
+                                                      5
+                                                      5
+2         Kompetenzorientierter Unterricht
+
+Im Kerncurriculum des Faches Mathematik werden die Zielsetzungen des Bildungsbeitrags durch
+verbindlich erwartete Lernergebnisse konkretisiert und als Kompetenzen formuliert. Dabei werden im
+Sinne eines Kerns die als grundlegend und unverzichtbar erachteten fachbezogenen Kenntnisse,
+Fähigkeiten und Fertigkeiten beschrieben.
+
+Kompetenzen weisen folgende Merkmale auf:
+
+      •   Sie zielen auf die erfolgreiche und verantwortungsvolle Bewältigung von Aufgaben und Prob-
+          lemstellungen ab.
+      •   Sie verknüpfen Kenntnisse, Fähigkeiten und Fertigkeiten zu eigenem Handeln. Die Bewälti-
+          gung von Aufgaben setzt gesichertes Wissen und die Beherrschung fachbezogener Verfahren
+          voraus sowie die Bereitschaft und Fähigkeit, diese gezielt einzusetzen.
+      •   Sie stellen eine Zielperspektive für längere Abschnitte des Lernprozesses dar.
+      •   Sie sind für die lebenslange persönliche Bildung von Bedeutung und ermöglichen anschluss-
+          fähiges Lernen.
+
+Die erwarteten Kompetenzen werden in Kompetenzbereichen zusammengefasst. Aufgabe des Ma-
+thematikunterrichts ist es, die Kompetenzentwicklung der Schülerinnen und Schüler anzuregen, zu
+unterstützen, zu fördern und langfristig zu sichern. Gleiches gilt für die überfachlichen Kompetenzen
+im personalen, sozialen und methodischen Bereich.
+
+
+
+2.1       Kompetenzbereiche
+
+Die Bewältigung mathematischer Problemsituationen erfordert ein Zusammenspiel von prozessbezo-
+genen und inhaltsbezogenen Kompetenzen. Von besonderer Bedeutung im Unterricht sind die pro-
+zessbezogenen Kompetenzen, die in der Auseinandersetzung mit konkreten mathematischen Inhalten
+erworben werden.
+
+Dieser Sachverhalt wird in Anlehnung an die von der Kultusministerkonferenz verabschiedeten Bil-
+dungsstandards im Fach Mathematik für den Primarbereich (2005) durch die untenstehende Grafik
+dargestellt (siehe Abb. 1). Der inhaltsbezogene Kompetenzbereich Muster und Strukturen ist als fach-
+liches Grundkonzept in allen übrigen inhaltsbezogenen Kompetenzbereichen enthalten. Die Kompe-
+tenzen werden im wechselseitigen Bezug zwischen Anwendungsorientierung und Strukturorientierung
+erworben (vgl. 1).
+
+
+
+
+                                                    6
+                                                    6
+               (Abb. 1)
+
+
+
+2.1.1   Prozessbezogene Kompetenzen
+
+Mathematisches Kommunizieren
+
+Kommunizieren im Mathematikunterricht beinhaltet die Fähigkeit, eigene Vorgehensweisen zu be-
+schreiben und Lösungswege anderer zu verstehen. Die Schülerinnen und Schüler reflektieren ge-
+meinsam über die Sache und über das eigene Denken. Der Austausch über mathematische Sachver-
+halte fördert deren Verständnis und regt Schülerinnen und Schüler an, eigene Gedanken verständlich
+mitzuteilen und Überlegungen anderer nachzuvollziehen. Kommunizieren erfordert auch die Bereit-
+schaft, Aufgaben gemeinsam zu bearbeiten und dabei Verabredungen zu treffen und einzuhalten. Die
+Schülerinnen und Schüler lernen dabei, andere Standpunkte nachzuvollziehen und mit unterschiedli-
+chen Ansichten und Urteilen konstruktiv umzugehen. Mathematische Fachbegriffe und Zeichen dienen
+dabei als Grundlagen fachgerechter Verständigung und müssen sukzessive aufgebaut und sachge-
+recht genutzt werden.
+
+
+
+Mathematisches Argumentieren
+
+Argumentieren im Mathematikunterricht hebt sich vom mathematischen Kommunizieren ab. Mathema-
+tische Aussagen werden hinterfragt und auf Korrektheit geprüft, Zusammenhänge erkannt und Vermu-
+tungen entwickelt sowie Begründungen gesucht und nachvollzogen. Beim Argumentieren werden
+
+
+
+
+                                                7
+                                                7
+unter anderem erkannte Muster und Regelhaftigkeiten sowie wesentliche mathematische Gesetze zur
+Begründung eines Sachverhaltes aufgegriffen. Zeichnerische Lösungen und der Einbezug konkreter
+Materialien (wie zum Beispiel Plättchen) sind beim Argumentieren wichtige Hilfen. Mathematisches
+Argumentieren ist häufig in Modellierungs- und Problemlöseprozesse eingebunden. Eigene und frem-
+de mathematische Behauptungen kritisch zu hinterfragen, Beispiele und Gegenbeispiele sowie über-
+zeugende Argumente zu suchen, muss im Unterricht gefördert, gefordert und als Haltung verinnerlicht
+werden.
+
+
+
+Mathematisches Darstellen
+
+Mathematisches Arbeiten erfordert das Erstellen, die Auswahl und das Interpretieren von Darstellun-
+gen sowie das Nutzen geeigneter Arbeitsmittel. Außerdem ist der flexible Wechsel von Darstellungen
+                                                                        1
+zwischen verschiedenen Repräsentationsebenen (intermodaler Transfer) sowie zwischen ein und
+derselben Repräsentationsebene (intramodaler Transfer) unerlässlich. Zu den Darstellungen gehören
+Texte und Bilder, Strichlisten, Tabellen und Diagramme, Zeichnungen und Skizzen, Gleichungen und
+Terme sowie geometrische Figuren. Geeignete Darstellungen strukturieren und dokumentieren die
+eigenen Überlegungen der Schülerinnen und Schüler. Sie helfen ihnen, ihre Denkprozesse nachvoll-
+ziehbar zu präsentieren.
+
+
+
+Mathematisches Problemlösen
+
+In einem die Problemlösefähigkeit fördernden Mathematikunterricht bearbeiten die Schülerinnen und
+Schüler Aufgaben, für die ihnen kein unmittelbarer Lösungsweg zur Verfügung steht. Dabei erschlie-
+ßen sie Zusammenhänge, stellen Vermutungen an, entwickeln und nutzen erste heuristische Strate-
+gien, probieren systematisch, prüfen, übertragen, variieren und erfinden. Eine besondere Bedeutung
+kommt hierbei dem gemeinsamen Reflektieren über Lösungswege und der damit verbundenen Ent-
+wicklung der Problemlösefähigkeit zu. Bei der Bearbeitung von Problemen können Schülerinnen und
+Schüler erfahren, dass sich Anstrengungsbereitschaft und Durchhaltevermögen lohnen und zu Erfolg
+und Selbstvertrauen führen.
+
+
+
+Mathematisches Modellieren
+
+Das Modellieren ist das Bindeglied zwischen Lebenswelt und Mathematik. Probleme aus der Lebens-
+wirklichkeit der Schülerinnen und Schüler werden in die Sprache der Mathematik übersetzt und in-
+nermathematisch gelöst. Die Lösung wird dann auf das reale Problem rückbezogen. Mathematische
+Modelle können vielseitig sein: z. B. Terme und Gleichungen, geometrische Figuren, Experimente
+(u.a. Zufallsversuche). Ein vereinfachtes mathematisches Modell kann dabei nur gewisse Teilaspekte
+
+
+1
+    Kursiv gedruckte Begriffe sind im Glossar aufgeführt.
+
+
+
+
+                                                            8
+                                                            8
+der Realität abbilden. Der Modellierungskreislauf ist eine Modellvorstellung von Prozessen, die beim
+Modellieren durchlaufen werden könnten. Dieser umfasst mehrere Teilprozesse: relevante Informatio-
+nen entnehmen, ein Realmodell aufstellen, ein geeignetes mathematisches Modell finden (mathemati-
+sieren), mithilfe des Modells zu einer innermathematischen Lösung kommen und anschließend die
+Lösung auf die Ausgangssituation beziehen (interpretieren) sowie auf Angemessenheit überprüfen
+(validieren) (siehe Abb.2). Zwischen den Teilprozessen kann immer wieder gewechselt oder auf ein-
+zelne Teilprozesse besonders fokussiert werden. So können zunächst auch nur Teilkompetenzen
+angebahnt werden. Allerdings müssen auch die Modellierungskompetenzen des gesamten Kreislau-
+fes gefördert werden. Eine gute Modellierungsaufgabe ist offen, komplex, authentisch, problemhaltig
+und kann durch das (ggf. auch wiederholte) Ausführen des Modellierungsprozesses gelöst werden.
+
+
+
+
+               (Abb.2: )
+
+
+
+2.1.2   Inhaltsbezogene Kompetenzen
+
+Muster und Strukturen
+
+Mathematik wird häufig als „Wissenschaft der Muster“ beschrieben. Damit Schülerinnen und Schüler
+Kompetenzen in diesem Bereich aufbauen können, ist es notwendig, dass sie Gelegenheit bekom-
+men, Muster und Strukturen zu erkennen, zu beschreiben, aktiv zu erforschen, fortzusetzen, umzuge-
+stalten und selbst zu erzeugen. Schülerinnen und Schüler, die gelernt haben, Muster und Strukturen
+zu nutzen und funktionale Zusammenhänge zu erkennen, können mathematische Anforderungen
+besser bewältigen und flexibler reagieren, weil Muster das Denken ökonomischer machen und von
+unnötigen Gedächtnisleistungen entlasten.
+
+
+
+                                                 9
+                                                 9
+Beim Entdecken von Mustern und Strukturen ist die Verwendung von kleinen Zahlen oder Zahlenräu-
+men häufig sinnvoll, um das Entdecken von Zusammenhängen und Beziehungen nicht durch unnötig
+hohe rechnerische Anforderungen zu erschweren, die in solchen Fällen nicht im Mittelpunkt stehen,
+wohl aber mitgefördert werden.
+
+Im Unterricht werden nicht nur Gesetze, Beziehungen und Strukturen aus dem Bereich Zahlen und
+Operationen aufgedeckt, sondern auch aus den Bereichen Raum und Form, Größen und Messen
+sowie Daten und Zufall. Aufgrund der vielfältigen Verbindungen zu den anderen inhaltsbezogenen
+Kompetenzbereichen werden die erwarteten Kompetenzen zu Muster und Strukturen in den grau hin-
+terlegten Bereichen ausgewiesen (vgl. 3.2).
+
+
+
+Zahlen und Operationen
+
+Zahlen sind Bestandteil des täglichen Lebens. Eine tragfähige Zahlvorstellung und ein sicheres Ope-
+rationsverständnis bilden die zentralen Grundlagen für das weitere Mathematiklernen, die durch kon-
+krete Handlungen und eine fortschreitende Abstrahierung gebildet werden. Auf dieser Basis werden
+mündliche und halbschriftliche Rechenstrategien unter Ausnutzung von Zusammenhängen und Re-
+chengesetzen entwickelt und flexibel angewendet (geschicktes Rechnen). Die schriftlichen Rechen-
+verfahren werden mit den halbschriftlichen Rechenstrategien in Beziehung gesetzt, um das Verständ-
+nis der schriftlichen Rechenverfahren zu stützen, wobei das Verfahren zur schriftlichen Subtraktion
+von der Fachkonferenz festgelegt wird. Das überschlagende Rechnen stützt Größenvorstellungen von
+Zahlen und ist im Alltag notwendige Kompetenz ebenso wie sicheres Kopfrechnen.
+
+
+
+Raum und Form
+
+Räumliches Denken wird über den Aufbau einer tragfähigen Raumwahrnehmung ermöglicht. Dies
+geschieht über das Betrachten (visuelle Wahrnehmung) und/oder über das Handeln mit konkret vor-
+handenen Objekten wie Modelle, Netze und Figuren (taktile/haptische Wahrnehmung) (vgl. A3). Die
+Schülerinnen und Schüler nehmen ihre Lebenswelt gezielt wahr. Nur aufgrund dessen können räumli-
+che Vorstellungsbilder aufgebaut werden (mentale Reproduktion). Durch das mentale Operieren mit
+den so gewonnenen Vorstellungsbildern wird die Stufe des räumlichen Denkens erreicht. Die Wahr-
+nehmungsschulung stellt eine wichtige Grundlage für den Kompetenzbereich Zahlen und Operationen
+dar.
+
+Die Schülerinnen und Schüler erhalten die Gelegenheit, Grunderfahrungen zu Eigenschaften von
+ebenen Figuren und Körpern sowie zur Symmetrie zu sammeln. Bei der Beschäftigung mit Geometrie
+spielen ästhetische und funktionale Aspekte eine wichtige Rolle. Die zeichnerischen Fähigkeiten und
+Fertigkeiten der Schülerinnen und Schüler werden gezielt entwickelt und der sachgerechte Umgang
+mit den Zeichengeräten (Bleistift, Lineal und Geodreieck) eingeführt.
+
+
+
+
+                                                  10
+                                                  10
+Größen und Messen
+
+Die Auseinandersetzung mit Größen und das Messen fördern die Handlungsfähigkeit der Schülerin-
+nen und Schüler in ihrer Lebenswelt und dienen der Vorbereitung auf das spätere Berufsleben (z. B.
+im handwerklichen Bereich). Die Schülerinnen und Schüler entwickeln den sachgerechten Umgang
+mit Größen und standardisierten Messinstrumenten. Ihr Vorwissen in Hinblick auf standardisierte
+Maßeinheiten wird in den Unterricht einbezogen. Die Arbeit mit Größen basiert auf der Idee des Mes-
+sens. Durch den Umgang mit unterschiedlichen Repräsentanten entwickeln die Schülerinnen und
+Schüler in allen thematisierten Größenbereichen tragfähige Größenvorstellungen im Sinne von Stütz-
+punktvorstellungen und nutzen diese zum Schätzen. Die erworbenen Größenvorstellungen bilden die
+Grundlage für ein verständnisvolles Umwandeln von Größenangaben und für ein verständiges Rech-
+nen mit Größen. Sie helfen, u. a. die Ergebnisse von Modellierungsprozessen auf Plausibilität zu
+überprüfen.
+
+
+
+Daten und Zufall
+
+Im Alltag und in den Medien begegnen Schülerinnen und Schülern vielfältige Informationen und Da-
+ten, die in Tabellen, grafischen Darstellungen, Texten und anderer Form dargeboten werden. Sie ent-
+wickeln die Kompetenzen, diese Informationen zu lesen, zu verstehen, auszuwerten und kritisch zu
+hinterfragen. Die Schülerinnen und Schüler erheben durch Befragungen, (Zufalls-) Experimente und
+Beobachtungen selbstständig Daten aus ihrem Lebensbereich und stellen diese in geeigneter Form
+dar.
+
+
+
+2.2    Kompetenzentwicklung
+
+Die Kompetenzentwicklung ist ein lebenslanger Prozess; sie beginnt bereits vor der Grundschulzeit.
+Die Schülerinnen und Schüler bringen sehr unterschiedliche Erfahrungen und Voraussetzungen für
+das Verständnis mathematischer Zusammenhänge mit. Neben den allgemeinen Voraussetzungen für
+ein erfolgreiches Lernen wie Motivation, Belastbarkeit, Lernvermögen und Lerntempo stehen insbe-
+sondere der Entwicklungsstand der Schülerinnen und Schüler im Bereich der mathematischen Grund-
+kompetenzen, der basalen Wahrnehmungsleistungen sowie des Spracherwerbs im engen Zusam-
+menhang mit einem erfolgreichen Aufbau mathematischer Kompetenzen (vgl. A3 Voraussetzungen für
+das Mathematiklernen). In der Grundschule wird die individuelle Lernausgangslage zu Beginn der
+Schulzeit erhoben. Die Ergebnisse dienen als Grundlage für individuelle Fördermaßnahmen. Haben
+die Schülerinnen und Schüler die für den Lernprozess notwendigen Voraussetzungen im Vorschulalter
+nicht erworben, müssen diese im Unterricht systematisch entwickelt und aufgebaut werden. Aufgabe
+des Mathematikunterrichts ist es, die Schülerinnen und Schüler in ihrem kontinuierlichen Kompetenz-
+erwerb zu unterstützen und anschlussfähiges Lernen zu ermöglichen.
+
+
+
+
+                                                11
+                                                11
+2.2.1    Wesentliche Aspekte der Unterrichtsgestaltung
+
+In der nachfolgenden Übersicht werden wesentliche Aspekte für eine kompetenzorientierte Unter-
+richtsgestaltung abgebildet.
+
+Aktiv-                Mathematiklernen wird als konstruktiver, entdeckender Prozess verstanden.
+entdeckendes          Anhand geeigneter Problemstellungen werden die Schülerinnen und Schüler
+Lernen                angeregt, Fragen zu stellen, unterschiedliche Lösungsstrategien zu entwickeln
+                      und zu diskutieren. Sie bekommen die Gelegenheit, ihre Ideen auszuprobieren
+                      und      hinsichtlich   deren   Eignung   zur   Problemlösung   zu   reflektieren.
+                      Dabei durchdringt produktives, beziehungsreiches Üben den gesamten Lern-
+                      prozess und ermöglicht die gleichzeitige Förderung der inhalts- und prozessbe-
+                      zogenen Kompetenzen (vgl. 2.2.2).
+
+Aufbauendes und       Neue Erkenntnisse werden in vielfältiger Weise mit dem Vorwissen der Schüle-
+nachhaltiges          rinnen und Schüler verknüpft. Wesentliche Inhalte und Methoden müssen
+Lernen                durch wiederholtes und automatisierendes Lernen verfügbar werden. Auf diese
+                      Weise entsteht ein spiralartiger und kumulativer Wissensaufbau auf zuneh-
+                      mend höherem Niveau und in strukturell angereicherter Form.
+
+Arbeitsmittel         Mathematiklernen beinhaltet den Erwerb einer flexiblen Zahlvorstellung. Innere
+                      Bilder und verinnerlichte Handlungen erlauben es den Schülerinnen und Schü-
+                      lern, mathematische Handlungen und ihre Auswirkungen im Kopf vorwegzu-
+                      nehmen und Zusammenhänge zu erkennen. Mathematische Ideen werden
+                      durch die handelnde Auseinandersetzung mit den Arbeitsmitteln und im Aus-
+                      tausch mit anderen Menschen konstruiert. Aufgabe der Lehrkraft ist es, die
+                      Auseinandersetzung mit den Arbeitsmitteln anzuregen und Gesprächsanlässe
+                      zu schaffen, um diese Handlungen zu reflektieren, die inneren Bilder zu präzi-
+                      sieren und sicher zu verankern.
+
+                      Geeignete Arbeitsmittel helfen nicht nur beim Aufbau einer tragfähigen Zahl-
+                      vorstellung und der Veranschaulichung von Rechenoperationen, sondern auch
+                      bei der Darstellung von Mustern und Strukturen. Sie können zudem als Argu-
+                      mentationshilfe beim inhaltlich-anschaulichen Beweisen herangezogen werden.
+                      Ihre Strukturen sind zudem selbst Gegenstand des Unterrichts, so dass Ar-
+                      beitsmittel immer kriteriengeleitet ausgewählt werden sollten. Dieses gilt insbe-
+                      sondere in Bezug auf die strukturierte Erfassung größerer Anzahlen und die
+                      strukturgleiche Fortsetzbarkeit der Arbeitsmittel in einem höheren Zahlenraum.
+
+Darstellungsebe-      Operationen, Begriffe und Beziehungen können handelnd (enaktiv), bildhaft
+nen (E-I-S)
+
+
+
+
+                                                      12
+                                                      12
+                      (ikonisch) und formal (symbolisch) dargestellt werden. Für ein verstehensorien-
+                      tiertes Lernen ist der Wechsel sowohl innerhalb ein und derselben als auch
+                      zwischen den drei Darstellungsebenen (E-I-S) bedeutsam. Es sind Lernanlässe
+                      zu schaffen, die solche Transferfähigkeiten fördern, z. B. indem konkrete Situa-
+                      tionen in bildliche Darstellungen und in abstrakte Fachsprache übertragen und
+                      auch umgekehrt Terme in konkretes Handeln übersetzt werden.
+
+Fehlerkultur          Fehler sind in einem entdeckenden Lernprozess normal und werden als Zwi-
+                      schenschritte auf dem Weg zur Lösung erlebt. Dieser konstruktive Umgang mit
+                      Fehlern fördert die Herausbildung einer Fehlerkultur, in der Fehler als natürli-
+                      che und zum Teil maßgebliche und bereichernde Schritte im Lernprozess und
+                      nicht als individuelles Versagen erlebt werden. Jedoch darf keine Unsicherheit
+                      über die Richtigkeit eines Ergebnisses bleiben.
+
+Rolle der Lehrkraft   Der Mathematikunterricht mit Augenmerk auf das eigenverantwortliche Lernen
+                      von Schülerinnen und Schülern mit unterschiedlichen Lernvoraussetzungen
+                      bedarf einer professionellen Anleitung, Unterstützung und Begleitung durch die
+                      Lehrkraft.
+
+                      So ist bei der Bearbeitung von Lernumgebungen eine fachlich sowie pädago-
+                      gisch kompetente Lernbegleitung notwendig, um eine sachgerechte und effek-
+                      tive Auseinandersetzung mit den Aufgaben zu gewährleisten und einer mögli-
+                      chen Überforderung oder Unterforderung entgegenzuwirken. Klare Strukturen
+                      und Rituale sowie Transparenz (und Visualisierung) der Abläufe geben den
+                      Schülerinnen und Schülern besonders in offen gestalteten Lernsituationen ei-
+                      nen sicheren Rahmen.
+
+                      Der Lehrkraft kommen im Sinne einer Lernbegleitung vor allem folgende Auf-
+                      gaben zu: Gestaltung einer fachlich anspruchsvollen Lernumgebung, Auswahl
+                      interessanter (substanzieller) Lernaufgaben, Hilfe bei der zunehmend selbst-
+                      ständigen Organisation der Arbeit, Anbahnung und Moderation von Selbstlern-
+                      und Gruppenprozessen, Schaffen von Anlässen zur Herausbildung der Selbst-
+                      einschätzungskompetenz, Gestaltung des Unterrichts anhand der kontinuierlich
+                      festgestellten Lernausgangslage und individuellen Lernentwicklung, Gewähr-
+                      leistung sachgerechter Differenzierungsangebote, Unterstützung bei Fragen
+                      und Problemen, lernförderliche Rückmeldungen in Form von informativen
+                      Feedbacks zu Lernprozessen und Ergebnissen.
+
+                      Die Lehrkraft ist verantwortlich für das Unterrichten, Beraten, Fördern und For-
+                      dern aller Schülerinnen und Schüler sowie das Erziehen in einer demokrati-
+                      schen Unterrichtskultur. Sie dient als Sprachvorbild und beachtet in der Orga-
+                      nisation eines sprachsensiblen Mathematikunterrichts vielfältige Möglichkeiten
+
+
+
+
+                                                  13
+                                                 13
+                   der Sprachbildung (vgl. 2.3).
+
+Individuelles,     Individuelle, gemeinsame und kooperative Phasen werden bei der Unterrichts-
+gemeinsames        gestaltung berücksichtigt. Diese sind für die Persönlichkeitsentwicklung und
+und kooperatives   das Mathematiklernen gleichermaßen von Bedeutung. Unterschiedliche Sozial-
+Lernen             formen und kooperative Lernformen unterstützen die Entwicklung von Argu-
+                   mentations- und Kommunikationskompetenz, von Kooperationsfähigkeit sowie
+                   von weiteren sozialen Kompetenzen. Individuelles Arbeiten fördert die Entwick-
+                   lung eines zunehmend selbstgesteuerten Lernprozesses. Lernen auf eigenen
+                   Wegen und soziales Lernen wird als notwendige Voraussetzung zur Generie-
+                   rung neuen Wissens verstanden.
+
+Differenzierung    Die Berücksichtigung der Heterogenität der Lerngruppe ist Unterrichtsprinzip
+                   (vgl. 2.4). Entsprechende Aufgaben möglichst am gleichen Lerngegenstand
+                   (Natürliche Differenzierung) sind hinreichend komplex, bieten eine niedrige
+                   Zugangsschwelle sowie Raum für die vertiefte Auseinandersetzung mit dem
+                   Lerngegenstand und ermöglichen vielfältige Lösungsansätze (vgl. A2). Sozia-
+                   les Lernen wird gefördert durch den gemeinsamen Austausch über vorherige
+                   Lernerfahrungen, die auf unterschiedlichen Niveaus, aber am gleichen Lernge-
+                   genstand stattgefunden haben.
+
+Geschlechtersen-   Im Mathematikunterricht finden Mädchen und Jungen in ihrer Individualität und
+sibilität          Lernpräferenz Berücksichtigung, ohne dabei Geschlechterrollen zu fixieren.
+                   Stereotype Zuordnungen sind zu vermeiden.
+
+Fächerverbinden-   Das fachbezogene Lernen wird ergänzt durch fächerverbindendes Lernen.
+des Lernen         Ausgehend von konkreten Themen sollen übergreifende Bezüge zu einem oder
+                   mehreren Fächern hergestellt werden, um Zusammenhänge bei den Schüle-
+                   rinnen und Schülern zu verdeutlichen und über Vernetzung von Inhaltsberei-
+                   chen die Nachhaltigkeit des Kompetenzerwerbs zu fördern (vgl. 2.3).
+
+Medien             Im Mathematikunterricht werden vielfältige Medien eingesetzt, um mathemati-
+                   sche Lernprozesse zu unterstützen. Diese sind mathematikdidaktisch reflektiert
+                   auszuwählen. Für digitale Medien gilt dies in einem besonderen Maße. Sie
+                   können allen Schülerinnen und Schülern einen Rahmen geben, um neue ma-
+                   thematische Handlungs- und Erfahrungsräume zu schaffen, Kommunikation
+                   und Interaktion zu unterstützen, Teilhabe zu ermöglichen sowie Eigenständig-
+                   keit und Wahrnehmung gezielt zu fördern.
+
+
+
+
+                                               14
+                                               14
+2.2.2   Aufgaben und Anforderungsbereiche
+
+Aufgaben haben eine zentrale Bedeutung im Mathematikunterricht der Grundschule. Von Anfang an
+verzahnen sie den Erwerb von inhaltsbezogenen und prozessbezogenen Kompetenzen und ermögli-
+chen eine kompetenzorientierte Unterrichtsgestaltung. Durch die drei Anforderungsbereiche werden
+die kognitiven Anforderungen an Schülerinnen und Schüler bei der Bearbeitung von Aufgaben be-
+schrieben. Im Unterricht sind insofern alle folgenden Anforderungsbereiche so zu berücksichtigen,
+dass sie prinzipiell allen Schülerinnen und Schülern zugänglich gemacht werden. Mehr oder weniger
+feste Zuweisungen einzelner Schülerinnen und Schüler zu einem Anforderungsbereich sind daher zu
+vermeiden.
+
+Anforderungsbereich I: Reproduzieren
+
+Das Lösen der Aufgabe erfordert Grundwissen und das Ausführen von Routinetätigkeiten.
+
+Anforderungsbereich II: Zusammenhänge herstellen
+
+Das Lösen der Aufgabe erfordert das Erkennen und Nutzen von Zusammenhängen.
+
+Anforderungsbereich III: Verallgemeinern und Reflektieren
+
+Das Lösen der Aufgabe erfordert komplexe Tätigkeiten wie Strukturieren, Entwickeln von Strategien,
+Beurteilen und Verallgemeinern.
+
+
+
+2.2.3   Üben und Entdecken
+
+Üben bedeutet eine den ganzen Lernprozess umfassende Tätigkeit, mit der neues und vorhandenes
+Wissen und Können sowie die Einsicht in zugrunde liegende mathematische Muster und Strukturen
+erforscht, vertieft, gesichert und miteinander verknüpft werden. Zu einer in diesem Sinne zielführen-
+den Unterrichtskultur zählen
+
+    •   das materialgestützte Üben, das die Einsicht in mathematische Zusammenhänge fördert und
+        so lange wie individuell nötig stattfindet,
+    •   das beziehungsreiche, produktive Üben, das die Zusammenhänge und Vernetzungen struktu-
+        riert, die Denkoperationen flexibilisiert und vorhandene Kompetenzen vertieft und zwar in
+             o   problemstrukturierten Übungen (z. B. Entdecken und Beschreiben von Beziehungen
+                 und Strukturen in Aufgabenformaten wie Zahlenmauern oder Rechendreiecken),
+             o   operativ strukturierten Übungen (z. B. Entdecken und Beschreiben von Beziehungen
+                 und Strukturen, „Schöne Päckchen“) und
+             o   sachstrukturierten Übungen (z. B. Münzzerlegungen),
+    •   das automatisierende Üben, das sich erst am Ende eines Lernprozesses anschließt, wenn
+        entsprechende Grundvorstellungen entwickelt sind und das Verständnis von tragfähigen Re-
+
+
+
+
+                                                      15
+                                                      15
+          chenstrategien vorliegt. Ein verfrühtes Automatisieren behindert weiterführende Lernprozesse,
+          auch wenn sich zunächst kurzfristige Lernerfolge einstellen.
+
+Die Schülerinnen und Schüler reflektieren in Übungsphasen, welche Kenntnisse, Fähigkeiten und
+Fertigkeiten sie besitzen und wie sie diese einsetzen, um auch neue Probleme zu lösen. Übungspha-
+sen dienen dem Erwerb von sowohl prozess- als auch inhaltsbezogenen Kompetenzen.
+
+
+
+2.2.4     Sicherung von Basiskompetenzen
+
+Einmal erworbene Kompetenzen müssen dauerhaft verfügbar gehalten werden, damit Weiterlernen
+und kumulativer Kompetenzaufbau gelingen. Die Lernmotivation wird durch das Erleben des Kompe-
+tenzzuwachses unterstützt. Dazu ist eine regelmäßige, strukturierte Übungskultur unerlässlich. Um-
+setzungsmöglichkeiten sind
+
+      •   die Einführung eines Mathematikführerscheins zum Aufbau, zur Sicherung und zur Überprü-
+          fung der Basiskompetenzen,
+      •   das Erstellen einer Aufgabenkartei oder eines Lernplakats,
+      •   Freiarbeit mit Aufgabenkarteien, Lernspielen und digitalen Übungsprogrammen,
+      •   das Prüfen der Basiskompetenzen in einem verbindlichen „Allgemeinen Teil“ in den Lernkon-
+          trollen,
+      •   wiederholende Unterrichtseinstiege mit Aufgaben aus unterschiedlichen Themengebieten wie
+          Kopfrechnen, Kopfgeometrie.
+
+Zu den sicher und schnell verfügbaren Basiskompetenzen gehören u.a.
+
+      •   1 + 1 und Umkehrungen,
+      •   1 x 1 und Umkehrungen,
+      •   geschicktes Rechnen: halbschriftliche Strategien und grundlegende Rechengesetze,
+      •   Algorithmen bis zur Geläufigkeit (vgl. 3.2.1),
+      •   Stützpunktvorstellungen.
+
+
+
+2.3       Der Beitrag des Mathematikunterrichts zu fachübergreifenden Bildungsbereichen
+
+Der Mathematikunterricht leistet unter anderem einen Beitrag zu den fachübergreifenden Bildungsbe-
+reichen Bildung für nachhaltige Entwicklung, Gesundheitliche Bildung, Interkulturelle Bildung, Medien-
+bildung, MINT-Bildung, Mobilität, Musisch-ästhetische Bildung, Sprachbildung, Verbraucher- sowie
+Wertebildung. Dies schließt auch die Berücksichtigung der Vielfalt sexueller Identitäten ein.
+
+
+
+Gesundheitliche Bildung
+
+Im Sinne einer umfassenden gesundheitlichen Bildung können auch mathematische Inhalte über Be-
+wegung erfahrbar und vertieft werden. Zudem werden in vielen Spiel- und Sachsituationen das Ge-
+
+
+
+                                                      16
+                                                     16
+sundheitsbewusstsein und die motorischen Entwicklungsprozesse der Schülerinnen und Schüler im
+Mathematikunterricht gefördert. Insbesondere im Kompetenzbereich Größen und Messen bieten sich
+fächerverbindende Projekte zu gesundheitsbewusstem und gesundheitsförderlichem Verhalten an,
+zum Beispiel zu den Bereichen gesunde Ernährung und Bewegungsverhalten.
+
+
+
+Medienbildung
+
+Analoge und digitale Medien sind im Alltag der Schülerinnen und Schüler allgegenwärtig. Medienkom-
+petenz ist deshalb eine Schlüsselqualifikation unserer Gesellschaft und die Entwicklung eines be-
+wussten Umgangs mit Medien, insbesondere einer gezielten Mediennutzung ist dafür eine Grundbe-
+dingung. Im Mathematikunterricht werden analoge und digitale Medien sowohl als Werkzeug als auch
+als Gegenstand des Lernens didaktisch reflektiert eingesetzt und betrachtet. Anknüpfend an ihre Vor-
+erfahrungen erweitern die Schülerinnen und Schüler ihre Medienkompetenz und werden auf die
+selbstbestimmte Teilhabe an der multimedialen Welt vorbereitet, indem sie Gelegenheit haben, unter-
+schiedliche Medien sachgerecht und produktiv zu nutzen, sich Informationen zu erschließen, eigene
+Darstellungen und Medienbeiträge zu gestalten und zu präsentieren. Sie verwenden multimediale
+Kommunikationswege und lernen zunehmend den Einsatz und die Wirkung von Medienbeiträgen zu
+verstehen, zu bewerten und kritisch zu reflektieren.
+
+
+
+MINT-Bildung
+
+Auch ausgehend von den Fragen der Schülerinnen und Schüler steht im Mathematikunterricht das
+aktiv-entdeckende, erfinderisch-kreative, handlungsorientierte Lernen im Vordergrund. Indem die
+Schülerinnen und Schüler subjektiv bedeutsame Problemstellungen bearbeiten und Arbeitsergebnisse
+präsentieren, kann anwendungsorientiertes, anschlussfähiges Wissen in den MINT-Bereichen Ma-
+thematik, Informatik, Naturwissenschaften und Technik aufgebaut werden. Ziel ist die Überprüfung
+und Weiterentwicklung naturwissenschaftlicher Präkonzepte sowie der Aufbau tragfähiger Lernmotiva-
+tion.
+
+
+
+Mobilität
+
+Um ihre unmittelbare Umgebung erfassen zu können, ermöglicht der Mathematikunterricht den Schü-
+lerinnen und Schülern unter anderem im Anfangsunterricht und bei Übungen zum Kartenlesen vielfäl-
+tige räumliche Erfahrungen und trägt zur Entwicklung ihrer Selbstständigkeit und gesellschaftlichen
+Teilhabe bei. Mobilität bedeutet nicht nur Verkehr, sondern jede Möglichkeit von Bewegung. Hier rü-
+cken zum Beispiel Fragen nach der Art der Bewegung, den damit verbundenen Emissionen, Fragen
+des Ressourcenverbrauchs, Gesundheitsaspekte sowie soziale und kulturelle Fragen in den Fokus,
+die beispielsweise in Sachrechenprojekten thematisiert werden können.
+
+
+
+
+                                                   17
+                                                  17
+Musisch-ästhetische Bildung
+
+Auch im Mathematikunterricht erhalten die Kinder erfahrungsbezogene und handlungsorientierte An-
+gebote, um ihre Kreativität und Imaginationsfähigkeit auszubilden. Sie erhalten Raum und Zeit für
+spielerische, experimentelle und forschende Tätigkeiten, zum Beispiel beim Fortsetzen von geometri-
+schen Mustern und beim Entdecken von geometrischen Formen in Kunstwerken. Dies fördert ihr sinn-
+liches Wahrnehmungsvermögen. Grundsätzlich wird an elementare Wahrnehmungserfahrungen im
+taktilen, kinästhetischen, vestibulären, visuell-räumlichen und sprachlich-klanglichen Bereich ange-
+knüpft, und die Ganzheitlichkeit aller Lern- und Erfahrungsprozesse (motorisch, ästhetisch, emotional,
+kognitiv, sozial) findet Berücksichtigung. Die besonderen Ausdrucksleistungen von Musik, bildlicher
+Darstellung und Bewegung werden in fächerverbindenden und fachübergreifenden Vorhaben genutzt,
+um Verbindungen zwischen dem Lernen und der Erfahrungs- und Gefühlswelt der Kinder aufzubauen,
+zu stärken und zu vertiefen.
+
+
+
+Sprachbildung
+
+Mathematikunterricht lebt durch Sprache und Mathematik ist auch selbst eine Sprache. Ausgehend
+von der Alltagssprache der Schülerinnen und Schüler werden die für mathematisches Kommunizieren
+notwendigen sprachlichen Fähigkeiten im Mathematikunterricht der Grundschule gezielt angebahnt
+und gefördert. Dafür sollten Aufgabenstellungen gefunden werden, die eine gemeinsame Bearbeitung
+durch die Schülerinnen und Schüler ermöglichen und somit Sprech- und Schreibanlässe bieten.
+Durchgängig ist auf eine behutsame, sprachsensible und sprachbildende Unterrichtsgestaltung sowie
+auf einen angemessenen, partner- und situationsbezogenen Sprachgebrauch zu achten. Der Lehrkraft
+kommt dabei als sprachliches Vorbild eine besondere Modellfunktion zu. Instrumente eines sprach-
+sensiblen Unterrichts wie Lernplakate und Wortspeicher helfen nicht nur Schülerinnen und Schülern,
+deren Muttersprache oder Herkunftssprache nicht Deutsch ist, eine zunehmend exakte und eindeutige
+Fachsprache zu entwickeln. Sie erleichtern auch den fachlichen Austausch und verringern mögliche
+Schwierigkeiten, die zum Beispiel durch Interferenzen zwischen der Fach- und Alltagssprache und
+durch unterschiedliche Strukturen verschiedener Ausgangssprachen entstehen könnten. Eine durch-
+gängige Sprachbildung ist Aufgabe jeder Lehrkraft in jedem Unterrichtsfach - auch im Mathematikun-
+terricht.
+
+
+
+Verbraucherbildung
+
+Die Kaufkraft der Schülerinnen und Schüler und der wachsende Einfluss des Konsums auf die soziale
+Anerkennung unter Gleichaltrigen macht sie zu einer wichtigen Zielgruppe für Produktvermarktung.
+Die Verbraucherbildung im Mathematikunterricht unterstützt den Erwerb von Kompetenzen im Sinne
+eines reflektierten und selbstbestimmten Konsumverhaltens und trägt dadurch zum Aufbau einer ver-
+
+
+
+
+                                                  18
+                                                 18
+antwortlichen, umweltbewussten Grundhaltung bei. Die Schülerinnen und Schüler lernen zum Beispiel
+den Umgang mit Geld und Werbung sowie das Hinterfragen von Konsumentscheidungen.
+
+
+
+2.4     Individualisierung
+
+Aufgrund der unterschiedlichen Lernvoraussetzungen, der individuellen Begabungen, Fähigkeiten und
+Neigungen sowie des unterschiedlichen Lernverhaltens sind differenzierende Lernangebote und Lern-
+anforderungen für den Erwerb der vorgegebenen Kompetenzen unverzichtbar. Innere Differenzierung
+als Grundprinzip in jedem Unterricht zielt auf die individuelle Förderung der Schülerinnen und Schüler
+ab. Dabei werden Aspekte wie zum Beispiel Begabungen und motivationale Orientierungen, Ge-
+schlecht, Alter, sozialer, ökonomischer und kultureller Hintergrund, Leistungsfähigkeit und Sprach-
+kompetenz berücksichtigt.
+
+Aufbauend auf der gründlichen Diagnose und Analyse der individuellen Lernvoraussetzungen aller
+Schülerinnen und Schüler unterscheiden sich die Lernangebote, zum Beispiel in ihrer Offenheit und
+Komplexität, im Abstraktionsniveau, in den Zugangsmöglichkeiten, den Schwerpunkten, den bereitge-
+stellten Hilfen und in der Bearbeitungszeit. Um der Heterogenität der Lerngruppe zu entsprechen,
+werden sowohl Übungsangebote, um bereits Gelerntes angemessen zu festigen, als auch Lernange-
+bote mit deutlich höherem Anspruch und mit der Möglichkeit zur Vertiefung und Erweiterung bereitge-
+stellt. Dabei schließt Individualisierung sowohl Phasen des individuellen Lernens als auch des Ler-
+nens am gemeinsamen Gegenstand ein und damit auch notwendigerweise Phasen des gemeinsamen
+Austausches über die Lernprozesse. Geeignete Aufgaben lassen vielfältige Lösungsansätze zu, regen
+die Kreativität an und fördern das soziale Lernen und den fachlichen Austausch von Schülerinnen und
+Schülern untereinander.
+
+Für Schülerinnen und Schüler mit besonderen Begabungen werden Lernangebote bereitgestellt, die
+deutlich über die als Kern an alle Schülerinnen und Schüler gestellten Anforderungen hinausgehen
+und einen höheren Anspruch haben. Diese Angebote dienen der Vertiefung und Erweiterung und las-
+sen komplexe Fragestellungen zu. Des Weiteren bieten freie Leistungsvergleiche (schulinterne
+und/oder schulübergreifende Wettbewerbe) Möglichkeiten der Motivation und besonderen Förderung.
+
+Bei Schülerinnen und Schülern mit besonderen Schwierigkeiten im Rechnen (Kompetenzbereich Zah-
+len und Operationen, Größen und Messen) sind nach pädagogisch begründeter Einzelfallentschei-
+dung auf Beschluss der Klassenkonferenz Hilfen im Sinne eines Nachteilsausgleichs anzuwenden.
+
+Die Förderung von Schülerinnen und Schülern mit besonderen Schwierigkeiten im Rechnen wird
+durch einen gesonderten Erlass geregelt.
+
+
+
+Zieldifferente Beschulung
+
+Schülerinnen und Schüler mit einem Bedarf an sonderpädagogischer Unterstützung im Förder-
+schwerpunkt Lernen und im Förderschwerpunkt geistige Entwicklung werden im Mathematikunterricht
+zieldifferent beschult.
+
+
+                                                 19
+                                                 19
+Die Beschulung von Schülerinnen und Schülern mit einem Bedarf an sonderpädagogischer Unterstüt-
+zung im Förderschwerpunkt Lernen erfolgt in Anlehnung an das Kerncurriculum der Grundschule. Zur
+Orientierung wurden Materialien für einen kompetenzorientierten Unterricht im Förderschwerpunkt
+Lernen (2008) veröffentlicht.
+
+Schülerinnen und Schüler mit einem Bedarf an sonderpädagogischer Unterstützung im Förder-
+schwerpunkt geistige Entwicklung werden nach dem Kerncurriculum für den Förderschwerpunkt geis-
+tige Entwicklung unterrichtet.
+
+Auf Grundlage der individuellen, prozessorientierten Förderplanung sowie deren Fortschreibung er-
+folgt eine Auswahl von Lernangeboten sowie die Planung und Durchführung von differenzierendem
+und individualisierendem Unterricht. Bei zieldifferenter Beschulung bauen die Schülerinnen und Schü-
+ler mit Bedarf an sonderpädagogischer Unterstützung bei abweichenden Zielsetzungen individuelle,
+auf die Förderplanung abgestimmte Kompetenzen in allen Kompetenz- und Anforderungsbereichen
+auf. Im gemeinsamen Unterricht ist neben Phasen des individualisierten, differenzierten Lernens ein
+Lernen am gleichen Gegenstand, aber in unterschiedlichen Kompetenzstufen zu ermöglichen (vgl.
+2.2.2). Die Leistungsfeststellung und –bewertung bei zieldifferenter Beschulung erfolgen auf Grund
+differenzierter Leistungsanforderungen und individueller Lernziele. Sie orientieren sich an den indivi-
+duell erreichten Lernfortschritten und den Zielvorgaben des individuellen Förderplans.
+
+
+
+
+                                                  20
+                                                  20
+3      Erwartete Kompetenzen
+
+Die folgenden Tabellen weisen die inhalts- und prozessbezogenen Kompetenzen aus. Die einzelnen
+Kompetenzbeschreibungen geben die verbindlich erwarteten Lernergebnisse der Schülerinnen und
+Schüler am Ende der Schuljahrgänge 2 und 4 an. Aufgrund der vielfältigen Verbindungen zu den an-
+deren inhaltsbezogenen Kompetenzbereichen sind die erwarteten Kompetenzen zu Muster und Struk-
+turen in den übrigen vier inhaltsbezogenen Kompetenzbereichen grau hinterlegt.
+
+Innerhalb der Kompetenzbereiche beziehen sich die Spiegelpunkte auf gleicher Höhe auf die gleiche
+erwartete Kompetenz und verdeutlichen die Progression. Gleiche Formulierungen in beiden Spalten
+bedeuten, dass eine Kompetenz von Anfang an aufgebaut wird, dass also die Unterschiede in den
+verschiedenen Jahrgängen in der Komplexität der jeweils altersangemessenen Aufgaben liegen. Aus
+der Anzahl der erwarteten Kompetenzen lässt sich keine Gewichtung für den Unterricht ablesen.
+
+Unter 3.3 Zusammenführung von Kompetenzen wird ein Beispiel dargestellt, das prozess- und in-
+haltsbezogene Kompetenzen miteinander verknüpft. Im linken Teil der Tabelle werden die Kompeten-
+zen angegeben, die in diesem Beispiel schwerpunktmäßig gesichert, aufgebaut bzw. angebahnt wer-
+den. Die unter den zugehörigen Kernkompetenzen zu findenden Erwartungen werden hier aufgelistet.
+Der rechte Teil der Tabelle beschreibt den Unterrichtsverlauf. Zusätzlich werden Hinweise zur Diffe-
+renzierung, zu Förderschwerpunkten, weiterführenden Ausführungen, Medien/Arbeitstechniken/Me-
+thoden und zur Sprachbildung ausgewiesen. Dieses Beispiel kann zur Erstellung des schuleigenen
+Arbeitsplans im Fach Mathematik herangezogen werden.
+
+
+
+
+                                                21
+       3.1      Prozessbezogene Kompetenzen
+
+       3.1.1    Mathematisches Kommunizieren
+
+
+               Kernkompetenzen                                   Ende Schuljahrgang 2                               Ende Schuljahrgang 4
+
+                                                            Die Schülerinnen und Schüler …
+
+       beschreiben eigene Lösungswege, vollziehen    •   beschreiben eigene Lösungswege und Vor-       •   beschreiben eigene Lösungswege und Vorge-
+       Lösungen anderer nach und reflektieren die-       gehensweisen und vollziehen Lösungen an-          hensweisen, vollziehen Lösungen anderer
+       se.                                               derer nach.                                       nach und reflektieren gemeinsam darüber (z.
+                                                                                                           B. in Mathekonferenzen).
+
+       beschreiben mathematische Zusammenhän-        •   entdecken und beschreiben einfache mathe-     •   entdecken und beschreiben mathematische
+       ge.                                               matische Zusammenhänge (z. B. dekadische          Zusammenhänge (z. B. Strukturen in produkti-
+                                                         Analogien).                                       ven Übungsaufgaben) und vollziehen Be-
+                                                                                                           schreibungen anderer nach.
+
+       verwenden mathematische Fachbegriffe und      •   verwenden eingeführte mathematische Fach-     •   verwenden eingeführte mathematische Fach-
+
+
+
+
+2222
+       Zeichen sachgerecht.                              begriffe und Zeichen sachgerecht (s. Anhang       begriffe und Zeichen sachgerecht (s. Anhang
+                                                         Fachbegriffe).                                    Fachbegriffe, vgl. Mathematische Zeichen).
+       3.1.2    Mathematisches Argumentieren
+
+
+               Kernkompetenzen                                Ende Schuljahrgang 2                             Ende Schuljahrgang 4
+
+                                                         Die Schülerinnen und Schüler …
+
+       stellen Vermutungen an.                    •   stellen Vermutungen über mathematische      •   stellen Vermutungen über mathematische
+                                                      Zusammenhänge oder Auffälligkeiten an.          Zusammenhänge oder Auffälligkeiten an und
+                                                                                                      begründen sie.
+       überprüfen Vermutungen und mathematische   •   bestätigen oder widerlegen Vermutungen      •   bestätigen oder widerlegen Vermutungen,
+       Aussagen.                                      anhand von Beispielen (überprüfen).             mathematische Aussagen und Lösungen an-
+                                                                                                      hand von Beispielen (überprüfen).
+       begründen mathematische Zusammenhänge.     •   begründen in Ansätzen einfache mathemati-   •   begründen mathematische Zusammenhänge
+                                                      sche Zusammenhänge mithilfe von Arbeits-        auch mithilfe von Arbeitsmitteln und Darstel-
+                                                      mitteln und Darstellungen.                      lungen oder an Beispielen.
+                                                                                                  •   vollziehen Begründungen anderer nach.
+
+
+
+
+2323
+       3.1.3    Mathematisches Darstellen
+
+               Kernkompetenzen                                     Ende Schuljahrgang 2                                 Ende Schuljahrgang 4
+
+                                                             Die Schülerinnen und Schüler …
+
+       erstellen und nutzen mathematische Darstel-    •   nutzen Arbeitsmittel zum Lösen einer mathe-      •   wählen und nutzen geeignete Arbeitsmittel
+       lungen.                                            matischen Aufgabe (z. B. Plättchen und               zum Lösen einer Aufgabe (z. B. Zehnersys-
+                                                          Zwanzigerfeld, Abakus, Zehnersystem-                 temmaterial).
+                                                          material).
+
+
+                                                      •   lösen Aufgaben mithilfe geeigneter Darstel-
+                                                                                                           •   entwickeln, wählen und nutzen geeignete
+                                                          lungen (z. B. Zeichnung, Strichliste, Tabelle)
+                                                                                                               Darstellungen (z. B. Skizze, Tabelle, Dia-
+                                                          und Forschermitteln (z. B. farbige Markierun-
+                                                                                                               gramme) und Forschermittel zum Lösen einer
+                                                          gen, Pfeile) und präsentieren ihre Überlegun-
+                                                                                                               Aufgabe.
+                                                          gen nachvollziehbar.
+                                                                                                           •   nutzen geeignete Darstellungen und For-
+                                                                                                               schermittel (z. B. farbige Markierungen, Pfei-
+
+
+
+
+2424
+                                                                                                               le), um ihre Überlegungen nachvollziehbar zu
+                                                                                                               präsentieren.
+
+       übertragen eine mathematische Darstellung in   •   finden zu Handlungen bzw. bildlichen Darstel-    •   übertragen die Darstellung einer Aufgabe in
+       eine andere.                                       lungen eine Aufgabe und umgekehrt.                   eine andere Darstellungsebene (E-I-S).
+                                                                                                           •   übertragen Darstellungen innerhalb einer
+                                                                                                               Darstellungsebene
+
+       verwenden zur Darstellung ihrer Aussagen die   •   verwenden zur Darstellung ihrer Aussagen         •   verwenden zur Darstellung ihrer Aussagen
+       eingeführten mathematischen Zeichen sach-          die eingeführten mathematischen Zeichen              die eingeführten mathematischen Zeichen
+       gerecht.                                           sachgerecht.                                         sachgerecht.
+       3.1.4    Mathematisches Problemlösen
+
+               Kernkompetenzen                                     Ende Schuljahrgang 2                                Ende Schuljahrgang 4
+
+                                                                Die Schülerinnen und Schüler …
+
+       erkennen mathematische Probleme und präzi-                                                         •   stellen Fragen zum Verständnis von Proble-
+       sieren sie.                                                                                            men.
+                                                                                                          •   geben Problemstellungen mit eigenen Worten
+                                                                                                              wieder.
+                                                                                                          •   entnehmen die relevanten Informationen.
+
+       lösen Probleme.                                •   lösen Probleme durch Probieren.                 •   probieren zunehmend systematisch und ziel-
+                                                                                                              orientiert.
+                                                                                                          •   erkennen und nutzen Zusammenhänge.
+                                                                                                          •   entwickeln und nutzen Lösungsstrategien
+                                                      •   nutzen erste Lösungsstrategien (z. B. Probie-
+
+
+
+
+2525
+                                                                                                              (z. B. systematisches Probieren, Rückgriff auf
+                                                          ren, Nutzen von Darstellungen wie Skizzen).
+                                                                                                              vorhandenes Wissen, Vor- und Rückwärtsar-
+                                                                                                              beiten, Nutzen von Darstellungen wie Tabel-
+                                                                                                              len und Skizzen).
+                                                                                                          •   beschreiben Lösungsstrategien.
+
+       prüfen Ergebnisse in Bezug auf die ursprüng-   •   erkennen und korrigieren Fehler.                •   überprüfen ihre Ergebnisse in Bezug auf die
+       liche Problemstellung.                                                                                 ursprüngliche Problemstellung.
+                                                                                                          •   erkennen, beschreiben und korrigieren Feh-
+                                                                                                              ler.
+                                                                                                          •   vergleichen Lösungswege.
+
+       übertragen Zusammenhänge und Vorgehens-                                                            •   übertragen Zusammenhänge und Vorge-
+       weisen.                                                                                                hensweisen auf ähnliche Sachverhalte.
+       3.1.5    Mathematisches Modellieren
+
+               Kernkompetenzen                                    Ende Schuljahrgang 2                               Ende Schuljahrgang 4
+
+                                                               Die Schülerinnen und Schüler …
+
+       entnehmen relevante Informationen.            •   erheben oder entnehmen relevante Informati-     •   erheben oder entnehmen relevante Informati-
+                                                         onen aus vertrauten Alltagssituationen (auch        onen aus vertrauten Alltagssituationen und
+                                                         durch Zählen und Messen).                           einfachen Texten (auch durch Schätzen, Zäh-
+                                                                                                             len und Messen) und tragen diese zusam-
+                                                                                                             men.
+
+       finden mathematische Modelle.                 •   spielen Rechengeschichten, stellen sie zeich-   •   beschreiben Sachprobleme in der Sprache
+                                                         nerisch dar und schreiben Aufgaben dazu.            der Mathematik.
+                                                     •   beschreiben einfache Sachprobleme in der
+                                                         Sprache der Mathematik (z. B. durch Zahlen,
+                                                         Tabellen, Terme und Gleichungen).
+
+
+
+
+2626
+       lösen Aufgaben mathematisch.                  •   lösen Aufgaben handelnd, zeichnerisch oder      •   lösen Aufgaben innermathematisch (Anwen-
+                                                         rechnerisch.                                        dung von Rechenoperationen, Diagrammen,
+                                                                                                             Tabellen usw.).
+
+       beziehen Lösungen auf die Ausgangssituation   •   beziehen die Lösungen auf die Ausgangsitua-     •   beziehen die Lösungen auf die Ausgangssi-
+       (interpretieren).                                 tion.                                               tuation.
+
+       überprüfen die Lösungen auf Angemessenheit    •   prüfen die Lösung in Bezug zur Ausgangssi-      •   prüfen die Lösung in Bezug auf die Aus-
+       (validieren).                                     tuation.                                            gangssituation und überdenken gegebenen-
+                                                                                                             falls ihren Weg.
+       3.2      Inhaltsbezogene Kompetenzen
+
+       3.2.1    Zahlen und Operationen
+
+
+               Kernkompetenzen                             Ende Schuljahrgang 2                                Ende Schuljahrgang 4
+
+                                                     Die Schülerinnen und Schüler ….
+
+       verstehen Zahldarstellungen und        •   sprechen, lesen und schreiben Zahlen bis        •   sprechen, lesen und schreiben Zahlen bis
+       -beziehungen.                              100.                                                1 000 000.
+                                              •   fassen Zahlen bis 100 unter verschiedenen
+                                                  Zahlaspekten auf.
+                                              •   stellen Zahlen im Zehnersystem dar (Prinzip     •   stellen Zahlen im Zahlenraum bis 1 000 000
+                                                  des fortgesetzten Bündelns und Stellenwert-         im Zehnersystem dar und wechseln zwischen
+                                                  prinzip) und wechseln zwischen den Darstel-         den Darstellungsebenen (E-I-S).
+                                                  lungsebenen (E-I-S).
+
+                                                                                                  •   runden Zahlen sachangemessen.
+
+
+
+
+2727
+                                              •   verstehen und nutzen strukturierte Zahldar-     •   verstehen und nutzen strukturierte Zahldar-
+                                                  stellungen.                                         stellungen im erweiterten Zahlenraum.
+
+                                              •   orientieren sich durch flexibles Zählen (vor-   •   orientieren sich durch flexibles Zählen (vor-
+                                                  wärts, rückwärts, ab einer beliebigen Start-        wärts, rückwärts, in Schritten) sowie durch
+                                                  zahl, in Schritten) sowie durch Ordnen und          Ordnen und Vergleichen im erweiterten Zah-
+                                                  Vergleichen von Zahlen im Zahlenraum (klei-         lenraum (kleiner/größer als, Nachbarhunder-
+                                                  ner/größer als, Vorgän-                             ter/-tausender/-zehntausender/-
+                                                  ger/Nachfolger/Nachbarzehner).                      hunderttausender).
+                                              •   zerlegen Zahlen.                                •   zerlegen Zahlen im erweiterten Zahlenraum.
+                                              •   setzen Zahlen zueinander in Beziehung (die      •   setzen Zahlen zueinander in Beziehung (die
+                                                  Hälfte/das Doppelte).                               Hälfte/das Doppelte).
+            Kernkompetenzen                                       Ende Schuljahrgang 2                               Ende Schuljahrgang 4
+
+                                                            Die Schülerinnen und Schüler ….
+
+                                                     •   erkennen und beschreiben Muster in einfa-      •   erkennen und beschreiben Muster in Zahlen-
+                                                         chen Zahlenfolgen und setzen diese fort.           folgen und setzen diese fort.
+                                                     •   bilden einfache Zahlenfolgen.                  •   bilden und verändern Zahlenfolgen.
+                                                                                                        •   entdecken Zahlenfolgen auch in der Umwelt
+                                                                                                            (z. B. Hausnummern/rechte und linke Häuser-
+                                                                                                            reihe).
+
+                                                     •   erkennen Zahleigenschaften (z. B. gera-
+                                                         de/ungerade).
+
+       verfügen über Vorstellungen und Darstellun-   •   ordnen Sachsituationen Additionsaufgaben       •   nutzen die Grundvorstellungen der Grundope-
+       gen für Operationen.                              (z. B. Hinzufügen und Vereinen) bzw. Sub-          rationen im erweiterten Zahlenraum.
+                                                         traktionsaufgaben (z. B. Abziehen und Ergän-
+
+
+
+
+2828
+                                                         zen) zu.
+                                                     •   ordnen Sachsituationen Multiplikationsaufga-
+                                                         ben (wiederholtes Hinzufügen und simultanes
+                                                         Erfassen gleicher Anzahlen) bzw. Divisions-
+                                                         aufgaben (Aufteilen und Verteilen) zu.
+                                                     •   stellen Operationen auf verschiedenen Ebe-     •   stellen Operationen auf verschiedenen Ebe-
+                                                         nen dar und wechseln flexibel zwischen die-        nen im erweiterten Zahlenraum dar (z. B.
+                                                         sen (E-I-S).                                       Malkreuz) und wechseln flexibel zwischen
+                                                                                                            diesen (E-I-S).
+
+                                                     •   verbinden die Operationen miteinander und      •   erläutern den Zusammenhang zwischen den
+                                                         entdecken und beschreiben Rechengesetze            Grundoperationen und nutzen Rechengeset-
+                                                         an anschaulichen Beispielen.                       ze.
+              Kernkompetenzen                             Ende Schuljahrgang 2                              Ende Schuljahrgang 4
+
+                                                     Die Schülerinnen und Schüler ….
+
+       rechnen sicher und verständig.         •   kennen die Zahlzerlegungen bis 10 auswen-    •   übertragen die automatisierten Aufgaben auf
+                                                  dig und nutzen sie in Aufgabenstellungen.        analoge Aufgaben des erweiterten Zahlen-
+                                                                                                   raums.
+          •    kennen Grundaufgaben auswen-
+               dig.                           •   geben die Aufgaben des kleinen 1+1 und
+                                                  deren Umkehraufgaben automatisiert wieder.
+                                              •   geben die Kernaufgaben des kleinen 1x1       •   geben alle Aufgaben des kleinen 1x1 und
+                                                  automatisiert wieder und erschließen deren       deren Umkehraufgaben automatisiert wieder.
+                                                  Umkehraufgaben und die Ergebnisse weiterer
+                                                  Aufgaben.
+
+
+
+
+2929
+           Kernkompetenzen                                   Ende Schuljahrgang 2                              Ende Schuljahrgang 4
+
+                                                       Die Schülerinnen und Schüler ….
+       •    rechnen geschickt.
+                                                •   lösen Additions- und Subtraktionsaufgaben    •   lösen Grundrechenaufgaben bis 1 000 000
+                                                    bis 100 mit Hilfe von Rechengesetzen münd-       geschickt.
+                                                    lich und halbschriftlich geschickt.
+                                                •   kennen verschiedene Rechenwege und nut-
+                                                                                                 •   vergleichen verschiedene Rechenwege.
+                                                    zen sie.
+                                                                                                 •   wählen Rechenwege aufgabenbezogen aus.
+
+                                                •   erkennen strukturierte Aufgabenreihen und    •   beschreiben strukturierte Aufgabenreihen,
+                                                    setzen diese fort.                               setzen diese fort, entwickeln eigene und ver-
+                                                                                                     ändern sie systematisch.
+       •    rechnen schriftlich und flexibel.
+                                                                                                 •   verstehen die Verfahren der schriftlichen Ad-
+                                                                                                     dition (mit mehreren Summanden),
+                                                                                                     Subtraktion (mit einem Subtrahenden) und
+
+
+
+
+3030
+                                                                                                     Multiplikation (mit mehrstelligem Faktor)
+                                                                                                     und wenden sie sicher an.
+                                                                                                 •   verstehen das Verfahren der schriftlichen
+                                                                                                     Division mit einstelligem Divisor und wenden
+                                                                                                     es an.
+                                                                                                 •   entscheiden anforderungsbezogen, ob sie
+                                                                                                     mündlich, halbschriftlich oder schriftlich rech-
+                                                                                                     nen.
+       •    rechnen überschlagend.
+                                                •   prüfen Ergebnisse durch überschlagendes      •   prüfen Ergebnisse durch überschlagendes
+                                                    Rechnen und die Umkehroperation.                 Rechnen und die Umkehroperation.
+                                                •   finden und korrigieren Rechenfehler.         •   finden, beschreiben und korrigieren Rechen-
+                                                                                                     fehler.
+            Kernkompetenzen                 Ende Schuljahrgang 2                                Ende Schuljahrgang 4
+
+                                      Die Schülerinnen und Schüler ….
+                                                                                   •   lösen Sachaufgaben und beschreiben ihre
+       rechnen in Kontexten.   •   finden Lösungen zu Spiel- und Sachsituatio-
+                                                                                       Lösungswege nachvollziehbar.
+                                   nen (z. B. Rechengeschichten, Bildsachauf-
+                                   gaben) sowie zu einfachen Sachaufgaben.
+                               •   finden zu vorgegebenen Gleichungen pas-         •   finden zu vorgegebenen Gleichungen pas-
+                                   sende Sachsituationen (Rechengeschichten,           sende Sachsituationen und umgekehrt.
+                                   Bildsachaufgaben) und umgekehrt.
+                                                                                   •   nutzen Methoden der Texterschließung zur
+                                                                                       Informationsentnahme aus Sachaufgaben.
+                               •   nutzen Bearbeitungshilfen (z. B. Nachspielen,   •   nutzen Bearbeitungshilfen (z. B. Skizzen,
+                                   Darstellen mit Material, Skizzen) zur Lösung        Pfeilbilder, Streckenbilder, Tabellen und Dia-
+                                   von Sachaufgaben.                                   gramme) zur Bearbeitung von Sachaufgaben.
+                                                                                   •   entscheiden bei Sachaufgaben, ob eine
+                                                                                       Überschlagsrechnung ausreicht oder ein ge-
+                                                                                       naues Ergebnis nötig ist.
+
+
+
+
+3131
+                               •   lösen einfache kombinatorische Aufgaben         •   lösen kombinatorische Aufgaben durch Pro-
+                                   handelnd und zeichnerisch.                          bieren und systematisches Vorgehen.
+                                                                                   •   stellen kombinatorische Aufgaben in vorstruk-
+                                                                                       turierten Baumdiagrammen dar.
+       3.2.2    Raum und Form
+
+               Kernkompetenzen                                    Ende Schuljahrgang 2                                  Ende Schuljahrgang 4
+
+                                                            Die Schülerinnen und Schüler …
+
+       orientieren sich im Raum konkret und in der   •   fahren mit einem Stift Linien nach (Auge-
+       Vorstellung.                                      Hand-Koordination), identifizieren und benen-
+                                                         nen Formen und sich überschneidende Figu-
+                                                         ren (Figur-Grund-Diskriminierung und Wahr-
+                                                         nehmungskonstanz).
+                                                     •   orientieren sich im Raum konkret und in der       •   orientieren sich auf und mit Plänen (z. B.
+                                                         Vorstellung und beschreiben dies mit Begrif-          Stadtplänen, Lageplänen...).
+                                                         fen wie links von mir, rechts von mir, vor mir,
+                                                         hinter mir, neben mir.
+                                                     •   beschreiben Lagebeziehungen in der Ebene          •   beschreiben die Lage von Gebäuden in Plä-
+                                                         und im Raum mit eigenen Worten (z. B. ne-             nen mit Hilfe von Planquadraten.
+                                                         ben, über, unter, zwischen...).
+
+
+
+
+3232
+                                                                                                           •   vergleichen und bewerten verschiedene We-
+                                                                                                               ge in Plänen und in der Vorstellung.
+                                                     •   bauen und falten nach mündlichen Vorgaben.        •   bauen und falten nach mündlichen, schriftli-
+                                                                                                               chen oder zeichnerischen Vorgaben (z. B.
+                                                                                                               Würfelgebäude).
+                                                                                                           •   vergleichen Körper und Bauwerke mit ihren
+                                                                                                               zwei- und dreidimensionalen Darstellungen
+                                                                                                               (z. B. Schrägbild, Bauplan, Würfelnetz).
+                                                                                                           •   bewegen ebene Figuren und Körper in der
+                                                                                                               Vorstellung und sagen das Ergebnis der Be-
+                                                                                                               wegung vorher (z.B. Kippbewegung eines
+                                                                                                               Würfels).
+                                                                                                           •   nehmen in der Vorstellung an Figuren Verän-
+                                                                                                               derungen vor und beschreiben das Ergebnis.
+            Kernkompetenzen                                   Ende Schuljahrgang 2                                  Ende Schuljahrgang 4
+
+                                                        Die Schülerinnen und Schüler …
+
+       erkennen, benennen geometrische Figuren   •   sortieren die geometrischen Körper (Würfel,       •   erkennen, benennen die geometrischen Kör-
+       und stellen diese dar.                        Quader, Kugel und Zylinder) nach Eigen-               per (Quader [Würfel als besondere Quader],
+                                                     schaften (z. B. rollt, kippt), benennen sie und       Kugel, Zylinder und Pyramide) und beschrei-
+                                                     erkennen sie in der Umwelt wieder.                    ben ihre Eigenschaften mit Fachbegriffen
+                                                                                                           (Ecke, Seite, Kante, Fläche, senkrecht zuei-
+                                                                                                           nander, parallel zueinander, rechter Winkel).
+
+                                                 •   stellen einfache Modelle von geometrischen        •   erkennen und erstellen Modelle und Netze
+                                                     Körpern her (z. B. aus Knetgummi).                    von geometrischen Körpern.
+
+
+                                                 •   benennen die ebenen Grundformen (Viereck          •   erkennen und benennen die ebenen Grund-
+                                                     [Rechteck sowie Quadrat als besonderes                formen (Viereck [Rechteck sowie Quadrat als
+                                                     Rechteck], Dreieck und Kreis) und erkennen            besonderes Rechteck], Dreieck und Kreis)
+                                                     sie in ihrer Umwelt wieder.                           und beschreiben ihre Eigenschaften mit
+
+
+
+
+3333
+                                                                                                           Fachbegriffen (Ecke, Seite, Fläche, senkrecht
+                                                                                                           zueinander, parallel zueinander, rechter Win-
+                                                                                                           kel).
+
+
+                                                                                                       •   erkennen und benennen Punkt, Gerade und
+                                                                                                           Strecke.
+
+
+                                                 •   fertigen Freihandzeichnungen von ebenen           •   zeichnen einfache ebene Figuren (Rechteck,
+                                                     Figuren an.                                           Quadrat) sorgfältig mit Zeichengeräten (Blei-
+                                                                                                           stift und Geodreieck).
+
+                                                 •   setzen geometrische Muster fort.                  •   beschreiben Gesetzmäßigkeiten geometri-
+                                                                                                           scher Muster auch in der Umwelt und treffen
+                                                                                                           Vorhersagen zur Fortsetzung.
+                                                                                                       •   bilden geometrische Muster und verändern
+                                                                                                           sie.
+            Kernkompetenzen                                    Ende Schuljahrgang 2                             Ende Schuljahrgang 4
+
+                                                          Die Schülerinnen und Schüler …
+
+       untersuchen Symmetrien und erstellen sym-   •   untersuchen Figuren z. B. mit Hilfe eines    •   beschreiben Eigenschaften der Achsensym-
+       metrische Figuren und Muster.                   Spiegels auf Achsensymmetrie und stellen         metrie (Punkt, Bildpunkt, Symmetrieachse,
+                                                       einfache achsensymmetrische Figuren durch        Abstand) und stellen achsensymmetrische
+                                                       Falten, Legen und Zeichnen her.                  Figuren durch Falten, Legen und Zeichnen
+                                                                                                        her.
+
+
+
+                                                   •   erkennen und beschreiben achsensymmetri-     •   bestimmen die Anzahl der Symmetrieachsen
+                                                       sche Figuren in ihrer Umwelt.                    einer regelmäßigen Figur.
+
+                                                   •   setzen einfache symmetrische Muster (z. B.   •   erkennen Gesetzmäßigkeiten in Bandorna-
+                                                       Bandornamente) fort.                             menten, verändern diese und/oder setzen sie
+                                                                                                        fort.
+                                                                                                        erstellen und beschreiben symmetrische Mus-
+
+
+
+
+3434
+                                                                                                    •
+                                                   •   erstellen einfache symmetrische Muster.
+                                                                                                        ter (z. B. Parkettierungen).
+
+       vergleichen und messen Umfang, Flächen-     •   legen aus vorgegebenen Anzahlen von Plätt-   •   ermitteln und vergleichen Flächeninhalte
+       und Rauminhalte.                                chen verschiedene Formen.                        durch Zerlegen und durch Auslegen mit Ein-
+                                                                                                        heitsflächen.
+                                                                                                    •   ermitteln und vergleichen den Umfang von
+                                                                                                        ebenen Figuren.
+                                                                                                    •   unterscheiden zwischen dem Flächeninhalt
+                                                                                                        und dem Umfang einer ebenen Figur.
+                                                   •   bauen aus vorgegebenen Anzahlen von Wür-     •   ermitteln Rauminhalte von Würfeln und Qua-
+                                                       feln verschiedene Würfelgebäude.                 dern konkret mit Einheitswürfeln.
+       3.2.3   Größen und Messen
+
+
+                    Kernkompetenzen                           Ende Schuljahrgang 2                                  Ende Schuljahrgang 4
+
+                                                       Die Schülerinnen und Schüler …
+
+       verwenden Größen und Einheiten sachge-   •   messen, vergleichen und ordnen Repräsen-           •   messen, vergleichen und ordnen Repräsen-
+       recht.                                       tanten der Größenbereiche Längen und Zeit-             tanten der Größenbereiche Längen, Hohlma-
+                                                    spannen.                                               ße, Gewichte und Zeitspannen.
+                                                •   erfassen, stellen dar, wechseln und verglei-
+                                                    chen Geldbeträge.
+
+                                                •   lesen Uhrzeiten von digitalen und analogen         •   lesen Uhrzeiten von digitalen und analogen
+                                                    Uhren ab (viertel nach, halb, viertel vor, volle       Uhren ab.
+                                                    Stunde).
+                                                •   stellen Uhrzeiten (halb, viertel nach, viertel     •   stellen Uhrzeiten ein.
+                                                    vor, volle Stunde) ein.
+
+
+
+
+3535
+                                                •   verfügen über Stützpunktvorstellungen für          •   verfügen über Stützpunktvorstellungen für
+                                                    standardisierte Einheiten bei Längen und               standardisierte Einheiten bei Längen, Hohl-
+                                                    Zeitspannen und nutzen diese beim Schät-               maße, Zeitspannen und Gewichten und nut-
+                                                    zen.                                                   zen diese beim Schätzen.
+
+                                                •   gehen sachgerecht mit geeigneten Messin-           •   wählen entsprechend der Fragestellung ge-
+                                                    strumenten um.                                         eignete Messinstrumente aus und wenden sie
+                                                                                                           sachgerecht an.
+
+                                                •   verwenden Standardeinheiten der Größenbe-          •   verwenden Standardeinheiten der relevanten
+                                                    reiche Geld (€, ct), Längen (cm, m) und Zeit-          Größenbereiche (ct, €; mm, cm, m, km;
+                                                    spannen (Minute, Stunde, Tag, Woche, Mo-               s, min, h; g, kg, t; ml, l).
+                                                    nat, Jahr).
+                                                •   benennen den Zusammenhang zwischen                 •   benennen den Zusammenhang zwischen
+                                                    unterschiedlichen Einheiten der Größenberei-           unterschiedlichen Einheiten der Größenberei-
+                                                    che (z. B. 1 h = 60 min, 1 € = 100 ct,                 che (z. B. 1 l = 1000 ml, 1 kg = 1000 g).
+                                                    1m = 100 cm).
+                    Kernkompetenzen                             Ende Schuljahrgang 2                              Ende Schuljahrgang 4
+
+                                                           Die Schülerinnen und Schüler …
+
+       wandeln in standardisierte Einheiten um.                                                      •   wandeln standardisierte Einheiten um (z. B.
+                                                                                                         101 ct = 1 € 1 ct = 1,01 €).
+
+       berechnen Größen in Sachsituationen.         •   rechnen mit Längen, Geldwerten und Zeit-     •   rechnen mit Größen.
+                                                        spannen in Spiel- und Sachsituationen.
+                                                    •   lösen einfache Sachaufgaben mit Längen,      •   lösen Sachaufgaben mit Größen.
+                                                        Geldwerten und Zeitspannen und formulieren
+                                                        Antworten passend zu den Fragestellungen.
+
+       erkennen und beschreiben funktionale ma-     •   beschreiben einfache proportionale Zuord-    •   erkennen in Sachaufgaben proportionale
+       thematische Strukturen in Sachsituationen.       nungen von Größen in Sachsituationen (je         Zuordnungen von Größen und beschreiben
+                                                        mehr desto mehr, z. B. Menge – Preis).           den Zusammenhang der Wertepaare (je mehr
+                                                                                                         desto mehr).
+
+
+
+
+3636
+                                                                                                     •   ergänzen fehlende Werte proportionaler Zu-
+                                                                                                         ordnungen von Größen in Tabellen.
+       3.2.4    Daten und Zufall
+
+               Kernkompetenzen                                 Ende Schuljahrgang 2                                Ende Schuljahrgang 4
+
+                                                         Die Schülerinnen und Schüler …
+
+       erfassen Daten.                            •   stellen Fragen zu Häufigkeiten (z. B. Anzahl    •   stellen Fragen zu Häufigkeiten und sammeln
+                                                      Mädchen und Jungen) und sammeln dazu                dazu Daten (z. B. durch Beobachtungen, Be-
+                                                      Daten.                                              fragungen oder einfache Experimente).
+
+
+       stellen Daten in geeigneter Form dar.      •   stellen Daten übersichtlich in einfachen Dar-   •   stellen Daten in Tabellen und Diagrammen
+                                                      stellungen dar (z. B. Strichliste).                 (Balkendiagramm, Säulendiagramm) über-
+                                                                                                          sichtlich und angemessen dar.
+
+       entnehmen Informationen aus Grafiken und   •   entnehmen einfachen Darstellungen (z. B.        •   entnehmen Tabellen (z. B. Fahrplänen) und
+       Tabellen.                                      Stundenplan, Strichlisten) Informationen.           Diagrammen Informationen und hinterfragen
+                                                                                                          diese kritisch.
+
+
+
+
+3737
+                                                  •   ziehen erste Schlussfolgerungen aus einfa-      •   ziehen Schlussfolgerungen aus Tabellen und
+                                                      chen Tabellen.                                      Diagrammen.
+
+       erkennen und beschreiben funktionale ma-                                                       •   erkennen in Tabellen proportionale Zuord-
+       thematische Strukturen in Tabellen.                                                                nungen und beschreiben den Zusammen-
+                                                                                                          hang der Wertepaare.
+                                                                                                      •   ergänzen Tabellen zu einfachen funktionalen
+                                                                                                          mathematischen Strukturen.
+            Kernkompetenzen                                       Ende Schuljahrgang 2                                 Ende Schuljahrgang 4
+
+                                                            Die Schülerinnen und Schüler …
+
+       vergleichen Wahrscheinlichkeiten von Ereig-   •   stellen Vermutungen zur Eintrittswahrschein-     •   stellen Vermutungen zur Eintrittswahrschein-
+       nissen in einfachen Zufallsexperimenten.          lichkeit von Vorgängen ihrer Erfahrungswelt          lichkeit von Ereignissen an und erläutern die-
+                                                         an (sicher, möglich, unmöglich).                     se (sicher, möglich, unmöglich).
+
+
+                                                     •   führen einfache Zufallsexperimente (z. B.        •   führen einfache Zufallsexperimente (z. B.
+                                                         Plättchen werfen) zur Eintrittswahrscheinlich-       Würfeln, Ziehen von bunten Kugeln) zur Ein-
+                                                         keit durch und ziehen erste Schlüsse.                trittswahrscheinlichkeit durch, dokumentieren
+                                                                                                              die Ergebnisse und überprüfen ihre Vermu-
+                                                                                                              tungen.
+                                                                                                          •   stellen Zufallsexperimente in vorstrukturierten
+                                                                                                              Baumdiagrammen dar.
+
+
+
+
+3838
+       3.3                                  Zusammenführung von Kompetenzen
+
+       Beispiel (vgl. 3 ): Additionsaufgaben bis 20
+
+                    zu sichernde und aufzubauende Kompetenzen
+                                                                                                                                     Umsetzung im Unterricht
+                                              Die Schülerinnen und Schüler …
+
+                                                             beschreiben mathematische     Zu-    Inhalt dieser Unterrichtssequenz ist die gründliche Erschließung der Rechenstrategien der Additi-
+                                                             sammenhänge.                         on im Zahlenraum bis 20 (Tauschaufgaben, Analogieaufgaben, Verdoppeln/Fastverdoppeln,
+                                                                                                  Nachbaraufgaben, schrittweises Rechnen und gegensinniges Verändern). Um die Rechenstrate-
+                                                             → entdecken und beschreiben einfa-   gien anwenden zu können, müssen die zugrundeliegenden Aufgaben gründlich geübt sein, d.h.,
+                                                               che mathematische Zusammen-        dass die Schülerinnen und Schüler ihre Ergebnisse an den Arbeitsmitteln sofort sehen oder ein-
+                                                               hänge.                             zelne Aufgaben des Kleinen 1+1 schon automatisiert haben. Dazu zählen insbesondere die Zahl-
+                                                                                                  zerlegungen bis 10 und Verdopplungsaufgaben.
+                                                                                                  Ziel der Sequenz ist, dass die Schülerinnen und Schüler die verschiedenen Rechenwege ken-
+                                                                                                  nenlernen und das Wissen über die Rechenwege für sich nutzen, da die bewusste Nutzung der
+
+
+
+
+                                             Kommunizieren
+                                                                                                  Strategien Grundlage des geschickten Rechnens ist. Aber nicht jede Schülerin und nicht jeder
+                                                                                                  Schüler muss alle Rechenwege sicher gehen können. Auch in der Wahl des Rechenweges fin-
+
+
+
+
+3939
+                                                                                                  den sich Möglichkeiten einer natürlichen Differenzierung.
+                                                                                                  Die verschiedenen Strategien zur Lösung von Additionsaufgaben sollen in dieser Unterrichtsse-
+                                                             begründen mathematische Zusam-       quenz ausgehend von entsprechenden Handlungen und bildlichen Darstellungen beschrieben
+                                                             menhänge.                            und begründet werden. Dazu bieten sich entsprechend strukturierte Aufgabenpaa-
+                                                                                                  re/Aufgabenpäckchen zum aktiven Entdecken an (z.B. mittels Think – Pair – Share). Bei der Be-
+                                                             → begründen in Ansätzen einfache     gründung geht es nicht um einen formalen Beweis, sondern um das Nachvollziehen der zugrun-
+                                                               mathematische Zusammenhänge        deliegenden Rechengesetze/Operationseigenschaften an einem handelnden/bildlichen Beispiel
+                                                               mithilfe von Arbeitsmitteln und    (inhaltlich-anschaulicher Beweis). Forschermittel helfen die Strukturen zu verdeutlichen/Stra-
+                                                               Darstellungen.                     tegien zu visualisieren. Es kann hilfreich sein, den Strategien feste Bezeichnungen zuzuordnen.
+                                                                                                  Der vielfältige Wechsel zwischen handelnder, verbaler, bildlicher und symbolischer Darstellung
+
+
+
+
+        Prozessbezogene Kompetenzbereiche
+                                                                                                  wird als durchgängiges Unterrichtsprinzip für die gesamte Unterrichtssequenz als zwingend not-
+                                                                                                  wendig erachtet. Im Gespräch über die Strategien muss deutlich werden, wie man diese zum
+
+
+
+
+                                             Argumentieren
+                                                                                                  geschickten Rechnen nutzen kann. Zu jeder Zeit ist es sinnvoll, die Argumentation durch Darstel-
+                                                                                                  lungen zu unterstützen.
+                                                                                                  Mathekonferenzen am Anfang bzw. am Ende der Sequenz bieten sich an, um sich gezielt über
+                                                                                                  verschiedene Rechenwege/das geschickte Rechnen auszutauschen.
+                    zu sichernde und aufzubauende Kompetenzen
+                                                                                                                                                Umsetzung im Unterricht
+                                              Die Schülerinnen und Schüler …
+
+                                                                     verfügen über Vorstellungen und      Möglichkeiten zur Förderung                         Weiterführende Anforderungen
+                                                                     Darstellungen für Operationen.
+                                                                                                          •   Darstellung durch Arbeitsmittel                 •   Übertragen der Strategien auf den erwei-
+                                                                     → verbinden die Operationen mitei-                                                           terten Zahlenraum
+                                                                       nander und entdecken und be-       •   zugrundeliegende Aufgabe und abgeleitete
+                                                                       schreiben Rechengesetze an an-         Aufgabe als Paar                                •   farbige Markierungen in der 1+1-Tafel
+                                                                       schaulichen Beispielen.                                                                    selber finden (Welche Aufgabe lässt sich
+                                                                                                          •   Visualisierung der Strategie                        am besten mit welcher Strategie lösen,
+                                                                                                                                                                  Farben zuordnen)
+                                                                     rechnen sicher und verständig.
+                                                                                                          Differenzierende Aufgaben:
+                                                                     rechnen geschickt.
+                                                                                                          Alle Additionsaufgaben in der 1+1-Tafel sammeln und dann selber strukturieren.
+                                                                     → lösen Additionsaufgaben bis 20
+                                                                       mithilfe von    Rechengesetzen
+                                                                       mündlich und halbschriftlich ge-
+
+
+
+
+                                            Zahlen und Operationen
+
+
+
+
+4040
+                                                                       schickt.                           Medien/Arbeitstechniken/Methoden:
+                                                                                                          •   Plättchen und Zwanzigerfeld/Abakus
+
+
+
+
+        Inhaltsbezogene Kompetenzbereiche
+                                                                                                          •   Mathekonferenz
+                                                                                                          •   Think – Pair – Share
+
+       Sprachbildung
+       Wortspeicher für die Begriffe zur Addition, Lernplakat mit Bezeichnungen und Beispielen der Strategien, Satzbausteine zum Beschreiben des Rechenwegs
+       („zuerst“, „dann“, „weil“ etc.)
+4       Leistungsfeststellung und Leistungsbewertung
+
+Leistungen im Unterricht setzen sich aus allen Kompetenzbereichen zusammen. Dabei ist zu beden-
+ken, dass die sozialen und personalen Kompetenzen, die über das Fachliche hinausgehen, von den
+im Kerncurriculum formulierten erwarteten Kompetenzen nur in Ansätzen erfasst werden.
+
+Der am Kompetenzerwerb orientierte Unterricht bietet den Schülerinnen und Schülern einerseits aus-
+reichend Gelegenheiten, Problemlösungen zu erproben, andererseits fordert er den Kompetenznach-
+weis in Leistungssituationen. Grundsätzlich ist zwischen Lern- und Leistungssituationen zu unter-
+scheiden und dieses muss für die Schülerinnen und Schüler transparent sein.
+
+In Lernsituationen sind Fehler und Umwege der Schülerinnen und Schüler ein konstruktiver Teil des
+Lernprozesses, den Lehrkräften geben sie Hinweise für die weitere Unterrichtsplanung. Das Erkennen
+von Fehlern und der produktive Umgang mit ihnen sind konstruktiver Teil des Lernprozesses. Für den
+weiteren Lernfortschritt ist es wichtig, bereits erworbene Kompetenzen wertschätzend herauszustellen
+und Schülerinnen und Schüler zum Weiterlernen zu ermutigen. Das schließt auch die altersangemes-
+sene Förderung der Fähigkeit zur Selbsteinschätzung der Leistung ein.
+
+In Leistungs- und Überprüfungssituationen ist das Ziel, die Verfügbarkeit der erwarteten Kompetenzen
+nachzuweisen. Leistungsfeststellungen und Leistungsbewertungen geben den Schülerinnen und
+Schülern individuelle, kriteriengeleitete, kompetenzorientierte Rückmeldungen über die erworbenen
+Kompetenzen und den Lehrkräften Orientierung für notwendige Maßnahmen zur individuellen Förde-
+rung. Neben der kontinuierlichen Beobachtung der Schülerinnen und Schüler im Lernprozess und
+ihrer erbrachten Anstrengungen und individuellen Lernfortschritte, die in der Dokumentation der indivi-
+duellen Lernentwicklung erfasst werden, sind die Ergebnisse aus den im Unterricht erbrachten Leis-
+tungen sowie schriftlicher Leistungen zur Leistungsfeststellung heranzuziehen.
+
+
+
+
+                                                  41
+                                                  41
+         Schriftliche Arbeiten                           •   5 Minuten Tests
+
+                                                         •   Ergebnisse von Partner- oder Gruppenarbei-
+                                                             ten und deren Darstellung
+         Besondere Lernaufgaben                          •   Fachsprache anwenden und nutzen
+
+•   kriteriengeleitete Präsentation (auch medien-        •   kriteriengeleitete Präsentation (auch medien-
+    gestützt) erstellen                                      gestützt) vorstellen
+•   Lernplakat erstellen                                 •   Lernplakat erarbeiten und vorstellen
+•   Forschermappe/Portfolio erstellen                    •   Forschermappe/Portfolio vorstellen
+•   Mathekartei entwickeln und erstellen                 •   Mathekartei erstellen
+•   Mathematische, regelbasierte Spiele entwi-           •   Mathematische, regelbasierte Spiele erstellen
+    ckeln und überprüfen                                     und erproben
+•   Modell (z. B. Körper, Körpernetze) erstellen         •   Modell (z. B. Körper, Körpernetze ) erstellen
+    und erklären
+                                                         •   mündliche Überprüfung
+                                                         •   sachgerechter Umgang mit Arbeitsmitteln und
+                                                             Zeichengeräten
+                                                         •   Strategien zum Lösen von Sachaufgaben
+                                                         •   Tabellen, Pläne und Karten anfertigen
+                                                         •   Unterrichtsdokumentation (Heft, Mappe)
+                                                         •   …
+Abb. 3
+
+Die schriftlichen Leistungen sind als Ganzes zu bewerten. Zu den schriftlichen Leistungen gehören
+sowohl schriftliche Arbeiten als auch besondere Lernaufgaben (vgl. Abb. 3). In beiden werden pro-
+zessbezogene und inhaltsbezogene Kompetenzen erfasst. Die besonderen Lernaufgaben eignen sich
+in besonderer Weise zur Feststellung und Bewertung der prozessbezogenen Kompetenzen. In schrift-
+lichen Leistungen werden überwiegend Kompetenzen überprüft, die im unmittelbar vorangegangenen
+Unterricht erworben werden konnten. Aus den Korrekturanmerkungen schriftlicher Leistungen erge-
+ben sich Hinweise zum weiteren Lernen für die Schülerinnen und Schüler.
+
+
+
+
+                                                    42
+                                                    42
+Im ersten und zweiten Schuljahrgang liegt der Schwerpunkt der Leistungsbewertung auf der unmittel-
+baren Schülerbeobachtung. Im Verlauf des zweiten Schuljahrgangs kommen kurze schriftliche Lern-
+kontrollen (zur Anbahnung schriftlicher Arbeiten) hinzu. Ab dem dritten Schuljahr werden in jedem
+Schuljahr sechs bis acht schriftliche Leistungen erbracht, wovon zwei als besondere Lernaufgaben zu
+konzipieren sind. Alle schriftlichen Leistungen müssen aus der unterrichtlichen Arbeit hervorgehen, in
+der Schule erbracht werden und von Art und Umfang aussagekräftig hinsichtlich des Lernstandes und
+der Lernprozesse der einzelnen Schülerin oder des einzelnen Schülers sein.
+
+In jede schriftliche Arbeit ist ein allgemeiner Teil mit Aufgaben zur Sicherung der Basiskompetenzen
+zu integrieren. Darüber hinaus sollen jedoch auch Problemstellungen einbezogen werden, die die
+Verfügbarkeit von Kompetenzen eines langfristig angelegten Kompetenzaufbaus überprüfen. Alle drei
+Anforderungsbereiche „Reproduzieren“, „Zusammenhänge herstellen“ sowie „Verallgemeinern und
+Reflektieren“ sind zu berücksichtigen. Die Fachkonferenz legt die Anteile der Anforderungsbereiche
+fest. Dabei soll durch den Bereich Reproduzieren in etwa die Hälfte der Punkte erreicht werden kön-
+nen.
+
+Weitere mögliche Beurteilungsaspekte im Mathematikunterricht sind folgende:
+
+    •   Verständnis von mathematischen Begriffen und Operationen
+    •   Schnelligkeit im Abrufen von Kenntnissen
+    •   Sicherheit im Ausführen von Fertigkeiten
+    •   Einbringen kreativer Ideen
+    •   Schlüssigkeit der Lösungswege und Überlegungen
+    •   Flexibilität und Problemangemessenheit des Vorgehens
+    •   Richtigkeit bzw. Angemessenheit von Ergebnissen bzw. Teilergebnissen
+    •   mündliche und schriftliche Darstellungsfähigkeit
+    •   zielgerichtete und kontinuierliche Auseinandersetzung mit mathematischen Fragestellungen
+    •   Fähigkeit zur Übertragung vorhandenen Wissens und Könnens in ungewohnten Situationen
+    •   Fähigkeit zum Anwenden von Mathematik in lebensweltlichen Aufgabenstellungen
+    •   konstruktiver Umgang mit Fehlern
+    •   sinnvoller und angemessener Umgang mit didaktischem Material und Hilfsmitteln
+
+Bei kooperativen Arbeitsformen sind sowohl die individuelle Leistung als auch die Gesamtleistung der
+Gruppe in die Bewertung einzubeziehen. So werden neben methodisch-strategischen auch die sozial-
+kommunikativen Leistungen angemessen berücksichtigt.
+
+Die Ergebnisse der schriftlichen Leistungen bestimmen in etwa zur Hälfte die Zeugnisnote, sofern
+Notenzeugnisse erteilt werden. In die Leistungsbewertung des gesamten Schuljahres fließen alle
+Kompetenzbereiche mit ein. Ausnahmen gelten nur dann, wenn in Einzelfällen ein Abweichen von den
+allgemeinen Grundsätzen der Leistungsbewertung durch die Klassenkonferenz beschlossen wurde.
+
+Die Grundsätze der Leistungsfeststellung und -bewertung müssen für Schülerinnen und Schüler sowie
+für die Erziehungsberechtigten transparent sein.
+
+
+
+
+                                                   43
+                                                   43
+5       Aufgaben der Fachkonferenz
+
+Die Fachkonferenz erarbeitet unter Beachtung der rechtlichen Grundlagen und der fachbezogenen
+Vorgaben des Kerncurriculums einen schuleigenen Arbeitsplan (Fachcurriculum).
+
+Die Erstellung des Fachcurriculums ist ein Prozess. Der schuleigene Arbeitsplan ist regelmäßig zu
+überprüfen und weiterzuentwickeln. Die Fachkonferenz trägt somit zur Qualitätsentwicklung und zur
+Qualitätssicherung des Faches bei. Sie dient dem fachinternen Austausch und bietet Raum und
+Chance für kollegiale Beratung und Unterstützung.
+
+Die Fachkonferenz …
+
+    •   legt Themen bzw. die Struktur von Unterrichtseinheiten fest, die die Entwicklung der erwarte-
+        ten Kompetenzen ermöglicht, und berücksichtigt dabei regionale Bezüge,
+    •   legt die zeitliche Zuordnung innerhalb der Doppelschuljahrgänge fest,
+    •   trifft Absprachen zur Differenzierung und Individualisierung und über geeignete Instrumente
+        zur Diagnostik,
+    •   arbeitet fachübergreifende und fächerverbindende Anteile des Fachcurriculums heraus und
+        stimmt diese mit den anderen Fachkonferenzen ab,
+    •   entscheidet, welche Schulbücher und Unterrichtsmaterialien eingeführt werden sollen,
+    •   trifft Absprachen zur einheitlichen Verwendung der Fachsprache sowie des Verfahrens der
+        schriftlichen Subtraktion,
+    •   trifft eine Auswahl von substantiellen Aufgaben und Lernumgebungen,
+    •   erarbeitet Maßnahmen zur Sicherung der Basiskompetenzen,
+    •   trifft Absprachen über die Anzahl und Verteilung verbindlicher Lernkontrollen im Schuljahr,
+    •   trifft Absprachen zur Konzeption und zur Bewertung von schriftlichen Arbeiten und besonde-
+        ren Lernaufgaben sowie von mündlichen und fachspezifischen Leistungen in allen Schuljahr-
+        gängen,
+    •   stimmt den Einsatz der Medien im Mathematikunterricht mit dem schulinternen Mediencurricu-
+        lum ab,
+    •   wirkt mit bei der Entwicklung des Förderkonzepts der Schule und stimmt die erforderlichen
+        Maßnahmen zur Umsetzung ab,
+    •   initiiert die Nutzung außerschulischer Lernorte, die Teilnahme an Wettbewerben etc.,
+    •   initiiert Beiträge des Faches zur Gestaltung des Schullebens (Ausstellungen, Projekttage etc.)
+        und trägt zur Entwicklung des Schulprogramms bei,
+    •   stimmt die fachbezogenen Arbeitspläne der Grundschule mit den weiterführenden Schulen ab,
+    •   trifft Absprachen mit den Tageseinrichtungen für Kinder zur Sicherung des Übergangs vom
+        Kindergarten zur Grundschule und
+    •   ermittelt Fortbildungsbedarfe innerhalb der Fachgruppe und trifft Absprachen zu Fortbil-
+        dungsmaßnahmen für die Fachlehrkräfte.
+
+
+
+
+                                                  44
+                                                  44
+Anhang
+
+(A1)     Operatoren
+
+Die folgenden Operatoren geben an, welche Tätigkeiten, Fertigkeiten und Fähigkeiten zum Nachweis
+der jeweiligen Kompetenz erwartet werden. Sie sind mit den Schülerinnen und Schülern zu erarbeiten
+und ihr Gebrauch ist an verschiedenen Beispielen zu üben. Durch den konsequenten Einsatz wird
+Fehlinterpretationen von Aufgabenstellungen entgegengewirkt. Gleichzeitig verdeutlichen sie die
+Komplexität von unterschiedlichen Aufgabenstellungen.
+
+   Operatoren                          Beschreibung der erwarteten Leistung
+
+                   Sachverhalte unter Nutzung von Regeln und mathematischen Beziehungen auf
+                   kausale Zusammenhänge zurückführen
+begründen          oder
+                   die Angemessenheit einer Verfahrensweise bzw. die Eignung von Werkzeugen
+                   darlegen
+
+                   Objekte, Sachverhalte, Begriffe oder Daten ohne nähere Erläuterungen oder
+benennen
+                   Begründungen aufzählen
+
+berechnen          Ergebnisse durch Rechenoperationen gewinnen
+
+beschreiben        Eigenschaften, Strukturen und Prozesse sprachlich angemessen wiedergeben
+beurteilen/        zu einem Sachverhalt ein selbstständiges Urteil unter Verwendung von Fachwis-
+bewerten           sen und Fachmethoden formulieren und begründen
+                   Erkenntnisse, Sachverhalte, Zusammenhänge und Methoden strukturiert und
+darstellen
+                   fachsprachlich in geeigneter Form veranschaulichen
+entscheiden        sich bei verschiedenen Möglichkeiten begründet und eindeutig festlegen
+                   einen Sachverhalt nachvollziehbar und mit Bezug auf Regeln oder Gesetzmäßig-
+erklären
+                   keiten und/oder mithilfe von Darstellungen verständlich zum Ausdruck bringen
+erstellen          einen Sachverhalt in übersichtlicher fachlich angemessener Form darstellen
+ordnen             bezogen auf verschiedene Ordnungskriterien in eine Reihenfolge bringen
+orientieren        den eigenen Standort und/oder Wege zwischen Standorten finden
+präsentieren/      Erkenntnisse, Sachverhalte, Zusammenhänge und Methoden unter Verwendung
+vorstellen         geeigneter Medien adressaten-/fachbezogen darstellen und vorführen
+                   eine Lösung bzw. einen Lösungsweg auf Angemessenheit und/oder Korrektheit
+                   kontrollieren
+(über-)prüfen      oder
+                   eine Aussage, einen Sachverhalt anschaulich oder an Beispielen bestätigen oder
+                   widerlegen
+                   über die Richtigkeit und Angemessenheit von Lösungswegen und Vorgehens-
+reflektieren
+                   weisen kriteriengeleitet nachdenken
+                   Größen und Zahlen unter Rückgriff auf Fachwissen und/oder Stützpunktvorstel-
+schätzen
+                   lungen ermitteln und angeben
+                   Eigenschaften, Vorgänge und Beziehungen auf das Wesentliche reduziert und
+skizzieren
+                   freihand-zeichnerisch veranschaulichen
+
+
+
+
+                                                45
+                                               45
+   Operatoren                        Beschreibung der erwarteten Leistung
+
+sortieren        zusammenfassen in Kategorien/Klassen nach vorher festgelegten Eigenschaften
+
+untersuchen      Eigenschaften von oder Beziehungen zwischen Objekten herausfinden
+
+                 Gemeinsamkeiten und Unterschiede von Objekten, Lösungsansätzen usw. fest-
+vergleichen
+                 stellen
+
+zeichnen         eine grafische Darstellung hinreichend exakt anfertigen
+zuordnen/        eine Menge von Objekten auf der Basis von Gemeinsamkeiten und Unterschie-
+klassifizieren   den in ein vorgegebenes System eingliedern
+
+
+
+
+                                              46
+                                             46
+(A2)    Beispiel für ein Aufgabenformat zur natürlichen Differenzierung im in-
+        klusiven Unterricht
+
+Zahlenmauern stellen ein reichhaltiges Aufgabenformat dar, welches immer wieder unter neuen Ge-
+sichtspunkten im Unterricht betrachtet werden kann. Sie eignen sich auch für den inklusiven und jahr-
+gangsübergreifenden Unterricht, da sie bereits in kleinen Zahlenräumen und darüber hinaus zu vielfäl-
+tigen mathematischen Tätigkeiten anregen und Erfolgserlebnisse ermöglichen. Somit kann allen
+Schülerinnen und Schülern einer heterogenen Lerngruppe die Möglichkeit eröffnet werden an der
+gleichen Aufgabe zu arbeiten, ohne dass diese bereits vorab niveaudifferenziert gestellt wurden. Der
+Austausch über Entdeckungen wird durch die Erarbeitung und Fixierung grundlegender Begriffe auf
+einem Wortspeicherplakat unterstützt. Im Sinne des Spiralprinzips ermöglichen Zahlenmauern durch
+geeignete Aufgabenstellungen kumulatives Lernen und können den Kompetenzerwerb in allen pro-
+zess- und inhaltsbezogenen Kompetenzbereichen fördern.
+
+Die folgende Liste zur Aufgabenauswahl erhebt keinen Anspruch auf Vollständigkeit, schreibt keine
+Art der Aufgabenformulierung vor und ist nicht hierarchisch zu verstehen.
+
+    •   Lege in die Lücken die richtige Anzahl an Plättchen.
+
+    •   Vervollständige die Zahlenmauer.
+
+    •   Wie hast du die Zahlenmauer ausgerechnet? Beschreibe.
+
+    •   Welche Zahlen gehören in die Lücken? Gibt es mehrere Möglichkeiten?
+
+        Warum ist das so?
+
+
+
+    •   Erfinde selbst Zahlenmauern.
+
+    •   Finde alle Zahlenmauern mit den Grundsteinen 2, 3, 4.
+
+        Was fällt dir auf? Sind das alle? Begründe.
+
+
+
+                                                                            usw.
+
+    •   Was passiert, wenn man die Steine in der Grundreihe vertauscht?
+
+    •   Was befindet sich im Deckstein, wenn sich im linken Eckstein ein Hase, im mittleren Stein der
+        Grundreihe ein Ei und im rechten Eckstein ein Küken befindet?
+
+    •   Finde alle Zahlenmauern mit dem Deckstein 12.
+
+
+
+
+                                                                                              usw.
+
+
+
+
+                                                  47
+                                                 47
+•   Wann ist der Deckstein am größten/kleinsten?
+
+•   Wann ist der Deckstein gerade/ungerade?
+
+•   Ist der Deckstein ungerade, wenn alle Grundsteine ungerade sind?
+
+•   Wie musst du die Zahlenmauer verändern, damit der Deckstein gleich bleibt?
+
+•   Was passiert mit dem Deckstein, wenn der linke/rechte Eckstein um eins größer/kleiner wird?
+
+•   Was passiert mit dem Deckstein, wenn der Mittelstein um eins größer wird?
+
+
+
+
+•   Der mittlere Stein der Grundreihe ist der wichtigste Stein. Bewerte die Aussage.
+
+•   Was passiert, wenn ein Stein null ist?
+
+
+
+
+                                              48
+                                             48
+(A3)      Voraussetzungen für das Mathematiklernen
+
+Der Aufbau der mathematischen Grundkompetenzen erstreckt sich über das Vorschulalter hinaus und
+wird während des Anfangsunterrichtes weiterentwickelt (vgl. 2.2).
+
+                                  Mathematische Grundkompetenzen
+Einflüsse auf mathematische Grundkompetenzen
+
+Wahrnehmung (u. a. Grundvoraussetzung für räumliche Vorstellung)
+    •     Visuelle Wahrnehmung: visuelle Differenzierung, Wahrnehmungskonstanz, visuomotorische
+          Koordination, visuelle Serialität, Figur – Grund – Wahrnehmung, Wahrnehmung räumlicher
+          Beziehungen (u. a. Bauen mit Klötzen), Wahrnehmung der Raumlage (Figuren erkennen auch
+          wenn sie gedreht oder gekippt sind), visuelles Gedächtnis
+    •     Auditive Wahrnehmung: auditives Gedächtnis, auditive Serialität (Rhythmus nachklatschen)
+    •     Taktil – kinästhetische Wahrnehmung: taktiles Differenzierungsvermögen (Formwahrnehmung
+          und Oberflächen- und Materialstrukturen ertasten)
+Arbeitsgedächtnis
+Sprachgedächtnis
+Sprache
+    •     Phonetisch-phonologische Ebene: Lautsynthese, Lautanalyse, Bewusstheit für sprachliche
+          Einheiten (Einfluss auf den Erwerb der Zählfertigkeiten)
+    •     Semantisch-lexikalischer Bereich: aktiver und passiver Wortschatz (Beschreiben von Eigen-
+          schaften), Wortfindung (Oberbegriffe finden, zu Oberbegriffen passende Unterbegriffe finden),
+          Wortbedeutung
+    •     Morphologisch-syntaktische Ebene: Präpositionalphrasen (wie Verwendung der Adverbien
+          des Ortes [u. a. vorn, hinten] und der Zeit [danach, davor])
+Motorik
+    •     Grobmotorik: Bewegungssicherheit
+    •     Feinmotorik (Falten, Schneiden von Formen, Kneten von Körpern): Hand – Finger – Geschick-
+          lichkeit, Auge – Hand – Koordination
+    •     Raumlage (Raumlagebegriffe in körperliche Bewegung umsetzen, Bewegungen nachahmen)
+    •     Lateralität, bilaterale Koordination (z. B. Hampelmann), Überkreuzen der Körpermitte
+
+
+
+Grundkompetenzen aus dem Bereich Zahlen und Operationen
+Die Schülerinnen und Schüler …
+
+    •     erkennen, dass die Anzahl an Elementen unverändert bleibt, auch wenn sich die räumliche
+          Anordnung oder Form ändert (Invarianz).
+    •     vergleichen zwei Mengen der Größe nach (Eins-zu-Eins-Zuordnung).
+    •     bilden Gruppen und Untergruppen nach erarbeiteten Merkmalen (Klasseninklusion)
+              o   z. B. „Suche alle roten Perlen.“
+    •     sortieren Gegenstände nach bestimmten Eigenschaften (Klassifikation).
+    •     bilden Reihen (Seriation), u.a. ordnen Gegenstände der Größe nach (linear).
+    •     sagen die Zahlwortreihe bis 10 auf.
+
+
+
+
+                                                     49
+                                                     49
+Grundkompetenzen aus dem Bereich Zahlen und Operationen
+Die Schülerinnen und Schüler …
+
+   •   zählen Mengen und ordnen jedem Element ein Zahlwort zu (Eindeutigkeitsprinzip).
+   •   verwenden die Zahlwortreihe in der richtigen Reihenfolge (Prinzip der stabilen Ordnung).
+   •   benennen das letzte Zahlwort als Mächtigkeit der Menge (Kardinalprinzip).
+   •   zählen Gegenstände unabhängig ihrer Art und Eigenschaften (Abstraktionsprinzip).
+   •   wissen, dass sich das Zählergebnis nicht ändert auch wenn die Elemente in anderer Reihen-
+       folge gezählt werden (Prinzip der Irrelevanz der Anordnung).
+   •   bestimmen die Größe von Mengen/Anzahlen.
+           o   erfassen Mengen bis 4 ohne zu zählen (simultan).
+           o   erfassen strukturierte Mengen (z. B. Kraft der Fünf, Würfelbilder, Fingerbilder) auf ei-
+               nen Blick (quasi-simultan).
+           o   bestimmen unstrukturierte Mengen durch Ordnen und/oder Zählen.
+   •   legen zu einer Zahl die entsprechende Menge.
+   •   erkennen Vermehren/Vermindern von Anzahlen in Alltagssituationen (Zunahme-Abnahme-
+       Schema).
+   •   legen Muster nach.
+   •   legen Muster weiter.
+
+
+
+Grundkompetenzen aus dem Bereich Raum und Form
+Die Schülerinnen und Schüler …
+
+   •   beschreiben Raum-Lage-Beziehungen (aus ihrer Sicht) mit den Begriffen oben, unten, auf,
+       über, unter, vor, hinter, neben.
+   •   legen Muster mit Formen nach.
+   •   setzen Muster mit Formen fort.
+
+
+
+
+                                                 50
+                                                 50
+(A4)    Glossar
+
+Analoge Aufgaben         Aufgaben werden durch den Vergleich mit der Lösung strukturell ähnlicher
+                         Aufgaben erschlossen.
+                          4+2= 6
+                         14 + 2 = 16
+Arbeitsmittel            Didaktische Materialien und Alltagsmaterialien, die im Unterricht Mathematik
+                         „begreifbar“ werden lassen.
+                         Sie helfen Zahlvorstellungen aufzubauen, Operationsvorstellungen aufzu-
+                         bauen, Rechenwege darzustellen.
+Auge-Hand-               (Hand-)Bewegungen unter visueller Kontrolle gezielt ausführen zu können.
+Koordination
+Balkendiagramm           Diagrammtyp, der die Datenreihen durch waagerecht liegende Balken dar-
+                         stellt.
+Bandornamente oder       Grundelemente, die nach einer Regelmäßigkeit/einem Muster in einer Rich-
+Parkettierungen          tung (theoretisch bis ins unendliche) mehrfach arrangiert sind.
+Bearbeitungshilfen       dienen dem Lösen einer Aufgabe, z. B. Rechenstrich, Skizzen, Pfeilbilder,
+                         Streckenbilder, Tabellen und Diagramme.
+Darstellungsebene        Ein und derselbe mathematische Inhalt kann auf verschiedenen Darstel-
+(E-I-S – Prinzip)        lungsebenen bearbeitet werden: handelnd (enaktiv), bildlich (ikonisch) und
+                         formal (symbolisch). Nicht als hierarchische Abfolge zu verstehen; wechsel-
+                         weise Übergänge sind fundamental.
+Figur-Grund-             Aus einer komplexen Gesamtfigur eingebettete Teilfiguren erkennen und
+Diskriminierung          (optisch) isolieren.
+Forschermittel           helfen Aspekte einer Aufgabe hervorzuheben oder anderen etwas zu zeigen
+                         oder zu erklären (z. B. farbige Markierungen und Pfeile).
+Funktionale Zusam-       beschreiben die Abhängigkeit, die zwischen zwei Zahlen und/oder Größen
+menhänge                 besteht (z. B. Proportionalitätsbeziehung).
+Geschicktes Rechnen      Rechnen nicht nach „Schema-F“, „von links nach rechts“ und „reflexhaft“,
+                         sondern innehaltend, vorausschauend, mit Zahlenblick nach möglichen Ver-
+                         einfachungen suchend.
+                         Geschicktes Rechnen erfolgt meist durch einsichtiges Ausnutzen von Re-
+                         chengesetzen.
+Halbschriftlich, Kopf-   Halbschriftlich: Zahlenrechnen mit unterschiedlichen Strategien, Zwischen-
+rechnen, schriftlich     schritte oder Teillösungen werden (ohne Notationsvorschrift) notiert.
+rechnen
+                         Schriftlich: Auf der Grundlage des Stellenwertsystems werden Ergebnisse
+                         nach vorgegebenen Algorithmen ziffernweise ermittelt.
+                         Kopfrechnen: Rechnen im Kopf ohne Notationen.
+Intermodaler Transfer    Übertragung eines mathematischen Inhalts von einer Darstellungsebene in
+                         eine andere, z. B. von der enaktiven Ebene in die ikonische Ebene (vgl. EIS-
+                         Prinzip) und umgekehrt.
+Intramodaler Transfer    Übertragung eines mathematischen Inhalts innerhalb einer Darstellungs-
+                         ebene in eine andere Darstellungsform, z. B. von einer Tabelle in eine Glei-
+                         chung.
+
+
+
+
+                                                 51
+                                                 51
+Kernaufgaben            Diese Aufgaben haben die folgende Form: 1 • x , 2 • x ,5 • x und 10 • x.
+                        Zu den Kernaufgaben werden häufig auch die Tauschaufgaben und die
+                        Quadrataufgaben gezählt. Alle weiteren Multiplikationsaufgaben der betref-
+                        fenden 1x1-Reihe können von diesen Aufgaben durch Anwendung der Re-
+                        chengesetze abgeleitet werden.
+Malkreuz                Tabelle, mit deren Hilfe Multiplikationsaufgaben mit mehrstelligen Faktoren
+                        oder über die Kernaufgaben hinausgehende Aufgaben des kleinen 1x1
+                        übersichtlich dargestellt und ausgerechnet werden können (Grundlage: Dis-
+                        tributivgesetz).
+                          Beispiel: 15 ⋅ 12                      Beispiel: 7 ⋅ 9
+
+                            ⋅      10      2                              ⋅        5      4
+                           10     100     20     120                          5   25     20    45
+                            5      50     10      60                          2   10      8    18
+                                                 180                                           63
+
+
+Mathekonferenz          Schülerinnen und Schüler präsentieren und besprechen in heterogenen
+                        Kleingruppen ihre individuellen Lösungswege im Mathematikunterricht.
+Mathematisches          Mithilfe eines Modells kann man die Welt erfassen und verstehen. Mathema-
+Modell                  tische Modelle beschreiben nicht nur physikalische Phänomene. Beim Ma-
+                        thematischen Modellieren werden u. a. Sachprobleme in die Sprache der
+                        Mathematik übersetzt. Mathematische Modelle können u.a. Terme und Glei-
+                        chungen sowie Geometrische Figuren sein.
+Problemlösestrategien   Wie gehe ich vor, wenn ich eine schwierige Mathematikaufgabe lösen will?
+                         Heuristische Mittel:
+                         Schaubilder zeichnen, eine Skizze anfertigen, einfache Gleichungen, in-
+                         formative Figur oder Veranschaulichung durch didaktische Materialien,
+                         sortierte Listen erstellen (z. B. Tabelle)
+                         Heuristische Strategien/Prinzipien:
+                         Vorwärtsarbeiten, Rückwärtsarbeiten, ungerichtetes und systematisches
+                         Probieren, Beispiele betrachten, Vereinfachen, Zerlegungsprinzip, Analo-
+                         gien nutzen
+Produktive Übungs-      bieten mehr als nur Rechenanlässe mit (meist) eindeutigen Ergebnissen. Sie
+aufgaben                regen zum Denken an, fördern den Blick für Muster und führen zu neuen
+                        Erkenntnissen.
+Rechengesetze           Rechengesetze, die in der Grundschulmathematik besonders bedeutsam
+                        sind, sind das Vertauschungsgesetz (Kommutativgesetz), das Verbindungs-
+                        gesetz (Assoziativgesetz) und das Verteilungsgesetz (Distributivgesetz)
+                        sowie die Konstanzsätze.
+Repräsentanten der      Bei der Behandlung von Größen im Unterricht ist zwischen der Größe einer-
+Größenbereiche          seits und ihren Repräsentanten andererseits zu unterscheiden. Durch einen
+                        Abstraktionsprozess gelangt man von Repräsentanten zur zugehörigen
+                        Größe. Grundlegende Kompetenzen werden in Bezug auf Größen durch den
+                        Umgang mit entsprechenden Repräsentanten erworben. Für Längen sind
+                        das z. B. Stäbe, für Gewichte z. B. Gegenstände oder Körper usw..
+
+Säulendiagramm          Ein Diagrammtyp, bei dem die Datenreihen durch senkrecht stehende Säu-
+                        len dargestellt werden.
+
+
+
+
+                                                 52
+                                                52
+Schriftliche Subtrakti-
+onsverfahren                            Übertrags-
+                                          technik
+                                                     Entbündeln      Erweitern       Auffüllen
+                           Verfahren
+                                Abziehen                   !              !             -
+                                Ergänzen                   !              !             !
+
+                          Es gibt fünf verschiedene schriftliche Subtraktionsverfahren.
+Standardisierte Einhei-   International festgelegte Maßeinheiten
+ten
+                          Hinweis: Bei Flächeninhalten und Volumina wird mithilfe von Einheitsquadra-
+                          ten und Einheitswürfeln gearbeitet und nicht mit Einheiten in der Potenz-
+                          schreibweise.
+                                Länge                Zeit          Hohlmaße            Gewicht        Geldwerte
+                                                 Sekun-
+                           Millimeter     mm              s       Milliliter   ml   Gramm        g    Cent   ct
+                                                 de
+                           Zentime-
+                                          cm     Minute    min    Liter        l    Kilogramm    kg   Euro   €
+                           ter
+                           Meter          m      Stunde    h                        Tonne        t
+                           Kilometer      km
+
+Strukturierte Aufga-      Mehrere zusammengehörige Aufgaben (Päckchen), die zueinander in Be-
+benreihen                 ziehung stehen (z. B. 5 + 1, 5 + 2, 5 + 3, 5 + 4....).
+Strukturierte Zahldar-    Geordnete ikonische (bildliche) Darstellung einer Zahl sowie deren konkrete
+stellung                  Darstellungen mit Material, die sich schnell erfassen lässt und so strukturiert
+                          ist, dass sie beim Rechnen hilft.
+Stützpunktvorstellun-     Realistische Vorstellungen von Größen, mentale Repräsentanten zu häufig
+gen                       im Alltag vorkommenden Größenangaben.
+                          Beispiele aus dem Alltag, die ungefähr die standardisierten Einheiten reprä-
+                          sentieren (z. B. eine Kreidetafel " 1 m lang).
+                          Stützpunktvorstellungen sind Voraussetzung für plausibles Schätzen.
+Tauschaufgabe             Kommutativgesetz: Die Summanden in einer Summe bzw. die Faktoren in
+                          einem Produkt dürfen vertauscht werden, ohne dass sich der Wert der
+                          Summe bzw. des Produkts verändert. 7 + 13 = 13 + 7. Die Subtraktion und
+                          die Division sind nicht kommutativ, hier gibt es keine Tauschaufgaben.
+Umkehraufgabe             Jede Rechenoperation kann durch ihre Umkehroperation rückgängig ge-
+                          macht werden. So hat jede Additionsaufgabe (z. B. 4 + 7 = 11) eine Um-
+                          kehraufgabe (11 – 7 = 4).
+
+
+
+
+                                                      53
+                                                     53
+Zahlaspekte       Der abstrakte und formale Zahlbegriff beinhaltet verschiedene Aspekte:
+                  1. Ordinalaspekt
+                  a) Zählzahl: Die Zahl ist bestimmt durch die Position in der Zahlwortreihe.
+                  b) Ordnungszahl: Die Zahl gibt einen Rangplatz in einer geordneten Reihe
+                  von Elementen an (z. B. der Zweite).
+
+
+                  2. Kardinalaspekt
+                  Die Zahl gibt die Anzahl von Elementen (die Mächtigkeit) einer Menge an
+                  (3 Bälle, 4 Kinder).
+
+
+                  3. Maßzahlaspekt
+                  Zahlen als Maßzahlen stehen für Größen bezüglich einer gewählten Einheit
+                  (3 Minuten, 5 Meter, 100 Schritte).
+
+
+                  4. Operatoraspekt
+                  Zahlen dienen der Beschreibung der Vielfachheit einer Handlung oder eines
+                  Vorgangs (zwei Mal, vier Mal).
+
+
+                  5. Rechenzahlaspekt
+                  a) Algebraischer Aspekt: Zahlen als Rechenzahlen zum Rechnen auf ver-
+                  schiedenen Wegen (vgl. halbschriftliche Strategien) und unter Ausnutzen
+                  von Rechengesetzen (3 + 5 = 5 + 3)
+                  b) Algorithmischer Aspekt: Zahlen zum ziffernweisen Rechnen nach festge-
+                  legten Algorithmen (z. B. schriftliche Rechenverfahren)
+
+
+                  6. Codierungsaspekt
+                  Zahlen zur (letztlich willkürlichen) Benennung und Unterscheidung von Ob-
+                  jekten
+Zahleigenschaft   z. B. gerade/ungerade
+
+
+
+
+                                           54
+                                          54
+(A5)     Fachbegriffe und Zeichen
+
+Fachbegriffe
+
+Diese Fachbegriffe verwenden die Schülerinnen und Schüler am Ende von Schuljahrgang 2 und zu-
+sätzlich am Ende von Schuljahrgang 4.
+
+
+
+
+              Ende Schuljahrgang 2                                    Zusätzlich Ende Schuljahrgang 4
+                                           Zahlen und Operationen
+
+gerade Zahl, ungerade Zahl, ist Vorgänger von,                 Tausender, Zehntausender, Hunderttausender,
+ist Nachfolger von, ist die Hälfte von, ist das Dop-           Million
+pelte von, ist größer als, ist kleiner als, gleich
+
+
+
+plus, minus, mal, geteilt, Ergebnis                            addieren, subtrahieren, multiplizieren, dividieren
+                                                               Summe, Differenz, Produkt, Rest
+Tauschaufgabe, Umkehraufgabe
+                                                               Runden, Überschlag, ist ungefähr
+                                                Raum und Form
+
+rechts, ist rechts von, links, ist links von, ist über,
+ist unter, ist auf, ist hinter, ist vor
+Viereck, Dreieck, Kreis, Würfel, Kugel                         Rechteck, Quadrat, Quader, Pyramide, Zylinder,
+                                                               Ecke, Seite, Kante, Fläche, senkrecht zueinan-
+                                                               der, parallel zueinander, rechter Winkel
+                                                               Symmetrieachse
+                                                               Flächeninhalt, Rauminhalt, Umfang, Einheitsflä-
+                                                               chen, Einheitswürfel
+                                                               Würfelnetz, Quadernetz, Körpernetz
+                                                               Kantenmodell
+                                             Größen und Messen
+
+Zentimeter, Meter, Euro, Cent, Minute, Stunde,                 Kilometer, Millimeter, Sekunde, Tonne, Kilo-
+Tag, Woche, Monat, Jahr                                        gramm, Gramm, Liter, Milliliter
+halb, viertel nach, viertel vor, volle Stunde
+                                                Daten und Zufall
+
+Strichliste, Tabelle                                           Zeile, Spalte, Balkendiagramm, Säulendiagramm
+sicher, möglich, unmöglich
+
+
+
+
+                                                          55
+                                                          55
+Zeichen
+
+Diese Zeichen können die Schülerinnen und Schüler am Ende von Schuljahrgang 2 und zusätzlich
+am Ende von Schuljahrgang 4 produktiv verwenden.
+
+
+
+
+             Ende Schuljahrgang 2                         Zusätzlich Ende Schuljahrgang 4
+     <      kleiner als
+     >      größer als
+     =      gleich
+     +      plus
+                                                      +       addieren, Addition
+     -      minus                                     -       subtrahieren, Subtraktion
+     •      mal                                       •       multiplizieren, Multiplikation
+     :      geteilt
+                                                      :       dividieren, Division
+                                                      ≈       ungefähr
+
+                                                    M, HT,    Million, Hunderttausender, Zehntau-
+  H, Z, E   Hunderter, Zehner, Einer
+                                                    ZT, T     sender, Tausender
+
+
+
+
+                                               56
+                                               56
+

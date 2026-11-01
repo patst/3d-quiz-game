@@ -15,7 +15,8 @@
     "e2e": "playwright test",
     "check": "npm run lint && npm run typecheck && npm run test && npm run audio:check",
     "audio:generate": "tsx scripts/generate-audio.ts",
-    "audio:check": "tsx scripts/check-audio.ts"
+    "audio:check": "tsx scripts/check-audio.ts",
+    "curriculum:sources": "tsx scripts/curriculum-sources.ts"
   },
   "engines": {
     "node": ">=22"

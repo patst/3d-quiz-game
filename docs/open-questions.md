@@ -7,3 +7,4 @@ the question here. Rounds 1–2 answered on 2026-10-31.
    anything about controls, camera and look before M2 (challenges) starts.
 
 2. **Voice upgrade (M12):** paid TTS service at build time — owner keeps it in mind.
+

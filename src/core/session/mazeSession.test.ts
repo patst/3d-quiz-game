@@ -119,3 +119,14 @@ describe('chests', () => {
     expect(session.arrive(chest.tile)).toEqual([]);
   });
 });
+
+describe('way hint', () => {
+  it('shows the next steps of the shortest way to the goal, nothing after finishing', () => {
+    const maze = generateMaze({ cols: 6, rows: 6, braid: 0.2, seed: 21 });
+    const session = new MazeSession(maze);
+    const full = findPath(maze, maze.start, maze.goal)!;
+    expect(session.hintPath(6)).toEqual(full.slice(1, 7));
+    for (const t of full.slice(1)) session.arrive(t);
+    expect(session.hintPath()).toEqual([]);
+  });
+});

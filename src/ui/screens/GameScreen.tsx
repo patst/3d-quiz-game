@@ -37,6 +37,9 @@ interface Props {
   onSetPet: (animal: LostAnimal | null) => void;
 }
 
+const HINT_STEPS = 6;
+const HINT_COOLDOWN_MS = 15_000;
+
 /** Seed can be forced via ?seed=123 (reproducible bug reports / E2E tests). */
 function seedFromUrl(): number | null {
   const v = new URLSearchParams(window.location.search).get('seed');
@@ -189,6 +192,23 @@ export function GameScreen({
 
   const closeChest = () => setOpenChest(null);
 
+  // "Olli zeigt den Weg": short glowing path, then a cool-down so it stays a help, not autopilot.
+  const [hintReadyAt, setHintReadyAt] = useState(0);
+  const [hintCooling, setHintCooling] = useState(false);
+  const showWay = () => {
+    const now = performance.now();
+    if (now < hintReadyAt) {
+      speech().speak(de.wayHint.wait);
+      return;
+    }
+    const tiles = sessionRef.current?.hintPath(HINT_STEPS) ?? [];
+    viewRef.current?.showWayHint(tiles);
+    speech().speak(de.wayHint.speak);
+    setHintReadyAt(now + HINT_COOLDOWN_MS);
+    setHintCooling(true);
+    window.setTimeout(() => setHintCooling(false), HINT_COOLDOWN_MS);
+  };
+
   // A full star jar waits until no other dialog is open.
   const showPicker = profile.pendingRewards > 0 && !openChest && goalStars === null && !wardrobeOpen;
   const offer = useMemo(
@@ -225,6 +245,18 @@ export function GameScreen({
           </button>
         </div>
       </div>
+
+      <button
+        className={`way-hint-button ${hintCooling ? 'cooling' : ''}`}
+        aria-label={de.wayHint.button}
+        data-testid="way-hint"
+        onClick={showWay}
+      >
+        <span aria-hidden>{de.guideIcons[guide]}</span>
+        <span aria-hidden className="way-hint-arrow">
+          ➜
+        </span>
+      </button>
 
       {openChest && (
         <ChallengeDialog

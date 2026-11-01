@@ -219,6 +219,11 @@ export const de = {
     text: 'Super gespielt! Deine Tierfreunde warten bis zum nächsten Mal auf dich.',
     speak: 'Super gespielt! Jetzt ist Zeit für eine Pause. Bis bald!',
   },
+  wayHint: {
+    button: 'Zeig mir den Weg',
+    speak: 'Schau mal, hier entlang!',
+    wait: 'Gleich kann ich dir wieder helfen.',
+  },
   levels: {
     badge: (n: number) => `Level ${n}`,
     done: (n: number) => `Level ${n} geschafft!`,

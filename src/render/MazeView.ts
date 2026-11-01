@@ -66,6 +66,8 @@ export class MazeView {
   private markerAge = Infinity;
   private disposed = false;
   private paused = false;
+  private readonly wayHint: THREE.Mesh[] = [];
+  private readonly hintGeo = new THREE.CircleGeometry(0.3, 24);
   private readonly seaweed: THREE.Mesh[] = [];
   private readonly bubbles: THREE.Mesh[] = [];
   private readonly bubbleGeo = new THREE.SphereGeometry(0.09, 10, 8);
@@ -153,12 +155,55 @@ export class MazeView {
     window.removeEventListener('keyup', this.onKeyUp);
     window.removeEventListener('blur', this.onBlur);
     this.trail.dispose();
+    this.clearWayHint();
+    this.hintGeo.dispose();
     for (const b of this.bubbles) (b.material as THREE.Material).dispose();
     this.bubbleGeo.dispose();
     this.setPet(null);
     disposeObject(this.scene);
     this.renderer.dispose();
     canvas.remove();
+  }
+
+  /** Glowing footprints along the given tiles, appearing one after another, then fading. */
+  showWayHint(tiles: Tile[]): void {
+    this.clearWayHint();
+    // Test hook: which tiles are highlighted.
+    this.opts.container.dataset.wayHint = tiles.map((t) => `${t.x},${t.y}`).join(';');
+    tiles.forEach((t, i) => {
+      const glow = new THREE.Mesh(
+        this.hintGeo,
+        new THREE.MeshBasicMaterial({ color: '#ff8c42', transparent: true, opacity: 0, depthWrite: false }),
+      );
+      glow.rotation.x = -Math.PI / 2;
+      glow.position.set(t.x, 0.06, t.y);
+      glow.userData.delay = i * 0.18;
+      glow.userData.age = 0;
+      this.wayHint.push(glow);
+      this.scene.add(glow);
+    });
+  }
+
+  private clearWayHint(): void {
+    for (const g of this.wayHint) {
+      this.scene.remove(g);
+      (g.material as THREE.Material).dispose();
+    }
+    this.wayHint.length = 0;
+  }
+
+  private updateWayHint(dt: number): void {
+    if (this.wayHint.length === 0) return;
+    let alive = false;
+    for (const g of this.wayHint) {
+      g.userData.age = (g.userData.age as number) + dt;
+      const t = (g.userData.age as number) - (g.userData.delay as number);
+      const visible = t < 0 ? 0 : t < 0.25 ? t / 0.25 : t < 3.5 ? 1 : Math.max(0, 1 - (t - 3.5) / 0.6);
+      (g.material as THREE.MeshBasicMaterial).opacity = visible * (0.75 + Math.sin(this.elapsed * 6) * 0.2);
+      g.scale.setScalar(0.8 + visible * 0.25);
+      if (t < 4.1) alive = true;
+    }
+    if (!alive) this.clearWayHint();
   }
 
   /** Shows (or hides) the pet that follows the avatar. */
@@ -410,6 +455,7 @@ export class MazeView {
     this.chick.rotation.y = Math.sin(this.elapsed * 1.5) * 0.6;
     this.animateChests(dt);
     this.updateAmbient(dt);
+    this.updateWayHint(dt);
     this.trail.update(dt, this.avatar.position, this.path.length > 0);
     this.updatePet(dt);
 

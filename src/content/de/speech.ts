@@ -114,6 +114,8 @@ export const staticSpokenTexts: readonly string[] = [
   ...Object.values(de.lostAnimals).flatMap((a) => [a.speakStart, a.speakGoal, a.name]),
   ...Object.values(de.animals),
   de.breakTime.speak,
+  de.wayHint.speak,
+  de.wayHint.wait,
   de.worldSelect.speak,
   de.worldSelect.speakLocked,
   de.worldSelect.speakUnlocked,

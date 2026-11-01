@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import type { Profile } from '../../core/profile/profile';
-import { REWARD_SLOTS } from '../../core/rewards/rewards';
+import { WEARABLE_SLOTS } from '../../core/rewards/rewards';
 import { rewardCatalog } from '../../modules/rewards/catalog';
 import { AvatarPreview } from '../../render/AvatarPreview';
 import { rewardIcons } from '../rewardIcons';
@@ -44,7 +44,7 @@ export function Wardrobe({ profile, onToggle, onSetPet, onClose }: Props) {
         <h2>{de.rewards.wardrobe}</h2>
         <div className="avatar-preview small" ref={previewRef} />
         <p className="hint-text">{de.rewards.wardrobeHint}</p>
-        {REWARD_SLOTS.map((slot) => (
+        {WEARABLE_SLOTS.map((slot) => (
           <section key={slot} className="wardrobe-section">
             <h3>{de.rewards.slots[slot]}</h3>
             <div className="wardrobe-items">

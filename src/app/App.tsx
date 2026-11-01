@@ -7,11 +7,12 @@ import { createProfile, type Avatar } from '../core/profile/profile';
 import { addProfile, migrateSave, removeProfile, setActiveProfile, updateProfile, updateSettings } from '../core/save/save';
 import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
+import { autoPlace, placeDecor, removeDecor, type TreehouseSpot } from '../core/rewards/treehouse';
 import { initialSkill, recordOutcome } from '../core/skills/skillModel';
 import { getChallengeType } from '../modules/challenges';
-import { getWorld, worlds } from '../modules/worlds';
-import { isUnlocked } from '../core/progress/worlds';
+import { getWorld } from '../modules/worlds';
 import { WorldSelectScreen } from '../ui/worlds/WorldSelectScreen';
+import { TreehouseScreen } from '../ui/treehouse/TreehouseScreen';
 import { getRewardItem } from '../modules/rewards/catalog';
 import { CreateProfileScreen } from '../ui/screens/CreateProfileScreen';
 import { GameScreen } from '../ui/screens/GameScreen';
@@ -19,7 +20,13 @@ import { ProfileSelectScreen } from '../ui/screens/ProfileSelectScreen';
 import { createIdbStore, newId } from './storage';
 import { useSave } from './useSave';
 
-type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'worlds' } | { name: 'game'; worldId: string } | { name: 'parents' };
+type Screen =
+  | { name: 'profiles' }
+  | { name: 'create' }
+  | { name: 'worlds' }
+  | { name: 'game'; worldId: string }
+  | { name: 'treehouse' }
+  | { name: 'parents' };
 
 export function App() {
   const store = useMemo(() => createIdbStore(), []);
@@ -95,7 +102,31 @@ export function App() {
   }
 
   if (screen.name === 'worlds' && active) {
-    return <WorldSelectScreen profile={active} onChoose={(worldId) => startGame(worldId)} onBack={() => setScreen({ name: 'profiles' })} />;
+    return (
+      <WorldSelectScreen
+        profile={active}
+        onChoose={(worldId) => startGame(worldId)}
+        onTreehouse={() => setScreen({ name: 'treehouse' })}
+        onBack={() => setScreen({ name: 'profiles' })}
+      />
+    );
+  }
+
+  if (screen.name === 'treehouse' && active) {
+    return (
+      <TreehouseScreen
+        profile={active}
+        onPlace={(spot: TreehouseSpot, itemId) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => ({
+              ...p,
+              treehouse: itemId && p.inventory.includes(itemId) ? placeDecor(p.treehouse, spot, itemId) : removeDecor(p.treehouse, spot),
+            })),
+          )
+        }
+        onBack={() => setScreen({ name: 'worlds' })}
+      />
+    );
   }
 
   if (screen.name === 'game' && active) {
@@ -104,7 +135,7 @@ export function App() {
         profile={active}
         worldId={screen.worldId}
         breakDue={breakDue}
-        onHome={() => setScreen({ name: 'profiles' })}
+        onHome={() => setScreen({ name: 'worlds' })}
         onStars={(stars) =>
           update((d) =>
             updateProfile(d, active.id, (p) => ({ ...p, stars: p.stars + stars, ...fillJar(p.jar, p.pendingRewards, stars) })),
@@ -118,8 +149,9 @@ export function App() {
                 ...p,
                 pendingRewards: Math.max(0, p.pendingRewards - 1),
                 inventory: item && !p.inventory.includes(item.id) ? [...p.inventory, item.id] : p.inventory,
-                // A new item is worn right away so the child sees it immediately.
-                equipped: item ? { ...p.equipped, [item.slot]: item.id } : p.equipped,
+                // A new item is worn right away (or placed in the tree house) so the child sees it.
+                equipped: item && item.slot !== 'decor' ? { ...p.equipped, [item.slot]: item.id } : p.equipped,
+                treehouse: item?.slot === 'decor' ? autoPlace(p.treehouse, item.id) : p.treehouse,
               };
             }),
           )
@@ -176,10 +208,8 @@ export function App() {
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
-        // A world picker once more than one world is open; otherwise straight into the forest.
-        const p = doc.profiles.find((x) => x.id === id);
-        if (p && worlds.some((w) => w.unlock && isUnlocked(w.unlock, p.levels))) setScreen({ name: 'worlds' });
-        else startGame();
+        // Hub: worlds (locked ones show what is still to discover) and the tree house.
+        setScreen({ name: 'worlds' });
       }}
       onNew={() => setScreen({ name: 'create' })}
       onParents={() => setGateOpen(true)}

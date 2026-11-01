@@ -24,6 +24,17 @@ export const rewardCatalog: readonly RewardItem[] = [
   { id: 'hearts', slot: 'trail' },
   { id: 'bubbles', slot: 'trail' },
   { id: 'rainbow', slot: 'trail' },
+  // Tree house decorations (M10).
+  { id: 'lantern', slot: 'decor' },
+  { id: 'plant', slot: 'decor' },
+  { id: 'picture', slot: 'decor' },
+  { id: 'teddy', slot: 'decor' },
+  { id: 'balloons', slot: 'decor' },
+  { id: 'books', slot: 'decor' },
+  { id: 'telescope', slot: 'decor' },
+  { id: 'pennants', slot: 'decor' },
+  { id: 'globe', slot: 'decor' },
+  { id: 'guitar', slot: 'decor' },
 ];
 
 export function getRewardItem(id: string): RewardItem | undefined {

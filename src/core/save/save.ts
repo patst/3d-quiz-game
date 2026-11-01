@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 7;
+export const SAVE_VERSION = 8;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -87,6 +87,12 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
       ...p,
       levels: { forest: typeof p.mazesCompleted === 'number' ? p.mazesCompleted : 0 },
     })),
+  }),
+  // v7 → v8: empty tree house.
+  7: (doc) => ({
+    ...doc,
+    version: 8,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({ ...p, treehouse: {} })),
   }),
 };
 

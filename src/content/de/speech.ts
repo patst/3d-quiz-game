@@ -119,6 +119,8 @@ export const staticSpokenTexts: readonly string[] = [
   de.worldSelect.speakUnlocked,
   ...Object.values(de.guideIntro),
   de.rewards.speakPick,
+  de.treehouse.speakWelcome,
+  de.treehouse.speakEmpty,
   de.rewards.thanks,
   de.rewards.allCollected,
   ...Object.values(de.rewards.items),

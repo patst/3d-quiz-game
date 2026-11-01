@@ -139,5 +139,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Sound effects | `src/audio/sfx.ts` (Web Audio synth: jingles, fanfare, bloop, pling) | no audio files; `settings.sfx` toggle |
 | Maze levels | `src/core/progress/levels.ts` (`levelSpec`, `currentLevel`) | save v7 adds `levels` per world; world config only sets `braid` |
 | Worlds | `src/modules/worlds/{forest,underwater}`, `WorldTheme` (guide, lostAnimals, unlock, style hedge/coral, colours), `src/core/progress/worlds.ts`, `src/ui/worlds/WorldSelectScreen.tsx` | new world = module + register + content texts + lost-animal models |
+| Tree house | `src/core/rewards/treehouse.ts`, `src/render/treehouse/{TreehouseView,decor}.ts`, `src/ui/treehouse/TreehouseScreen.tsx` | reward slot `decor`; save v8 adds `treehouse`; test hook `data-spots` |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

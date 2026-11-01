@@ -1,4 +1,5 @@
 import type { Equipped } from '../rewards/rewards';
+import type { Treehouse } from '../rewards/treehouse';
 import type { SkillState } from '../skills/skillModel';
 
 /** Animal avatars a child can choose (game-design §2/§7). Display names live in content/de. */
@@ -42,6 +43,8 @@ export interface Profile {
   disabledChallenges: string[];
   /** Finished mazes per world id; level = finished + 1 (roadmap M8). */
   levels: Record<string, number>;
+  /** Decorations placed in the tree house (M10). */
+  treehouse: Treehouse;
 }
 
 export const MAX_PROFILES = 6;
@@ -64,5 +67,6 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     skills: {},
     disabledChallenges: [],
     levels: {},
+    treehouse: {},
   };
 }

@@ -10,11 +10,12 @@ import { worlds } from '../../modules/worlds';
 interface Props {
   profile: Profile;
   onChoose: (worldId: string) => void;
+  onTreehouse: () => void;
   onBack: () => void;
 }
 
 /** "Wohin geht die Reise?" — big world cards; locked worlds say how many mazes are missing. */
-export function WorldSelectScreen({ profile, onChoose, onBack }: Props) {
+export function WorldSelectScreen({ profile, onChoose, onTreehouse, onBack }: Props) {
   useEffect(() => {
     speech().speak(de.worldSelect.speak);
   }, []);
@@ -59,6 +60,12 @@ export function WorldSelectScreen({ profile, onChoose, onBack }: Props) {
             </button>
           );
         })}
+        <button className="card world-card treehouse-card" aria-label={de.treehouse.title} onClick={onTreehouse}>
+          <span className="world-icon" aria-hidden>
+            🌳🏠
+          </span>
+          <span className="world-name">{de.treehouse.title}</span>
+        </button>
       </div>
       <button className="button secondary" onClick={onBack}>
         🏠

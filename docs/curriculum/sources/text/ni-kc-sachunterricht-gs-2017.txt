@@ -1,0 +1,1709 @@
+Niedersächsisches
+Kultusministerium
+
+
+
+
+Kerncurriculum
+für die Grundschule
+Schuljahrgänge 1 – 4
+
+
+
+
+ Sachunterricht
+
+
+
+
+         Niedersachsen
+An der Weiterentwicklung des Kerncurriculums für das Unterrichtsfach Sachunterricht in den
+Schuljahrgängen 1 - 4 waren die nachstehend genannten Personen beteiligt:
+
+
+
+
+Barbara Beneke, Meppen
+Lukas Breul, Bohmte
+Silke Grotjahn, Pattensen
+Bettina Koschel, Buchholz
+Meike Osterfeld, Bissendorf
+Christina Pape, Scheeßel
+Sabine Rodenberg, Hannover
+Katinka Sadowski, Fredenbeck
+
+
+
+
+Die Ergebnisse des gesetzlich vorgeschriebenen Anhörungsverfahrens sind berücksichtigt worden.
+
+
+
+
+Herausgegeben vom Niedersächsischen Kultusministerium (2017)
+30159 Hannover, Schiffgraben 12
+
+
+
+
+Druck:
+Unidruck
+Weidendamm 19
+30167 Hannover
+www.unidruck.de
+
+
+Das Kerncurriculum kann als Druckexemplar bei der Druckerei bestellt und erworben werden.
+
+
+Das Kerncurriculum kann als PDF-Datei vom Niedersächsischen Bildungsserver (NIBIS)
+http://www.cuvo.nibis.de heruntergeladen werden.
+Inhalt                                                                 Seite
+
+
+1     Bildungsbeitrag des Faches                                           5
+
+
+
+2     Kompetenzorientierter Unterricht                                     6
+
+2.1   Kompetenzentwicklung                                                 6
+
+2.1.1 Voraussetzungen für kompetenzorientierte Unterrichtsgestaltung       6
+
+2.1.2 Prozessbezogene Kompetenzen                                          8
+
+2.1.3 Inhaltsbezogene Kompetenzen                                         10
+
+2.1.4 Aufgaben und Anforderungsbereiche                                   10
+
+2.2   Entwicklung und Gestaltung von Lern- und
+      Handlungsfeldern                                                    12
+
+2.3   Der Beitrag des Sachunterrichts zu fachübergreifenden
+      Bildungsbereichen                                                   13
+
+2.4   Individualisierung                                                  16
+
+
+
+3     Erwartete Kompetenzen                                               17
+
+3.1   Erwartete Kompetenzen in der Perspektive Technik                    18
+
+3.2   Erwartete Kompetenzen in der Perspektive Natur                      20
+
+3.3   Erwartete Kompetenzen in der Perspektive Raum                       22
+
+3.4   Erwartete Kompetenzen in der Perspektive Gesellschaft,
+      Politik und Wirtschaft                                              24
+
+3.5   Erwartete Kompetenzen in der Perspektive Zeit und Wandel            26
+
+
+
+4     Leistungsfeststellung, Leistungsbewertung und
+      Leistungsbeurteilung                                                28
+
+
+5     Aufgaben der Fachkonferenz                                          30
+
+
+
+
+                                         3
+ Anhang                                                            Seite
+
+A1   Operatoren                                                       32
+
+A2   Beispiele für die Erstellung von Lern- und Handlungsfeldern      33
+
+A3   Planungshilfe eines Lern- und Handlungsfeldes im
+     Sachunterricht                                                   37
+
+
+
+
+                                     4
+1       Bildungsbeitrag des Faches
+
+Im Sachunterricht erwerben die Schülerinnen und Schüler grundlegende Kenntnisse, Fähigkeiten,
+Fertigkeiten und Haltungen, die es ihnen ermöglichen, sich ihre Lebenswelt aktiv zu erschließen, eine
+individuelle Orientierung in unserer globalen Welt zu erhalten und nachhaltig an der Gestaltung ihrer
+Zukunft mitzuwirken.
+Der Sachunterricht geht von einer vielfältigen Lebenswelt der Schülerinnen und Schüler aus und
+berücksichtigt ihre individuellen Voraussetzungen und Interessen. Hieran anknüpfend ermöglicht ihnen
+der Sachunterricht, sich zielgerichtet, aktiv und handelnd mit Problemstellungen auseinanderzusetzen
+und die Welt zu erkunden. Das zielgerichtete Formulieren und Bearbeiten von Fragen, das
+eigenständige und gemeinsame Überprüfen von Vermutungen, das Mitteilen und Klären von
+Erfahrungen als fachspezifische Lernkultur unterstützen zunehmend den Erwerb von Konzepten,
+Methoden und Theorien und wirken sich fachübergreifend auf die Motivation der Schülerinnen und
+Schüler aus.
+
+Der   Sachunterricht   ist   vielperspektivisch   angelegt.   Er   nimmt   Bezug    auf   verschiedene
+fachwissenschaftliche Disziplinen, die sich in den fünf Perspektiven „Technik“, „Natur“, „Raum“,
+„Gesellschaft, Politik und Wirtschaft“ sowie „Zeit und Wandel“ widerspiegeln, und verknüpft diese
+sinnhaft. Die sich daraus ergebenden Vernetzungsmöglichkeiten tragen so der Forderung nach einem
+interdisziplinären Denken und Handeln Rechnung und lassen die Schülerinnen und Schüler
+wechselseitige Abhängigkeiten erkennen, um Wertmaßstäbe für ihr eigenes Handeln sowie ein
+Verständnis für gesellschaftliche Entscheidungen zu entwickeln. Der Sachunterricht fördert zum einen
+die Demokratiefähigkeit im Sinne von Mündigkeit, Selbstbestimmung, Mitbestimmung, Solidarität und
+Gleichberechtigung, zum anderen trägt er zur Persönlichkeitsbildung der Schülerinnen und Schüler bei
+und berücksichtigt hierbei auch die Vielfalt sexueller Identitäten. Darüber hinaus bietet der
+Sachunterricht im besonderen Maße Gelegenheiten, soziale Kompetenzen zu erwerben und im
+täglichen Miteinander zu erproben.
+
+Es gilt die Anschlussfähigkeit sowohl an die vorschulischen Erfahrungen als auch an die Anforderungen
+in den natur- und gesellschaftswissenschaftlichen Fächern der weiterführenden Schulen zu
+gewährleisten. Im Sachunterricht erwerben die Schülerinnen und Schüler grundlegende Kulturtechniken
+und entsprechende Kompetenzen, die als Voraussetzung zur erfolgreichen Teilhabe an einer
+wissenschaftlich orientierten Gesellschaft anzusehen sind.
+
+Im Rahmen der Auseinandersetzung mit den Unterrichtsinhalten spielt im Sachunterricht die
+fachintegrierte Sprachbildung eine entscheidende Rolle. So wird der Gebrauch der Fachsprache über
+die Alltagssprache hinaus angebahnt und der Erwerb von Lesekompetenz unterstützt.
+
+Der Sachunterricht thematisiert unter anderem technische, historische, soziale, ökonomische,
+ökologische, politische, kulturelle und interkulturelle Phänomene und leistet somit einen Beitrag zu den
+fachübergreifenden Bildungsbereichen Bildung für nachhaltige Entwicklung, Gesundheitliche Bildung,
+Interkulturelle Bildung, Medienbildung, MINT-Bildung, Mobilität, Sprachbildung, Verbraucherbildung
+sowie Wertebildung (s. Kap. 2.3).
+
+
+
+                                                   5
+2         Kompetenzorientierter Unterricht
+
+Im Kerncurriculum des Faches Sachunterricht werden die Zielsetzungen des Bildungsbeitrags durch
+verbindlich erwartete Lernergebnisse konkretisiert und als Kompetenzen formuliert. Dabei werden im
+Sinne eines Kerns die als grundlegend und unverzichtbar erachteten fachbezogenen Kenntnisse,
+Fähigkeiten und Fertigkeiten vorgegeben.
+
+Kompetenzen weisen folgende Merkmale auf:
+
+         Sie zielen auf die erfolgreiche und verantwortungsvolle Bewältigung von Aufgaben und
+          Problemstellungen ab.
+         Sie verknüpfen Kenntnisse, Fähigkeiten und Fertigkeiten zu eigenem Handeln. Die Bewältigung
+          von Aufgaben setzt gesichertes Wissen und die Beherrschung fachbezogener Verfahren voraus
+          sowie die Bereitschaft und Fähigkeit, diese gezielt einzusetzen.
+         Sie stellen eine Zielperspektive für längere Abschnitte des Lernprozesses dar.
+         Sie sind für die lebenslange persönliche Bildung von Bedeutung und ermöglichen
+          anschlussfähiges Lernen.
+
+Der Sachunterricht hat die Aufgabe, die Entwicklung von Fachkompetenz anzuregen, zu unterstützen
+und langfristig zu sichern. Dies gilt auch für die fachübergreifenden Zielsetzungen der
+Persönlichkeitsbildung.
+
+
+
+2.1       Kompetenzentwicklung
+
+Die Kompetenzentwicklung ist ein lebenslanger Prozess und beginnt bereits vor der Grundschulzeit.
+Aufgabe des Sachunterrichts ist es, die Schülerinnen und Schüler unter Berücksichtigung
+fachdidaktischer Prinzipien in ihrem Kompetenzerwerb zu unterstützen und Lernumgebungen in diesem
+Sinne zu gestalten.
+
+2.1.1 Voraussetzungen für kompetenzorientierte Unterrichtsgestaltung
+Die im Folgenden aufgeführten Unterrichtsrichtprinzipien sind leitend für die Gestaltung des
+kompetenzorientierten Sachunterrichts.
+
+
+Vorerfahrungen berücksichtigen
+Im Unterricht erfolgt der Aufbau von Kompetenzen systematisch und kumulativ. Die Auswahl der Inhalte
+und die Ausgestaltung der Lern- und Handlungsfelder erfolgen nach den Prinzipien der Exemplarität
+und der Bedeutsamkeit für die Schülerinnen und Schüler und berücksichtigen die kindlichen
+Wahrnehmungs- und Lernbedingungen. Lernen durch Erfahrung bildet die Basis des Lernprozesses.
+Die Beobachtung von im Alltag zugänglichen Phänomenen und die Klärung von Sachverhalten und
+Fragestellungen der Schülerinnen und Schüler verhelfen dazu, sich allgemeingültige Erkenntnisse
+anzueignen und ermöglichen eine Übertragbarkeit des Gelernten auf neue Zusammenhänge. Hierbei
+
+
+
+
+                                                     6
+überprüfen die Lernenden individuelle Präkonzepte, indem sie sich mit ihnen auseinandersetzen. Sie
+erschließen sich Phänomene zunehmend mit wissenschaftlichen Denk-, Arbeits- und Handlungsweisen.
+
+
+Begegnungen mit Sachverhalten, Phänomenen und Personen schaffen
+Das Schaffen von Anschaulichkeit durch das Wahrnehmen von Phänomenen und das Einlassen auf
+Sachverhalte und Personen stellt im Sachunterricht ein wesentliches didaktisches Prinzip dar. Die
+direkte Auseinandersetzung berücksichtigt individuelle Lernzugänge der Schülerinnen und Schüler,
+weckt das kindliche Interesse und hält es aufrecht. Diese Motivation fördert den Lernprozess und
+eröffnet große Chancen für die weitere Auseinandersetzung mit sachunterrichtlichen Themen und das
+lebenslange Lernen. Verbindliche Gestaltungsmomente des Sachunterrichts sind daher das
+Einbeziehen von Expertinnen und Experten sowie die Einbindung außerschulischer Lernmöglichkeiten
+in den Unterricht. Dazu gehören beispielsweise Museen, Kultureinrichtungen, Bauwerke und
+Denkmäler. Des Weiteren unterstützt ein landesweites Netzwerk mit Angeboten an außerschulischen
+Lernstandorten Schulen bei konkreten Vorhaben (vgl. Regionale und Umweltbildungszentren (RUZ) und
+anerkannte außerschulische Lernstandorte in einer Bildung für nachhaltige Entwicklung (ALO)).
+
+
+Lerngelegenheiten strukturieren
+Wissen und Können werden insbesondere über sinnstiftendes Handeln aufgebaut. Die aktive
+Auseinandersetzung der Schülerinnen und Schüler beginnt mit dem Klären von situativen
+Gegebenheiten, dem Formulieren von Zielen und dem Entwerfen von Handlungsplänen. Nach der
+Ausführung erfassen die Schülerinnen und Schüler ihre Handlungsergebnisse und bewerten diese.
+Ausgehend von zunächst äußeren Handlungen am Realobjekt oder Modell wird so die Kompetenz zur
+mentalen Handlung entwickelt. Dabei gelingt es, Vorstellungen über Vorgänge und Handlungen in
+Denkmodelle zu fassen und diese auf neue Situationen zu übertragen.
+
+
+Anforderungsbereiche beachten
+Die bei der Kompetenzentwicklung zu berücksichtigenden drei Anforderungsbereiche sind das
+„Wiedergeben und Beschreiben“, das „Anwenden und Strukturieren“ sowie das „Transferieren und
+Verknüpfen“ (s. Kapitel 2.1.4).
+
+
+
+
+                                                 7
+2.1.2      Prozessbezogene Kompetenzen
+Im Sachunterricht werden die Grundlagen für spezifische Denk-, Arbeits- und Handlungsweisen, die
+aufgrund der unterschiedlichen Perspektiven und der fachwissenschaftlichen Disziplinen erforderlich
+sind, geschaffen. Die Entwicklung dieser prozessbezogenen Kompetenzen gelingt nur in der engen
+Verknüpfung mit den Inhalten. Hierbei ist eine alters- und entwicklungsangemessene Einführung in
+wissenschaftliche Methoden die Basis für einen Prozess, in dem die Schülerinnen und Schüler diese
+Methoden zunehmend fachlich angemessen, selbstständig und zielführend anwenden.
+
+
+Wichtige Methoden im Sachunterricht sind:
+      -     Erkunden der Lebenswelt,
+      -     betrachten und beobachten,
+      -     sammeln, vergleichen, ordnen und bestimmen,
+      -     Texte, Bilder, Diagramme und Schaubilder erschließen,
+      -     Fragen und Vermutungen entwickeln und überprüfen,
+      -     Vorhaben planen, organisieren, durchführen und reflektieren,
+      -     Versuche planen, durchführen und auswerten,
+      -     mit Arbeitsmitteln sachgerecht umgehen,
+      -     Ergebnisse dokumentieren,
+      -     Personen- und Quellenbefragung vorbereiten, durchführen und auswerten,
+      -     Skizzen und Sachbezeichnungen anfertigen,
+      -     Zeitleisten, Zeichnungen, Tabellen, Diagramme, Grafiken und Pläne lesen und deuten.
+
+
+Lernstrategien entwickeln
+Der       Sachunterricht   ermöglicht   den    Schülerinnen      und    Schülern,     die    eigene    Lernfähigkeit
+weiterzuentwickeln und zu evaluieren. Schülerinnen und Schüler planen, gestalten, reflektieren und
+bewerten ihre Lernprozesse zunehmend selbstständig und lernen, ihre eigenen Lernentwicklungen und
+Leistungen einzuschätzen. Zur Erkenntnisgewinnung lernen sie geeignete Arbeitsformen und
+Arbeitstechniken       kennen,      wenden    sie    an,   wählen     fachspezifische       Methoden    sach-   und
+situationsangemessen aus und nutzen sie entsprechend.
+
+
+Kommunizieren
+Ausgehend von der Alltagssprache und den Erfahrungsberichten sowie den individuellen sprachlichen
+Lernvoraussetzungen der Schülerinnen und Schülern erfolgt eine sach- und altersangemessene
+Kommunikation (verbal und/oder nonverbal) über Sachverhalte mithilfe von Fachbegriffen. Bei der
+Entwicklung der sprachlichen Handlungsfähigkeit und der sprachlichen Durchdringung ist die
+Begriffsbildung von besonderer Bedeutung. Der Begriffsaufbau erfolgt über das Identifizieren (Erfassen,
+Betrachten, Beobachten, ggf. eine handelnde Annäherung), das Präzisieren (Beschreiben, Vergleichen,
+Abgrenzen,        Klassifizieren,   Benennen        und    Befragen    hinsichtlich   finaler   und     funktionaler
+Zusammenhänge) und das abschließende Übertragen auf andere Zusammenhänge. Die Entwicklung
+
+
+
+
+                                                           8
+einer altersgerechten Gesprächs- und Fragekultur als Form des gemeinsamen Nachdenkens und
+Reflektierens unterstützt die sprachlich-kognitive Durchdringung von Sachverhalten.
+
+
+Perspektivübergreifende Methoden zum Erwerb sprachlicher Kompetenz sind:
+    -   Informationen ermitteln, analysieren und bewerten,
+    -   Fachbegriffe erarbeiten und verwenden,
+    -   Sachverhalte sprachlich beschreiben, erklären und bewerten,
+    -   Ergebnisse präsentieren und reflektieren,
+    -   Informationsmedien nutzen (z. B. Bibliothek, Internet),
+    -   argumentieren und Argumente prüfen,
+    -   eigene Stellungnahmen formulieren, begründen und diskutieren.
+
+
+Urteilen und Handeln
+Der Sachunterricht unterstützt die Schülerinnen und Schüler im bewussten und kritischen Wahrnehmen,
+Deuten und Bewerten ihrer Lebensumwelt. Auf der Basis sachbezogener Kenntnisse lernen sie, neben
+der eigenen auch die Perspektive anderer wahrzunehmen und eigene Standpunkte in einer Diskussion
+zu vertreten. Die Schülerinnen und Schüler nutzen Erlerntes, um sich zunehmend aktiv, kritisch und
+eigenverantwortlich in soziale und gesellschaftliche Prozesse einzubringen.
+
+
+Perspektivübergreifende Methoden sind:
+    -   Bedürfnisse und Wünsche erkennen und achten,
+    -   die eigene Betroffenheit reflektieren,
+    -   seinen Standpunkt vertreten,
+    -   Argumente prüfen und akzeptieren, modifizieren oder verwerfen,
+    -   Initiative ergreifen.
+
+
+
+
+                                                    9
+2.1.3    Inhaltsbezogene Kompetenzen
+Um die Anschlussfähigkeit zum einen an die Lebenswelterfahrungen und Interessen der Schülerinnen
+und Schüler und zum anderen an die Unterrichtsfächer weiterführender Schulen zu gewährleisten,
+werden die Inhalte des Sachunterrichts in fünf fachliche Perspektiven eingeteilt.
+
+
+Die Perspektive Technik umfasst die inhaltsbezogenen Kompetenzen aus den Themenbereichen
+Stabiles Bauen, Erproben von Werkzeugen, Geräten und Maschinen, Auseinandersetzung mit
+technischen Erfindungen sowie Nachhaltiger Umgang mit Ressourcen.
+
+
+Die Perspektive Natur umfasst die inhaltsbezogenen Kompetenzen aus den Themenbereichen
+Mensch, Pflanzen und Tiere sowie Unbelebte Natur.
+
+
+Die Perspektive Raum umfasst die inhaltsbezogenen Kompetenzen aus den Themenbereichen
+Wahrnehmung von Räumen/ Orientierung in Räumen sowie Nutzung und Gestaltung von Räumen.
+Die Perspektive Gesellschaft, Politik und Wirtschaft umfasst die inhaltsbezogenen Kompetenzen aus
+den Themenbereichen Soziale Beziehungen, Demokratie und Partizipation sowie Konsum und Arbeit.
+
+
+Die Perspektive Zeit und Wandel umfasst die inhaltsbezogenen Kompetenzen aus den
+Themenbereichen Orientierung in der Zeit sowie Dauer und Wandel.
+Die Kompetenzen zu diesen Themenbereichen finden sich, verbunden mit den prozessbezogenen
+Kompetenzen, in den Kompetenztabellen wieder. Ihnen vorgeschaltet sind jeweils die Grundgedanken
+zum Bildungspotential der Perspektiven (s. Kap. 3).
+
+
+2.1.4    Aufgaben und Anforderungsbereiche
+Im Sachunterricht haben Aufgaben verschiedene Funktionen und müssen entsprechend unterschiedlich
+gestaltet werden. Grundsätzlich ist zwischen Aufgaben zu unterscheiden, die den Lernprozess der
+Schülerinnen und Schüler gestalten, und solchen, die zur Überprüfung des Kompetenzerwerbs dienen
+(s. Kapitel 4).
+
+
+Ausgehend von der individuellen Lernausgangslage der Schülerinnen und Schüler sind Aufgaben so zu
+konstruieren, dass
+    -    sowohl prozessbezogene als auch inhaltsbezogene Kompetenzen Anwendung finden bzw.
+         erworben werden können.
+    -    kompetenzorientierte Tätigkeiten unterschiedlichen kognitiven Anspruchsniveaus entsprechen
+         müssen.
+    -    die Schülerinnen und Schüler zum selbstständigen Handeln anregt werden.
+    -    die Schülerinnen und Schüler ihren Kompetenzzuwachs erleben können.
+
+
+
+
+                                                   10
+Der kognitive Anspruch von Aufgaben wird durch die folgenden Anforderungsbereiche beschrieben:
+
+
+Anforderungsbereich l: Wiedergeben und beschreiben
+Fakten und einfache Sachverhalte werden nachvollzogen, wiedergegeben, dargestellt und beschrieben
+sowie fachspezifische Methoden in einer vorgegebenen Form und unter Anleitung durchgeführt.
+
+
+Anforderungsbereich ll: Anwenden und strukturieren
+Fachspezifisches Wissen wird in einfachen Kontexten angewendet sowie fachsprachlich und strukturiert
+dargestellt und begründet. Bekannte fachspezifische Methoden werden geplant, durchgeführt und
+ausgewertet.
+
+
+Anforderungsbereich lll: Transferieren und verknüpfen
+Fachspezifisches Wissen wird in unbekannten Kontexten zielgerichtet ausgewählt, kombiniert und als
+Basis für die Bewertung von Sachverhalten genutzt. Bekannte fachspezifische Methoden werden
+ausgewählt und auf neue Sachverhalte übertragen.
+
+
+Bei Aufgaben zum Kompetenznachweis ist zusätzlich darauf zu achten, dass die gestellten
+Anforderungen für die Schülerinnen und Schüler im Vorfeld transparent sind. Art und Inhalt der
+Aufgabenstellungen sind entsprechend dem unterrichtlichen Vorgehen anzulegen. Dabei kommt es auf
+eine sinnvolle Verknüpfung von inhaltsbezogenen und prozessbezogenen Anforderungen an.
+
+
+
+
+                                                 11
+2.2      Entwicklung und Gestaltung von Lern- und Handlungsfeldern
+In der Auseinandersetzung mit Phänomenen werden im Sachunterricht Kompetenzen angelegt, die den
+Schülerinnen und Schülern die Erschließung ihrer Lebenswelt ermöglichen und die Grundlagen für
+zukünftiges Lernen darstellen. Jedes Lernen ist ein individueller Konstruktionsprozess, in dem Neues
+mit bisher Bekanntem verknüpft wird. Dabei geht der Sachunterricht von der Lebenswelt sowie den
+Fragestellungen der Kinder aus und entwickelt daraus Lern- und Handlungsfelder, die den Prozess des
+Kompetenzerwerbs strukturieren und gestalten.
+
+
+
+
+Abb. 1: Modell eines vielperspektivischen Sachunterrichts1
+
+
+
+Innerhalb eines Lern- und Handlungsfeldes werden fachliche Perspektiven ausgewählt und sinnstiftend
+miteinander vernetzt.
+
+Jede fachliche Perspektive beinhaltet entsprechend ihren wissenschaftlichen Bezugsfächern
+spezifische Methoden der Wissensgenerierung und Erkenntnisgewinnung, die sich in einer Auswahl
+perspektivenbezogener Methoden widerspiegeln. Diese sind der jeweiligen Perspektive zugeordnet und
+daher grafisch voneinander abgegrenzt.
+
+
+
+
+1
+ Download der interaktiven Planungsskizze zur Entwicklung eines Lern- und Handlungsfeldes unter www.nibis.de: Startseite=>
+Allgemeinbildung=> Fächer allgemein bildende Schulen=> Sachunterricht=> Übersicht Sachunterricht in der Grundschule
+
+
+
+
+                                                            12
+Die perspektivenübergreifenden Methoden finden sich in allen Perspektiven wieder und stellen
+universelle Fähigkeiten zur Erschließung der Lebenswelt dar. In Abb. 1 sind diese im umschließenden
+äußeren Ring angeordnet.
+
+
+In der Unterrichtsgestaltung haben perspektivenbezogene und perspektivenübergreifende Methoden
+die gleiche Gewichtung und finden sich gleichberechtigt in den Kompetenztabellen (vgl. Kapitel 3)
+wieder. Die Methoden wurden in Form von handlungsinitiierenden Verben (Operatoren) und damit
+überprüfbaren Tätigkeiten, Fertigkeiten und Fähigkeiten dargestellt und unterstreichen den
+handlungsorientierten Charakter des Sachunterrichts (vgl. Anhang A1).
+
+
+
+
+Abb. 2: Beispielhafte Operationalisierung von Methoden
+
+
+
+
+2.3     Der Beitrag des Sachunterrichts zu fachübergreifenden Bildungsbereichen
+
+Der Sachunterricht leistet einen Beitrag zu den fachübergreifenden Bildungsbereichen Bildung für
+nachhaltige Entwicklung, Gesundheitliche Bildung, Interkulturelle Bildung, Medienbildung, MINT-
+Bildung, Mobilität, Sprachbildung, Verbraucherbildung sowie Wertebildung.
+
+
+Bildung für nachhaltige Entwicklung
+Der Alltag der Kinder ist geprägt von Entscheidungen im Spannungsfeld wirtschaftlicher, ökologischer,
+politischer und sozialer Aspekte. Die Schülerinnen und Schüler erwerben grundlegende Kompetenzen,
+die sie in die Lage versetzen, nachhaltige Entwicklungen als solche zu erkennen und aktiv und
+verantwortungsvoll mitzugestalten. Dabei erlangen sie Kenntnisse über die komplexe und
+wechselseitige Abhängigkeit zwischen Mensch und Umwelt. Die Bildung für nachhaltige Entwicklung im
+Sachunterricht hat das Ziel, Schülerinnen und Schüler für die Mitgestaltung einer lebenswerten Zukunft
+zu gewinnen und sie zu befähigen, die Auswirkungen ihres Handelns lokal und global einzuschätzen
+(vgl. Orientierungsrahmen für den Lernbereich Globale Entwicklung im Rahmen einer Bildung für
+nachhaltige Entwicklung, 2015).
+
+
+Gesundheitliche Bildung
+Die Schülerinnen und Schüler haben unterschiedliche Kenntnisse über Gesunderhaltung und ein
+individuell ausgeprägtes Körperbewusstsein. Gesundheitsförderung und Prävention sind integrale
+Bestandteile des Sachunterrichts. Mögliche Aspekte von Lern- und Handlungsfeldern sind
+Zahngesundheit,      Sicherheitserziehung     und    Unfallverhütung,   Hygieneerziehung,    Ernährung,
+
+
+
+
+                                                     13
+Bewegungsförderung und Entspannung sowie Aspekte der Prävention von Gewalt, Sucht, Mobbing und
+sexuellem Missbrauch. Bewegung ist bei Kindern eine wichtige Ressource für ein gesundes Leben, ein
+antreibender   Motor   für   die   Eroberung   ihrer    Umwelt     und   Ausdruck   ihrer   Lebensfreude.
+Bewegungsangebote sichern die ganzheitliche Lernerfahrung der Schülerinnen und Schüler und die
+Entwicklung grundlegender motorischer Fähigkeiten. Die Stärkung persönlicher Schutzfaktoren sowie
+der Umgang mit der eigenen Gesundheit und der Gesundheit anderer sind wichtige Faktoren
+gesundheitlicher Bildung und wirken dann nachhaltig, wenn sie im schulischen Alltag verankert sind
+(vgl. Empfehlungen zur Gesundheitsförderung und Prävention in der Schule, KMK, 2012, und
+Empfehlungen zur Arbeit in der Grundschule, KMK, 2015).
+
+
+Interkulturelle Bildung
+Die Schülerinnen und Schüler leben in einer kulturell, sozial und sprachlich vielfältig, sich stets
+verändernden Gesellschaft, die das Leben und Lernen bereichert. Die interkulturelle Bildung befasst
+sich deshalb mit Gemeinsamkeiten und Unterschieden zwischen Menschen und erkennt Heterogenität
+und Diversität als den Normalfall an. Der Sachunterricht trägt dazu bei, sich seiner eigenen kulturellen
+Sozialisation und Lebenszusammenhänge bewusst zu werden sowie Kenntnisse über unterschiedliche
+Lebens- und Sichtweisen zu erwerben. Die Schülerinnen und Schüler entwickeln Neugier, Offenheit und
+Verständnis für andere sowie ein reflektiertes Heimatbewusstsein. Sie lernen Vorurteile zu erkennen,
+zu reflektieren und sich und die anderen anzuerkennen (vgl. Interkulturelle Bildung und Erziehung in
+der Schule, KMK 2013 und Empfehlungen zur Arbeit in der Grundschule, KMK, 2015).
+
+
+Medienbildung
+Analoge und digitale Medien sind im Alltag der Schülerinnen und Schüler allgegenwärtig.
+Medienkompetenz ist deshalb eine Schlüsselqualifikation unserer Gesellschaft und die Entwicklung
+eines bewussten Umgangs mit Medien, insbesondere eine gezielte Mediennutzung, ist dafür eine
+Grundbedingung. Medien werden im Sachunterricht sowohl als Werkzeug als auch als Gegenstand des
+Lernens eingesetzt und betrachtet. Darüber hinaus werden die Chancen und Risiken der Nutzung sowie
+der eigenen Gestaltung von Medien als Arbeits-, Informations- und Kommunikationsmittel beleuchtet.
+Medienbildung legt den Grundstein für die Einschätzung der Objektivität und des Wahrheitsgehalts von
+Nachrichten und fördert die Unterscheidung zwischen Öffentlichkeit und Privatsphäre (vgl.
+Orientierungsrahmen Medienbildung in der Schule, 2015, und Empfehlungen zur Arbeit in der
+Grundschule, KMK, 2015).
+
+
+MINT-Bildung
+Ausgehend von den Fragen der Kinder steht im                     Sachunterricht das aktiv-entdeckende,
+handlungsorientierte Lernen im Vordergrund. Indem die Schülerinnen und Schüler subjektiv
+bedeutsame      Problemstellungen     bearbeiten       und   Arbeitsergebnisse      präsentieren,   kann
+anwendungsorientiertes, anschlussfähiges Wissen in den MINT-Bereichen Mathematik, Informatik,
+Naturwissenschaften und Technik aufgebaut werden. Ziel ist die Überprüfung und Weiterentwicklung
+
+
+
+
+                                                   14
+naturwissenschaftlicher Präkonzepte sowie der Aufbau tragfähiger Lernmotivation (vgl. Empfehlungen
+zur Arbeit in der Grundschule, KMK, 2015).
+
+
+Mobilität
+Um ihre unmittelbare Umgebung bewusst erfassen zu können, ermöglicht der Sachunterricht den
+Schülerinnen und Schülern vielfältige räumliche Erfahrungen und trägt zur Entwicklung ihrer
+Selbstständigkeit und gesellschaftlichen Teilhabe bei. Mobilität bedeutet nicht nur Verkehr, sondern jede
+Möglichkeit von Bewegung. Hier rücken z. B. Fragen nach der Art von Bewegung, den damit
+verbundenen Emissionen, Fragen des Ressourcenverbrauchs, Gesundheitsaspekte sowie soziale und
+kulturelle Fragen in den Fokus. Regelmäßige Unterrichtsgänge zu außerschulischen Lernorten und an
+Bausteine des Curriculum Mobilität angelehnte Lern- und Handlungsfelder wie Situationen im
+Straßenverkehr und globale Warenströme (Wo kommt die Schokolade her?) spielen in diesem
+Zusammenhang       eine   wichtige   Rolle (vgl.   Curriculum   Mobilität:   ein   Bausteinkonzept   zum
+fachübergreifenden Unterricht, 2016, Empfehlungen Mobilität, KMK, 2012, Orientierungsrahmen für den
+Lernbereich Globale Entwicklung im Rahmen einer Bildung für nachhaltige Entwicklung, KMK und BMZ,
+2015).
+
+
+Sprachbildung
+Die Bedeutung der Sprachbildung in allen Unterrichtsfächern nimmt im Hinblick auf die
+unterschiedlichen sprachlichen Voraussetzungen der Schülerinnen und Schüler eine wesentliche Rolle
+ein. Um ihre Bildungssprache insgesamt zu schulen und ihr Repertoire von fachlich relevanten Begriffen
+erweitern zu können, brauchen die Schülerinnen und Schüler ein sprachliches Vorbild sowie die
+Gelegenheit zum Sprachhandeln. Erfolgreiches fachliches Lernen setzt eine sprachsensible
+Unterrichtsgestaltung und sprachlich differenzierte Unterrichtsmaterialien voraus.
+Als Methode sprachbildenden Unterrichts ist die schrittweise Heranführung der Schülerinnen und
+Schüler an komplexere Sprachformen der Bildungs-, Fach- oder Wissenschaftssprache grundlegend.
+In der Interaktion werden Lernangebote zur Verfügung gestellt, die helfen, von alltags- oder
+umgangssprachlichen Formulierungen zu bildungssprachlichen Ausdrücken und Darstellungen zu
+gelangen.
+Sprache ist ein wichtiges Mittel und Werkzeug sachunterrichtlichen Lernens. Als solches dient sie der
+Aneignung und Verarbeitung von Inhalten sowie einer sachgemäßen Kommunikation in Wort und Schrift
+und damit der Orientierung und Einordnung von Erfahrungen der Schülerinnen und Schüler. Hiermit
+fördert der Sachunterricht über die Alltagssprache hinaus die Entwicklung einer (fach-) sprachlichen
+Kultur.
+Das Verständnis für die Bedeutung der im Unterricht verwendeten Operatoren (s. Anhang A1) ist
+elementar für eine selbstständige Umsetzung aller Aufgabenstellungen. Daher muss die Bedeutung der
+Operatoren mit den Schülerinnen und Schülern erarbeitet werden, um ein Verständnis über die
+Tätigkeiten, Fertigkeiten und Fähigkeiten sicher zu stellen, welche von den Schülerinnen und Schülern
+zum Nachweis der Kompetenz erwartet werden.
+
+
+
+
+                                                   15
+Verbraucherbildung
+Die Kaufkraft der Schülerinnen und Schüler und der wachsende Einfluss des Konsums auf die soziale
+Anerkennung unter Gleichaltrigen macht sie zu einer wichtigen Zielgruppe für Produktvermarktung. Die
+Verbraucherbildung im Sachunterricht unterstützt den Erwerb von Kompetenzen im Sinne eines
+reflektierten und selbstbestimmten Konsumverhaltens und trägt dadurch zum Aufbau einer
+verantwortlichen Grundhaltung bei. Die Schülerinnen und Schüler lernen z. B. den Umgang mit Geld
+und hinterfragen Konsumentscheidungen in Bezug auf Nachhaltigkeit, Ernährung und Gesundheit
+sowie die Mediennutzung.
+
+
+Wertebildung
+Die Schülerinnen und Schüler beobachten und reflektieren ihr Handeln und ihre Begegnungen mit
+Mitschülerinnen und Mitschülern in alters- und entwicklungsangemessener Weise und übernehmen
+Verantwortung für die Klassen- und Schulgemeinschaft. Sie erfahren in ihrem schulischen Alltag die
+Bedeutung und Notwendigkeit eines demokratischen, achtsamen, toleranten und respektvollen
+Umgangs mit anderen. Im Sachunterricht werden demokratische Werte thematisiert, Partizipation
+ermöglicht und das Engagement der Kinder angeregt und gefördert. Durch die Auseinandersetzung mit
+anderen Meinungen, verschiedenen Antworten auf Sinnfragen und unterschiedlichen Lebensweisen
+erweitern sie ihren Erfahrungshorizont, ihre Bewertungsmaßstäbe sowie ihre Handlungskompetenz und
+finden zu eigenen, reflektierten Werthaltungen in politischen, religiösen und sozialen Zusammenhängen
+(vgl. Empfehlungen zur Arbeit in der Grundschule, KMK, 2015).
+
+
+2.4   Individualisierung
+
+Aufgrund der unterschiedlichen Lernvoraussetzungen, der individuellen Begabungen, Fähigkeiten und
+Neigungen sowie des unterschiedlichen Lernverhaltens sind differenzierende Lernangebote und
+Lernanforderungen für den Erwerb der vorgegebenen Kompetenzen unverzichtbar. Individualisierung
+als Grundprinzip in jedem Unterricht zielt auf die individuelle Förderung jeder einzelnen Schülerin und
+jedes einzelnen Schülers ab. Dabei werden Aspekte wie z. B. Begabungen und motivationale
+Orientierungen,   Geschlecht,    Alter,   sozialer,    ökonomischer   und    kultureller   Hintergrund,
+Leistungsfähigkeit und Sprachkompetenzen berücksichtigt.
+
+Entsprechend den individuellen Lernvoraussetzungen unterscheiden sich die Lernangebote z. B. in ihrer
+Offenheit und Komplexität, dem Abstraktionsniveau, den Zugangsmöglichkeiten, den Schwerpunkten,
+den bereitgestellten Hilfen und der Bearbeitungszeit. Geeignete Aufgaben zum Kompetenzerwerb in
+einer strukturierten Lernumgebung lassen vielfältige Lösungsansätze zu, regen die Kreativität von
+Schülerinnen und Schülern an und sind im Hinblick auf die drei Anforderungsbereiche zu gestalten.
+
+Im Sinne eines individualisierten und kooperativen Lernens brauchen die Schülerinnen und Schüler zum
+Erwerb der verpflichtend erwarteten Kompetenzen des Kerncurriculums vielfältige Übungsangebote,
+um Lerninhalte angemessen zu festigen und zu vertiefen. Zusätzlich werden Lernangebote
+
+
+
+
+                                                  16
+bereitgestellt, die über die gestellten Anforderungen hinausgehen. Diese Angebote dienen dem Transfer
+und der Erweiterung und lassen komplexe Fragestellungen zu.
+
+Individualisiertes und kooperatives Lernen fordert und fördert fachübergreifende Kompetenzen wie das
+eigenverantwortliche, selbstständige Lernen und Arbeiten, die Kooperation und Kommunikation in der
+Lerngruppe sowie das Erlernen und Beherrschen wichtiger Lern- und Arbeitstechniken. Um den
+Schülerinnen und Schülern eine aktive Teilnahme am Unterricht zu ermöglichen, ist es wichtig, sie in
+die Planung des Unterrichts einzubeziehen. Dadurch übernehmen sie Verantwortung für den eigenen
+Lernprozess. Ihre Selbstständigkeit wird durch das eigene Erstellen und Bereitstellen vielfältiger
+Materialien und Medien sowie durch die Möglichkeit eigener Schwerpunktsetzungen gestärkt.
+
+Um die Selbsteinschätzung der Schülerinnen und Schüler zu fördern, stellen die Lehrerinnen und Lehrer
+Transparenz über       die   erwarteten   Kompetenzen,   die   Verbesserungsmöglichkeiten   und   die
+Bewertungsmaßstäbe her. Individuelle Lernfortschritte werden wahrgenommen und den Lernenden
+regelmäßig wertschätzend zurückgemeldet.
+
+Durch die Vielperspektivität des Faches und die zahlreichen Gestaltungsmöglichkeiten von Lern- und
+Handlungsfeldern bietet besonders der Sachunterricht umfangreiche Mitgestaltungs- und Lernchancen
+für alle Schülerinnen und Schüler im Sinne der inklusiven Schule.
+
+
+
+
+3      Erwartete Kompetenzen
+
+Die folgenden Tabellen weisen die den Perspektiven zugewiesenen erwarteten Kompetenzen in den
+Doppelschuljahrgängen 1/2 und 3/4 aus. Die einzelnen Kompetenzbeschreibungen geben die
+verbindlich erwarteten Lernergebnisse der Schülerinnen und Schüler am Ende der Schuljahrgänge 2
+und 4 an.
+
+Die aufgeführten Kompetenzen sind sowohl vertikal als auch horizontal im Sinne eines
+Spiralcurriculums progressiv zu verstehen. Inhaltsbezogene Kompetenzen sind bewusst mit
+prozessbezogenen Kompetenzen zu sinnstiftenden Einheiten verknüpft, die das Fach strukturieren.
+Fachspezifische Methoden sind mit fachspezifischen Inhalten verknüpft und können auch selbst zum
+Inhalt sachunterrichtlicher Auseinandersetzung werden.
+
+Der Sachunterricht ist vielperspektivisch angelegt. Für die Planung des Unterrichts ist es daher
+grundlegend, die fünf Perspektiven mit ihren erwarteten Kompetenzen und die fachübergreifenden
+Bildungsbereiche zu vernetzen. Beispiele für Vernetzungsmöglichkeiten werden durch Pfeile in den
+Tabellen aufgezeigt.
+
+Die in den Kompetenztabellen in Klammern angeführten Beispiele für Lern- und Handlungsfelder sind
+als Anregungen zu verstehen.
+
+
+
+
+                                                  17
+3.1                Erwartete Kompetenzen in der Perspektive Technik
+
+Technik prägt das Leben unserer Gesellschaft. Sowohl im privaten als auch im beruflichen Kontext ist
+ein Leben ohne den Einsatz technischer Produkte kaum vorstellbar. Der Begriff „Technik“ steht nicht
+nur für technische Produkte als solche, sondern bedeutet auch die Auseinandersetzung des Menschen
+mit diesen (Herstellung, Gebrauch, Bewertung und Entsorgung technischer Produkte).
+
+Die Schülerinnen und Schüler wachsen mit Technik auf. Sie nutzen und erfahren diese auf vielfältige
+Weise. Hinter die Dinge zu schauen, ist ein natürliches Interesse der Schülerinnen und Schüler. Die
+Perspektive Technik greift diese Motivation auf, entwickelt sie weiter und ermöglicht einen
+geschlechtssensiblen Zugang zur Technik. Sie unterstützt die Schülerinnen und Schüler, Funktions-
+und Wirkungsweisen zu begreifen, und ermöglicht ihnen, technische Produkte herzustellen.
+
+Die im Alltag oftmals auf Bedienungs- und Umgangswissen beschränkten technischen Erfahrungen von
+Schülerinnen und Schülern werden durch eine Verknüpfung von Handlungs- und Verstehensprozessen
+erweitert. Eine kritische Auseinandersetzung verdeutlicht Nutzen und Auswirkungen von Technik.
+
+
+
+                          am Ende von Schuljahrgang 2                   am Ende von Schuljahrgang 4
+
+                                            Die Schülerinnen und Schüler ...
+
+                     bauen aus strukturiertem Material           konstruieren Brücken und/oder andere
+                      (Streichholzschachteln, Bausteine etc.)      komplexe Bauwerke
+                      Türme und Mauern und erklären, wie           und vergleichen verschiedene
+                      Stabilität erreicht werden kann.             Konstruktionsweisen (Balken-,
+                                                                   Fachwerk-, Bogen- und Hängebrücke
+  Stabiles Bauen
+
+
+
+
+                                                                   etc.).
+                                                                    Zeit und Wandel (Recherche über den
+                                                                   Bau berühmter Brücken)
+                                                                  ermitteln und dokumentieren
+                                                                   Zusammenhänge zwischen Stabilität und
+                                                                   Konstruktionen (Umformungen von
+                                                                   Papier, Aussteifungen durch
+                                                                   Dreiecksverbindungen etc.).
+                     skizzieren selbst gebaute Modelle.
+
+
+
+
+                                                           18
+                                                               am Ende von Schuljahrgang 2                   am Ende von Schuljahrgang 4
+                                                                                 Die Schülerinnen und Schüler ...
+       Erproben von Werkzeugen, Geräten und Maschinen
+
+
+                                                         benennen gebräuchliche Werkzeuge             begründen die Entwicklung und
+                                                          (Hammer, Säge, Feile etc.), erproben          Optimierung von Handwerkzeugen und
+                                                          ihre Funktionsweise an einem einfach          bewerten Folgen und Nutzen ihrer
+                                                          herzustellenden Werkstück (Schiff etc.)       Weiterentwicklung zu Maschinen.
+                                                          und beschreiben ihre Funktion.
+                                                                                                           Zeit und Wandel (vom Handbohrer zur
+                                                             Natur (Schwimmen und Sinken)                elektrischen Bohrmaschine, vom
+                                                                                                          Faustkeil zum Schlaghammer)
+
+                                                         untersuchen und bauen einfache               untersuchen den Aufbau und die
+                                                          mechanische Alltagsgegenstände                Funktion mechanischer Geräte oder
+                                                          (Wippe, Waage, Balancierfigur etc.) und       einfacher Maschinen aus der Alltagswelt
+                                                          beschreiben ihre Funktion.                    (Fahrrad, Handbohrmaschine etc.) und
+                                                                                                        beschreiben ihre Wirkungsweise.
+                                                                                                       konstruieren technisches Spielzeug mit
+                                                                                                        Getriebe oder Antrieb (Zahnradgetriebe
+                                                                                                        aus Kronkorken, Fahrzeug mit
+                                                                                                        Luftballonantrieb etc.).
+
+
+                                                         erfinden einfache technische                 erfinden bedeutsame technische
+                                                          Problemstellungen nach (von der Rolle         Erfindungen (Papier, Thermosflasche als
+Auseinandersetzung mit technischen
+
+
+
+
+                                                          zum Rad, Fahrzeuge, schiefe Ebene,            Wärmespeicher, Imprägnierung,
+                                                          Hebel etc.).                                  einfache Computerspiele etc.) nach und
+                                                                                                        analysieren deren Folgen für den Alltag
+                                                             Natur (vom Flugsamen zum Propeller/
+                                                                                                        und die Umwelt.
+           Erfindungen
+
+
+
+
+                                                            Fallschirm)
+                                                                                                           MINT-Bildung
+
+                                                         bauen und bewerten eine (Nach-)              recherchieren bedeutsame Erfinderinnen
+                                                          Erfindung und skizzieren diese.               oder Erfinder und deren Erfindungen und
+                                                                                                        präsentieren diese.
+                                                             Sprachbildung (Fachbegriffe)
+                                                                                                           Medienbildung (Internetrecherche)
+                                                                                                       reflektieren über Sinn, Möglichkeiten und
+                                                                                                        Grenzen von Technik.
+       Nachhaltiger Umgang mit Ressourcen
+
+
+
+
+                                                           unterscheiden verschiedene Wertstoffe        führen Versuche zur Umwandlung von
+                                                            und beschreiben Recyclingprozesse             Elektrizität in Licht und Wärme durch und
+                                                            (Altpapierverwertung etc.).                   beschreiben Gefahren im Umgang mit
+                                                                                                          elektrischen Geräten.
+
+                                                           beobachten und dokumentieren den           reflektieren über einen nachhaltigen
+                                                            Umgang mit Ressourcen zuhause, in der       Umgang mit Ressourcen.
+                                                            Schule und der Umgebung und
+                                                                                                           Verbraucherbildung (Autos mit
+                                                            reflektieren das eigene Handeln.              Elektroantrieb, Stopptaste an der
+                                                             Bildung für nachhaltige Entwicklung         Toilettenspülung)
+                                                            (Wasserverbrauch, Abfallvermeidung,
+                                                            Recycling)
+
+
+
+
+                                                                                                19
+3.2        Erwartete Kompetenzen in der Perspektive Natur
+
+Die Schülerinnen und Schüler begegnen der belebten Natur in Form von Tieren und Pflanzen häufig
+durch sinnliche Erfahrung. Der Sachunterricht knüpft an die vom eigenen Erleben geprägten
+Vorkenntnisse, das natürliche Interesse von Kindern an der Natur sowie an den Fragestellungen, die
+Kinder beschäftigen, an. Die Perspektive Natur nimmt bedeutsame Naturphänomene in den Blick und
+leitet die Schülerinnen und Schüler an, sich zunehmend belastbare naturwissenschaftliche
+Vorstellungen und (Basis-)Konzepte anzueignen. Dabei erkennen sie die Abhängigkeiten und
+Wechselwirkungen zwischen belebter und unbelebter Natur und erfahren auch Grenzen der
+Naturwissenschaften. Neben dem Begreifen von natürlichen Regelhaftigkeiten und Gesetzmäßigkeiten
+lernen die Schülerinnen und Schüler, das Verhältnis von Mensch und Natur unter dem Aspekt der
+Nachhaltigkeit zu gestalten. Sie gewinnen Artenkenntnis und erfahren sich im achtsamen Umgang mit
+Lebewesen. Die besondere Verantwortung im Umgang mit der Natur begründet sich durch das
+Verhältnis des Menschen zu dieser, da der Mensch nicht nur ihr Gegenüber, sondern selbst Teil der
+belebten Natur ist. Darüber hinaus liegt ein besonderer Schwerpunkt bei der Entwicklung, den
+Fähigkeiten und der Gesunderhaltung des Menschen.
+
+                  am Ende von Schuljahrgang 2                   am Ende von Schuljahrgang 4
+                                    Die Schülerinnen und Schüler ...
+
+             benennen und beschreiben wesentliche          beschreiben physische und psychische
+              Körperteile des Menschen sowie die             Veränderungen in der Pubertät.
+              geschlechtlichen Unterschiede.                beschreiben die Entwicklung
+                                                             menschlichen Lebens von der Zeugung
+                                                             bis zur Geburt und benennen
+                                                             Möglichkeiten der Empfängnisverhütung.
+                                                            reflektieren über körperliche
+                                                             Unversehrtheit und beschreiben
+                                                             Möglichkeiten der Prävention und
+                                                             Intervention.
+                                                              Gesellschaft, Politik und Wirtschaft
+                                                             (Kinderrechte etc.)
+  Mensch
+
+
+
+
+             erproben die Sinne und beschreiben ihre       erklären den Bau und erproben
+                                                             Funktionen des menschlichen Körpers
+              Leistungen und ihre Schutzfunktionen.
+                                                             (Knochen, Gelenke etc.).
+                                                              Technik (Funktionsmodelle von
+                                                             Gelenken)
+             beschreiben und begründen Maßnahmen           diskutieren über die körperliche und
+              einer gesunden Lebensführung und               seelische Gefährdung (Sucht,
+              deren Umsetzung im Alltag.                     Verletzung, Krankheit etc.) des
+                                                             Menschen und wenden geeignete
+               Gesundheitliche Bildung (gesundes            Maßnahmen der Gesunderhaltung an
+              Frühstück)                                     (Brandschutz etc.)
+                                                              Gesundheitliche Bildung (Körper-
+                                                             haltung, Ernährung, Entspannung)
+
+
+
+
+                                                   20
+                            am Ende von Schuljahrgang 2                      am Ende von Schuljahrgang 4
+                                               Die Schülerinnen und Schüler ...
+
+                        untersuchen, benennen, skizzieren und           erkunden, beschreiben und
+                         vergleichen die Teile von Pflanzen oder          dokumentieren die Lebensbedingungen
+                         den Körperbau von Tieren.                        von Pflanzen oder Tieren und wenden ihr
+                                                                          Wissen über Pflege, Umgang und
+                        beschreiben die Entwicklung von
+                                                                          Nutzung verantwortungsvoll an.
+                         Pflanzen oder Tieren (Feuerbohne,
+                         Schmetterling etc.).
+                          Sprachbildung (Fachbegriffe)
+                        erkunden verschiedene Lebensräume             beschreiben und erklären wechselseitige
+                         (Wiese, Wald, Teich etc.) und                  Abhängigkeiten und Anpassungs-
+Pflanzen und Tiere
+
+
+
+
+                         beobachten, ordnen und bestimmen               vorgänge typischer Pflanzen und Tiere in
+                         typische Pflanzen und Tiere.                   ihren verschiedenen Lebensräumen
+                                                                        (Regenwald, Arktis, Meer etc.).
+                        reflektieren an Beispielen aus ihrer          diskutieren die Verantwortung des
+                         direkten Lebenswelt die Achtsamkeit des        Menschen für den Schutz von
+                         Menschen gegenüber Pflanzen und                Ökosystemen und reflektieren
+                         Tieren (Bauernhof, Zoo etc.).                  Möglichkeiten und Grenzen der eigenen
+                                                                        Einflussnahme.
+                                                                           Bildung für nachhaltige Entwicklung
+                                                                          (Wattenmeer)
+                                                                       beobachten und analysieren Beispiele
+                                                                        aus der Bionik, stellen diese dar und
+                                                                        begründen den Nutzen für den
+                                                                        Menschen.
+                                                                           Technik (Klettverschluss)
+
+
+                        entwickeln Fragen zu einfachen                  untersuchen Naturphänomene
+                         Naturphänomenen (Licht und Schatten,             (Wasserkreislauf, Treibhauseffekt etc.),
+                         Wind etc.) und führen Versuche dazu              ermitteln deren Gesetzmäßigkeiten und
+                         durch.                                           erläutern diese.
+                                                                         führen Versuche zu chemischen
+                                                                          Reaktionen durch (Verbrennung, Rost
+                                                                          etc.) und beschreiben diese als eine
+                                                                          Umwandlung von Stoffen.
+Unbelebte Natur
+
+
+
+
+                                                                         beschreiben die Folgen von
+                                                                          Naturphänomenen (Ebbe und Flut etc.),
+                                                                          bewerten diese für die Umwelt und den
+                                                                          Menschen und diskutieren die daraus
+                                                                          erwachsende Verantwortung.
+                                                                           Bildung für nachhaltige Entwicklung
+                                                                          (Wasserverschmutzung)
+
+                        erkunden und beschreiben die                    führen Versuche zu Eigenschaften und
+                         Eigenschaften von Stoffen (Fühlkiste,            Veränderungen von flüssigen, festen
+                         Barfußpfad, Geruchsmemory etc.).                 und gasförmigen Stoffen durch
+                                                                          (Aggregatzustände).
+
+
+
+
+                                                                 21
+3.3     Erwartete Kompetenzen in der Perspektive Raum
+
+Die Schülerinnen und Schüler leben in einer globalisierten Welt. Konsumgüter aus aller Welt, Reisen,
+Migration, das Internet und technische Entwicklungen zur Orientierung gehören zu ihrem Leben. Ihre
+Erfahrungen beschränken sich nicht ausschließlich auf ihre unmittelbare Umgebung, sondern
+beinhalten bereits vielfältige Erfahrungen in einem weltweiten Raum. Räume können in diesem
+Zusammenhang sowohl natürliche, als auch von Menschen gestaltete, beeinflusste und fiktive Räume
+sein.
+
+Das Ziel des Kompetenzerwerbs in der Perspektive Raum ist es einerseits, sich global verorten zu
+können, und andererseits sich die lokale Umgebung aktiv zu erschließen und mitzugestalten. Zu der
+Perspektive Raum gehören die Förderung des räumlichen Denkens, der Umgang mit Plänen, Karten
+und dem Kompass sowie die Anbahnung des Umgangs mit digitalen Orientierungsmitteln. Auch die
+Wechselbeziehungen zwischen verschiedenen Räumen und den vielfältigen Lebenssituationen spielen
+eine wichtige Rolle. Dadurch werden ein nachhaltiger Umgang und eine veränderte Sichtweise im
+Hinblick auf die Nutzung, Gefährdung und Erhaltung von Räumen gefördert. Innerhalb dieser
+Perspektive bieten sich viele Möglichkeiten, das Curriculum Mobilität in die Unterrichtsgestaltung
+einzubeziehen.
+
+
+
+
+                                                 22
+                                                        am Ende von Schuljahrgang 2                   am Ende von Schuljahrgang 4
+                                                                          Die Schülerinnen und Schüler ...
+
+                                                   benennen Lagebeziehungen.
+                                                   erkunden und beschreiben Räume und
+                                                    Wege in ihrer unmittelbaren Lebenswelt.
+                                                      Mobilität (Schulweg)
+
+                                                   entwickeln und skizzieren einfache          verebnen einfache Modelle oder die
+Wahrnehmung von Räumen / Orientierung in Räumen
+
+
+
+
+                                                    Pläne.                                       Wirklichkeit zu einer Karte und
+                                                                                                 entwickeln daraus Symbole, Ausrichtung
+                                                                                                 und Legende (Sandkastenmodell etc.).
+                                                                                                vergleichen verschiedene Kartenformen
+                                                                                                 (physisch, politisch etc.), ermitteln
+                                                                                                 daraus Informationen und orientieren
+                                                                                                 sich mit ihrer Hilfe.
+                                                                                                beschreiben die Grenzen der
+                                                                                                 Darstellungsmöglichkeiten von Karten
+                                                                                                 und anderen Modellen (Globus etc.).
+                                                                                                verorten sich in ihrer unmittelbaren
+                                                                                                 Umgebung, Deutschland, Europa und
+                                                                                                 der Welt.
+                                                                                                orientieren sich mithilfe von analogen
+                                                   ordnen einfache Pläne ihrer
+                                                                                                 und/oder digitalen Orientierungsmitteln.
+                                                    unmittelbaren Umgebung der Wirklichkeit
+                                                    zu und orientieren sich damit                 Technik (Kompass,
+                                                    (Fluchtwegplan im Schulgebäude etc.).         Navigationssysteme)
+
+                                                                                                beschreiben typische Landschaften und
+                                                                                                 stellen ihre Vielfalt dar (Watt, Wüste
+                                                                                                 etc.).
+                                                                                                   Natur (Lebensräume)
+
+
+                                                   erkunden und beschreiben naturnahe          recherchieren und vergleichen die
+Nutzung und Gestaltung von Räumen
+
+
+
+
+                                                    und von Menschen gestaltete Räume.           Lebenssituation von Menschen in
+                                                                                                 verschiedenen Räumen.
+                                                      Zeit und Wandel (Wohnort)
+                                                                                                   Interkulturelle Bildung
+                                                                                                beschreiben und diskutieren die
+                                                                                                 Möglichkeiten der Mitgestaltung, der
+                                                                                                 Nutzung und des Schutzes von Räumen.
+                                                                                                   Gesellschaft, Politik, Wirtschaft
+                                                                                                  (Flurbereinigung, Schulhofgestaltung)
+
+                                                   reflektieren über zweckmäßige und           planen und erproben die Mitgestaltung
+                                                    ästhetische Gestaltung von Räumen.           von lokalen Räumen (Klassenraum,
+                                                                                                 Leseecke, Naturschutzprojekte etc.).
+
+
+
+
+                                                                                         23
+3.4                         Erwartete Kompetenzen in der Perspektive Gesellschaft, Politik und Wirtschaft
+
+Die Schülerinnen und Schüler erleben Gesellschaft als komplexes Gefüge unterschiedlicher sozialer
+Beziehungen, ökonomischer Aspekte und kultureller Vielfalt. Durch Medien erfahren sie von
+verschiedenen gesellschaftlichen Ereignissen, Prozessen und deren Auswirkungen.
+
+Die Ziele der Perspektive Gesellschaft, Politik und Wirtschaft sind, die Interessen der Schülerinnen und
+Schüler für gesellschaftliche, kulturelle, demokratische und ökonomische Themen zu wecken. Der
+Kompetenzerwerb ermöglicht ihnen eine Partizipation am gesellschaftlichen Leben.
+
+Zur Partizipation gehören die aktive Teilnahme am demokratischen Leben sowie ein verantwortliches
+und nachhaltiges Handeln, welches ein friedliches und gleichberechtigtes Zusammenleben ermöglicht.
+Dabei ist es grundlegend, Heterogenität als Bereicherung wahrzunehmen, Empathie und Toleranz zu
+fördern sowie Zivilcourage anzubahnen.
+
+
+
+
+                                    am Ende von Schuljahrgang 2                  am Ende von Schuljahrgang 4
+                                                     Die Schülerinnen und Schüler ...
+
+                               entwickeln und erproben Regeln für die      entwickeln und erproben eine
+                                Klassengemeinschaft.                         Streitkultur (Streitschlichter).
+                               benennen und beschreiben Gefühle und        stellen in Konfliktsituationen
+                                erproben das „Nein“-Sagen.                   verschiedene Sichtweisen dar und
+                                                                             bewerten Möglichkeiten der
+                               beschreiben Konflikte und entwickeln         Konfliktlösung.
+                                erste Konfliktlösungsstrategien.
+
+
+                               unterscheiden verschiedenartige             reflektieren über das
+      Soziale Beziehungen
+
+
+
+
+                                Familienformen.                              geschlechtsbezogene
+                                                                             Rollenverständnis.
+                               vergleichen und begründen die Rollen-
+                                und Aufgabenverteilung in der Familie.         Zeit und Wandel (Rollenverständnis
+                                                                              früher und heute)
+
+
+                               beschreiben Vielfalt (kulturell, sozial,    vergleichen verschiedene Kulturen und
+                                physisch) und diskutieren über die sich      deren Werte.
+                                daraus ergebenden Chancen in einer             Interkulturelle Bildung
+                                Gemeinschaft.
+
+                               diskutieren über Vorurteile und Respekt.    erklären Gründe für Migration und
+                                                                             reflektieren über Auswirkungen für den
+                                  Wertebildung                              Einzelnen und die Gesellschaft.
+
+                                                                            beschreiben Frieden und Gerechtigkeit
+                                                                             und reflektieren darüber.
+
+
+
+
+                                                                    24
+                                     am Ende von Schuljahrgang 2                  am Ende von Schuljahrgang 4
+                                                      Die Schülerinnen und Schüler ...
+
+                                beschreiben Aufgaben für die                recherchieren und dokumentieren
+                                 Klassengemeinschaft und entwickeln           Aufgaben von Repräsentanten/
+                                 Organisationsstrukturen hierfür.             Repräsentantinnen (Schülersprecher/in,
+                                                                              Bürgermeister/in etc.) und
+                                führen Wahlen (Klassensprecher/in etc.)      unterscheiden zwischen Amt und
+                                 nach demokratischen Prinzipien durch.        Person.
+
+                                erproben die Mitwirkung (Diskussion,
+                                 Abstimmung) an demokratischen
+Demokratie und Partizipation
+
+
+
+
+                                 Entscheidungen im Schulleben
+                                 (demokratische Prinzipien).
+                                   Bildung für nachhaltige Entwicklung
+                                  (Schülervertretungen)
+
+                                                                             unterscheiden private und öffentliche
+                                                                              Bereiche des Lebens und diskutieren
+                                                                              deren Grenzen (Geheimhaltung,
+                                                                              Privatsphäre, Sicherheit im Internet
+                                                                              etc.).
+                                                                                Medienbildung
+
+                                                                             diskutieren die Bedeutung und
+                                                                              Umsetzung von Kinderrechten für sich
+                                                                              und andere.
+                                                                             reflektieren und diskutieren über Macht
+                                                                              und Machtmissbrauch.
+
+
+                                unterscheiden Wünsche und                   bewerten Konsumprodukte hinsichtlich
+                                 Bedürfnisse.                                 Kosten und Nutzen sowie des
+                                                                              Einflusses von Werbung und Trends.
+
+                                bewerten Tauschgeschäfte nach               diskutieren die ökologischen,
+                                 Kriterien der Gerechtigkeit                  gesundheitlichen und sozialen Folgen
+                                 (Tauschgeschäfte früher, Sammelbilder,       von Konsum.
+Konsum und Arbeit
+
+
+
+
+                                 Pausenbrot etc.).                              Bildung für nachhaltige Entwicklung
+                                                                                Verbraucherbildung (fairer Handel)
+
+                                erkunden und beschreiben typische           unterscheiden verschiedene Formen
+                                 Arbeitsstätten in der Schule und in der      der Arbeit (Dienstleistung, Produktion,
+                                 Umgebung (Tischlerei, Polizei,               Ehrenamt, Hausarbeit etc.).
+                                 Bauernhof etc.).                            vergleichen und begründen Einzel-,
+                                                                              Serien- und Massenproduktion.
+                                                                                Verbraucherbildung (Brötchen selber
+                                                                               backen/ Bäckerei)
+                                                                             reflektieren über Arbeit und
+                                                                              Erwerbslosigkeit.
+
+
+
+
+                                                                     25
+3.5                              Erwartete Kompetenzen in der Perspektive Zeit und Wandel
+
+Der Alltag der Schülerinnen und Schüler ist von zeitlichen Strukturen bestimmt. Zeitliche Vorgaben
+prägen alle Lebensbereiche, den Schulalltag, das Familienleben und die Freizeit. Gleichzeitig ist ihre
+Lebenswelt durchdrungen von Vergangenem und von Zukunftsvisionen. Dabei ermöglicht der Blick in
+die Vergangenheit ein Lernen für die Gegenwart und die Zukunft.
+Ausgehend von individuellen Fragen der Schülerinnen und Schüler und der Erkenntnis, dass
+Geschichte kein Abbild der Vergangenheit, sondern ein Konstrukt aus der Gegenwart heraus ist,
+entwickeln sie eigene tragfähige Vorstellungen zu historischen Ereignissen und Situationen. Dies stellt
+eine Weiterentwicklung vom reinen Faktenwissen hin zum interessengeleiteten Verstehen dar.
+Nur mithilfe geeigneter Quellen gelingt der Zugang zu Vergangenem, das Verständnis für den Wandel
+und die Unterscheidung zwischen erfundenen und wahren Geschichten. Die Schülerinnen und Schüler
+erwerben die Kompetenz, Quellen als solche zu erkennen, und lernen den kritischen Umgang mit ihnen.
+
+
+                                         am Ende von Schuljahrgang 2                   am Ende von Schuljahrgang 4
+                                                            Die Schülerinnen und Schüler ...
+
+                                    benennen Formen der Zeiteinteilung           planen Aktivitäten in einem
+                                     und Zeitmessung und wenden diese an.          vorgegebenen Zeitraum (Erstellen von
+                                    dokumentieren einen Zeitabschnitt ihres       Tages- und Wochenplänen etc.) und
+                                                                                   dokumentieren dies.
+      Orientierung in der Zeit
+
+
+
+
+                                     Alltags (Tag, Woche etc.).
+
+
+                                    stellen zyklische Prozesse in der Zeit       unterscheiden zyklische und lineare
+                                     dar (Veränderung eines Baumes im              Prozesse in der Zeit (von der Geburt
+                                     Verlauf der Jahreszeiten etc.).               zum Tod, Kalender, Ebbe und Flut, Tag-
+                                                                                   und Nachtrhythmus etc.) und stellen
+                                    stellen lineare Prozesse in der Zeit dar
+                                                                                   diese dar.
+                                     (Kindheit etc.).
+                                                                                     Natur
+                                    unterscheiden Vergangenheit,
+                                     Gegenwart und Zukunft.
+
+
+
+
+                                                                          26
+                         am Ende von Schuljahrgang 2                  am Ende von Schuljahrgang 4
+                                           Die Schülerinnen und Schüler ...
+
+                    entwickeln interessengeleitet konkrete      entwickeln zielgerichtete Fragen nach
+                     historische Fragen.                          Ursachen historischer Veränderungen.
+
+                    benennen Ereignisse ihrer eigenen           recherchieren und beschreiben
+                     Lebensgeschichte und der Geschichte          Lebensbedingungen von Menschen in
+                     ihrer Familie anhand biographischer          unterschiedlichen Zeiträumen (Schule
+                     Quellen und ordnen diese in eine             vor 100 Jahren, Spielzeug im Wandel
+                     Zeitleiste.                                  der Zeit etc.).
+                    recherchieren (Ereignisse, Personen,        ermitteln geeignete Quellen, untersuchen
+                     Lebensphasen etc.) anhand von                an einem Beispiel aus ihrer Umgebung
+                     historischen Quellen (Bildquellen,           den historischen Wandel und stellen
+Dauer und Wandel
+
+
+
+
+                     Zeitzeugen, historische Gegenstände          diesen dar.
+                     etc.).                                         Medienbildung
+                       Medienbildung
+
+
+                    entwickeln über historische Ereignisse      unterscheiden zwischen Fakten und
+                     eine sinnhafte Erzählung in                  Fiktion in historischen Darstellungen
+                     unterschiedlichen Formen (mündlich,          (Hexe als Märchenfigur und als
+                                                                  historisches Phänomen etc.).
+                     schriftlich, mediengestützt etc.
+                     Ausstellung, Film, Spiel etc.).
+                       Sprachbildung (Fachbegriffe)
+                    stellen eigene Zukunftsfantasien dar.       erklären, dass sich Veränderungen und
+                                                                  Entscheidungen auf die Zukunft
+                                                                  auswirken, und diskutieren über
+                                                                  Zukunftsvorstellungen.
+
+
+
+
+                                                         27
+4      Leistungsfeststellung und Leistungsbewertung
+
+Im Sachunterricht werden sowohl fachliche als auch soziale und personale Kompetenzen erworben.
+Dabei ist zu bedenken, dass die sozialen und personalen Kompetenzen fachübergreifend und deshalb
+nur in Ansätzen erfasst werden können.
+
+
+Der am Kompetenzerwerb orientierte Unterricht bietet den Schülerinnen und Schülern einerseits
+ausreichend   Gelegenheiten,    Problemlösungen        zu   erproben,   andererseits   fordert   er   den
+Kompetenznachweis in Leistungssituationen. Ein derartiger Unterricht schließt die Förderung der
+Fähigkeit zur Selbsteinschätzung der Leistung ein. In Lernsituationen dienen Fehler und Umwege den
+Schülerinnen und Schülern als Erkenntnismittel, den Lehrkräften geben sie Hinweise für die weitere
+Unterrichtsplanung. Das Erkennen von Fehlern und der produktive Umgang mit ihnen sind konstruktiver
+Teil des Lernprozesses. Für den weiteren Lernfortschritt ist es wichtig, bereits erworbene Kompetenzen
+herauszustellen und Schülerinnen und Schüler zum Weiterlernen zu ermutigen.
+
+
+In Leistungs- und Überprüfungssituationen ist es das Ziel, die Verfügbarkeit der erwarteten
+Kompetenzen nachzuweisen. Leistungsfeststellungen und Leistungsbewertungen geben den
+Schülerinnen und Schülern individuelle und kriteriengeleitete Rückmeldungen über die erworbenen
+Kompetenzen und den Lehrkräften Orientierung für notwendige Maßnahmen der Differenzierung und
+der Individualisierung. Eine altersangemessene Einbeziehung aller Schülerinnen und Schüler in die
+Bewertungskriterien und die Leistungsrückmeldungen sowie eine kontinuierliche Würdigung aller
+erbrachten Leistungen sind die Grundlage für einen wertschätzenden Umgang miteinander. Bei
+kooperativen Arbeitsformen sind sowohl die individuelle Leistung als auch die Gesamtleistung der
+Gruppe in die Bewertung mit einzubeziehen.
+
+
+Neben der kontinuierlichen Beobachtung der Schülerinnen und Schüler im Lernprozess und ihrer
+individuellen Lernfortschritte, die in der Dokumentation der individuellen Lernentwicklung erfasst
+werden, sind die Ergebnisse fachspezifisch mündlicher und praktischer sowie fachspezifisch
+schriftlicher Art zur Leistungsfeststellung heranzuziehen. Für die Leistungsbewertung sind die
+Regelanforderungen einheitlicher Maßstab für alle Schülerinnen und Schüler. Es werden überwiegend
+Kompetenzen überprüft, die im unmittelbar vorangegangenen Unterricht erworben werden konnten.
+Darüber hinaus sollen jedoch auch Problemstellungen einbezogen werden, die die Verfügbarkeit von
+Kompetenzen eines langfristig angelegten Kompetenzaufbaus überprüfen. Zur Leistungsfeststellung
+sind die drei Anforderungsbereiche „Wiedergeben und Beschreiben“, „Anwenden und Strukturieren“ und
+„Transferieren und Verknüpfen“ zu berücksichtigen.
+
+
+Im 2. Schuljahrgang sollten mindestens eine Präsentation oder eine Dokumentation (vgl. Tabelle) pro
+Schulhalbjahr sowie im zweiten Schulhalbjahr eine kurze schriftliche Lernkontrolle angefertigt werden.
+Diese werden in mündlicher und schriftlicher Form gewürdigt.
+
+
+
+
+                                                  28
+Im 3. und 4. Schuljahrgang sollten mindestens eine Präsentation und eine Dokumentation (vgl. Tabelle)
+pro Schulhalbjahr bewertet werden. Ergänzend kommen im 3. und 4. Schuljahr zwei bis drei schriftliche
+Lernkontrollen pro Schuljahr hinzu.
+
+
+Im 3. und 4. Schuljahrgang werden alle Leistungsbewertungen in einer Gesamtbeurteilung
+zusammengefasst, die in Form einer Zensur erfolgt, sofern Notenzeugnisse erteilt werden bzw. die den
+Lern- und Leistungsstand beschreibt, sofern Berichtszeugnisse erstellt werden. Die spezifischen
+schriftlichen Leistungen des Faches gehen anteilig höchstens zur Hälfte in die Gesamtbeurteilung ein.
+Schriftliche Lernkontrollen machen dabei höchstens die Hälfte der spezifischen schriftlichen Leistungen
+aus.
+
+
+Die von der Fachkonferenz erarbeiteten Kriterien zur Dokumentation der individuellen Lernentwicklung
+sowie   zur    Bewertung    und       Beurteilung   der     Leistungsfeststellungen     sind   sowohl     den
+Erziehungsberechtigten als auch den Schülerinnen und Schülern im Vorfeld transparent zu machen.
+Dies ermöglicht die Förderung der Fähigkeit zur Selbsteinschätzung und eine zunehmende Übernahme
+der Selbstverantwortung für den weiteren Lernprozess durch die Schülerinnen und Schüler.
+
+
+Für die Feststellung und Bewertung der Leistungen im kompetenzorientierten Sachunterricht gibt es
+zwei Bereiche:
+
+ Spezifische mündliche und praktische                                 Spezifische schriftliche
+              Leistungen des Faches                                   Leistungen des Faches
+
+                   Sachgemäße Verwendung von Fachsprache und Fachbegriffen
+
+ Präsentationen, auch mediengestützt                      Dokumentationen
+
+ (Referate, Plakatvorstellung, Modelle,                   (Plakat, Themenheft, Portfolio, Lerntagebuch,
+                                                          Sammlungen, Ausstellungen,
+ Versuche etc.)                                           Versuchsprotokolle etc.)
+
+ Anwendung perspektivenbezogener und                      Anwendung perspektivenbezogener und
+ perspektivenübergreifender Methoden                      perspektivenübergreifender Methoden
+
+ (Bauen, Versuche durchführen etc.)                       (Verebnen, Skizzieren etc.)
+
+ Mündliche Beschreibung von
+ Arbeitsprozessen und Ergebnissen
+ (nach Versuchen, Partner- und                            Anfertigung von Tabellen,
+ Gruppenarbeit, Befragungen, Exkursionen etc.)            Zeichnungen, Plänen, Karten etc.
+ sowie das Erklären, Vergleichen und
+ Bewerten von Sachverhalten
+
+ Beiträge zum Unterrichtsgespräch
+ (Qualität und Quantität)                                 Schriftliche Lernkontrolle
+
+ sowie mündliche Überprüfungen
+
+
+
+
+                                                    29
+Grundlage der gesamten Leistungsbewertung sind die Vorgaben des Erlasses „Die Arbeit in der
+Grundschule“ in der jeweils gültigen Fassung.
+Die Regelungen zum Nachteilsausgleich sind zu beachten.
+
+
+5       Aufgaben der Fachkonferenz
+
+Die Fachkonferenz erarbeitet unter Beachtung der rechtlichen Grundlagen und der fachbezogenen
+Vorgaben des Kerncurriculums einen fachbezogenen schuleigenen Arbeitsplan. Mit der regelmäßigen
+Überprüfung und Weiterentwicklung des schuleigenen Arbeitsplans trägt die Fachkonferenz zur
+Qualitätsentwicklung des Faches und zur Qualitätssicherung bei.
+
+Die Erstellung des schuleigenen Arbeitsplans ist ein Prozess. Die Fachkonferenz dient dem
+fachinternen Austausch und bietet Raum und Chance für kollegiale Beratung und Unterstützung. Der
+Fachkonferenz obliegt die inhaltliche und konzeptionelle Ausgestaltung des Faches.
+
+Die Fachkonferenz …
+
+       erarbeitet eine Auswahl von Lern- und Handlungsfeldern, die die Entwicklung der erwarteten
+        Kompetenzen ermöglichen,
+       berücksichtigt dabei die Lebenswelt der Schülerinnen und Schüler mit regionalen Bezügen,
+        aktuellen Geschehnissen und Besonderheiten sowie schulinternen Abläufen und Traditionen,
+       legt die zeitliche Zuordnung im fachbezogenen schuleigenen Arbeitsplan innerhalb der
+        Doppeljahrgänge fest,
+       entwickelt Kriterien zur Dokumentation der individuellen Lernentwicklung,
+       entwickelt Maßnahmen zur Individualisierung,
+       berücksichtigt die Einbeziehung fachübergreifender Bildungsbereiche und stimmt diese mit den
+        anderen Fachkonferenzen ab,
+       entscheidet über die mögliche Einführung eines Lehrwerks, die Anschaffung von
+        Unterrichtsmaterialien und erarbeitet gemeinsames Material für den Unterricht,
+       trifft Absprachen zur einheitlichen Verwendung der Fachsprache und Fachbegriffe,
+       trifft Absprachen über die Anzahl und Verteilung verbindlicher Lernkontrollen im Schuljahr,
+       trifft Absprachen zur Verteilung, zur Konzeption und zur Bewertung von spezifischen
+        mündlichen und praktischen sowie spezifischen schriftlichen Leistungen des Faches und
+        bestimmt deren Verhältnis bei der Festlegung der Zeugnisnote,
+       stimmt den Einsatz der Medien im Sachunterricht mit dem schulinternen Methoden- und
+        Medienkonzept ab,
+       wirkt mit bei der Entwicklung des Förderkonzepts der Schule und stimmt die erforderlichen
+        Maßnahmen zur Umsetzung ab,
+       initiiert die Nutzung außerschulischer Lernorte, Teilnahme an Wettbewerben, Besichtigungen,
+        Projekte etc.,
+
+
+
+
+                                                  30
+   stimmt den schuleigenen Arbeitsplan der Grundschule mit den fachbezogenen Arbeitsplänen
+    der weiterführenden Schulen ab,
+   initiiert Beiträge des Faches zur Gestaltung des Schullebens (Ausstellungen, Projekttage etc.)
+    und trägt zur Entwicklung des Schulprogramms bei,
+   initiiert den Austausch mit vorschulischen Einrichtungen, anderen Grundschulen und
+    weiterführenden Schulen und
+   ermittelt regelmäßig den Fortbildungsbedarf innerhalb der Fachgruppe und trifft Absprachen zu
+    Fortbildungsmaßnahmen für die Fachlehrkräfte.
+
+
+
+
+                                              31
+Anhang
+A1     Operatoren
+Die folgenden Operatoren geben an, welche Tätigkeiten, Fertigkeiten und Fähigkeiten zum Nachweis
+der jeweiligen Kompetenz erwartet werden. Sie sind mit den Schülerinnen und Schülern zu erarbeiten
+und ihr Gebrauch ist an verschiedenen Beispielen zu üben. Durch den konsequenten Einsatz wird
+Fehlinterpretationen von Aufgabenstellungen entgegengewirkt. Gleichzeitig verdeutlichen sie die
+Komplexität von unterschiedlichen Aufgabenstellungen.
+
+ analysieren         Sachverhalte gezielt untersuchen
+ anwenden            Kenntnisse, Fähigkeiten und Fertigkeiten handelnd umsetzen
+ bauen               eine Sache errichten
+ begründen           etwas durch Anführen von Argumenten erklären oder rechtfertigen
+ benennen            fachsprachlich richtige Begriffe verwenden
+ beobachten          kriteriengeleitetes Betrachten
+                     Merkmale, Eigenschaften, Vorgänge strukturiert und sprachlich angemessen
+ beschreiben
+                     darstellen
+ bestimmen           anhand von Kriterien erkennen und benennen
+ bewerten            Sachverhalt unter Anwendung von Fachwissen/Fachmethoden einschätzen
+                     Erkenntnisse, Sachverhalte, Zusammenhänge und Methoden strukturiert und
+ darstellen
+                     fachsprachlich in geeigneter Form veranschaulichen
+                     eingehend besprechen, das Für und Wider aufzeigen, von allen Seiten
+ diskutieren
+                     betrachten
+ dokumentieren       kriteriengeleitetes Notieren/Skizzieren gesammelter Informationen
+ durchführen         vorgegebene Schritte umsetzen
+ entwickeln          schrittweise aufbauen und weiterführen
+                     einen Sachverhalt nachvollziehbar und verständlich zum Ausdruck bringen mit
+ erklären
+                     Bezug auf Regeln, Gesetzmäßigkeiten und Ursachen
+ erkunden            etwas durch die aktive Begegnung vor Ort entdecken und wahrnehmen
+ ermitteln           durch Nachforschen oder Suchen etwas herausfinden
+ erproben            ausprobieren, ob und wie etwas gelingen kann
+ konstruieren        entwerfen, planen und bauen eines technischen Produkts
+ nacherfinden        eine Erfindung und ihre Entwicklung aktiv nachvollziehen
+ ordnen, zuordnen    Sachen nach Kriterien sortieren
+ orientieren         den eigenen Standort und/oder Wege zwischen Standorten finden
+ planen              zielgerichtetes strukturiertes Durchdenken eines Vorhabens
+                     Erkenntnisse, Sachverhalte, Zusammenhänge und Methoden unter
+ präsentieren        Verwendung geeigneter Medien adressaten-/fachbezogen darstellen und
+                     vorführen
+                     zielgerichtetes Nutzen von Informationsquellen sowie das Zusammentragen
+ recherchieren
+                     von Informationen
+ reflektieren        über eine Frage, ein Problem nachdenken, philosophieren
+ skizzieren          Merkmale, Eigenschaften, Vorgänge zeichnerisch darstellen
+ unterscheiden       trennen, differenzieren, auseinanderhalten
+ untersuchen         zielgerichtetes, gründliches Prüfen
+                     aus einem dreidimensionalen Modell oder der Wirklichkeit eine
+ verebnen
+                     zweidimensionale Abbildung erstellen
+                     etwas gegeneinander abwägen, um Gemeinsamkeiten, Ähnlichkeiten und
+ vergleichen
+                     Unterschiede festzustellen
+ verorten            etwas räumlich lokalisieren, abgrenzen
+
+
+
+                                                32
+A2       Beispiele für die Erstellung von Lern- und Handlungsfeldern
+Die perspektivenübergreifende Vernetzung der Kompetenzen zu einem Lern- und Handlungsfeld wird
+an den folgenden Unterrichtssequenzen exemplarisch aufgezeigt.
+
+Lern- und Handlungsfeld: Mein Leben (1. /2. Jahrgang)
+
+
+
+
+Abb. 2: Planungsbeispiel „Mein Leben“2
+
+Das Lern- und Handlungsfeld „Mein Leben“ bietet sich für eine Verknüpfung der Perspektiven Zeit und
+Wandel sowie Gesellschaft, Politik und Wirtschaft an. Themen und Methoden fachübergreifender
+Bildungsbereiche wie Bildung für nachhaltige Entwicklung, Gesundheit, Medien und Sprachbildung
+können fachimmanent in die Unterrichtsplanung einbezogen werden. Es gibt zahlreiche Beispiele zur
+Umsetzung im Unterricht wie „Schule früher und heute“ oder „Spielzeug früher und heute“. In dem
+folgenden Beispiel des Lern- und Handlungsfeldes „Mein Leben“ steht das Darstellen linearer Prozesse
+als perspektivenbezogene Kompetenz sowie die Unterscheidung von Gegenwart, Vergangenheit und
+Zukunft in Bezug auf das eigene Leben im Mittelpunkt. In Form einer Zeitleiste ziehen sich diese
+Kompetenzen wie ein roter Faden durch das Lern- und Handlungsfeld und werden hierbei immer wieder
+mit Kompetenzen aus der Perspektive Gesellschaft, Politik und Wirtschaft vernetzt. Ausgehend von der
+jeweiligen Lebenswelt der Schülerinnen und Schüler erfolgt nach dem Betrachten der Gegenwart ein
+Blick in die Vergangenheit sowie hieran anknüpfend das Nachdenken über die Zukunft.
+
+
+2 2
+   Download der interaktiven Planungsskizze zur Erstellung eines Lern- und Handlungsfeldes unter www.nibis.de: Startseite=>
+Allgemeinbildung=> Fächer allgemein bildende Schulen=> Sachunterricht=> Übersicht Sachunterricht in der Grundschule
+
+
+
+
+                                                            33
+Per-                                                                       aufzubauende und
+                                       Themen-                                                                       Planungsskizze
+spek-                                                                   zu sichernde Kompetenzen
+                                       bereich
+tiven
+                                                                                         Die Schülerinnen und Schüler . . .
+
+                                       rung in der                     stellen lineare Prozesse in der
+                                                                                                          Einstieg über literarische Vorgabe (z.
+                                        Orientie-
+                                                                        Zeit dar.
+                                          Zeit                                                            B. „Alles Familie“ von A. Maxeiner und
+                                                                       unterscheiden Vergangenheit,      A. Kuhl)
+                                                                        Gegenwart und Zukunft.
+                                                                                                             beschreiben ihre gegenwärtige
+        Zeit und Wandel
+
+
+
+
+                                                                       benennen Ereignisse ihrer             Familiensituation.
+                                                                        eigenen Lebensgeschichte             unterscheiden Mutter-Vater-Kind-
+                                                                        und der Geschichte ihrer              Familie, Patchworkfamilie,
+                                                                        Familie anhand                        Einelternfamilie, Großfamilie,
+                                          und Wandel
+
+
+
+
+                                                                        biographischer Quellen und            Mehrgenerationsfamilie,
+                                            Dauer
+
+
+
+
+                                                                        ordnen diese in eine                  Wohngruppe,
+                                                                        Zeitleiste.                           gleichgeschlechtliche Paare
+                                                                       recherchieren anhand von              (Regenbogenfamilie).
+                                                                        historischen Quellen.                beschreiben, welche Aufgaben sie
+                                                                       stellen eigene                        in der Familie übernehmen.
+                                                                        Zukunftsphantasien dar.              beschreiben, welche Aufgaben die
+                                                                                                              anderen Familienmitglieder in ihrer
+                                                                       unterscheiden
+                                                                                                              Familie übernehmen.
+                                                      Beziehungen
+
+
+
+
+                                                                        verschiedenartige
+                                                                                                             vergleichen und begründen die
+                                                                        Familienformen.
+                                       Soziale
+
+
+
+
+                                                                                                              Rollen und Aufgabenverteilung in
+                                                                       vergleichen und begründen
+                                                                                                              ihrer Familie.
+                                                                        die Rollen und
+                                                                                                             recherchieren anhand von Fotos,
+                                                                        Aufgabenverteilung in der
+                                                                        Familie.                              Geburtsurkunden,
+                                                                                                              Schwimmabzeichen etc.
+                                                                       unterscheiden Wünsche und
+Gesellschaft, Politik und Wirtschaft
+
+
+
+
+                                                                                                              entscheidende Ereignisse in ihrer
+                                                                        Bedürfnisse.
+                                                                                                              Kindheit (Einschulung,
+                                                                                                              Kindergartenzeit, Urlaube etc.).
+                                                                                                             stellen diese Ereignisse in einer
+                                                                                                              Zeitleiste (z. B. auf einer Tapete)
+                                                                                                              dar.
+                                                                                                             benennen ihre Wünsche und
+                                           Konsum und Arbeit
+
+
+
+
+                                                                                                              Bedürfnisse zum jetzigen
+                                                                                                              Zeitpunkt („Ich wünsche mir…“,
+                                                                                                              „Ich brauche unbedingt…“ etc.).
+                                                                                                             benennen ihre Wünsche und
+                                                                                                              Bedürfnisse zu einem späteren
+                                                                                                              Zeitpunkt („Wenn ich so alt wie
+                                                                                                              Mama bin, möchte ich…“, „Wenn
+                                                                                                              ich so alt wie Oma bin, möchte
+                                                                                                              ich…“ etc.) und verorten diese auf
+                                                                                                              der Zeitleiste.
+                                                                                                             unterscheiden anhand ihrer
+                                                                                                              Zeitleiste ihre Gegenwart, ihre
+                                                                                                              Vergangenheit und ihre mögliche
+                                                                                                              Zukunft.
+
+
+
+
+                                                                                              34
+Lern- und Handlungsfeld Bionik: Die Klette (Arctium lappa) und der textile
+Klettverschluss (3./4. Jahrgang)
+
+
+
+
+Abb. 3: Planungsbeispiel „Die Klette“3
+
+
+
+
+Phänomene aus der Bionik bieten sich für eine Verknüpfung der Perspektiven Natur und Technik im
+Sachunterricht an. Es gibt zahlreiche Beispiele zur Umsetzung im Unterricht wie der „Lotus-Effekt“ oder
+„Vom Flugsamen zum Hubschrauber“.
+
+In dem folgenden Beispiel des Lern- und Handlungsfeldes „Die Klette und der textile Klettverschluss“
+stehen neben dem (Nach-)Erfinden als perspektivenbezogene Kompetenz im Bereich Technik
+insbesondere         das       Recherchieren,         Analysieren,         Darstellen       und       Begründen         als
+perspektivenübergreifende Methoden im Mittelpunkt der Unterrichtssequenz.
+
+Die Vorgehensweise in der Planungsskizze entspricht einem bottom-up-Prozess, also ausgehend von
+der Beobachtung in der Natur hin zur technischen Anwendung.
+
+
+
+3 3
+   Download der interaktiven Planungsskizze zur Erstellung eines Lern- und Handlungsfeldes unter www.nibis.de: Startseite=>
+Allgemeinbildung=> Fächer allgemein bildende Schulen=> Sachunterricht=> Übersicht Sachunterricht in der Grundschule
+
+
+
+
+                                                            35
+Per-                                                                    aufzubauende und
+          Themen-                                                                                                Planungsskizze
+spek-                                                               zu sichernde Kompetenzen
+            bereich
+tiven
+                                                                                     Die Schülerinnen und Schüler . . .
+                                                                   beobachten und analysieren        entwickeln Fragen z. B. nach einem
+                                                                    Beispiele aus der Bionik,          Unterrichtsgang in die Natur
+                                                                    stellen diese dar und              (Erfahrung mit einer Klettfrucht)
+                                                                    begründen den Nutzen für den       oder
+                                                                    Menschen.                         entwickeln konkrete Fragen anhand
+                                                                                                       eines problemorientierten Einstiegs
+                                                                                                       (Klettfrucht in den Haaren, an der
+                          Pflanzen und Tiere
+
+
+
+
+                                                                                                       Kleidung, im Fell des Hundes etc.).
+                                                                                                      beobachten die Klettfrucht mit und
+                                                                                                       ohne technische Geräte (Lupe,
+Natur
+
+
+
+
+                                                                                                       Binokular etc.).
+                                                                                                      skizzieren Teile der Klette und
+                                                                                                       benennen diese (Fruchtkörper,
+                                                                                                       Samen, Spitzen mit beweglichen
+                                                                                                       Widerhaken etc.).
+                                                                                                      ermitteln die Funktion der Klettfrucht
+                                                                                                       für die Pflanze (Verbreitung von
+                                                                                                       Samen).
+                                                                                                      beschreiben, warum sich die
+                                                                                                       Klettfrucht so schwer vom Stoff
+                                                                                                       trennen lässt (Fachbegriffe: Haken,
+                                                                   nacherfinden und analysieren       Schlaufe, haften etc.).
+                                                                    bedeutsame technische             ermitteln Nutzungsmöglichkeiten
+                                                                    Erfindungen sowie deren            des Klett-Prinzips (Anhaften,
+          Auseinandersetzungen mit
+
+
+
+
+                                                                    Folgen für den Alltag und die      Verschließen etc.).
+                                      technischen Erfindungen
+
+
+
+
+                                                                    Umwelt.                           recherchieren den Schweizer
+                                                                                                       Ingenieur George de Mestral
+                                                                   recherchieren bedeutsame           (Erfinder des Klettverschlusses).
+Technik
+
+
+
+
+                                                                    Erfinderinnen oder Erfinder       vergleichen eine Klettfrucht mit
+                                                                    und deren Erfindungen und          industriell hergestelltem Klettband.
+                                                                    präsentieren diese.               begründen die Entstehung des
+                                                                     Medienbildung                    Begriffs „Bionik“.
+                                                                    (Internetrecherche)               reflektieren über Möglichkeiten und
+                                                                                                       Grenzen der Bionik.
+
+
+
+
+                                                                                          36
+A3    Planungshilfe eines Lern- und Handlungsfeldes im Sachunterricht
+
+Kopiervorlage
+
+
+
+
+Perspektiven des Sachunterrichts
+
+
+
+
+                                                  Lern- und Handlungsfeld
+                                               perspektivenbezogene Methoden
+                                             perspektivenübergreifende Methoden
+
+
+
+
+                                     37
+

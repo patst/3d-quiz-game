@@ -1,0 +1,59 @@
+[
+  {
+    "id": "ni-einschulung-info",
+    "title": "Informationsblatt zur Flexibilisierung des Einschulungstermins",
+    "status": "in force",
+    "url": "https://www.mk.niedersachsen.de/download/128260/Informationsblatt_zum_Einschulungstermin.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-orientierungsplan-2023",
+    "title": "Orientierungsplan für Bildung und Erziehung im Elementarbereich, Gesamtausgabe 2023",
+    "status": "in force (Kita)",
+    "url": "https://www.mk.niedersachsen.de/download/4491/Orientierungsplan_fuer_Bildung_und_Erziehung_-_Gesamtausgabe_aktualisiert_2023.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-kc-mathematik-gs-2017",
+    "title": "Kerncurriculum für die Grundschule, Schuljahrgänge 1–4, Mathematik (2017)",
+    "status": "in force",
+    "url": "https://www.mk.niedersachsen.de/download/120954/Kerncurriculum_Mathematik.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-kc-mathematik-gs-2024-anhoerfassung",
+    "title": "Kerncurriculum für die Grundschule, Mathematik, Anhörfassung 24.10.2024",
+    "status": "draft",
+    "url": "https://www.mk.niedersachsen.de/download/211766/KC_Mathematik_fuer_die_Grundschule.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-kc-deutsch-gs-2017",
+    "title": "Kerncurriculum für die Grundschule, Schuljahrgänge 1–4, Deutsch (2017)",
+    "status": "in force",
+    "url": "https://www.mk.niedersachsen.de/download/120953/Kerncurriculum_Deutsch.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-kc-deutsch-gs-2024-arbeitsfassung",
+    "title": "Kerncurriculum für die Grundschule, Deutsch, Arbeitsfassung 21.05.2024",
+    "status": "draft",
+    "url": "https://www.mk.niedersachsen.de/download/207512/Kerncurriculum_Deutsch_fuer_die_Grundschule.pdf",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-kc-sachunterricht-gs-2017",
+    "title": "Kerncurriculum für die Grundschule, Schuljahrgänge 1–4, Sachunterricht (2017)",
+    "status": "in force since 01.08.2017",
+    "url": "https://cuvo.nibis.de/index.php?p=download&upload=105",
+    "page": "https://cuvo.nibis.de/index.php?p=search&f0=Kerncurriculum%20Sachunterricht",
+    "retrieved": "2026-11-01"
+  },
+  {
+    "id": "ni-svbl-2023-10",
+    "title": "Schulverwaltungsblatt 10/2023, Amtlicher Teil (list of curricula in force)",
+    "status": "official gazette",
+    "url": "https://www.mk.niedersachsen.de/download/199813/Schulverwaltungsblatt_10_2023_-_Amtlicher_Teil.pdf",
+    "retrieved": "2026-11-01"
+  }
+]

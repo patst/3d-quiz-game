@@ -40,6 +40,7 @@ CI=1 npm run e2e    # Playwright tests (desktop + mobile viewport) like CI — C
                     # starts a fresh server instead of reusing a possibly stale one on :4173
 npm run build       # production build; BASE_PATH env sets the deploy sub-path
 npm run audio:generate  # (re)generate speech clips — see docs/audio.md
+npm run curriculum:sources -- --fetch  # re-download curriculum PDFs; git diff docs/curriculum/sources/text
 ```
 `?seed=N` in the URL forces a maze seed (reproducible bug reports); `?challenge=<typeId>` puts
 only that challenge type into the chests (review a new challenge quickly).

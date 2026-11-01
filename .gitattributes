@@ -1,0 +1,3 @@
+# Curriculum source copies (docs/curriculum/sources): diff the extracted text, not the PDFs.
+docs/curriculum/sources/pdf/*.pdf binary
+docs/curriculum/sources/text/*.txt linguist-documentation

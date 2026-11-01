@@ -6,6 +6,10 @@ roadmap (M13).
 
 ## 0. Primary sources (all read in full or in the relevant chapters)
 
+Local copies are kept, together with their original URLs, in [`sources/`](sources/README.md):
+the PDFs plus extracted text for diffing. Refresh them with
+`npm run curriculum:sources -- --fetch`.
+
 | Short name | Document | Status of the document |
 |---|---|---|
 | **Einschulung** | [Informationsblatt zur Flexibilisierung des Einschulungstermins](https://www.mk.niedersachsen.de/download/128260/Informationsblatt_zum_Einschulungstermin.pdf) | in force |

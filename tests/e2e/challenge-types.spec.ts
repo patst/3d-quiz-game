@@ -12,6 +12,11 @@ for (const type of [
   'german.syllables',
   'german.rhyme',
   'german.read-word',
+  'knowledge.animal-name',
+  'knowledge.animal-baby',
+  'knowledge.colors',
+  'knowledge.seasons',
+  'knowledge.odd-one-out',
 ]) {
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');

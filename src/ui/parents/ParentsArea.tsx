@@ -119,7 +119,7 @@ export function ParentsArea({
               <SkillList profile={p} />
               <details className="challenge-toggles">
                 <summary>{de.parents.challengesTitle}</summary>
-                {(['math', 'german'] as const).map((subject) => (
+                {(['math', 'german', 'knowledge'] as const).map((subject) => (
                   <fieldset key={subject}>
                     <legend>{de.parents.subjects[subject]}</legend>
                     {challengeTypes

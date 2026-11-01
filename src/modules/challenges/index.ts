@@ -3,6 +3,13 @@ import { germanInitialSound } from './german-initial-sound';
 import { germanReadWord } from './german-read-word';
 import { germanRhyme } from './german-rhyme';
 import { germanSyllables } from './german-syllables';
+import {
+  knowledgeAnimalBaby,
+  knowledgeAnimalName,
+  knowledgeColors,
+  knowledgeOddOneOut,
+  knowledgeSeasons,
+} from './knowledge';
 import { mathAddition } from './math-addition';
 import { mathCompare } from './math-compare';
 import { mathCount } from './math-count';
@@ -26,6 +33,11 @@ export const challengeTypes: readonly ChallengeType[] = [
   germanSyllables,
   germanRhyme,
   germanReadWord,
+  knowledgeAnimalName,
+  knowledgeAnimalBaby,
+  knowledgeColors,
+  knowledgeSeasons,
+  knowledgeOddOneOut,
 ] as ChallengeType[];
 
 export function getChallengeType(id: string): ChallengeType {

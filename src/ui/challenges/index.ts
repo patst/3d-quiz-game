@@ -3,6 +3,7 @@ import { CompareView } from './CompareView';
 import { CountView } from './CountView';
 import { FindNumberView } from './FindNumberView';
 import { InitialSoundView } from './InitialSoundView';
+import { KnowledgeView } from './KnowledgeView';
 import { ReadWordView } from './ReadWordView';
 import { RhymeView } from './RhymeView';
 import { SyllablesView } from './SyllablesView';
@@ -22,4 +23,9 @@ export const challengeViews: Record<string, ChallengeViewEntry> = {
   'german.syllables': { View: SyllablesView as ChallengeView },
   'german.rhyme': { View: RhymeView as ChallengeView, ownsChoices: true },
   'german.read-word': { View: ReadWordView as ChallengeView, ownsChoices: true },
+  'knowledge.animal-name': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.animal-baby': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.colors': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.seasons': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.odd-one-out': { View: KnowledgeView as ChallengeView, ownsChoices: true },
 };

@@ -2,6 +2,20 @@ import type { SpeechLine } from '../../core/challenges/types';
 import { COUNT_OBJECTS, type CountObject } from '../../modules/challenges/objects';
 import { de } from './strings';
 import { WORDS } from './words';
+import {
+  ANIMALS,
+  BABIES,
+  capitalize,
+  COLORS,
+  ODD_CATEGORIES,
+  SEASON_QUESTIONS,
+  SEASONS,
+  SHAPES,
+  shapeAccusative,
+  shapeNominative,
+  WEATHER_ITEMS,
+  WEATHER_QUESTIONS,
+} from './knowledge';
 
 /** German names of countable objects: [singular, plural]. */
 export const objectNames: Record<CountObject, readonly [string, string]> = {
@@ -32,6 +46,11 @@ const subtractionPairs = () => range(2, 20).flatMap((a) => range(1, a - 1).map((
 
 /** All (a, b) with a, b ≥ 1 and a + b ≤ 20 — covers every addition level. */
 const additionPairs = () => range(1, 19).flatMap((a) => range(1, 20 - a).map((b) => ({ a, b, sum: a + b })));
+
+const color = (id: string | number | undefined) => COLORS.find((c) => c.id === id)!;
+const shape = (id: string | number | undefined) => SHAPES.find((s) => s.id === id)!;
+const colorName = (id: string | number | undefined) => color(id)?.name ?? '';
+const colorShapePairs = () => COLORS.filter((c) => c.adj).flatMap((c) => SHAPES.map((s) => ({ color: c.id, shape: s.id })));
 
 /** Speech templates referenced by `SpeechLine.key`. */
 export const speechTemplates: Record<string, Template> = {
@@ -97,6 +116,63 @@ export const speechTemplates: Record<string, Template> = {
     render: (p) => `Das Wort heißt ${p.word}.`,
     variants: () => WORDS.map((w) => ({ word: w.word })),
   },
+  'knowledge.animal.prompt': { render: () => 'Wie heißt dieses Tier?', variants: none },
+  'knowledge.animal.explain': {
+    render: (p) => `Das Tier heißt ${p.name}.`,
+    variants: () => ANIMALS.map((a) => ({ name: a.name })),
+  },
+  'knowledge.baby.prompt': {
+    render: (p) => `Wie heißt das Baby ${p.of}?`,
+    variants: () => BABIES.map((b) => ({ of: b.of })),
+  },
+  'knowledge.baby.explain': {
+    render: (p) => `Das Baby ${p.of} heißt ${p.baby}.`,
+    variants: () => BABIES.map((b) => ({ of: b.of, baby: b.baby })),
+  },
+  'knowledge.color.prompt': {
+    render: (p) => `Tippe auf ${colorName(p.color)}!`,
+    variants: () => COLORS.map((c) => ({ color: c.id })),
+  },
+  'knowledge.color.explain': {
+    render: (p) => `Schau, das ist ${colorName(p.color)}.`,
+    variants: () => COLORS.map((c) => ({ color: c.id })),
+  },
+  'knowledge.shape.prompt': {
+    render: (p) => `Tippe auf ${shapeAccusative(color(p.color), shape(p.shape))}!`,
+    variants: colorShapePairs,
+  },
+  'knowledge.shape.explain': {
+    render: (p) => `Schau, das ist ${shapeNominative(color(p.color), shape(p.shape))}.`,
+    variants: colorShapePairs,
+  },
+  'knowledge.season.prompt': {
+    render: (p) => SEASON_QUESTIONS.find((q) => q.id === p.q)?.question ?? '',
+    variants: () => SEASON_QUESTIONS.map((q) => ({ q: q.id })),
+  },
+  'knowledge.season.explain': {
+    render: (p) => SEASON_QUESTIONS.find((q) => q.id === p.q)?.explain ?? '',
+    variants: () => SEASON_QUESTIONS.map((q) => ({ q: q.id })),
+  },
+  'knowledge.weather.prompt': {
+    render: (p) => WEATHER_QUESTIONS.find((q) => q.id === p.q)?.question ?? '',
+    variants: () => WEATHER_QUESTIONS.map((q) => ({ q: q.id })),
+  },
+  'knowledge.weather.explain': {
+    render: (p) => WEATHER_QUESTIONS.find((q) => q.id === p.q)?.explain ?? '',
+    variants: () => WEATHER_QUESTIONS.map((q) => ({ q: q.id })),
+  },
+  'knowledge.odd.prompt': { render: () => 'Was gehört nicht dazu?', variants: none },
+  'knowledge.odd.explain': {
+    render: (p) => {
+      const item = ODD_CATEGORIES.flatMap((c) => c.items).find((i) => i.id === p.odd);
+      const cat = ODD_CATEGORIES.find((c) => c.id === p.category);
+      return `${capitalize(item?.withArticle ?? '')} gehört nicht dazu. Die anderen sind ${cat?.plural ?? ''}.`;
+    },
+    variants: () =>
+      ODD_CATEGORIES.flatMap((cat) =>
+        ODD_CATEGORIES.filter((o) => o.id !== cat.id).flatMap((o) => o.items.map((i) => ({ odd: i.id, category: cat.id }))),
+      ),
+  },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
   'feedback.skipQuestion': { render: () => 'Möchtest du diese Aufgabe wirklich überspringen?', variants: none },
@@ -127,8 +203,13 @@ export const staticSpokenTexts: readonly string[] = [
   de.rewards.allCollected,
   ...Object.values(de.rewards.items),
   ...range(1, 10).map((n) => de.rewards.jarHint(n)),
-  // Single words, for the speaker buttons on pictures (rhyme, read-word).
+  // Single words, for the speaker buttons on pictures (rhyme, read-word, knowledge cards).
   ...WORDS.map((w) => w.word),
+  ...ANIMALS.map((a) => a.name),
+  ...BABIES.map((b) => b.baby),
+  ...SEASONS.map((s) => s.name),
+  ...WEATHER_ITEMS.map((i) => i.name),
+  ...ODD_CATEGORIES.flatMap((c) => c.items.map((i) => i.name)),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

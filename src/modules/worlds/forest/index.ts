@@ -20,6 +20,11 @@ export const forestWorld: WorldTheme = {
       { typeId: 'german.syllables', startLevel: 1 }, // 1–2 syllables
       { typeId: 'german.rhyme', startLevel: 1 },
       { typeId: 'german.read-word', startLevel: 1 }, // 2–3 letter words in capitals
+      { typeId: 'knowledge.animal-name', startLevel: 1 }, // 2 names
+      { typeId: 'knowledge.animal-baby', startLevel: 1 },
+      { typeId: 'knowledge.colors', startLevel: 1 }, // 3 basic colours
+      { typeId: 'knowledge.seasons', startLevel: 1 },
+      { typeId: 'knowledge.odd-one-out', startLevel: 1 }, // clearly different category
     ],
   },
   colors: {

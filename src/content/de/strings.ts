@@ -189,7 +189,7 @@ export const de = {
       `${name}: Stufe ${level} von ${max} · ${solved} gelöst, davon ${firstTry} ohne Fehler`,
     noSkills: 'Noch keine Aufgaben gelöst.',
     challengesTitle: 'Aufgaben',
-    subjects: { math: 'Mathe', german: 'Deutsch' } as Record<string, string>,
+    subjects: { math: 'Mathe', german: 'Deutsch', knowledge: 'Wissen' } as Record<string, string>,
     readingNote: 'Tipp: „Wörter lesen“ ausschalten, solange Ihr Kind noch nicht liest.',
     settings: 'Einstellungen',
     speech: 'Aufgaben vorlesen',
@@ -287,6 +287,11 @@ export const de = {
     'german.syllables': 'Silben klatschen',
     'german.rhyme': 'Reime finden',
     'german.read-word': 'Wörter lesen',
+    'knowledge.animal-name': 'Tiere benennen',
+    'knowledge.animal-baby': 'Tierbabys',
+    'knowledge.colors': 'Farben und Formen',
+    'knowledge.seasons': 'Jahreszeiten und Wetter',
+    'knowledge.odd-one-out': 'Was gehört nicht dazu?',
   } as Record<string, string>,
   challenge: {
     /** Shown (with a jingle and confetti) after a correct answer; picked at random. */

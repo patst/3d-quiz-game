@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { playFanfare, playPling } from '../../audio/sfx';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import { generateMaze } from '../../core/maze/generate';
@@ -14,25 +15,33 @@ import { RewardPicker } from '../rewards/RewardPicker';
 import { StarJar } from '../rewards/StarJar';
 import { Wardrobe } from '../rewards/Wardrobe';
 import { MazeSession, type Chest } from '../../core/session/mazeSession';
+import type { SubjectId } from '../../core/challenges/types';
+import { currentLevel, levelSpec } from '../../core/progress/levels';
 import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
 import { getChallengeType } from '../../modules/challenges';
-import { getWorld } from '../../modules/worlds';
+import { getWorld, worlds } from '../../modules/worlds';
 import { MazeView } from '../../render/MazeView';
 import { ChallengeDialog } from '../challenges/ChallengeDialog';
 
 interface Props {
   profile: Profile;
+  worldId: string;
+  /** Subjects chosen for this session (chests only contain these). */
+  subjects: readonly SubjectId[];
   /** Parent-set play time is over: show the break screen (after a running challenge). */
   breakDue: boolean;
   onHome: () => void;
   onStars: (stars: number) => void;
-  onMazeCompleted: () => void;
+  onMazeCompleted: (worldId: string) => void;
   onChooseReward: (itemId: string | null) => void;
   onToggleEquip: (itemId: string) => void;
   onRescue: (animal: LostAnimal) => void;
   onChallengeResult: (typeId: string, level: number, outcome: ChallengeOutcome) => void;
   onSetPet: (animal: LostAnimal | null) => void;
 }
+
+const HINT_STEPS = 6;
+const HINT_COOLDOWN_MS = 15_000;
 
 /** Seed can be forced via ?seed=123 (reproducible bug reports / E2E tests). */
 function seedFromUrl(): number | null {
@@ -53,6 +62,8 @@ function route(path: Tile[]): string {
 
 export function GameScreen({
   profile,
+  worldId,
+  subjects,
   breakDue,
   onHome,
   onStars,
@@ -73,7 +84,18 @@ export function GameScreen({
   const equippedRef = useRef(profile.equipped);
   const rescuedRef = useRef(profile.rescued);
   const skillsRef = useRef(profile.skills);
+  const levelsRef = useRef(profile.levels);
+  useEffect(() => {
+    levelsRef.current = profile.levels;
+  }, [profile.levels]);
+  const [level, setLevel] = useState(1);
+  const [guide, setGuide] = useState<string>('olli');
+  const [newWorld, setNewWorld] = useState<string | null>(null);
   const disabledRef = useRef(profile.disabledChallenges);
+  const subjectsRef = useRef(subjects);
+  useEffect(() => {
+    subjectsRef.current = subjects;
+  }, [subjects]);
   useEffect(() => {
     disabledRef.current = profile.disabledChallenges;
   }, [profile.disabledChallenges]);
@@ -104,14 +126,19 @@ export function GameScreen({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    const world = getWorld('forest');
+    const world = getWorld(worldId);
+    const spec = levelSpec(currentLevel(levelsRef.current[world.id]));
+    setLevel(spec.level);
     const forced = seedFromUrl();
     const seed = forced !== null ? forced + round : randomSeed();
-    const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
+    const animal = nextLostAnimal(rescuedRef.current, createRng(seed), world.lostAnimals);
+    setGuide(world.guide);
     setLostAnimal(animal);
     // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
     const only = new URLSearchParams(window.location.search).get('challenge');
-    const enabled = world.chests.challenges.filter((c) => !disabledRef.current.includes(c.typeId));
+    const enabled = world.chests.challenges.filter(
+      (c) => !disabledRef.current.includes(c.typeId) && subjectsRef.current.includes(getChallengeType(c.typeId).subject),
+    );
     const allowed = (enabled.length > 0 ? enabled : world.chests.challenges).filter((c) => !only || c.typeId === only);
     const chests = planChests(
       createRng(seed ^ 0x2545f491),
@@ -120,9 +147,11 @@ export function GameScreen({
         startLevel: c.startLevel,
       })),
       skillsRef.current,
-      world.chests.count,
+      spec.chests,
     );
-    const session = new MazeSession(generateMaze({ ...world.maze, seed }), { chests });
+    const session = new MazeSession(generateMaze({ cols: spec.cols, rows: spec.rows, braid: world.maze.braid, seed }), {
+      chests,
+    });
     sessionRef.current = session;
     container.dataset.goalTile = `${session.maze.goal.x},${session.maze.goal.y}`;
     if (forced !== null && session.chests.length > 0) {
@@ -145,13 +174,19 @@ export function GameScreen({
       pet: petRef.current,
       onEvent: (ev) => {
         if (ev.type === 'chestReached') {
+          playPling();
           view.setPaused(true);
           setOpenChest({ chest: session.chest(ev.chestId), visit: ++visits });
         } else if (ev.type === 'goalReached') {
           setGoalStars(session.starsEarned);
-          speech().speak(de.lostAnimals[animal].speakGoal);
+          playFanfare();
+          // Did this maze unlock another world?
+          const finished = (levelsRef.current[world.id] ?? 0) + 1;
+          const unlocked = worlds.find((w) => w.unlock?.world === world.id && w.unlock.mazes === finished);
+          setNewWorld(unlocked?.id ?? null);
+          speech().speak(unlocked ? de.worldSelect.speakUnlocked : de.lostAnimals[animal].speakGoal);
           callbacks.current.onRescue(animal);
-          callbacks.current.onMazeCompleted();
+          callbacks.current.onMazeCompleted(world.id);
         }
       },
     });
@@ -163,9 +198,26 @@ export function GameScreen({
       sessionRef.current = null;
       speech().stop();
     };
-  }, [profile.avatar, round]);
+  }, [profile.avatar, round, worldId]);
 
   const closeChest = () => setOpenChest(null);
+
+  // "Olli zeigt den Weg": short glowing path, then a cool-down so it stays a help, not autopilot.
+  const [hintReadyAt, setHintReadyAt] = useState(0);
+  const [hintCooling, setHintCooling] = useState(false);
+  const showWay = () => {
+    const now = performance.now();
+    if (now < hintReadyAt) {
+      speech().speak(de.wayHint.wait);
+      return;
+    }
+    const tiles = sessionRef.current?.hintPath(HINT_STEPS) ?? [];
+    viewRef.current?.showWayHint(tiles);
+    speech().speak(de.wayHint.speak);
+    setHintReadyAt(now + HINT_COOLDOWN_MS);
+    setHintCooling(true);
+    window.setTimeout(() => setHintCooling(false), HINT_COOLDOWN_MS);
+  };
 
   // A full star jar waits until no other dialog is open.
   const showPicker = profile.pendingRewards > 0 && !openChest && goalStars === null && !wardrobeOpen;
@@ -191,7 +243,10 @@ export function GameScreen({
           🏠
         </button>
         <button className="guide-bubble" onClick={() => speech().speak(de.lostAnimals[lostAnimal].speakStart)}>
-          <span aria-hidden>🦉</span> {de.lostAnimals[lostAnimal].hint}
+          <span className="level-pill" data-testid="level">
+            {de.levels.badge(level)}
+          </span>
+          <span aria-hidden>{de.guideIcons[guide]}</span> {de.lostAnimals[lostAnimal].hint}
         </button>
         <div className="hud-right">
           <StarJar jar={profile.jar} />
@@ -200,6 +255,18 @@ export function GameScreen({
           </button>
         </div>
       </div>
+
+      <button
+        className={`way-hint-button ${hintCooling ? 'cooling' : ''}`}
+        aria-label={de.wayHint.button}
+        data-testid="way-hint"
+        onClick={showWay}
+      >
+        <span aria-hidden>{de.guideIcons[guide]}</span>
+        <span aria-hidden className="way-hint-arrow">
+          ➜
+        </span>
+      </button>
 
       {openChest && (
         <ChallengeDialog
@@ -250,6 +317,15 @@ export function GameScreen({
             </div>
             <h2>{de.game.goalTitle}</h2>
             <p>{de.lostAnimals[lostAnimal].goalText}</p>
+            <p className="level-done">🏆 {de.levels.done(level)}</p>
+            {newWorld && (
+              <p className="new-world" data-testid="new-world">
+                {de.worlds[newWorld]?.icon} {de.worldSelect.unlocked}
+              </p>
+            )}
+            {levelSpec(level + 1).cols * levelSpec(level + 1).rows > levelSpec(level).cols * levelSpec(level).rows && (
+              <p className="hint-text">{de.levels.bigger}</p>
+            )}
             <p className="stars-won">⭐ {de.game.goalStars(goalStars)}</p>
             <div className="button-row">
               <button className="button secondary" aria-label={de.game.home} onClick={onHome}>
@@ -262,7 +338,7 @@ export function GameScreen({
                   setRound((r) => r + 1);
                 }}
               >
-                {de.game.nextMaze}
+                {de.levels.next(level + 1)}
               </button>
             </div>
           </div>

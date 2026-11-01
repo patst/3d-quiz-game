@@ -431,8 +431,8 @@ button {
 }
 
 .number-button {
-  width: min(80px, 19vw);
-  height: min(80px, 19vw);
+  width: min(80px, 17vw);
+  height: min(80px, 17vw);
   font-size: 2.4rem;
   font-weight: 900;
   border: 4px solid var(--ink);
@@ -846,38 +846,43 @@ button {
 
 .place-value {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
-.ten-bar {
-  display: inline-flex;
-  flex-direction: column-reverse;
-  gap: 2px;
-  padding: 2px;
-  border: 2px solid #3a86ff;
-  border-radius: 6px;
+.dot-row {
+  display: grid;
+  gap: 3px;
 }
 
-.ones {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  max-width: 60px;
+/* Ten-frame grouping: 5 dots, a small gap, 5 dots. */
+.dot-row {
+  grid-template-columns: repeat(5, 12px) 4px repeat(5, 12px);
+}
+
+.dot-row .unit-dot:nth-child(6) {
+  grid-column: 7;
 }
 
 .unit-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #ff7a59;
   display: inline-block;
 }
 
-.ten-bar .unit-dot {
+.dot-row.ten .unit-dot.filled {
   background: #3a86ff;
+}
+
+.dot-row.one .unit-dot.filled {
+  background: #ff7a59;
+}
+
+.unit-dot.empty {
+  border: 2px solid #ddd3b8;
+  box-sizing: border-box;
 }
 
 .task-object.crossed {
@@ -1123,4 +1128,254 @@ button {
   padding: 4px 8px;
   border: 2px solid var(--ink);
   border-radius: 8px;
+}
+
+/* ---------- celebration ---------- */
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -30px;
+  animation-name: confetti-fall;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 1);
+  animation-fill-mode: forwards;
+  text-shadow: 1px 1px 0 rgba(43, 34, 51, 0.4);
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--drift), 105vh) rotate(var(--rotate));
+    opacity: 0.8;
+  }
+}
+
+.feedback.praise {
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  font-weight: 900;
+  animation: praise-pop 0.6s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+
+@keyframes praise-pop {
+  0% {
+    transform: scale(0.3) rotate(-8deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ---------- levels ---------- */
+.guide-bubble {
+  position: relative;
+}
+
+.level-pill {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  padding: 1px 10px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #fff;
+  background: #3a86ff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+.level-done {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #3a86ff;
+  margin: 4px 0;
+}
+
+.profile-level {
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: #ffffffcc;
+  border-radius: 999px;
+  padding: 1px 10px;
+}
+
+/* ---------- worlds ---------- */
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  width: min(100%, 560px);
+}
+
+.world-card {
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(43, 34, 51, 0.6);
+}
+
+.world-card.locked {
+  background: #d9d4cc;
+  color: var(--ink);
+  text-shadow: none;
+  border-style: dashed;
+}
+
+.world-icon {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.world-name {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.world-guide {
+  font-size: 32px;
+}
+
+.world-locked {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.new-world {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #1d7fb8;
+  animation: praise-pop 0.6s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+
+.treehouse-card {
+  background: #a0673a;
+}
+
+.decor-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- way hint ---------- */
+.way-hint-button {
+  position: absolute;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 4px solid var(--ink);
+  background: #fff36b;
+  box-shadow: var(--shadow);
+  font-size: 34px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.way-hint-arrow {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.way-hint-button.cooling {
+  background: #e9e4d6;
+  opacity: 0.7;
+}
+
+/* ---------- knowledge ---------- */
+.quiz-picture {
+  font-size: clamp(64px, 22vw, 96px);
+  line-height: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+.quiz-shape {
+  width: 70%;
+  height: 70%;
+}
+
+.picture-choices.word-cards {
+  flex-direction: column;
+  align-items: stretch;
+  width: min(100%, 320px);
+}
+
+.picture-choices.word-cards .picture-choice {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.picture-button.word-button {
+  flex: 1;
+  width: auto;
+  height: 64px;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+/* ---------- session subjects ---------- */
+.subject-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subject-today {
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+}
+
+.subject-chip {
+  min-height: 56px;
+  padding: 0 18px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  border: 4px solid var(--ink);
+  border-radius: 999px;
+  background: #ffffffaa;
+  color: #8a8291;
+  box-shadow: none;
+}
+
+.subject-chip.on {
+  background: #fff36b;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.world-card .profile-level {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.world-name {
+  font-size: clamp(1rem, 4.6vw, 1.3rem);
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }

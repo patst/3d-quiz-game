@@ -83,6 +83,7 @@ test('a parent-set play time shows a friendly break screen', async ({ page }) =>
     profiles: [profileFixture({ pendingRewards: 0 })],
   });
   await page.getByRole('button', { name: /Testkind/ }).click();
+  await page.getByRole('button', { name: 'Zauberwald', exact: true }).click();
   await expect(page.getByTestId('game-canvas').locator('canvas')).toBeVisible();
   await expect(page.getByTestId('break')).toHaveCount(0);
   await page.clock.fastForward('16:00');

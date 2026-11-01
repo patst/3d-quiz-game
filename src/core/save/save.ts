@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 6;
+export const SAVE_VERSION = 8;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -13,9 +13,11 @@ export interface Settings {
   speech: boolean;
   /** Optional play-time limit per session in minutes; 0 = off (game-design §8). */
   sessionMinutes: number;
+  /** Jingles and sound effects. */
+  sfx: boolean;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speech: true, sessionMinutes: 0 };
+export const DEFAULT_SETTINGS: Settings = { speech: true, sessionMinutes: 0, sfx: true };
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;
@@ -76,6 +78,21 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
       ...p,
       disabledChallenges: [],
     })),
+  }),
+  // v6 → v7: maze levels. All mazes so far were in the forest.
+  6: (doc) => ({
+    ...doc,
+    version: 7,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({
+      ...p,
+      levels: { forest: typeof p.mazesCompleted === 'number' ? p.mazesCompleted : 0 },
+    })),
+  }),
+  // v7 → v8: empty tree house.
+  7: (doc) => ({
+    ...doc,
+    version: 8,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({ ...p, treehouse: {} })),
   }),
 };
 

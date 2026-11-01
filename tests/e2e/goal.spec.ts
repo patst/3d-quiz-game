@@ -27,7 +27,9 @@ test('walk through the whole maze, skipping chests, and rescue the chick', async
 
   await expect(page.getByRole('heading', { name: 'Juhu!' })).toBeVisible();
   await expect(page.getByText('Du hast das Küken gefunden!')).toBeVisible();
-  await page.getByRole('button', { name: 'Neues Labyrinth' }).click();
+  await expect(page.getByText('Level 1 geschafft!')).toBeVisible();
+  await page.getByRole('button', { name: 'Weiter zu Level 2' }).click();
+  await expect(page.getByTestId('level')).toHaveText('Level 2');
   await expect(page.getByRole('heading', { name: 'Juhu!' })).toBeHidden();
   await expect(canvas).toHaveAttribute('data-avatar-tile', '1,1');
   // The chick is rescued; the next maze hides the piglet.

@@ -1,7 +1,9 @@
 import type { Rng } from '../rng';
 
 /** Where an item is worn. One item per slot can be equipped. */
-export const REWARD_SLOTS = ['hat', 'glasses', 'neck', 'trail'] as const;
+export const WEARABLE_SLOTS = ['hat', 'glasses', 'neck', 'trail'] as const;
+/** All reward kinds: wearables plus decorations for the tree house (M10). */
+export const REWARD_SLOTS = [...WEARABLE_SLOTS, 'decor'] as const;
 export type RewardSlot = (typeof REWARD_SLOTS)[number];
 
 export interface RewardItem {

@@ -1,6 +1,6 @@
 import type { Rng } from '../rng';
 
-export type SubjectId = 'math' | 'german';
+export type SubjectId = 'math' | 'german' | 'knowledge';
 
 /**
  * Something the guide says. `key` refers to a template in content/de (never free text in

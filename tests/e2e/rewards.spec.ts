@@ -2,8 +2,9 @@ import { expect, test } from '@playwright/test';
 import { profileFixture, seedSave } from './helpers';
 
 test('a full star jar lets the child pick a reward, which is worn in the wardrobe', async ({ page }) => {
-  await seedSave(page, { version: 6, settings: { speech: true }, activeProfileId: 'p1', profiles: [profileFixture()] });
+  await seedSave(page, { version: 8, settings: { speech: true }, activeProfileId: 'p1', profiles: [profileFixture()] });
   await page.getByRole('button', { name: /Testkind/ }).click();
+  await page.getByRole('button', { name: 'Zauberwald', exact: true }).click();
 
   const picker = page.getByTestId('reward-picker');
   await expect(picker).toBeVisible();
@@ -27,11 +28,12 @@ test('a full star jar lets the child pick a reward, which is worn in the wardrob
 
 test('rescued friends appear in the wardrobe and can be chosen as pet', async ({ page }) => {
   await seedSave(page, {
-    version: 6, settings: { speech: true },
+    version: 8, settings: { speech: true },
     activeProfileId: 'p1',
     profiles: [profileFixture({ pendingRewards: 0, rescued: ['chick', 'piglet'], pet: 'chick' })],
   });
   await page.getByRole('button', { name: /Testkind/ }).click();
+  await page.getByRole('button', { name: 'Zauberwald', exact: true }).click();
   // Third maze: the next friend to rescue is the puppy.
   await expect(page.getByRole('button', { name: /Finde den verirrten Welpen/ })).toBeVisible();
   await page.getByTestId('wardrobe-button').click();
@@ -40,5 +42,6 @@ test('rescued friends appear in the wardrobe and can be chosen as pet', async ({
   await friends.getByRole('button', { name: 'Ferkel' }).click();
   await expect(friends.getByRole('button', { name: 'Ferkel' })).toHaveAttribute('aria-pressed', 'true');
   await expect(friends.getByRole('button', { name: 'Küken' })).toHaveAttribute('aria-pressed', 'false');
-  await expect(friends.locator('.wardrobe-item.locked')).toHaveCount(4);
+  // 6 forest + 6 sea friends, 2 rescued.
+  await expect(friends.locator('.wardrobe-item.locked')).toHaveCount(10);
 });

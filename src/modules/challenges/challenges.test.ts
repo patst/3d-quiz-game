@@ -223,3 +223,51 @@ describe('german challenges', () => {
     }
   });
 });
+
+describe('knowledge challenges', () => {
+  it('colours: the correct card has the asked colour (and shape on level 3)', async () => {
+    const { COLORS, SHAPES } = await import('../../content/de/knowledge');
+    const type = getChallengeType('knowledge.colors');
+    for (let level = 1; level <= 3; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const d = inst.data as { options: Array<{ color: string; shape: string }> };
+        const correct = d.options[Number(inst.correctChoiceId.slice(1))]!;
+        const params = inst.prompt.params!;
+        expect(correct.color).toBe(COLORS.find((c) => c.id === params.color)!.hex);
+        if (level === 3) expect(correct.shape).toBe(SHAPES.find((s) => s.id === params.shape)!.id);
+        const keys = d.options.map((o) => `${o.color}/${o.shape}`);
+        expect(new Set(keys).size).toBe(keys.length);
+      }
+    }
+  });
+
+  it('odd one out: exactly one card from another category', async () => {
+    const { ODD_CATEGORIES } = await import('../../content/de/knowledge');
+    const type = getChallengeType('knowledge.odd-one-out');
+    const catOf = (name: string) => ODD_CATEGORIES.find((c) => c.items.some((i) => i.name === name))!.id;
+    for (let level = 1; level <= 3; level++) {
+      for (let seed = 1; seed <= 300; seed++) {
+        const inst = type.generate({ rng: createRng(seed), level });
+        const d = inst.data as { options: Array<{ label: string }> };
+        const odd = d.options[Number(inst.correctChoiceId.slice(1))]!;
+        const others = d.options.filter((o) => o !== odd);
+        expect(new Set(others.map((o) => catOf(o.label))).size).toBe(1);
+        expect(catOf(odd.label)).not.toBe(catOf(others[0]!.label));
+        expect(d.options).toHaveLength(level === 3 ? 5 : 4);
+      }
+    }
+  });
+
+  it('animal names and babies: the correct card names the picture', async () => {
+    const { ANIMALS, BABIES } = await import('../../content/de/knowledge');
+    for (let seed = 1; seed <= 200; seed++) {
+      const a = getChallengeType('knowledge.animal-name').generate({ rng: createRng(seed), level: 3 });
+      const ad = a.data as { picture: string; options: Array<{ label: string }> };
+      expect(ANIMALS.find((x) => x.emoji === ad.picture)!.name).toBe(ad.options[Number(a.correctChoiceId.slice(1))]!.label);
+      const b = getChallengeType('knowledge.animal-baby').generate({ rng: createRng(seed), level: 3 });
+      const bd = b.data as { picture: string; options: Array<{ label: string }> };
+      expect(BABIES.find((x) => x.parentEmoji === bd.picture)!.baby).toBe(bd.options[Number(b.correctChoiceId.slice(1))]!.label);
+    }
+  });
+});

@@ -1,11 +1,14 @@
+import { FOREST_ANIMALS } from '../../../core/profile/lostAnimals';
 import type { WorldTheme } from '../types';
 
 /** v1 world: "Zauberwald" hedge maze (game-design §3). */
 export const forestWorld: WorldTheme = {
   id: 'forest',
-  maze: { cols: 5, rows: 5, braid: 0.35 },
+  guide: 'olli',
+  lostAnimals: FOREST_ANIMALS,
+  style: 'hedge',
+  maze: { braid: 0.35 },
   chests: {
-    count: 3,
     challenges: [
       { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
       { typeId: 'math.find-number', startLevel: 1 }, // 1–10
@@ -17,9 +20,15 @@ export const forestWorld: WorldTheme = {
       { typeId: 'german.syllables', startLevel: 1 }, // 1–2 syllables
       { typeId: 'german.rhyme', startLevel: 1 },
       { typeId: 'german.read-word', startLevel: 1 }, // 2–3 letter words in capitals
+      { typeId: 'knowledge.animal-name', startLevel: 1 }, // 2 names
+      { typeId: 'knowledge.animal-baby', startLevel: 1 },
+      { typeId: 'knowledge.colors', startLevel: 1 }, // 3 basic colours
+      { typeId: 'knowledge.seasons', startLevel: 1 },
+      { typeId: 'knowledge.odd-one-out', startLevel: 1 }, // clearly different category
     ],
   },
   colors: {
+    card: '#3f9d4a',
     sky: '#bfe8ff',
     ground: '#7fcf5f',
     path: '#f3dfa8',

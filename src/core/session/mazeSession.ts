@@ -1,5 +1,5 @@
 import type { ChallengeInstance, ChallengeType } from '../challenges/types';
-import { directWalkPath, type DirectWalkOptions } from '../maze/pathfinding';
+import { directWalkPath, findPath, type DirectWalkOptions } from '../maze/pathfinding';
 import { isFloor, sameTile, type Maze, type Tile } from '../maze/types';
 import { createRng } from '../rng';
 import type { ChestTier } from '../skills/skillModel';
@@ -75,6 +75,15 @@ export class MazeSession {
   pathTo(target: Tile, from: Tile = this.current): Tile[] | null {
     if (this.finished) return null;
     return directWalkPath(this.maze, from, target, TAP_WALK);
+  }
+
+  /**
+   * "Olli zeigt den Weg": the next `steps` tiles of the shortest way to the goal
+   * (without the current tile). Only a short piece, so the child still explores.
+   */
+  hintPath(steps = 6, from: Tile = this.current): Tile[] {
+    if (this.finished) return [];
+    return (findPath(this.maze, from, this.maze.goal) ?? []).slice(1, steps + 1);
   }
 
   /** One step in a direction (keyboard), or null if blocked. */

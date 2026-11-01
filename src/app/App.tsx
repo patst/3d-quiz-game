@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { setSfxEnabled } from '../audio/sfx';
 import { setSpeechEnabled } from '../audio/speech';
 import { ParentGate } from '../ui/parents/ParentGate';
 import { ParentsArea } from '../ui/parents/ParentsArea';
@@ -6,9 +7,14 @@ import { createProfile, type Avatar } from '../core/profile/profile';
 import { addProfile, migrateSave, removeProfile, setActiveProfile, updateProfile, updateSettings } from '../core/save/save';
 import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
+import { autoPlace, placeDecor, removeDecor, type TreehouseSpot } from '../core/rewards/treehouse';
 import { initialSkill, recordOutcome } from '../core/skills/skillModel';
-import { getChallengeType } from '../modules/challenges';
+import { challengeTypes, getChallengeType } from '../modules/challenges';
+import { allowedSubjects, sessionSubjects, toggleSubject } from '../core/challenges/subjects';
+import type { SubjectId } from '../core/challenges/types';
 import { getWorld } from '../modules/worlds';
+import { WorldSelectScreen } from '../ui/worlds/WorldSelectScreen';
+import { TreehouseScreen } from '../ui/treehouse/TreehouseScreen';
 import { getRewardItem } from '../modules/rewards/catalog';
 import { CreateProfileScreen } from '../ui/screens/CreateProfileScreen';
 import { GameScreen } from '../ui/screens/GameScreen';
@@ -16,20 +22,28 @@ import { ProfileSelectScreen } from '../ui/screens/ProfileSelectScreen';
 import { createIdbStore, newId } from './storage';
 import { useSave } from './useSave';
 
-type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'game' } | { name: 'parents' };
+type Screen =
+  | { name: 'profiles' }
+  | { name: 'create' }
+  | { name: 'worlds' }
+  | { name: 'game'; worldId: string }
+  | { name: 'treehouse' }
+  | { name: 'parents' };
 
 export function App() {
   const store = useMemo(() => createIdbStore(), []);
   const { doc, update } = useSave(store);
   const [screen, setScreen] = useState<Screen>({ name: 'profiles' });
   const [gateOpen, setGateOpen] = useState(false);
+  // Child's subject choice for this session (null = all that parents allow).
+  const [chosenSubjects, setChosenSubjects] = useState<SubjectId[] | null>(null);
   // Play-time limit: counted from the first maze of this app session (memory only).
   const [sessionStart, setSessionStart] = useState<number | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const limitMinutes = doc?.settings.sessionMinutes ?? 0;
-  const startGame = () => {
+  const startGame = (worldId = 'forest') => {
     setSessionStart((s) => s ?? Date.now());
-    setScreen({ name: 'game' });
+    setScreen({ name: 'game', worldId });
   };
   useEffect(() => {
     if (!limitMinutes) return;
@@ -40,6 +54,8 @@ export function App() {
   const speechOn = doc?.settings.speech ?? true;
 
   useEffect(() => setSpeechEnabled(speechOn), [speechOn]);
+  const sfxOn = doc?.settings.sfx ?? true;
+  useEffect(() => setSfxEnabled(sfxOn), [sfxOn]);
 
   if (!doc) return <div className="loading" />;
 
@@ -62,6 +78,7 @@ export function App() {
         }
         onDelete={(id) => update((d) => removeProfile(d, id))}
         onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
+        onSfx={(on) => update((d) => updateSettings(d, { sfx: on }))}
         onSessionMinutes={(minutes) => update((d) => updateSettings(d, { sessionMinutes: minutes }))}
         onEndBreak={() => {
           setSessionStart(null);
@@ -74,6 +91,8 @@ export function App() {
   }
 
   const active = doc.profiles.find((p) => p.id === doc.activeProfileId) ?? null;
+  const allowed = active ? allowedSubjects(challengeTypes, active.disabledChallenges) : [];
+  const subjects = sessionSubjects(chosenSubjects, allowed);
 
   if (screen.name === 'create' || (screen.name === 'profiles' && doc.profiles.length === 0)) {
     return (
@@ -88,12 +107,45 @@ export function App() {
     );
   }
 
+  if (screen.name === 'worlds' && active) {
+    return (
+      <WorldSelectScreen
+        profile={active}
+        allowed={allowed}
+        chosen={subjects}
+        onToggleSubject={(s) => setChosenSubjects(toggleSubject(subjects, s))}
+        onChoose={(worldId) => startGame(worldId)}
+        onTreehouse={() => setScreen({ name: 'treehouse' })}
+        onBack={() => setScreen({ name: 'profiles' })}
+      />
+    );
+  }
+
+  if (screen.name === 'treehouse' && active) {
+    return (
+      <TreehouseScreen
+        profile={active}
+        onPlace={(spot: TreehouseSpot, itemId) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => ({
+              ...p,
+              treehouse: itemId && p.inventory.includes(itemId) ? placeDecor(p.treehouse, spot, itemId) : removeDecor(p.treehouse, spot),
+            })),
+          )
+        }
+        onBack={() => setScreen({ name: 'worlds' })}
+      />
+    );
+  }
+
   if (screen.name === 'game' && active) {
     return (
       <GameScreen
         profile={active}
+        worldId={screen.worldId}
+        subjects={subjects}
         breakDue={breakDue}
-        onHome={() => setScreen({ name: 'profiles' })}
+        onHome={() => setScreen({ name: 'worlds' })}
         onStars={(stars) =>
           update((d) =>
             updateProfile(d, active.id, (p) => ({ ...p, stars: p.stars + stars, ...fillJar(p.jar, p.pendingRewards, stars) })),
@@ -107,8 +159,9 @@ export function App() {
                 ...p,
                 pendingRewards: Math.max(0, p.pendingRewards - 1),
                 inventory: item && !p.inventory.includes(item.id) ? [...p.inventory, item.id] : p.inventory,
-                // A new item is worn right away so the child sees it immediately.
-                equipped: item ? { ...p.equipped, [item.slot]: item.id } : p.equipped,
+                // A new item is worn right away (or placed in the tree house) so the child sees it.
+                equipped: item && item.slot !== 'decor' ? { ...p.equipped, [item.slot]: item.id } : p.equipped,
+                treehouse: item?.slot === 'decor' ? autoPlace(p.treehouse, item.id) : p.treehouse,
               };
             }),
           )
@@ -146,8 +199,14 @@ export function App() {
             }),
           )
         }
-        onMazeCompleted={() =>
-          update((d) => updateProfile(d, active.id, (p) => ({ ...p, mazesCompleted: p.mazesCompleted + 1 })))
+        onMazeCompleted={(worldId) =>
+          update((d) =>
+            updateProfile(d, active.id, (p) => ({
+              ...p,
+              mazesCompleted: p.mazesCompleted + 1,
+              levels: { ...p.levels, [worldId]: (p.levels[worldId] ?? 0) + 1 },
+            })),
+          )
         }
       />
     );
@@ -159,7 +218,9 @@ export function App() {
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
-        startGame();
+        setChosenSubjects(null);
+        // Hub: worlds (locked ones show what is still to discover) and the tree house.
+        setScreen({ name: 'worlds' });
       }}
       onNew={() => setScreen({ name: 'create' })}
       onParents={() => setGateOpen(true)}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { playSuccess, playTryAgain } from '../../audio/sfx';
 import { speech } from '../../audio/speech';
+import { Confetti } from '../Confetti';
 import { speechText } from '../../content/de/speech';
 import { de } from '../../content/de/strings';
 import { initialAttempt, submitAnswer, type AttemptFeedback, type AttemptState } from '../../core/challenges/attempt';
@@ -21,6 +23,8 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
   const [attempt, setAttempt] = useState<AttemptState>(initialAttempt);
   const [feedback, setFeedback] = useState<AttemptFeedback | null>(null);
   const [confirmSkip, setConfirmSkip] = useState(false);
+  // Random praise word, picked once per dialog (shown after a correct answer).
+  const [praise] = useState(() => de.challenge.praise[Math.floor(Math.random() * de.challenge.praise.length)]!);
   const entry = challengeViews[challenge.typeId];
   const View = entry?.View;
 
@@ -33,9 +37,16 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
     const result = submitAnswer(challenge, attempt, choiceId, chest.stars);
     setAttempt(result.state);
     setFeedback(result.feedback);
-    if (result.feedback === 'correct') speech().speak(speechText({ key: 'feedback.correct' }));
-    else if (result.feedback === 'reveal') speech().speak(speechText(challenge.explanation));
-    else speech().speak(speechText({ key: `feedback.${result.feedback}` }));
+    if (result.feedback === 'correct') {
+      // A cheerful jingle + confetti instead of always the same spoken sentence.
+      speech().stop();
+      playSuccess();
+    } else if (result.feedback === 'reveal') {
+      speech().speak(speechText(challenge.explanation));
+    } else {
+      playTryAgain();
+      speech().speak(speechText({ key: `feedback.${result.feedback}` }));
+    }
   };
 
   const finished = attempt.finished;
@@ -44,7 +55,7 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
 
   return (
     <div className="overlay challenge-overlay" role="dialog" aria-modal data-testid="challenge">
-      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier}>
+      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier} data-type={challenge.typeId}>
         <span className="tier-badge" aria-hidden>
           {TIER_ICONS[chest.tier]}
         </span>
@@ -94,13 +105,15 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
           </p>
         )}
 
+        {finished && feedback === 'correct' && <Confetti />}
+
         {finished && (
           <div className="result-box" aria-live="polite">
             {feedback === 'reveal' ? (
               <p className="feedback reveal">{speechText(challenge.explanation)}</p>
             ) : (
-              <p className="feedback correct">
-                {speechText({ key: 'feedback.correct' })} {!entry?.ownsChoices && <strong>{correctValue}</strong>}
+              <p className="feedback correct praise" data-testid="praise">
+                {praise} {!entry?.ownsChoices && <strong>{correctValue}</strong>}
               </p>
             )}
             <p className="stars-won">⭐ {de.challenge.starsWon(attempt.stars)}</p>

@@ -28,6 +28,9 @@ for (const type of [
   'math.money',
   'math.clock',
   'math.symmetry',
+  // Grade 1–2 German pack (M13d): all quiz cards; two representatives.
+  'german.article',
+  'german.riddle',
 ]) {
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');

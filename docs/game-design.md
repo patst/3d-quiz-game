@@ -140,6 +140,21 @@ reading.
 | Spiegelbild | which right half makes the picture symmetric? | 1. → 2. Kl. |
 | Sicher, möglich, unmöglich | bag of balls → "dass sie grün ist?" | 1. → 2. Kl. |
 
+**Grade 1–2 German pack (M13d)** (KC Deutsch, Ende Jg. 2). Reading is part of these tasks; every
+instruction is spoken.
+
+| Type | Example | Stages |
+|---|---|---|
+| Der, die, das | ☕ "Tasse" → der / die / das | 1. → 2. Kl. |
+| Einzahl und Mehrzahl | 🌹🌹🌹 "die Rose – die …" → Rosen / Roses / Roser (typical child mistakes) | 1. → 2. Kl. |
+| Wortarten | "Welches Wort ist ein Verb, ein Tunwort?" Nase / rufen / süß | 1. → 2. Kl. |
+| Fehlende Buchstaben | 🐭 "M▢▢s" → au / ei / ie · sch / ch / ck / ng / nk / pf | 1. → 2. Kl. |
+| Rätsel lesen | "Ich bin gelb und krumm. Affen essen mich gern." → 🍌 | 1. → 2. Kl. |
+| Lückensätze | "Der Fisch ___ im Wasser." → schwimmt / läuft / singt | 1. → 2. Kl. |
+| Satzzeichen | "Wir spielen im Garten ▢" → . ? ! | 1. → 2. Kl. |
+| Das ABC | "Welcher Buchstabe kommt nach P?" · which word comes first? | 1. → 2. Kl. |
+| Wörter zusammensetzen | 🔥 + 🛡️ "Feuer + Wehr" → 🚒 | 1. → 2. Kl. |
+
 Plus/Minus above 20 is spoken generically ("Rechne aus! Wie viel ist das?" / "Das Ergebnis ist 39.")
 with the equation on screen: one clip per sentence (ADR-0007) would need thousands of clips for every
 pair up to 100. Reading two-digit numbers is itself a grade-2 goal.
@@ -185,6 +200,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.23 (2026-11-01): M13d — grade 1–2 German pack: 9 new types (§6.5); word bank gets genders and plurals.
 - v1.22 (2026-11-01): M13c — grade 1–2 math pack: 9 new types and Plus/Minus up to 100 (§6.5).
 - v1.21 (2026-11-01): M13b — preschool pack, 10 new challenge types (§6.5), picture- and sound-based, tagged for Kita/Vorschule (ADR-0009).
 - v1.20 (2026-11-01): M13a (owner-approved ADR-0009) — learner stage per profile (Kindergarten, Vorschule, 1.–4. Klasse), asked once by a grown-up and editable in the parents area; challenge levels carry stage ranges and curriculum competencies; chests only offer types and levels that fit the stage.

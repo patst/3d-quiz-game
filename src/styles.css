@@ -1894,3 +1894,8 @@ button {
 .chance-arrow {
   font-size: 1.8rem;
 }
+
+.quiz-picture.multi {
+  font-size: min(48px, 11vw);
+  white-space: nowrap;
+}

@@ -355,6 +355,15 @@ export const de = {
     'math.clock': 'Uhrzeit',
     'math.symmetry': 'Spiegelbild',
     'math.chance': 'Sicher, möglich, unmöglich',
+    'german.article': 'Der, die, das',
+    'german.plural': 'Einzahl und Mehrzahl',
+    'german.word-type': 'Wortarten',
+    'german.missing-letters': 'Fehlende Buchstaben',
+    'german.riddle': 'Rätsel lesen',
+    'german.fill-word': 'Lückensätze',
+    'german.sentence-end': 'Satzzeichen',
+    'german.abc': 'Das ABC',
+    'german.compound': 'Wörter zusammensetzen',
   } as Record<string, string>,
   challenge: {
     /** Shown (with a jingle and confetti) after a correct answer; picked at random. */

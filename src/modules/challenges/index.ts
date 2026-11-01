@@ -17,6 +17,17 @@ import { mathFindNumber } from './math-find-number';
 import { mathPattern } from './math-pattern';
 import { mathSubtraction } from './math-subtraction';
 import { mathDice } from './math-dice';
+import {
+  germanAbc,
+  germanArticle,
+  germanCompound,
+  germanFillWord,
+  germanMissingLetters,
+  germanPlural,
+  germanRiddle,
+  germanSentenceEnd,
+  germanWordType,
+} from './german2';
 import { mathChance } from './math-chance';
 import { mathClock } from './math-clock';
 import { mathDoubleHalf } from './math-double-half';
@@ -71,6 +82,15 @@ export const challengeTypes: readonly ChallengeType[] = [
   germanSameStart,
   germanSyllableBlend,
   germanOpposites,
+  germanArticle,
+  germanPlural,
+  germanWordType,
+  germanMissingLetters,
+  germanRiddle,
+  germanFillWord,
+  germanSentenceEnd,
+  germanAbc,
+  germanCompound,
   knowledgeAnimalName,
   knowledgeAnimalBaby,
   knowledgeColors,

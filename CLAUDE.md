@@ -48,7 +48,9 @@ only that challenge type into the chests (review a new challenge quickly).
 ## Conventions
 - `src/core/` is pure TypeScript (ESLint enforces: no Three.js/React/presentation imports).
 - All randomness via `core/rng.ts`; never `Math.random()` in core.
-- New challenge type → `src/modules/challenges/<id>/` (see architecture §3.1).
+- New challenge type → `src/modules/challenges/<id>/` (see architecture §3.1), with
+  `levelInfo` per level: stage range + competency ids from `src/content/curriculum/de-ni.ts`
+  (ADR-0009, research in `docs/curriculum/`).
   New world → `src/modules/worlds/<id>/` + register in `modules/worlds/index.ts`.
 - Anything the child hears must be in `src/content/de/speech.ts` (templates with `variants`
   or `staticSpokenTexts`); then run `npm run audio:generate` and commit the clips.

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createProfile, MAX_PROFILES } from '../profile/profile';
-import { addProfile, emptySave, migrateSave, removeProfile, updateProfile } from './save';
+import { addProfile, emptySave, migrateSave, removeProfile, SAVE_VERSION, updateProfile } from './save';
 
 const profile = (id: string) =>
   createProfile({ id, name: `  Kind ${id}  `, avatar: { animal: 'bunny', color: '#f4a3c0' }, now: 0 });
@@ -25,7 +25,7 @@ describe('save document', () => {
       profiles: [{ id: 'a', name: 'A', avatar: { animal: 'cat', color: '#f4a3c0' }, createdAt: 0, stars: 23, mazesCompleted: 2 }],
     };
     const doc = migrateSave(v1);
-    expect(doc.version).toBe(8);
+    expect(doc.version).toBe(SAVE_VERSION);
     expect(doc.profiles[0]?.treehouse).toEqual({});
     expect(doc.profiles[0]?.levels).toEqual({ forest: 2 });
     expect(doc.profiles[0]?.disabledChallenges).toEqual([]);
@@ -35,6 +35,14 @@ describe('save document', () => {
     expect(doc.profiles[0]).toMatchObject({ stars: 23, jar: 3, pendingRewards: 2, inventory: [], equipped: {} });
     // v2 → v3: finished mazes mean the chick was rescued.
     expect(doc.profiles[0]).toMatchObject({ rescued: ['chick'], pet: 'chick' });
+  });
+
+  it('migrates v8 saves: stage unknown, asked once (ADR-0009)', () => {
+    const v8profile: Record<string, unknown> = { ...profile('a') };
+    delete v8profile.learner;
+    delete v8profile.stageAsked;
+    const doc = migrateSave({ version: 8, profiles: [v8profile], activeProfileId: 'a', settings: {} });
+    expect(doc.profiles[0]).toMatchObject({ learner: null, stageAsked: false });
   });
 
   it('adds, updates and removes profiles', () => {

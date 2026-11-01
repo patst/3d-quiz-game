@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { allSpokenTexts, speechText } from '../../content/de/speech';
 import { createRng } from '../../core/rng';
+import { stageRank, type StageId } from '../../core/learner/stage';
+import { selectChallengeTypes } from '../../core/challenges/selection';
+import { COMPETENCIES_DE_NI } from '../../content/curriculum/de-ni';
+import sources from '../../../docs/curriculum/sources/sources.json';
 import { challengeTypes, getChallengeType } from '.';
 import type { AdditionData } from './math-addition';
 import type { CountData } from './math-count';
@@ -37,6 +41,18 @@ describe.each(challengeTypes.map((t) => [t.id, t] as const))('%s', (_id, type) =
         if (inst.promptDisplay) expect(speechText(inst.promptDisplay).length).toBeGreaterThan(0);
       }
     }
+  });
+
+  it('declares curriculum metadata for every level (ADR-0009)', () => {
+    expect(type.levelInfo).toHaveLength(type.levels);
+    for (const info of type.levelInfo) {
+      if (info.stages.max) expect(stageRank(info.stages.max)).toBeGreaterThanOrEqual(stageRank(info.stages.min));
+      expect(info.competencies.length).toBeGreaterThan(0);
+      for (const id of info.competencies) expect(COMPETENCIES_DE_NI[id], id).toBeDefined();
+    }
+    // Levels get harder: the minimum stage never goes down.
+    const mins = type.levelInfo.map((l) => stageRank(l.stages.min));
+    expect(mins).toEqual([...mins].sort((a, b) => a - b));
   });
 
   it('is deterministic for a seed', () => {
@@ -271,3 +287,42 @@ describe('knowledge challenges', () => {
     }
   });
 });
+
+describe('competency catalogue (de-ni)', () => {
+  it('every competency cites a stored source document', () => {
+    const ids = new Set(sources.map((s) => s.id));
+    for (const c of Object.values(COMPETENCIES_DE_NI)) expect(ids.has(c.source), `${c.id} → ${c.source}`).toBe(true);
+  });
+});
+
+describe('stage selection with the real catalogue (ADR-0009)', () => {
+  const pick = (stage: StageId) =>
+    Object.fromEntries(
+      selectChallengeTypes({ types: challengeTypes, disabled: [], subjects: ['math', 'german', 'knowledge'], stage }).map((s) => [
+        s.type.id,
+        s.startLevel,
+      ]),
+    );
+
+  it('Kindergarten: no reading, letters or sums; easy levels only', () => {
+    const kita = pick('kita');
+    for (const id of ['german.read-word', 'german.initial-sound', 'math.addition', 'math.find-number']) expect(kita[id]).toBeUndefined();
+    expect(kita['math.count']).toBe(1);
+    expect(kita['german.rhyme']).toBe(1);
+  });
+
+  it('Vorschule: sums with pictures and first letters, still no reading', () => {
+    const pre = pick('preschool');
+    expect(pre['german.read-word']).toBeUndefined();
+    expect(pre['math.addition']).toBe(2);
+    expect(pre['german.initial-sound']).toBe(1);
+  });
+
+  it('2. Klasse: numbers up to 100, colours outgrown', () => {
+    const g2 = pick('grade2');
+    expect(g2['math.find-number']).toBe(3);
+    expect(g2['knowledge.colors']).toBeUndefined();
+    expect(g2['german.read-word']).toBe(3);
+  });
+});
+

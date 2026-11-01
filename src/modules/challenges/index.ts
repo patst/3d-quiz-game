@@ -20,7 +20,8 @@ import { mathSubtraction } from './math-subtraction';
 /**
  * Registry of all challenge types (architecture §3.1).
  * Add a new type: create `src/modules/challenges/<id>/`, register it here, register its
- * view in `src/ui/challenges/`, add speech templates in `src/content/de/speech.ts`.
+ * view in `src/ui/challenges/`, add speech templates in `src/content/de/speech.ts`, and declare
+ * `levelInfo` (stages + curriculum competencies per level, ADR-0009).
  */
 export const challengeTypes: readonly ChallengeType[] = [
   mathCount,

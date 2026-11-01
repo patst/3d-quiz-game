@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { profileFixture, seedSave } from './helpers';
+import { profileFixture, seedSave, SAVE_VERSION } from './helpers';
 
 test('a full star jar lets the child pick a reward, which is worn in the wardrobe', async ({ page }) => {
-  await seedSave(page, { version: 8, settings: { speech: true }, activeProfileId: 'p1', profiles: [profileFixture()] });
+  await seedSave(page, { version: SAVE_VERSION, settings: { speech: true }, activeProfileId: 'p1', profiles: [profileFixture()] });
   await page.getByRole('button', { name: /Testkind/ }).click();
   await page.getByRole('button', { name: 'Zauberwald', exact: true }).click();
 
@@ -28,7 +28,7 @@ test('a full star jar lets the child pick a reward, which is worn in the wardrob
 
 test('rescued friends appear in the wardrobe and can be chosen as pet', async ({ page }) => {
   await seedSave(page, {
-    version: 8, settings: { speech: true },
+    version: SAVE_VERSION, settings: { speech: true },
     activeProfileId: 'p1',
     profiles: [profileFixture({ pendingRewards: 0, rescued: ['chick', 'piglet'], pet: 'chick' })],
   });

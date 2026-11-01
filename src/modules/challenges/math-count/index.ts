@@ -1,5 +1,5 @@
 import { numberChoices } from '../../../core/challenges/choices';
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import type { Rng } from '../../../core/rng';
 import { COUNT_OBJECTS, type CountObject, type Placement } from '../objects';
 
@@ -21,6 +21,11 @@ export const mathCount: ChallengeType<CountData> = {
   subject: 'math',
   skills: ['math.counting'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.mengen', 'ni.op.zaehlen'),
+    lv('preschool', 'grade1', 'ni.op.zaehlen', 'ni.ma2.strukturiert'),
+    lv('grade1', 'grade2', 'ni.ma2.strukturiert'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const count = rng.int(cfg.min, cfg.max);

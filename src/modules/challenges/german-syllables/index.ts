@@ -1,5 +1,5 @@
 import { numberChoices } from '../../../core/challenges/choices';
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import { WORDS } from '../../../content/de/words';
 
 /** "Wie viele Silben hat Banane? Klatsch mit!" — tap 1–4. */
@@ -18,6 +18,11 @@ export const germanSyllables: ChallengeType<SyllablesData> = {
   subject: 'german',
   skills: ['german.syllables'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('kita', 'grade1', 'ni.a2.silben'),
+    lv('preschool', 'grade1', 'ni.a2.silben', 'ni.de2.silben'),
+    lv('grade1', 'grade2', 'ni.de2.silben'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const word = rng.pick(WORDS.filter((w) => w.syllables.length <= cfg.maxSyllables));

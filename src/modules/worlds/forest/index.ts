@@ -10,21 +10,21 @@ export const forestWorld: WorldTheme = {
   maze: { braid: 0.35 },
   chests: {
     challenges: [
-      { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
-      { typeId: 'math.find-number', startLevel: 1 }, // 1–10
-      { typeId: 'math.compare', startLevel: 1 }, // 1–5, clear difference
-      { typeId: 'math.addition', startLevel: 1 }, // sum ≤ 5 with pictures
-      { typeId: 'math.subtraction', startLevel: 1 }, // ≤ 5 with pictures
-      { typeId: 'math.pattern', startLevel: 1 }, // AB AB
-      { typeId: 'german.initial-sound', startLevel: 1 }, // consonant vs vowel
-      { typeId: 'german.syllables', startLevel: 1 }, // 1–2 syllables
-      { typeId: 'german.rhyme', startLevel: 1 },
-      { typeId: 'german.read-word', startLevel: 1 }, // 2–3 letter words in capitals
-      { typeId: 'knowledge.animal-name', startLevel: 1 }, // 2 names
-      { typeId: 'knowledge.animal-baby', startLevel: 1 },
-      { typeId: 'knowledge.colors', startLevel: 1 }, // 3 basic colours
-      { typeId: 'knowledge.seasons', startLevel: 1 },
-      { typeId: 'knowledge.odd-one-out', startLevel: 1 }, // clearly different category
+      'math.count',
+      'math.find-number',
+      'math.compare',
+      'math.addition',
+      'math.subtraction',
+      'math.pattern',
+      'german.initial-sound',
+      'german.syllables',
+      'german.rhyme',
+      'german.read-word',
+      'knowledge.animal-name',
+      'knowledge.animal-baby',
+      'knowledge.colors',
+      'knowledge.seasons',
+      'knowledge.odd-one-out',
     ],
   },
   colors: {

@@ -20,6 +20,9 @@ export async function seedSave(page: Page, doc: unknown): Promise<void> {
   await page.reload();
 }
 
+/** Current save version for seeded documents. */
+export const SAVE_VERSION = 9;
+
 export function profileFixture(overrides: Record<string, unknown> = {}) {
   return {
     id: 'p1',
@@ -38,6 +41,15 @@ export function profileFixture(overrides: Record<string, unknown> = {}) {
     disabledChallenges: [],
     levels: {},
     treehouse: {},
+    // Stage question already answered/skipped, so tests land on the hub (ADR-0009).
+    learner: null,
+    stageAsked: true,
     ...overrides,
   };
+}
+
+/** Taps "Los geht's!" on the create screen and skips the stage question (no stage = all levels). */
+export async function startNewProfile(page: Page): Promise<void> {
+  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await page.getByTestId('stage-screen').getByRole('button', { name: 'Später' }).click();
 }

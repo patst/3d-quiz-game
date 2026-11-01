@@ -5,11 +5,23 @@ import { MAX_NAME_LENGTH, type Profile } from '../../core/profile/profile';
 import type { SaveDoc } from '../../core/save/save';
 import { animalIcons } from '../animalIcons';
 import { challengeTypes } from '../../modules/challenges';
+import { currentStage, isStageId, STAGES, type StageId } from '../../core/learner/stage';
+import type { ChallengeType } from '../../core/challenges/types';
+
+/** Suggested stages of a type: from level 1's min to the highest max (open = "ab …"). */
+function stageRangeLabel(type: ChallengeType): string {
+  const first = type.levelInfo[0]?.stages.min;
+  if (!first) return '';
+  const maxes = type.levelInfo.map((l) => l.stages.max);
+  const last = maxes.includes(undefined) ? null : maxes.reduce((a, b) => (STAGES.indexOf(b!) > STAGES.indexOf(a!) ? b : a));
+  return de.stage.range(de.stage.names[first], last ? de.stage.names[last] : null);
+}
 
 interface Props {
   doc: SaveDoc;
   onRename: (id: string, name: string) => void;
   onToggleChallenge: (id: string, typeId: string, enabled: boolean) => void;
+  onStage: (id: string, stage: StageId | null) => void;
   onDelete: (id: string) => void;
   onSpeech: (on: boolean) => void;
   onSfx: (on: boolean) => void;
@@ -41,6 +53,7 @@ export function ParentsArea({
   doc,
   onRename,
   onToggleChallenge,
+  onStage,
   onDelete,
   onSpeech,
   onSfx,
@@ -114,6 +127,22 @@ export function ParentsArea({
                   onBlur={(e) => onRename(p.id, e.target.value)}
                 />
               </label>
+              <label className="toggle small">
+                {de.parents.stageLabel}
+                <select
+                  aria-label={de.parents.stageLabel}
+                  value={p.learner ? currentStage(p.learner, new Date()) : ''}
+                  onChange={(e) => onStage(p.id, isStageId(e.target.value) ? e.target.value : null)}
+                >
+                  <option value="">{de.stage.unset}</option>
+                  {STAGES.map((s) => (
+                    <option key={s} value={s}>
+                      {de.stage.names[s]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <small>{de.parents.stageNote}</small>
               <small>{de.parents.stats(p.stars, p.mazesCompleted, p.rescued.length, p.inventory.length)}</small>
               <small>{de.parents.levelLine(Math.max(1, ...Object.values(p.levels).map((n) => n + 1)))}</small>
               <SkillList profile={p} />
@@ -132,6 +161,7 @@ export function ParentsArea({
                             onChange={(e) => onToggleChallenge(p.id, t.id, e.target.checked)}
                           />
                           {de.challengeNames[t.id]}
+                          <small className="stage-range">{stageRangeLabel(t)}</small>
                         </label>
                       ))}
                   </fieldset>

@@ -1,5 +1,5 @@
 import { numberChoices } from '../../../core/challenges/choices';
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import type { Rng } from '../../../core/rng';
 import { COUNT_OBJECTS, type CountObject } from '../objects';
 
@@ -58,6 +58,13 @@ export const mathSubtraction: ChallengeType<SubtractionData> = {
   subject: 'math',
   skills: ['math.subtraction'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('preschool', 'grade1', 'ni.op.hinzufuegen'),
+    lv('preschool', 'grade1', 'ni.op.hinzufuegen', 'ni.ma2.subtraktion'),
+    lv('grade1', 'grade1', 'ni.ma2.subtraktion', 'ni.ma2.einspluseins'),
+    lv('grade1', 'grade2', 'ni.ma2.einspluseins'),
+    lv('grade1', 'grade2', 'ni.ma2.einspluseins'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const [a, b] = cfg.pick(rng);

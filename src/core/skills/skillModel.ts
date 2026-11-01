@@ -76,11 +76,13 @@ export interface PlannedChest {
 
 /**
  * Chests for one maze: tiers cycle bronze/silver/gold (shuffled), types vary.
- * The level is the child's level for that type plus the tier offset, clamped.
+ * The level is the child's level for that type plus the tier offset, clamped to
+ * [1, maxLevel] (maxLevel = the stage window from core/challenges/selection, ADR-0009).
+ * A stored skill level above the window is clamped for play, never reset.
  */
 export function planChests(
   rng: Rng,
-  types: ReadonlyArray<{ type: ChallengeType; startLevel: number }>,
+  types: ReadonlyArray<{ type: ChallengeType; startLevel: number; maxLevel?: number }>,
   skills: Readonly<Record<string, SkillState>>,
   count: number,
 ): PlannedChest[] {
@@ -88,10 +90,11 @@ export function planChests(
   const tiers = rng.shuffle<ChestTier>(['bronze', 'silver', 'gold']);
   const order = rng.shuffle(types);
   return Array.from({ length: count }, (_, i) => {
-    const { type, startLevel } = order[i % order.length]!;
+    const { type, startLevel, maxLevel = type.levels } = order[i % order.length]!;
     const tier = tiers[i % tiers.length]!;
-    const base = skills[type.id]?.level ?? startLevel;
-    const level = Math.min(type.levels, Math.max(1, base + TIERS[tier].offset));
+    const top = Math.min(type.levels, maxLevel);
+    const base = Math.min(top, skills[type.id]?.level ?? startLevel);
+    const level = Math.min(top, Math.max(1, base + TIERS[tier].offset));
     return { type, level, tier, stars: TIERS[tier].stars };
   });
 }

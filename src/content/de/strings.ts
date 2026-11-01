@@ -1,5 +1,6 @@
 import type { LostAnimal } from '../../core/profile/lostAnimals';
 import type { AvatarAnimal } from '../../core/profile/profile';
+import type { StageId } from '../../core/learner/stage';
 
 /**
  * All German text the child sees or hears. Components must not hard-code strings
@@ -26,6 +27,33 @@ export const de = {
     start: "Los geht's!",
     back: 'Zurück',
     speakIntro: 'Hallo! Ich bin Olli, die Eule. Welches Tier möchtest du sein?',
+  },
+  stage: {
+    title: 'Kindergarten oder Schule?',
+    question: 'Bitte frag einen Erwachsenen: Gehst du in den Kindergarten, in die Vorschule oder in die Schule?',
+    hint: 'Für Erwachsene: Damit passen die Aufgaben zu dem, was Ihr Kind gerade lernt. Später jederzeit im Elternbereich änderbar.',
+    later: 'Später',
+    names: {
+      kita: 'Kindergarten',
+      preschool: 'Vorschule',
+      grade1: '1. Klasse',
+      grade2: '2. Klasse',
+      grade3: '3. Klasse',
+      grade4: '4. Klasse',
+    } satisfies Record<StageId, string>,
+    /** Spoken form (TTS reads "1." badly). */
+    spoken: {
+      kita: 'Kindergarten',
+      preschool: 'Vorschule',
+      grade1: 'erste Klasse',
+      grade2: 'zweite Klasse',
+      grade3: 'dritte Klasse',
+      grade4: 'vierte Klasse',
+    } satisfies Record<StageId, string>,
+    icons: { kita: '🧸', preschool: '🎨', grade1: '🎒', grade2: '📚', grade3: '✏️', grade4: '🧭' } satisfies Record<StageId, string>,
+    unset: 'nicht festgelegt',
+    /** Suggested stage range of a challenge type, shown next to its toggle. */
+    range: (from: string, to: string | null) => (to && to !== from ? `${from} – ${to}` : `ab ${from}`),
   },
   animals: {
     bunny: 'Hase',
@@ -197,6 +225,8 @@ export const de = {
     noSkills: 'Noch keine Aufgaben gelöst.',
     challengesTitle: 'Aufgaben',
     subjects: { math: 'Mathe', german: 'Deutsch', knowledge: 'Wissen' } as Record<string, string>,
+    stageLabel: 'Kindergarten / Klasse',
+    stageNote: 'Wechselt jedes Jahr am 1. August automatisch eine Stufe weiter (außer Kindergarten).',
     readingNote: 'Tipp: „Wörter lesen“ ausschalten, solange Ihr Kind noch nicht liest.',
     settings: 'Einstellungen',
     speech: 'Aufgaben vorlesen',

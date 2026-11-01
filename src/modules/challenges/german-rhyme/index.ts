@@ -1,4 +1,4 @@
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import { WORDS } from '../../../content/de/words';
 
 /** "Was reimt sich auf Haus?" — tap the rhyming picture. Choice value = index in `options`. */
@@ -14,6 +14,11 @@ export const germanRhyme: ChallengeType<RhymeData> = {
   subject: 'german',
   skills: ['german.rhymes'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.a2.reime'),
+    lv('preschool', 'grade1', 'ni.a2.reime'),
+    lv('preschool', 'grade1', 'ni.a2.reime'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const target = rng.pick(WORDS.filter((w) => w.rhyme));

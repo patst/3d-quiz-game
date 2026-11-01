@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { profileFixture, seedSave } from './helpers';
+import { profileFixture, seedSave, SAVE_VERSION } from './helpers';
 
 const save = (levels: Record<string, number>) => ({
-  version: 8,
+  version: SAVE_VERSION,
   activeProfileId: null,
   settings: { speech: true, sessionMinutes: 0, sfx: true },
   profiles: [profileFixture({ pendingRewards: 0, levels })],

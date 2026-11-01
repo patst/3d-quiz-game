@@ -11,8 +11,10 @@ import { autoPlace, placeDecor, removeDecor, type TreehouseSpot } from '../core/
 import { initialSkill, recordOutcome } from '../core/skills/skillModel';
 import { challengeTypes, getChallengeType } from '../modules/challenges';
 import { allowedSubjects, sessionSubjects, toggleSubject } from '../core/challenges/subjects';
+import { levelWindow, typesForStage } from '../core/challenges/selection';
+import { createLearner, currentStage, type StageId } from '../core/learner/stage';
+import { StageScreen } from '../ui/screens/StageScreen';
 import type { SubjectId } from '../core/challenges/types';
-import { getWorld } from '../modules/worlds';
 import { WorldSelectScreen } from '../ui/worlds/WorldSelectScreen';
 import { TreehouseScreen } from '../ui/treehouse/TreehouseScreen';
 import { getRewardItem } from '../modules/rewards/catalog';
@@ -28,7 +30,9 @@ type Screen =
   | { name: 'worlds' }
   | { name: 'game'; worldId: string }
   | { name: 'treehouse' }
-  | { name: 'parents' };
+  | { name: 'parents' }
+  /** One-time "Kindergarten oder Schule?" (ADR-0009), then continue to `next`. */
+  | { name: 'stage'; next: 'game' | 'worlds' };
 
 export function App() {
   const store = useMemo(() => createIdbStore(), []);
@@ -76,6 +80,15 @@ export function App() {
             })),
           )
         }
+        onStage={(id, stage) =>
+          update((d) =>
+            updateProfile(d, id, (p) => ({
+              ...p,
+              learner: stage ? createLearner(stage, new Date()) : null,
+              stageAsked: true,
+            })),
+          )
+        }
         onDelete={(id) => update((d) => removeProfile(d, id))}
         onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
         onSfx={(on) => update((d) => updateSettings(d, { sfx: on }))}
@@ -91,7 +104,23 @@ export function App() {
   }
 
   const active = doc.profiles.find((p) => p.id === doc.activeProfileId) ?? null;
-  const allowed = active ? allowedSubjects(challengeTypes, active.disabledChallenges) : [];
+  const stage: StageId | null = active?.learner ? currentStage(active.learner, new Date(now)) : null;
+  const allowed = active ? allowedSubjects(typesForStage(challengeTypes, stage), active.disabledChallenges) : [];
+
+  if (screen.name === 'stage' && active) {
+    const answer = (chosen: StageId | null) => {
+      update((d) =>
+        updateProfile(d, active.id, (p) => ({
+          ...p,
+          learner: chosen ? createLearner(chosen, new Date()) : p.learner,
+          stageAsked: true,
+        })),
+      );
+      if (screen.next === 'game') startGame();
+      else setScreen({ name: 'worlds' });
+    };
+    return <StageScreen onChoose={(s) => answer(s)} onLater={() => answer(null)} />;
+  }
   const subjects = sessionSubjects(chosenSubjects, allowed);
 
   if (screen.name === 'create' || (screen.name === 'profiles' && doc.profiles.length === 0)) {
@@ -101,7 +130,7 @@ export function App() {
         onBack={() => setScreen({ name: 'profiles' })}
         onCreate={(name: string, avatar: Avatar) => {
           update((d) => addProfile(d, createProfile({ id: newId(), name, avatar, now: Date.now() })));
-          startGame();
+          setScreen({ name: 'stage', next: 'game' });
         }}
       />
     );
@@ -144,6 +173,7 @@ export function App() {
         profile={active}
         worldId={screen.worldId}
         subjects={subjects}
+        stage={stage}
         breakDue={breakDue}
         onHome={() => setScreen({ name: 'worlds' })}
         onStars={(stars) =>
@@ -180,9 +210,9 @@ export function App() {
           update((d) =>
             updateProfile(d, active.id, (p) => {
               const type = getChallengeType(typeId);
-              const start = getWorld('forest').chests.challenges.find((c) => c.typeId === typeId)?.startLevel ?? 1;
-              const current = p.skills[typeId] ?? initialSkill(start);
-              return { ...p, skills: { ...p.skills, [typeId]: recordOutcome(current, outcome, level, type.levels) } };
+              const range = levelWindow(type, stage) ?? { startLevel: 1, maxLevel: type.levels };
+              const current = p.skills[typeId] ?? initialSkill(range.startLevel);
+              return { ...p, skills: { ...p.skills, [typeId]: recordOutcome(current, outcome, level, range.maxLevel) } };
             }),
           )
         }
@@ -220,7 +250,9 @@ export function App() {
         update((d) => setActiveProfile(d, id));
         setChosenSubjects(null);
         // Hub: worlds (locked ones show what is still to discover) and the tree house.
-        setScreen({ name: 'worlds' });
+        // Profiles from before v9 are asked for their stage once (ADR-0009).
+        const chosen = doc.profiles.find((p) => p.id === id);
+        setScreen(chosen && !chosen.stageAsked ? { name: 'stage', next: 'worlds' } : { name: 'worlds' });
       }}
       onNew={() => setScreen({ name: 'create' })}
       onParents={() => setGateOpen(true)}

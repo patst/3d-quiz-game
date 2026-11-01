@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { startNewProfile } from './helpers';
 
 const KEYS: Record<string, string> = { U: 'ArrowUp', R: 'ArrowRight', D: 'ArrowDown', L: 'ArrowLeft' };
 test.describe.configure({ timeout: 120_000 });
@@ -21,7 +22,7 @@ for (const type of [
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');
     await page.goto(`./?seed=11&challenge=${type}`);
-    await page.getByRole('button', { name: "Los geht's!" }).click();
+    await startNewProfile(page);
     const canvas = page.getByTestId('game-canvas');
     const route = (await canvas.getAttribute('data-test-route-chest'))!;
     for (const step of route) {

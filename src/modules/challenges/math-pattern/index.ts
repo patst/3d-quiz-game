@@ -1,4 +1,4 @@
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 
 /** Symbols used in patterns (drawn by the UI). */
 export const PATTERN_SYMBOLS = ['red', 'blue', 'yellow', 'green', 'star', 'heart'] as const;
@@ -22,6 +22,11 @@ export const mathPattern: ChallengeType<PatternData> = {
   subject: 'math',
   skills: ['math.patterns'],
   levels: UNITS.length,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.sortieren', 'ni.a2.serialitaet'),
+    lv('preschool', 'grade1', 'ni.a2.serialitaet', 'ni.ma2.muster'),
+    lv('grade1', 'grade2', 'ni.ma2.muster'),
+  ],
   generate({ rng, level }) {
     const unit = rng.pick(UNITS[Math.min(Math.max(level, 1), UNITS.length) - 1]!);
     const letters = [...new Set(unit)];

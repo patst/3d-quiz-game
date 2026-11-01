@@ -18,6 +18,8 @@ import { MazeSession, type Chest } from '../../core/session/mazeSession';
 import type { SubjectId } from '../../core/challenges/types';
 import { currentLevel, levelSpec } from '../../core/progress/levels';
 import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
+import { selectChallengeTypes } from '../../core/challenges/selection';
+import type { StageId } from '../../core/learner/stage';
 import { getChallengeType } from '../../modules/challenges';
 import { getWorld, worlds } from '../../modules/worlds';
 import { MazeView } from '../../render/MazeView';
@@ -28,6 +30,8 @@ interface Props {
   worldId: string;
   /** Subjects chosen for this session (chests only contain these). */
   subjects: readonly SubjectId[];
+  /** Learner stage today (ADR-0009); null = not set, all levels allowed. */
+  stage: StageId | null;
   /** Parent-set play time is over: show the break screen (after a running challenge). */
   breakDue: boolean;
   onHome: () => void;
@@ -64,6 +68,7 @@ export function GameScreen({
   profile,
   worldId,
   subjects,
+  stage,
   breakDue,
   onHome,
   onStars,
@@ -93,6 +98,10 @@ export function GameScreen({
   const [newWorld, setNewWorld] = useState<string | null>(null);
   const disabledRef = useRef(profile.disabledChallenges);
   const subjectsRef = useRef(subjects);
+  const stageRef = useRef(stage);
+  useEffect(() => {
+    stageRef.current = stage;
+  }, [stage]);
   useEffect(() => {
     subjectsRef.current = subjects;
   }, [subjects]);
@@ -136,16 +145,15 @@ export function GameScreen({
     setLostAnimal(animal);
     // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
     const only = new URLSearchParams(window.location.search).get('challenge');
-    const enabled = world.chests.challenges.filter(
-      (c) => !disabledRef.current.includes(c.typeId) && subjectsRef.current.includes(getChallengeType(c.typeId).subject),
-    );
-    const allowed = (enabled.length > 0 ? enabled : world.chests.challenges).filter((c) => !only || c.typeId === only);
     const chests = planChests(
       createRng(seed ^ 0x2545f491),
-      (allowed.length > 0 ? allowed : world.chests.challenges).map((c) => ({
-        type: getChallengeType(c.typeId),
-        startLevel: c.startLevel,
-      })),
+      selectChallengeTypes({
+        types: world.chests.challenges.map(getChallengeType),
+        disabled: disabledRef.current,
+        subjects: subjectsRef.current,
+        stage: stageRef.current,
+        only,
+      }),
       skillsRef.current,
       spec.chests,
     );

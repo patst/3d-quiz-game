@@ -77,6 +77,7 @@ describe('chests', () => {
     subject: 'math' as const,
     skills: [],
     levels: 1,
+    levelInfo: [],
     generate: () => ({
       typeId: 'fake',
       level: 1,

@@ -68,3 +68,14 @@ describe('planChests', () => {
     expect(chests.map((c) => c.level).sort()).toEqual([2, 3, 4]);
   });
 });
+
+describe('planChests with a stage window', () => {
+  const type = (id: string, levels: number) => ({ id, levels }) as unknown as ChallengeType;
+  it('never plans above maxLevel, even with a higher stored skill', () => {
+    const skills = { a: { ...initialSkill(5) } };
+    const chests = planChests(createRng(2), [{ type: type('a', 5), startLevel: 2, maxLevel: 3 }], skills, 6);
+    expect(Math.max(...chests.map((c) => c.level))).toBe(3);
+    expect(skills.a.level).toBe(5);
+  });
+});
+

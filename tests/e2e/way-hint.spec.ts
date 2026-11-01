@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { startNewProfile } from './helpers';
 
 test('"Olli zeigt den Weg" highlights the next steps towards the goal', async ({ page }) => {
   await page.goto('./?seed=3');
-  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await startNewProfile(page);
   const canvas = page.getByTestId('game-canvas');
   await expect(canvas).toHaveAttribute('data-avatar-tile', '1,1');
   await page.getByTestId('way-hint').click();

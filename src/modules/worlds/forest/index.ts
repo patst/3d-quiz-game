@@ -25,6 +25,17 @@ export const forestWorld: WorldTheme = {
       'knowledge.colors',
       'knowledge.seasons',
       'knowledge.odd-one-out',
+      // Preschool pack (M13b)
+      'math.dice',
+      'math.neighbors',
+      'math.position',
+      'math.sizes',
+      'german.same-start',
+      'german.syllable-blend',
+      'german.opposites',
+      'knowledge.habitat',
+      'knowledge.body',
+      'knowledge.sequence',
     ],
   },
   colors: {

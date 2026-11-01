@@ -43,7 +43,11 @@ export function KnowledgeView({ data, hint, solved, answers }: ChallengeViewProp
                 aria-label={o.label}
                 onClick={() => answers?.onChoose(choiceId)}
               >
-                {o.color && o.shape ? <Shape color={o.color} shape={o.shape} /> : o.emoji ? <span aria-hidden>{o.emoji}</span> : o.label}
+                {o.color && o.shape ? <Shape color={o.color} shape={o.shape} /> : o.emoji ? (
+                  <span aria-hidden style={o.size ? { fontSize: `${o.size * 1.15}em`, lineHeight: 1 } : undefined}>
+                    {o.emoji}
+                  </span>
+                ) : o.label}
               </button>
               {data.speakOptions && (
                 <button

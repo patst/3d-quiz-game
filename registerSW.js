@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/3d-quiz-game/sw.js', { scope: '/3d-quiz-game/' })})}

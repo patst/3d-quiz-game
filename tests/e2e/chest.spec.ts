@@ -5,10 +5,14 @@ test.describe.configure({ timeout: 120_000 });
 
 const KEYS: Record<string, string> = { U: 'ArrowUp', R: 'ArrowRight', D: 'ArrowDown', L: 'ArrowLeft' };
 
+// Any answer control: number buttons, compare sides, picture/word cards.
+const ANSWERS = '.number-button:not([disabled]), .compare-side:not([disabled]), .picture-button:not([disabled])';
+
 test('walk to a chest, solve the challenge and earn stars', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto('./?seed=11');
+  // Pin the challenge type: this test is about the chest flow, not a specific challenge.
+  await page.goto('./?seed=11&challenge=math.count');
   await page.getByRole('button', { name: "Los geht's!" }).click();
   const canvas = page.getByTestId('game-canvas');
   await expect(canvas).toHaveAttribute('data-test-route-chest', /^[URDL]+$/);
@@ -25,10 +29,10 @@ test('walk to a chest, solve the challenge and earn stars', async ({ page }) => 
   await expect(page.getByTestId('star-jar')).toHaveAttribute('data-jar', '0');
   await expect(challenge.locator('[data-tier]')).toHaveAttribute('data-tier', /^(bronze|silver|gold)$/);
 
-  // Tap number buttons until the challenge is finished (correct or revealed).
+  // Tap answers until the challenge is finished (correct or revealed).
   const next = challenge.getByRole('button', { name: 'Weiter' });
   for (let i = 0; i < 4 && !(await next.isVisible()); i++) {
-    await challenge.locator('.number-button:not([disabled])').first().click();
+    await challenge.locator(ANSWERS).first().click();
   }
   // Either cheerful praise (jingle + confetti) or the explained solution.
   await expect(challenge.locator('[data-testid="praise"], .feedback.reveal')).toBeVisible();

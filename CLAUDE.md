@@ -36,7 +36,8 @@ where solving small learning challenges (math, German, …) inside the maze earn
 npm ci              # install
 npm run dev         # dev server (http://localhost:5173)
 npm run check       # lint + typecheck + unit tests — run before every push
-npm run e2e         # Playwright smoke tests (desktop + mobile viewport)
+CI=1 npm run e2e    # Playwright tests (desktop + mobile viewport) like CI — CI=1 builds and
+                    # starts a fresh server instead of reusing a possibly stale one on :4173
 npm run build       # production build; BASE_PATH env sets the deploy sub-path
 npm run audio:generate  # (re)generate speech clips — see docs/audio.md
 ```

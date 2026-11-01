@@ -12,10 +12,14 @@ export interface QuizOption {
   shape?: 'circle' | 'triangle' | 'square' | 'star' | 'heart';
   /** Emoji scale relative to the card (1 = fills the card), for "groß und klein". */
   size?: number;
+  /** Draw this many dots in pairs under a word/number card (gerade/ungerade). */
+  dots?: number;
 }
 
 export interface QuizData {
   picture?: string;
+  /** Text to read under the picture (word with a gap, riddle, sentence). */
+  text?: string;
   options: QuizOption[];
   /** Words on the cards are always visible (word answers) or only as a hint. */
   labels: 'always' | 'hint' | 'never';

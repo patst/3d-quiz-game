@@ -30,6 +30,7 @@ export function KnowledgeView({ data, hint, solved, answers }: ChallengeViewProp
           {data.picture}
         </div>
       )}
+      {data.text && <p className="quiz-text">{data.text}</p>}
       <div className={`picture-choices ${wordCards ? 'word-cards' : ''}`}>
         {data.options.map((o, i) => {
           const choiceId = `c${i}`;
@@ -47,7 +48,18 @@ export function KnowledgeView({ data, hint, solved, answers }: ChallengeViewProp
                   <span aria-hidden style={o.size ? { fontSize: `${o.size * 1.15}em`, lineHeight: 1 } : undefined}>
                     {o.emoji}
                   </span>
-                ) : o.label}
+                ) : (
+                  <>
+                    {o.label}
+                    {o.dots !== undefined && (
+                      <span className="pair-dots" aria-hidden>
+                        {Array.from({ length: o.dots }, (_, d) => (
+                          <span key={d} className="pair-dot" />
+                        ))}
+                      </span>
+                    )}
+                  </>
+                )}
               </button>
               {data.speakOptions && (
                 <button

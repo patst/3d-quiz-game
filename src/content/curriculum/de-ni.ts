@@ -22,6 +22,7 @@ export interface Competency {
 const OP = 'ni-orientierungsplan-2023';
 const A2 = 'ni-kc-deutsch-gs-2024-arbeitsfassung';
 const MA = 'ni-kc-mathematik-gs-2017';
+const MA24 = 'ni-kc-mathematik-gs-2024-anhoerfassung';
 const DE = 'ni-kc-deutsch-gs-2017';
 const SU = 'ni-kc-sachunterricht-gs-2017';
 
@@ -53,6 +54,18 @@ const list: Competency[] = [
   { id: 'ni.ma2.subtraktion', source: MA, until: 'grade2', subject: 'math', text: 'Subtraktionsaufgaben lösen' },
   { id: 'ni.ma2.einspluseins', source: MA, until: 'grade2', subject: 'math', text: 'Aufgaben des kleinen 1+1 automatisiert wiedergeben' },
   { id: 'ni.ma2.muster', source: MA, until: 'grade2', subject: 'math', text: 'Muster erkennen, beschreiben und fortsetzen' },
+  { id: 'ni.ma2.addition-100', source: MA, until: 'grade2', subject: 'math', text: 'Addition bis 100 mündlich und halbschriftlich' },
+  { id: 'ni.ma2.subtraktion-100', source: MA, until: 'grade2', subject: 'math', text: 'Subtraktion bis 100 mündlich und halbschriftlich' },
+  { id: 'ni.ma2.zerlegen', source: MA, until: 'grade2', subject: 'math', text: 'Zahlen zerlegen; Zahlzerlegungen bis 10 auswendig' },
+  { id: 'ni.ma2.doppelt-haelfte', source: MA, until: 'grade2', subject: 'math', text: 'Zahlen in Beziehung setzen (die Hälfte/das Doppelte)' },
+  { id: 'ni.ma2.stellenwert', source: MA, until: 'grade2', subject: 'math', text: 'Zahlen im Zehnersystem darstellen (Bündeln, Stellenwert)' },
+  { id: 'ni.ma2.gerade', source: MA24, until: 'grade2', subject: 'math', text: 'Gerade und ungerade Zahlen erkennen' },
+  { id: 'ni.ma2.mal', source: MA, until: 'grade2', subject: 'math', text: 'Multiplikation als wiederholtes Hinzufügen gleicher Anzahlen' },
+  { id: 'ni.ma2.einmaleins', source: MA, until: 'grade2', subject: 'math', text: 'Kernaufgaben des kleinen 1×1 automatisiert wiedergeben' },
+  { id: 'ni.ma2.geld', source: MA, until: 'grade2', subject: 'math', text: 'Geldbeträge erfassen, darstellen und vergleichen (€, ct)' },
+  { id: 'ni.ma2.uhr', source: MA, until: 'grade2', subject: 'math', text: 'Uhrzeiten ablesen (volle Stunde, halb, viertel nach/vor)' },
+  { id: 'ni.ma2.symmetrie', source: MA, until: 'grade2', subject: 'math', text: 'Achsensymmetrie untersuchen, symmetrische Muster erstellen' },
+  { id: 'ni.ma2.zufall', source: MA, until: 'grade2', subject: 'math', text: 'Eintrittswahrscheinlichkeit einschätzen (sicher, möglich, unmöglich)' },
   { id: 'ni.ma2.groessen', source: MA, until: 'grade2', subject: 'math', text: 'Größen vergleichen und ordnen' },
   { id: 'ni.ma2.raumlage', source: MA, until: 'grade2', subject: 'math', text: 'Lagebeziehungen beschreiben (über, unter, neben, zwischen)' },
   // KC Deutsch 2017, Ende Schuljahrgang 2

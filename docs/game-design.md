@@ -125,6 +125,25 @@ reading.
 | Körper und Sinne | "Tippe auf die Nase!" → "Womit hörst du?" | Kita → 2. Kl. |
 | Was kommt zuerst? | Ei, Küken, Huhn: zuerst / zuletzt / in der Mitte | Kita → 2. Kl. |
 
+**Grade 1–2 math pack (M13c)** (KC Mathematik, Ende Jg. 2)
+
+| Type | Example | Stages |
+|---|---|---|
+| Plus / Minus (levels 6–8) | 34 + 5, 34 + 20, 37 + 5 · 37 − 5, 57 − 20, 42 − 5 (up to 100) | 2. Kl. |
+| Zahlenhaus | roof 7, rooms 3 and ? · bonds of 10 · 100 = 30 + ? | Vorschule → 2. Kl. |
+| Verdoppeln und Halbieren | "Was ist das Doppelte von 4?" with mirror dots → up to 100 | 1. → 2. Kl. |
+| Zehner und Einer | tens sticks + cubes → "Welche Zahl ist das?" · "Wie viele Zehner hat 47?" | 1. → 2. Kl. |
+| Gerade und ungerade | "Tippe auf die gerade Zahl!" (dot pairs first) | 1. → 2. Kl. |
+| Einmaleins | Kernaufgaben ×1, ×2, ×5, ×10 and squares, "3 Fünfer" as pictures | 2. Kl. |
+| Geld | coins and notes → "Wie viel Geld ist das?" (€, then ct) | 1. → 2. Kl. |
+| Uhrzeit | analogue clock → "3 Uhr" / "halb 4" / "Viertel nach 3" (cards with 🔊) | 1. → 2. Kl. |
+| Spiegelbild | which right half makes the picture symmetric? | 1. → 2. Kl. |
+| Sicher, möglich, unmöglich | bag of balls → "dass sie grün ist?" | 1. → 2. Kl. |
+
+Plus/Minus above 20 is spoken generically ("Rechne aus! Wie viel ist das?" / "Das Ergebnis ist 39.")
+with the equation on screen: one clip per sentence (ADR-0007) would need thousands of clips for every
+pair up to 100. Reading two-digit numbers is itself a grade-2 goal.
+
 Single-sound tasks (Lautsynthese "M-au-s", final sounds) wait for a voice that can speak
 isolated sounds (M12).
 
@@ -166,6 +185,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.22 (2026-11-01): M13c — grade 1–2 math pack: 9 new types and Plus/Minus up to 100 (§6.5).
 - v1.21 (2026-11-01): M13b — preschool pack, 10 new challenge types (§6.5), picture- and sound-based, tagged for Kita/Vorschule (ADR-0009).
 - v1.20 (2026-11-01): M13a (owner-approved ADR-0009) — learner stage per profile (Kindergarten, Vorschule, 1.–4. Klasse), asked once by a grown-up and editable in the parents area; challenge levels carry stage ranges and curriculum competencies; chests only offer types and levels that fit the stage.
 - v1.19 (2026-11-01): M11c — the child chooses today's subjects on the hub ("Heute spiele ich: 🔢 Mathe · 🔤 Deutsch · 🐾 Wissen"), within what parents allow (subjects with all types switched off are not offered); at least one stays on; the choice lasts for the session and resets when switching profiles. Chests only contain the chosen subjects.

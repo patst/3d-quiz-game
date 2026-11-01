@@ -36,6 +36,16 @@ export const forestWorld: WorldTheme = {
       'knowledge.habitat',
       'knowledge.body',
       'knowledge.sequence',
+      // Grade 1–2 math pack (M13c)
+      'math.number-bonds',
+      'math.double-half',
+      'math.place-value',
+      'math.even-odd',
+      'math.times',
+      'math.money',
+      'math.clock',
+      'math.symmetry',
+      'math.chance',
     ],
   },
   colors: {

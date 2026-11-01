@@ -17,6 +17,15 @@ import { mathFindNumber } from './math-find-number';
 import { mathPattern } from './math-pattern';
 import { mathSubtraction } from './math-subtraction';
 import { mathDice } from './math-dice';
+import { mathChance } from './math-chance';
+import { mathClock } from './math-clock';
+import { mathDoubleHalf } from './math-double-half';
+import { mathEvenOdd } from './math-even-odd';
+import { mathMoney } from './math-money';
+import { mathNumberBonds } from './math-number-bonds';
+import { mathPlaceValue } from './math-place-value';
+import { mathSymmetry } from './math-symmetry';
+import { mathTimes } from './math-times';
 import { mathNeighbors } from './math-neighbors';
 import { mathPosition } from './math-position';
 import {
@@ -46,6 +55,15 @@ export const challengeTypes: readonly ChallengeType[] = [
   mathNeighbors,
   mathPosition,
   mathSizes,
+  mathNumberBonds,
+  mathDoubleHalf,
+  mathPlaceValue,
+  mathEvenOdd,
+  mathTimes,
+  mathMoney,
+  mathClock,
+  mathSymmetry,
+  mathChance,
   germanInitialSound,
   germanSyllables,
   germanRhyme,

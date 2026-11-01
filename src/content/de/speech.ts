@@ -33,6 +33,8 @@ import {
   sizeNominative,
   type Position,
 } from './preschool';
+import { ALL_CLOCK_TIMES, clockSpoken, type ClockMinute } from './clock';
+import { timesPairs } from '../../modules/challenges/math-times';
 
 /** German names of countable objects: [singular, plural]. */
 export const objectNames: Record<CountObject, readonly [string, string]> = {
@@ -88,6 +90,18 @@ const positionSentence = (p: Params) => {
   return `${object?.name ?? ''} ist ${POSITION_PHRASES[p.position as Position] ?? ''}.`;
 };
 const positionVariants = () => POSITION_OBJECTS.flatMap((o) => POSITIONS.map((position) => ({ object: o.id, position })));
+
+// Grade 1–2 math pack helpers (M13c).
+const bondVariants = () => [
+  ...range(3, 10).flatMap((total) => range(1, total - 1).map((known) => ({ total, known, answer: total - known }))),
+  ...range(1, 9).map((t) => ({ total: 100, known: t * 10, answer: 100 - t * 10 })),
+];
+const doubleNs = () => [...range(1, 10), 20, 30, 40, 50];
+const halfNs = () => [...range(1, 10).map((n) => n * 2), 40, 60, 80, 100];
+const onesPhrase = (ones: number) => (ones === 0 ? 'keine Einer' : ones === 1 ? 'ein Einer' : `${ones} Einer`);
+const tensPhrase = (tens: number) => (tens === 1 ? 'ein Zehner' : `${tens} Zehner`);
+const chanceColours = () => Object.keys(de.chance.colours).map((colour) => ({ colour }));
+const colourWord = (c: string | number | undefined) => de.chance.colours[String(c)] ?? '';
 
 const colorShapePairs = () => COLORS.filter((c) => c.adj).flatMap((c) => SHAPES.map((s) => ({ color: c.id, shape: s.id })));
 
@@ -297,6 +311,65 @@ export const speechTemplates: Record<string, Template> = {
   },
   'math.position.prompt': { render: (p) => `Tippe auf das Bild: ${positionSentence(p)}`, variants: positionVariants },
   'math.position.explain': { render: (p) => `Schau: ${positionSentence(p)}`, variants: positionVariants },
+  // ── Grade 1–2 math pack (M13c) ──
+  'math.calc100.prompt': { render: () => 'Rechne aus! Wie viel ist das?', variants: none },
+  'math.calc100.explain': { render: (p) => `Das Ergebnis ist ${p.n}.`, variants: () => range(1, 99).map((n) => ({ n })) },
+  'math.number-bonds.prompt': {
+    render: (p) => `${p.total} ist ${p.known} und wie viel?`,
+    variants: () => bondVariants().map(({ total, known }) => ({ total, known })),
+  },
+  'math.number-bonds.explain': { render: (p) => `${p.total} ist ${p.known} und ${p.answer}.`, variants: bondVariants },
+  'math.double-half.prompt-double': { render: (p) => `Was ist das Doppelte von ${p.n}?`, variants: () => doubleNs().map((n) => ({ n })) },
+  'math.double-half.explain-double': {
+    render: (p) => `Das Doppelte von ${p.n} ist ${p.m}.`,
+    variants: () => doubleNs().map((n) => ({ n, m: n * 2 })),
+  },
+  'math.double-half.prompt-half': { render: (p) => `Was ist die Hälfte von ${p.n}?`, variants: () => halfNs().map((n) => ({ n })) },
+  'math.double-half.explain-half': {
+    render: (p) => `Die Hälfte von ${p.n} ist ${p.m}.`,
+    variants: () => halfNs().map((n) => ({ n, m: n / 2 })),
+  },
+  'math.place-value.prompt': { render: () => 'Welche Zahl ist das? Zähle die Zehner und die Einer.', variants: none },
+  'math.place-value.prompt-tens': { render: (p) => `Wie viele Zehner hat die Zahl ${p.n}?`, variants: () => range(21, 99).map((n) => ({ n })) },
+  'math.place-value.explain': {
+    render: (p) => {
+      const n = Number(p.n);
+      return `Das ist die ${n}: ${tensPhrase(Math.floor(n / 10))} und ${onesPhrase(n % 10)}.`;
+    },
+    variants: () => range(11, 99).map((n) => ({ n })),
+  },
+  'math.even-odd.prompt-even': { render: () => 'Tippe auf die gerade Zahl!', variants: none },
+  'math.even-odd.prompt-odd': { render: () => 'Tippe auf die ungerade Zahl!', variants: none },
+  'math.even-odd.explain-even': { render: (p) => `${p.n} ist gerade.`, variants: () => range(1, 50).map((n) => ({ n: n * 2 })) },
+  'math.even-odd.explain-odd': { render: (p) => `${p.n} ist ungerade.`, variants: () => range(0, 49).map((n) => ({ n: n * 2 + 1 })) },
+  'math.times.prompt': { render: (p) => `Was ist ${p.a} mal ${p.b}?`, variants: timesPairs },
+  'math.times.explain': {
+    render: (p) => `${p.a} mal ${p.b} ist ${p.p}.`,
+    variants: () => timesPairs().map(({ a, b }) => ({ a, b, p: a * b })),
+  },
+  'math.money.prompt': { render: () => 'Wie viel Geld ist das?', variants: none },
+  'math.money.explain-euro': {
+    render: (p) => (p.n === 1 ? 'Das ist ein Euro.' : `Das sind ${p.n} Euro.`),
+    variants: () => range(1, 20).map((n) => ({ n })),
+  },
+  'math.money.explain-cent': {
+    render: (p) => (p.n === 100 ? 'Das sind 100 Cent, also ein Euro.' : `Das sind ${p.n} Cent.`),
+    variants: () => range(1, 10).map((n) => ({ n: n * 10 })),
+  },
+  'math.clock.prompt': { render: () => 'Wie spät ist es?', variants: none },
+  'math.clock.explain': {
+    render: (p) => `Es ist ${clockSpoken(Number(p.hour), Number(p.minute) as ClockMinute)}.`,
+    variants: () => ALL_CLOCK_TIMES,
+  },
+  'math.symmetry.prompt': { render: () => 'Welche Hälfte passt? Das Bild soll aussehen wie im Spiegel.', variants: none },
+  'math.symmetry.explain': { render: () => 'So sieht es aus wie im Spiegel.', variants: none },
+  'math.chance.prompt': {
+    render: (p) => `Du ziehst ohne hinzusehen eine Kugel. Ist es sicher, möglich oder unmöglich, dass sie ${colourWord(p.colour)} ist?`,
+    variants: chanceColours,
+  },
+  'math.chance.explain-certain': { render: (p) => `Es ist sicher, denn alle Kugeln sind ${colourWord(p.colour)}.`, variants: chanceColours },
+  'math.chance.explain-possible': { render: (p) => `Es ist möglich, denn manche Kugeln sind ${colourWord(p.colour)}.`, variants: chanceColours },
+  'math.chance.explain-impossible': { render: (p) => `Es ist unmöglich, denn keine Kugel ist ${colourWord(p.colour)}.`, variants: chanceColours },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
   'feedback.skipQuestion': { render: () => 'Möchtest du diese Aufgabe wirklich überspringen?', variants: none },
@@ -344,6 +417,8 @@ export const staticSpokenTexts: readonly string[] = [
   ...HABITATS.map((h) => h.name),
   ...SEQUENCES.flatMap((q) => q.steps.map((s) => s.name)),
   ...BODY_PARTS.map((b) => b.word),
+  // Grade 1–2 math pack: clock answer cards.
+  ...ALL_CLOCK_TIMES.map((t) => clockSpoken(t.hour, t.minute)),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

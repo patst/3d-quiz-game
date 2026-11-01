@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { startNewProfile } from './helpers';
 
 // Software WebGL in CI is slow; walking takes a while.
 test.describe.configure({ timeout: 120_000 });
@@ -13,7 +14,7 @@ test('walk to a chest, solve the challenge and earn stars', async ({ page }) => 
   page.on('pageerror', (e) => errors.push(e.message));
   // Pin the challenge type: this test is about the chest flow, not a specific challenge.
   await page.goto('./?seed=11&challenge=math.count');
-  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await startNewProfile(page);
   const canvas = page.getByTestId('game-canvas');
   await expect(canvas).toHaveAttribute('data-test-route-chest', /^[URDL]+$/);
   const route = (await canvas.getAttribute('data-test-route-chest'))!;
@@ -44,7 +45,7 @@ test('walk to a chest, solve the challenge and earn stars', async ({ page }) => 
 
 test('skipping a challenge asks for confirmation', async ({ page }) => {
   await page.goto('./?seed=11');
-  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await startNewProfile(page);
   const canvas = page.getByTestId('game-canvas');
   const route = (await canvas.getAttribute('data-test-route-chest'))!;
   for (const step of route) {

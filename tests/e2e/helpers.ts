@@ -47,3 +47,9 @@ export function profileFixture(overrides: Record<string, unknown> = {}) {
     ...overrides,
   };
 }
+
+/** Taps "Los geht's!" on the create screen and skips the stage question (no stage = all levels). */
+export async function startNewProfile(page: Page): Promise<void> {
+  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await page.getByTestId('stage-screen').getByRole('button', { name: 'Später' }).click();
+}

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { startNewProfile } from './helpers';
 
 const KEYS: Record<string, string> = { U: 'ArrowUp', R: 'ArrowRight', D: 'ArrowDown', L: 'ArrowLeft' };
 
@@ -8,7 +9,7 @@ test.describe.configure({ timeout: 240_000 });
 test('walk through the whole maze, skipping chests, and rescue the chick', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'long walk runs on desktop only');
   await page.goto('./?seed=3');
-  await page.getByRole('button', { name: "Los geht's!" }).click();
+  await startNewProfile(page);
   const canvas = page.getByTestId('game-canvas');
   await expect(canvas).toHaveAttribute('data-test-route-goal', /^[URDL]+$/);
   const route = (await canvas.getAttribute('data-test-route-goal'))!;

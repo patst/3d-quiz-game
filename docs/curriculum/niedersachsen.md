@@ -1,7 +1,7 @@
 # Curriculum research: Niedersachsen (Lower Saxony)
 
-**Status:** research notes. Version 2 (2026-11-01) was **verified against the primary ministry
-PDFs** downloaded from `www.mk.niedersachsen.de`. This document feeds ADR-0009 and the content
+**Status:** research notes. Versions 2–3 (2026-11-01) were **verified against the primary ministry
+PDFs** downloaded from `www.mk.niedersachsen.de` and `cuvo.nibis.de` (Sachunterricht added in version 3). This document feeds ADR-0009 and the content
 roadmap (M13).
 
 ## 0. Primary sources (all read in full or in the relevant chapters)
@@ -14,9 +14,8 @@ roadmap (M13).
 | **KC Ma 2024** | [KC Mathematik für die Grundschule, *Anhörfassung* 24.10.2024](https://www.mk.niedersachsen.de/download/211766/KC_Mathematik_fuer_die_Grundschule.pdf) | draft; shows where things are heading |
 | **KC De 2017** | [Kerncurriculum Grundschule Deutsch (2017)](https://www.mk.niedersachsen.de/download/120953/Kerncurriculum_Deutsch.pdf) | in force |
 | **KC De 2024** | [KC Deutsch für die Grundschule, *Arbeitsfassung* 21.05.2024](https://www.mk.niedersachsen.de/download/207512/Kerncurriculum_Deutsch_fuer_die_Grundschule.pdf) | draft |
+| **KC SU 2017** | [Kerncurriculum Grundschule Sachunterricht (2017)](https://cuvo.nibis.de/index.php?p=download&upload=105), from the ministry's database [cuvo.nibis.de](https://cuvo.nibis.de/) | in force since 01.08.2017 (listed in [SVBl. 10/2023](https://www.mk.niedersachsen.de/download/199813/Schulverwaltungsblatt_10_2023_-_Amtlicher_Teil.pdf)) |
 
-Secondary source, not re-verified (that host is still blocked):
-[KC Sachunterricht (copy)](https://ltdata1.informatik.uni-hamburg.de/HCDS/EDU/pdfs/SU_0901_NI_GrS.pdf).
 
 **Design rule derived from this:** we align with the KC versions **in force (2017)**. Where the
 2024 drafts are more concrete, for example the "Kernaufgaben" lists, we use them for
@@ -114,17 +113,26 @@ End of Jg. 4 (later): tenses (Präsens, Präteritum, Perfekt, Futur I); sentence
 Satzglieder; ck and tz; long-vowel spellings with "h"; s, ss and ß; direct speech; working
 with a dictionary.
 
-## 5. Sachunterricht (for "Wissen"; secondary source, not re-verified)
-Perspectives: nature, technology, space, society, time, living together. Typical Jg. 1–2
-topics:
-- animals and plants
-- seasons and weather
-- the body and senses
-- healthy food
-- road safety
-- days of the week and months
+## 5. Sachunterricht, end of Jg. 2 (KC SU 2017, verified) → the "Wissen" subject
 
-The last item also overlaps with the time topics in the OP and KC Ma.
+The KC has **five perspectives**: Technik; Natur; Raum; Gesellschaft, Politik und Wirtschaft;
+Zeit und Wandel. Its goals are set for the end of Jg. 2 and Jg. 4. Examples in brackets are
+suggestions from the KC.
+
+| Perspective | End of Jg. 2 (condensed KC wording) | Fits a tap-to-answer game? |
+|---|---|---|
+| **Natur – Mensch** | names and describes **main body parts**; tries out the **senses** and describes what they do and how they protect us; **healthy living** (healthy breakfast) | ✅ body parts ("Tippe auf das Knie"), "Mit welchem Sinn …?" (Auge → sehen), healthy or not so healthy food |
+| **Natur – Pflanzen und Tiere** | compares **parts of plants** and the body parts of animals; describes the **development** of plants and animals (bean, butterfly); explores **habitats (meadow, forest, pond)** and identifies typical plants and animals; care for animals (farm, zoo) | ✅ parts of a plant, life cycle in the right order (egg → caterpillar → pupa → butterfly), "Wo lebt das Tier?" (forest, pond, meadow, farm) — our animal types already fit here |
+| **Natur – unbelebte Natur** | phenomena such as **light and shadow, wind**; **properties of materials** (feeling box, smell memory) | ✅ partly: "Was schwimmt, was sinkt?", hard or soft, which material is it? |
+| **Technik** | building stable towers; naming **common tools (hammer, saw, file)** and their use; simple mechanical things (seesaw, scales); **sorting recyclables** and recycling | ✅ "Welches Werkzeug brauchst du?", **Müll trennen** (which bin?), the heavier side of a balance |
+| **Raum** | **names spatial relations** ("Lagebeziehungen"); explores and describes **routes** (way to school, mobility); draws and reads **simple plans** | ✅ position words (shared with math), simple map → picture; road-safety basics (traffic lights, zebra crossing) **(our idea, linked to "Mobilität (Schulweg)")** |
+| **Gesellschaft** | class rules; **naming and describing feelings**, saying "No"; conflicts; family types; diversity and respect; wishes vs. needs; fair swapping; **typical workplaces (carpenter, police, farm)** | ✅ feelings from faces ("Wie fühlt sich das Kind?"), **jobs and their tools**; ⚠️ feelings, saying "No" and family types need careful, neutral wording — owner review |
+| **Zeit und Wandel** | names **ways of dividing and measuring time** (day, week …); documents a stretch of everyday life; **cyclic processes (a tree through the seasons)**; linear processes (childhood); **past, present, future**; own family timeline | ✅ seasons (exists), **days of the week** in order, daily routine (morning, noon, evening), "Was war vorher?", baby → child → adult |
+
+**Preschool (OP chapter 8, "Natur und Lebenswelt"):** nature as a habitat for plants and
+animals; water, air, earth and fire; light and shadow; weight, quantity and material properties;
+children's questions ("Warum fliegen Vögel?"). Together with the time topics from OP chapter 6,
+this matches the Jg. 1–2 topics at a simpler level.
 
 ## 6. Gap analysis
 
@@ -138,7 +146,10 @@ The last item also overlaps with the time topics in the OP and KC Ma.
 | german.syllables, german.rhyme | kita → grade1 | A2 |
 | german.initial-sound | late preschool → grade1 | uses letters; A2 also needs a sound-only variant |
 | german.read-word | grade1 → grade2 | KC Lesen |
-| knowledge.* | kita → grade2 | OP / Sachunterricht |
+| knowledge.animal-name, animal-baby | kita → grade1 | OP ch. 8; KC SU Natur (Tiere) |
+| knowledge.colors (+ shapes) | kita → preschool | OP ch. 6 (shapes) |
+| knowledge.seasons (+ weather) | kita → grade2 | KC SU Zeit und Wandel (zyklische Prozesse), Natur (Wind) |
+| knowledge.odd-one-out | kita → grade1 | OP ch. 6 Sortieren/Klassifizieren |
 
 **Missing for preschool (highest priority)** (OP ch. 6, KC De A2):
 - Anlaut and Endlaut by **picture and sound**
@@ -180,3 +191,19 @@ The last item also overlaps with the time topics in the OP and KC Ma.
   - word that fits the sentence
   - ABC order
   - compound nouns
+
+**Missing for "Wissen"** (KC SU 2017, OP ch. 8). Ordered roughly from youngest to oldest:
+- Körperteile
+- Sinne
+- Wo lebt das Tier?
+- Tagesablauf
+- Wochentage
+- gesund oder nicht so gesund
+- Müll trennen
+- Berufe und Werkzeuge
+- schwimmt oder sinkt
+- Gefühle (owner review)
+- Lebenszyklus (Schmetterling, Bohne)
+- Pflanzenteile
+- Verkehrssicherheit
+

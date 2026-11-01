@@ -27,4 +27,4 @@ voice → Thorsten high).
 | **M13 Curriculum stages** | Learner stage on the profile, stage + competency tags on challenge levels (ADR-0009); content packs: a) stage model + migration, b) preschool pack, c) grade 1–2 math (KC), d) grade 1–2 German (KC). Research: `docs/curriculum/niedersachsen.md` | accepted 2026-11-01; scope kita – grade 2; order a → b → c → d |
 | **M12 Voice upgrade** | Paid/licensed TTS at build time (e.g. Azure; child voice "Gisela"), letter sounds | parked — owner keeps it in mind |
 
-Further ideas: "Olli zeigt den Weg" (hint arrow towards the goal in big mazes), word bank → 150 words, parents' progress over time, world map / journey.
+Further ideas: M13e "Wissen" pack following the KC Sachunterricht (body parts, senses, where animals live, days of the week, sorting rubbish, jobs and tools, …; see `docs/curriculum/niedersachsen.md` §5), "Olli zeigt den Weg" (hint arrow towards the goal in big mazes), word bank → 150 words, parents' progress over time, world map / journey.

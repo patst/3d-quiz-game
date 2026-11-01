@@ -51,6 +51,11 @@ start maze → walk → find chest (optional) → solve or skip → stars into j
 - **Local profiles from the start:** up to 6 children per device. Profile screen
   "Wer spielt?" shows each child's animal; the name is optional and typed by a parent.
   Deleting profiles will live in the parents area (behind the parent gate).
+- **Kindergarten oder Schule?** After creating a profile (and once for profiles from before
+  this feature) a grown-up picks Kindergarten / Vorschule / 1.–4. Klasse on big picture tiles
+  (spoken question, "Später" skips). The stage moves up every 1 August (Kindergarten stays
+  until a parent switches to Vorschule) and can be changed in the parents area. It decides
+  which challenge types and levels a child meets (§6.1, ADR-0009).
 
 ## 5. Controls
 - **Mobile:** tap on the floor → avatar walks towards it, but only a **short, direct way**
@@ -67,6 +72,12 @@ it. New types are added without touching maze code.
 
 Difficulty: each type has levels 1..N. A per-child **skill model** recommends the level
 (e.g. 2 correct in a row → up, 2 wrong → down).
+
+Every level is tagged with the **stages it is meant for** and the **Niedersachsen curriculum
+competencies** it trains (`docs/curriculum/niedersachsen.md`). A child only meets types whose
+first level fits their stage (no reading tasks in Kindergarten) and that they have not
+outgrown; they start at the level meant for their stage and can climb one stage higher.
+Without a stage, all levels are open and play starts at level 1.
 
 ### 6.2 Chest tiers
 Chests come in **bronze / silver / gold** (visible from afar). The child chooses which to
@@ -113,7 +124,8 @@ All outcomes feed the skill model.
 
 ## 8. Parents area
 - Parent gate (e.g. "Tippe die Zahl dreiundvierzig").
-- Per child: practised skills, success rates, enable/disable challenge types,
+- Per child: Kindergarten / Klasse (stage), practised skills, success rates, enable/disable
+  challenge types (each shows its suggested stages, e.g. "Vorschule – 1. Klasse"),
   "Vorlesen" on/off, optional session time limit.
 - Manage child profiles (rename, delete).
 
@@ -131,6 +143,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.20 (2026-11-01): M13a (owner-approved ADR-0009) — learner stage per profile (Kindergarten, Vorschule, 1.–4. Klasse), asked once by a grown-up and editable in the parents area; challenge levels carry stage ranges and curriculum competencies; chests only offer types and levels that fit the stage.
 - v1.19 (2026-11-01): M11c — the child chooses today's subjects on the hub ("Heute spiele ich: 🔢 Mathe · 🔤 Deutsch · 🐾 Wissen"), within what parents allow (subjects with all types switched off are not offered); at least one stays on; the choice lasts for the session and resets when switching profiles. Chests only contain the chosen subjects.
 - v1.18 (2026-11-01): M11b new subject "Wissen" with 5 challenge types: Tiere benennen (picture → name, 2–4 names, each with 🔊), Tierbabys ("Wie heißt das Baby vom Schaf?"), Farben und Formen ("Tippe auf Rot!" → "Tippe auf den blauen Kreis!"), Jahreszeiten und Wetter ("Wann fällt Schnee?" → "Was brauchst du, wenn es regnet?"), Was gehört nicht dazu? (3–4 of a kind + 1; level 2 uses close categories like Obst/Gemüse). Parents can switch them per child like the other types.
 - v1.17 (2026-11-01): M11a "Olli zeigt den Weg" — round guide button bottom right: the next 6 tiles of the shortest way glow orange one after another for ~4 s, the guide says "Schau mal, hier entlang!"; 15 s cool-down ("Gleich kann ich dir wieder helfen.").

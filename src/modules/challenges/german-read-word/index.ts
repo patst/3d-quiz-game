@@ -1,4 +1,4 @@
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import { WORDS } from '../../../content/de/words';
 
 /** Read a written word, tap the matching picture. Choice value = index in `options`. */
@@ -20,6 +20,11 @@ export const germanReadWord: ChallengeType<ReadWordData> = {
   subject: 'german',
   skills: ['german.reading'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('grade1', 'grade1', 'ni.de2.lesen'),
+    lv('grade1', 'grade2', 'ni.de2.lesen'),
+    lv('grade1', 'grade2', 'ni.de2.lesen'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const word = rng.pick(WORDS.filter((w) => w.word.length <= cfg.maxLength && (level === 1 || w.word.length >= 3)));

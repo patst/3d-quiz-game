@@ -1,4 +1,4 @@
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import { scatter } from '../math-count';
 import { COUNT_OBJECTS, type CountObject, type Placement } from '../objects';
 
@@ -27,6 +27,11 @@ export const mathCompare: ChallengeType<CompareData> = {
   subject: 'math',
   skills: ['math.comparing'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.mengen'),
+    lv('preschool', 'grade1', 'ni.op.mengen', 'ni.ma2.vergleichen'),
+    lv('grade1', 'grade2', 'ni.ma2.vergleichen'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const big = rng.int(cfg.min + cfg.minDiff, cfg.max);

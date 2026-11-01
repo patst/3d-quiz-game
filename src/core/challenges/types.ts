@@ -1,3 +1,4 @@
+import type { StageRange } from '../learner/stage';
 import type { Rng } from '../rng';
 
 export type SubjectId = 'math' | 'german' | 'knowledge';
@@ -40,6 +41,16 @@ export interface ChallengeInstance<TData = unknown> {
 }
 
 /**
+ * Curriculum metadata for one difficulty level (ADR-0009).
+ * `stages` says for whom the level is meant; `competencies` are ids from a curriculum
+ * catalogue (src/content/curriculum/), e.g. 'ni.ma2.addition'.
+ */
+export interface LevelInfo {
+  stages: StageRange;
+  competencies: readonly string[];
+}
+
+/**
  * Logic part of a challenge type (architecture §3.1). Lives in
  * `src/modules/challenges/<id>/`. The matching view is registered separately in ui/
  * so this stays free of React.
@@ -51,5 +62,12 @@ export interface ChallengeType<TData = unknown> {
   skills: readonly string[];
   /** Number of difficulty levels (1..levels). */
   levels: number;
+  /** One entry per level (index 0 = level 1); checked by a unit test. */
+  levelInfo: readonly LevelInfo[];
   generate(ctx: { rng: Rng; level: number }): ChallengeInstance<TData>;
+}
+
+/** Shorthand for `LevelInfo` literals in challenge modules: `lv('kita', 'grade1', 'ni.op.mengen')`. */
+export function lv(min: StageRange['min'], max: StageRange['max'], ...competencies: string[]): LevelInfo {
+  return { stages: max === undefined ? { min } : { min, max }, competencies };
 }

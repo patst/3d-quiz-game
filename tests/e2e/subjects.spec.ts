@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { profileFixture, seedSave } from './helpers';
+import { profileFixture, seedSave, SAVE_VERSION } from './helpers';
 
 const KEYS: Record<string, string> = { U: 'ArrowUp', R: 'ArrowRight', D: 'ArrowDown', L: 'ArrowLeft' };
 test.describe.configure({ timeout: 120_000 });
@@ -7,7 +7,7 @@ test.describe.configure({ timeout: 120_000 });
 test('the child picks today\'s subjects; chests only contain those', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'walking to a chest is slow; one viewport is enough');
   await seedSave(page, {
-    version: 8,
+    version: SAVE_VERSION,
     activeProfileId: null,
     settings: { speech: true, sessionMinutes: 0, sfx: true },
     profiles: [profileFixture({ pendingRewards: 0 })],
@@ -36,7 +36,7 @@ test('the child picks today\'s subjects; chests only contain those', async ({ pa
 
 test('subjects the parents switched off completely are not offered', async ({ page }) => {
   await seedSave(page, {
-    version: 8,
+    version: SAVE_VERSION,
     activeProfileId: null,
     settings: { speech: true, sessionMinutes: 0, sfx: true },
     profiles: [

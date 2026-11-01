@@ -18,11 +18,11 @@ export interface WorldTheme {
   /** Maze shape; the size comes from the child's level (core/progress/levels). */
   maze: { braid: number };
   /**
-   * Treasure chests per maze and the challenge types they may hold, with the level a new
-   * child starts at. Actual levels adapt per child (core/skills, M4).
+   * Challenge types the chests may hold. Start level and range come from the child's stage
+   * and each type's `levelInfo` (ADR-0009); levels then adapt per child (core/skills, M4).
    */
   chests: {
-    challenges: ReadonlyArray<{ typeId: string; startLevel: number }>;
+    challenges: readonly string[];
   };
   colors: {
     /** Strong colour for the world card (white text on it). */

@@ -1,5 +1,5 @@
 import { numberChoices } from '../../../core/challenges/choices';
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 
 /** "Tippe auf die Sieben" — hear a number, find the digit(s). Number recognition. */
 export interface FindNumberData {
@@ -17,6 +17,11 @@ export const mathFindNumber: ChallengeType<FindNumberData> = {
   subject: 'math',
   skills: ['math.number-recognition'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('preschool', 'grade1', 'ni.op.zaehlen'),
+    lv('grade1', 'grade1', 'ni.ma2.zahlen-100'),
+    lv('grade2', 'grade2', 'ni.ma2.zahlen-100'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const number = rng.int(cfg.min, cfg.max);

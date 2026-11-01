@@ -1379,3 +1379,25 @@ button {
   overflow-wrap: anywhere;
   hyphens: auto;
 }
+
+/* Stage question (ADR-0009): big tiles, two or three per row on phones. */
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  width: min(100%, 520px);
+}
+
+.stage-choice {
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 36px;
+}
+
+.stage-choice strong {
+  font-size: 1rem;
+}

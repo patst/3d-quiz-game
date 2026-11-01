@@ -1,4 +1,4 @@
-import type { ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeType, lv } from '../../../core/challenges/types';
 import { SIMILAR_LETTERS, WORDS } from '../../../content/de/words';
 
 /** "Mit welchem Buchstaben beginnt Maus?" — picture + spoken word, tap the letter. */
@@ -18,6 +18,11 @@ export const germanInitialSound: ChallengeType<InitialSoundData> = {
   subject: 'german',
   skills: ['german.phonological-awareness'],
   levels: LEVELS.length,
+  levelInfo: [
+    lv('preschool', 'grade1', 'ni.a2.anlaut', 'ni.a2.laut-buchstabe'),
+    lv('grade1', 'grade1', 'ni.a2.laut-buchstabe', 'ni.de2.laut-buchstabe'),
+    lv('grade1', 'grade2', 'ni.de2.laut-buchstabe'),
+  ],
   generate({ rng, level }) {
     const cfg = LEVELS[Math.min(Math.max(level, 1), LEVELS.length) - 1]!;
     const word = rng.pick(WORDS.filter((w) => w.initial));

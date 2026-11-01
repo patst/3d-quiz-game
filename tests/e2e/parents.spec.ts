@@ -83,6 +83,8 @@ test('a parent-set play time shows a friendly break screen', async ({ page }) =>
     profiles: [profileFixture({ pendingRewards: 0 })],
   });
   await page.getByRole('button', { name: /Testkind/ }).click();
+  // Old save (v6): the stage question comes once; skip it.
+  await page.getByTestId('stage-screen').getByRole('button', { name: 'Später' }).click();
   await page.getByRole('button', { name: 'Zauberwald', exact: true }).click();
   await expect(page.getByTestId('game-canvas').locator('canvas')).toBeVisible();
   await expect(page.getByTestId('break')).toHaveCount(0);

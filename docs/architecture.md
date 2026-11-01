@@ -53,6 +53,7 @@ export interface ChallengeType<TData> {
   subject: SubjectId;              // "math" | "german"
   skills: readonly string[];       // for the skill model (M4)
   levels: number;                  // 1..levels
+  levelInfo: LevelInfo[];          // per level: stage range + curriculum competencies (ADR-0009)
   generate(ctx: { rng: Rng; level: number }): ChallengeInstance<TData>;
 }
 interface ChallengeInstance<TData> {
@@ -68,7 +69,12 @@ interface ChallengeInstance<TData> {
 - Registry: `src/modules/challenges/index.ts`. Adding a challenge = one folder + one
   registry line + view + speech templates. `challenges.test.ts` runs a generic property
   test over every registered type (1000 seeds × every level: valid, solvable, all speech
-  keys have templates).
+  keys have templates) and checks `levelInfo` (one entry per level, known competency ids).
+- **Stage → levels (ADR-0009):** `core/challenges/selection.ts` turns the world's type list,
+  the parents' switches, the session subjects and the child's stage into
+  `{type, startLevel, maxLevel}` for `planChests`. A type is offered when level 1 fits the stage
+  and the child has not outgrown every level; a new child starts at the highest level meant for
+  its stage; the skill model may go one stage further ("stretch").
 
 ### 3.2 Worlds / themes (`src/modules/worlds/<id>/`)
 A world declares: tile set (meshes/materials), palette, music, station prop, maze size
@@ -132,7 +138,7 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Rewards | `src/core/rewards/rewards.ts` (jar, offer, equip), `src/modules/rewards/catalog.ts`, `src/render/avatars/accessories.ts`, `src/render/trails.ts`, `src/ui/rewards/` | save v2 adds jar, pendingRewards, inventory, equipped |
 | Animal friends | `src/core/profile/lostAnimals.ts`, `src/render/avatars/lostAnimals.ts`, pet following in `MazeView.updatePet` | save v3 adds rescued, pet |
 | Parents area | `src/ui/parents/` (`ParentGate`, `ParentsArea`), `content/de/numbers.ts` | save v4 adds `settings` (speech); `setSpeechEnabled` in audio |
-| Adaptive difficulty | `src/core/skills/skillModel.ts` (`recordOutcome`, `planChests`, tiers) | save v5 adds `skills` per challenge type; world config holds start levels |
+| Adaptive difficulty | `src/core/skills/skillModel.ts` (`recordOutcome`, `planChests`, tiers) | save v5 adds `skills` per challenge type; start levels come from the stage (ADR-0009) |
 | Views with own answers | `ChallengeViewEntry.ownsChoices` in `src/ui/challenges/index.ts` (compare, pattern); `ChallengeInstance.promptDisplay` hides spoken answers | `?challenge=<typeId>` limits chests to one type (review/E2E) |
 | German word bank | `src/content/de/words.ts` (word, emoji, syllables, initial, rhyme) used by `src/modules/challenges/german-*` | modules may read content data; consistency tests in `words.test.ts`; save v6 adds `disabledChallenges` |
 | PWA / offline | `vite.config.ts` (`vite-plugin-pwa`), `public/icons/`, clip fetch in `src/audio/speech.ts` | ADR-0008; no service worker on PR previews |
@@ -142,5 +148,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Tree house | `src/core/rewards/treehouse.ts`, `src/render/treehouse/{TreehouseView,decor}.ts`, `src/ui/treehouse/TreehouseScreen.tsx` | reward slot `decor`; save v8 adds `treehouse`; test hook `data-spots` |
 | Wissen challenges | `src/content/de/knowledge.ts` (animals, babies, colours/shapes with declension helpers, season/weather questions, odd-one-out categories), `src/modules/challenges/knowledge/`, `src/ui/challenges/KnowledgeView.tsx` | one shared `QuizData` shape + view for all five types |
 | Session subjects | `src/core/challenges/subjects.ts` (`allowedSubjects`, `sessionSubjects`, `toggleSubject`), chips in `WorldSelectScreen`, filter in `GameScreen` | App state only (not saved); challenge dialog exposes `data-type` for tests |
+| Learner stage & curriculum | `src/core/learner/stage.ts` (`STAGES`, `currentStage`: +1 per 1 August, Kita stays), `src/core/challenges/selection.ts` (`levelWindow`, `selectChallengeTypes`), `LevelInfo`/`lv()` in `core/challenges/types.ts`, catalogue `src/content/curriculum/de-ni.ts`, `src/ui/screens/StageScreen.tsx` | ADR-0009; save v9 adds `learner` + `stageAsked`; world config lists type ids only; research and source PDFs in `docs/curriculum/` |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

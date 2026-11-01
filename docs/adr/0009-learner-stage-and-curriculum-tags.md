@@ -168,3 +168,21 @@ templates and clips (ADR-0007).
     is planned for them yet.
 - The KC versions in force (2017) were verified against the ministry PDFs on 2026-11-01. The
   2024 drafts are only used to order content within the 2017 goals.
+
+## Implementation notes (M13a)
+Small choices made during implementation:
+- **"Kita" does not auto-advance.** It covers ages 3–5 (several school years), so a grown-up
+  switches to "Vorschule". From "Vorschule" on, the stage moves up one step per 1 August.
+- **Profile fields:** `learner: {stage, schoolYear, region}` and `stageAsked`. `stageAsked`
+  stops the one-time question after "Später".
+- **Levels below the window stay reachable.** A struggling child can still drop to level 1 of
+  an offered type; only the top is limited (stretch = one stage).
+- **Outgrown types are dropped** (every level has a `max` below the stage, e.g. colours for
+  2. Klasse).
+- **Fallback.** If parents' switches and session subjects leave nothing for the stage, the
+  selection falls back to the stage filter alone, and then to everything. Chests are never
+  empty.
+- **No stage** (`learner: null`): all levels, start at level 1.
+- **Competency ids** follow `ni.<framework><end stage>.<topic>` (`op`, `a2`, `ma2`, `de2`,
+  `su2`). A unit test checks that each id cites a document stored in
+  `docs/curriculum/sources/sources.json`.

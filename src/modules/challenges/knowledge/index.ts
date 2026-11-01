@@ -1,4 +1,4 @@
-import type { ChallengeInstance, ChallengeType } from '../../../core/challenges/types';
+import { type ChallengeInstance, type ChallengeType, lv } from '../../../core/challenges/types';
 import type { Rng } from '../../../core/rng';
 import {
   ANIMALS,
@@ -27,6 +27,11 @@ export const knowledgeAnimalName: ChallengeType<QuizData> = {
   subject: 'knowledge',
   skills: ['knowledge.animals'],
   levels: 3,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.natur'),
+    lv('kita', 'grade1', 'ni.op.natur', 'ni.su2.tiere'),
+    lv('preschool', 'grade2', 'ni.su2.tiere'),
+  ],
   generate({ rng, level }) {
     const l = clampLevel(level, 3);
     const animal = rng.pick(ANIMALS);
@@ -50,6 +55,11 @@ export const knowledgeAnimalBaby: ChallengeType<QuizData> = {
   subject: 'knowledge',
   skills: ['knowledge.animals'],
   levels: 3,
+  levelInfo: [
+    lv('kita', 'grade1', 'ni.op.natur', 'ni.su2.tiere'),
+    lv('preschool', 'grade1', 'ni.su2.tiere'),
+    lv('preschool', 'grade2', 'ni.su2.tiere'),
+  ],
   generate({ rng, level }) {
     const l = clampLevel(level, 3);
     const pair = rng.pick(BABIES);
@@ -73,6 +83,11 @@ export const knowledgeColors: ChallengeType<QuizData> = {
   subject: 'knowledge',
   skills: ['knowledge.colors-shapes'],
   levels: 3,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.sortieren'),
+    lv('kita', 'preschool', 'ni.op.sortieren'),
+    lv('preschool', 'grade1', 'ni.op.formen'),
+  ],
   generate({ rng, level }): ChallengeInstance<QuizData> {
     const l = clampLevel(level, 3);
     if (l < 3) {
@@ -133,6 +148,11 @@ export const knowledgeSeasons: ChallengeType<QuizData> = {
   subject: 'knowledge',
   skills: ['knowledge.seasons-weather'],
   levels: 3,
+  levelInfo: [
+    lv('kita', 'grade1', 'ni.op.zeit', 'ni.su2.zeit'),
+    lv('preschool', 'grade1', 'ni.su2.zeit'),
+    lv('preschool', 'grade2', 'ni.su2.zeit', 'ni.su2.natur'),
+  ],
   generate({ rng, level }): ChallengeInstance<QuizData> {
     const l = clampLevel(level, 3);
     if (l < 3) {
@@ -168,6 +188,11 @@ export const knowledgeOddOneOut: ChallengeType<QuizData> = {
   subject: 'knowledge',
   skills: ['knowledge.categories'],
   levels: 3,
+  levelInfo: [
+    lv('kita', 'preschool', 'ni.op.sortieren'),
+    lv('preschool', 'grade1', 'ni.op.sortieren', 'ni.de2.woerter-ordnen'),
+    lv('preschool', 'grade2', 'ni.de2.woerter-ordnen'),
+  ],
   generate({ rng, level }) {
     const l = clampLevel(level, 3);
     const category = rng.pick(ODD_CATEGORIES);

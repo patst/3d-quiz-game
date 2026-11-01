@@ -1,3 +1,4 @@
+import type { LearnerInfo } from '../learner/stage';
 import type { Equipped } from '../rewards/rewards';
 import type { Treehouse } from '../rewards/treehouse';
 import type { SkillState } from '../skills/skillModel';
@@ -45,6 +46,10 @@ export interface Profile {
   levels: Record<string, number>;
   /** Decorations placed in the tree house (M10). */
   treehouse: Treehouse;
+  /** Kita / Vorschule / Klasse, chosen by a grown-up; null = not set (ADR-0009). */
+  learner: LearnerInfo | null;
+  /** The one-time stage question was answered or skipped; don't ask again on open. */
+  stageAsked: boolean;
 }
 
 export const MAX_PROFILES = 6;
@@ -68,5 +73,7 @@ export function createProfile(input: { id: string; name: string; avatar: Avatar;
     disabledChallenges: [],
     levels: {},
     treehouse: {},
+    learner: null,
+    stageAsked: false,
   };
 }

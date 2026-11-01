@@ -5,7 +5,7 @@ import { JAR_SIZE } from '../rewards/rewards';
  * The persisted save document for one device (all local profiles).
  * Bump SAVE_VERSION and add a migration whenever the shape changes.
  */
-export const SAVE_VERSION = 8;
+export const SAVE_VERSION = 9;
 
 /** Device-wide settings, changed in the parents area. */
 export interface Settings {
@@ -93,6 +93,16 @@ const migrations: Record<number, (doc: Record<string, unknown>) => Record<string
     ...doc,
     version: 8,
     profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({ ...p, treehouse: {} })),
+  }),
+  // v8 → v9: learner stage (ADR-0009). Unknown for existing profiles; asked once on next open.
+  8: (doc) => ({
+    ...doc,
+    version: 9,
+    profiles: (Array.isArray(doc.profiles) ? doc.profiles : []).map((p: Record<string, unknown>) => ({
+      ...p,
+      learner: null,
+      stageAsked: false,
+    })),
   }),
 };
 

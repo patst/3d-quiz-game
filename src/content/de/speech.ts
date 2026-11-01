@@ -187,6 +187,8 @@ export function speechText(line: SpeechLine): string {
 /** Fixed sentences spoken outside challenges (screens, guide). */
 export const staticSpokenTexts: readonly string[] = [
   de.createProfile.speakIntro,
+  de.stage.question,
+  ...Object.values(de.stage.spoken),
   ...Object.values(de.lostAnimals).flatMap((a) => [a.speakStart, a.speakGoal, a.name]),
   ...Object.values(de.animals),
   de.breakTime.speak,

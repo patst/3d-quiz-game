@@ -23,7 +23,7 @@ voice → Thorsten high).
 | **M8 Maze levels** | Visible level counter per child; mazes grow with the level | ✅ PR |
 | **M9 Underwater world** | Second world with guide Ida, coral maze, sea friends; world selection | ✅ PR |
 | **M10 Tree house** | Home base: decorations as rewards, place them, rescued friends live there | ✅ PR |
-| **M11 New categories** | a) Olli zeigt den Weg ✅ · b) Wissen: Tiernamen, Tierbabys, Farben & Formen, Jahreszeiten & Wetter, Was gehört nicht dazu? · c) child chooses subjects per session within parents' selection | in progress (owner approved 2026-11-01) |
+| **M11 New categories** | a) Olli zeigt den Weg · b) Wissen: Tiernamen, Tierbabys, Farben & Formen, Jahreszeiten & Wetter, Was gehört nicht dazu? · c) child chooses subjects per session within parents' selection | ✅ PRs |
 | **M12 Voice upgrade** | Paid/licensed TTS at build time (e.g. Azure; child voice "Gisela"), letter sounds | parked — owner keeps it in mind |
 
 Further ideas: "Olli zeigt den Weg" (hint arrow towards the goal in big mazes), word bank → 150 words, parents' progress over time, world map / journey.

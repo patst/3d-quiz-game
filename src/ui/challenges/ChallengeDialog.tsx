@@ -55,7 +55,7 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
 
   return (
     <div className="overlay challenge-overlay" role="dialog" aria-modal data-testid="challenge">
-      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier}>
+      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier} data-type={challenge.typeId}>
         <span className="tier-badge" aria-hidden>
           {TIER_ICONS[chest.tier]}
         </span>

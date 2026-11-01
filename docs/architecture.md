@@ -141,5 +141,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Worlds | `src/modules/worlds/{forest,underwater}`, `WorldTheme` (guide, lostAnimals, unlock, style hedge/coral, colours), `src/core/progress/worlds.ts`, `src/ui/worlds/WorldSelectScreen.tsx` | new world = module + register + content texts + lost-animal models |
 | Tree house | `src/core/rewards/treehouse.ts`, `src/render/treehouse/{TreehouseView,decor}.ts`, `src/ui/treehouse/TreehouseScreen.tsx` | reward slot `decor`; save v8 adds `treehouse`; test hook `data-spots` |
 | Wissen challenges | `src/content/de/knowledge.ts` (animals, babies, colours/shapes with declension helpers, season/weather questions, odd-one-out categories), `src/modules/challenges/knowledge/`, `src/ui/challenges/KnowledgeView.tsx` | one shared `QuizData` shape + view for all five types |
+| Session subjects | `src/core/challenges/subjects.ts` (`allowedSubjects`, `sessionSubjects`, `toggleSubject`), chips in `WorldSelectScreen`, filter in `GameScreen` | App state only (not saved); challenge dialog exposes `data-type` for tests |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

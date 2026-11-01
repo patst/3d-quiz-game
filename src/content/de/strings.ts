@@ -135,6 +135,13 @@ export const de = {
     forest: { name: 'Zauberwald', icon: '🌳' },
     underwater: { name: 'Unterwasserwelt', icon: '🐠' },
   } as Record<string, { name: string; icon: string }>,
+  subjects: {
+    today: 'Heute spiele ich:',
+    speakToday: 'Was möchtest du heute üben? Tippe an, was du spielen willst.',
+    names: { math: 'Mathe', german: 'Deutsch', knowledge: 'Wissen' } as Record<string, string>,
+    icons: { math: '🔢', german: '🔤', knowledge: '🐾' } as Record<string, string>,
+    keepOne: 'Eins bleibt an!',
+  },
   worldSelect: {
     title: 'Wohin geht die Reise?',
     speak: 'Wohin möchtest du heute? In den Zauberwald oder in die Unterwasserwelt?',

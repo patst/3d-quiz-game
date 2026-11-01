@@ -9,7 +9,9 @@ import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
 import { autoPlace, placeDecor, removeDecor, type TreehouseSpot } from '../core/rewards/treehouse';
 import { initialSkill, recordOutcome } from '../core/skills/skillModel';
-import { getChallengeType } from '../modules/challenges';
+import { challengeTypes, getChallengeType } from '../modules/challenges';
+import { allowedSubjects, sessionSubjects, toggleSubject } from '../core/challenges/subjects';
+import type { SubjectId } from '../core/challenges/types';
 import { getWorld } from '../modules/worlds';
 import { WorldSelectScreen } from '../ui/worlds/WorldSelectScreen';
 import { TreehouseScreen } from '../ui/treehouse/TreehouseScreen';
@@ -33,6 +35,8 @@ export function App() {
   const { doc, update } = useSave(store);
   const [screen, setScreen] = useState<Screen>({ name: 'profiles' });
   const [gateOpen, setGateOpen] = useState(false);
+  // Child's subject choice for this session (null = all that parents allow).
+  const [chosenSubjects, setChosenSubjects] = useState<SubjectId[] | null>(null);
   // Play-time limit: counted from the first maze of this app session (memory only).
   const [sessionStart, setSessionStart] = useState<number | null>(null);
   const [now, setNow] = useState(() => Date.now());
@@ -87,6 +91,8 @@ export function App() {
   }
 
   const active = doc.profiles.find((p) => p.id === doc.activeProfileId) ?? null;
+  const allowed = active ? allowedSubjects(challengeTypes, active.disabledChallenges) : [];
+  const subjects = sessionSubjects(chosenSubjects, allowed);
 
   if (screen.name === 'create' || (screen.name === 'profiles' && doc.profiles.length === 0)) {
     return (
@@ -105,6 +111,9 @@ export function App() {
     return (
       <WorldSelectScreen
         profile={active}
+        allowed={allowed}
+        chosen={subjects}
+        onToggleSubject={(s) => setChosenSubjects(toggleSubject(subjects, s))}
         onChoose={(worldId) => startGame(worldId)}
         onTreehouse={() => setScreen({ name: 'treehouse' })}
         onBack={() => setScreen({ name: 'profiles' })}
@@ -134,6 +143,7 @@ export function App() {
       <GameScreen
         profile={active}
         worldId={screen.worldId}
+        subjects={subjects}
         breakDue={breakDue}
         onHome={() => setScreen({ name: 'worlds' })}
         onStars={(stars) =>
@@ -208,6 +218,7 @@ export function App() {
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
+        setChosenSubjects(null);
         // Hub: worlds (locked ones show what is still to discover) and the tree house.
         setScreen({ name: 'worlds' });
       }}

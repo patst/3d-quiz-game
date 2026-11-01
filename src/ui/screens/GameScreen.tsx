@@ -15,6 +15,7 @@ import { RewardPicker } from '../rewards/RewardPicker';
 import { StarJar } from '../rewards/StarJar';
 import { Wardrobe } from '../rewards/Wardrobe';
 import { MazeSession, type Chest } from '../../core/session/mazeSession';
+import type { SubjectId } from '../../core/challenges/types';
 import { currentLevel, levelSpec } from '../../core/progress/levels';
 import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
 import { getChallengeType } from '../../modules/challenges';
@@ -25,6 +26,8 @@ import { ChallengeDialog } from '../challenges/ChallengeDialog';
 interface Props {
   profile: Profile;
   worldId: string;
+  /** Subjects chosen for this session (chests only contain these). */
+  subjects: readonly SubjectId[];
   /** Parent-set play time is over: show the break screen (after a running challenge). */
   breakDue: boolean;
   onHome: () => void;
@@ -60,6 +63,7 @@ function route(path: Tile[]): string {
 export function GameScreen({
   profile,
   worldId,
+  subjects,
   breakDue,
   onHome,
   onStars,
@@ -88,6 +92,10 @@ export function GameScreen({
   const [guide, setGuide] = useState<string>('olli');
   const [newWorld, setNewWorld] = useState<string | null>(null);
   const disabledRef = useRef(profile.disabledChallenges);
+  const subjectsRef = useRef(subjects);
+  useEffect(() => {
+    subjectsRef.current = subjects;
+  }, [subjects]);
   useEffect(() => {
     disabledRef.current = profile.disabledChallenges;
   }, [profile.disabledChallenges]);
@@ -128,7 +136,9 @@ export function GameScreen({
     setLostAnimal(animal);
     // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
     const only = new URLSearchParams(window.location.search).get('challenge');
-    const enabled = world.chests.challenges.filter((c) => !disabledRef.current.includes(c.typeId));
+    const enabled = world.chests.challenges.filter(
+      (c) => !disabledRef.current.includes(c.typeId) && subjectsRef.current.includes(getChallengeType(c.typeId).subject),
+    );
     const allowed = (enabled.length > 0 ? enabled : world.chests.challenges).filter((c) => !only || c.typeId === only);
     const chests = planChests(
       createRng(seed ^ 0x2545f491),

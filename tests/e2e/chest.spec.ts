@@ -30,6 +30,8 @@ test('walk to a chest, solve the challenge and earn stars', async ({ page }) => 
   for (let i = 0; i < 4 && !(await next.isVisible()); i++) {
     await challenge.locator('.number-button:not([disabled])').first().click();
   }
+  // Either cheerful praise (jingle + confetti) or the explained solution.
+  await expect(challenge.locator('[data-testid="praise"], .feedback.reveal')).toBeVisible();
   await next.click();
   await expect(challenge).toBeHidden();
   await expect(page.getByTestId('star-jar')).not.toHaveAttribute('data-jar', '0');

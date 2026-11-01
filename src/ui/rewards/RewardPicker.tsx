@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { playFanfare, playPling } from '../../audio/sfx';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import type { RewardItem } from '../../core/rewards/rewards';
@@ -13,7 +14,10 @@ interface Props {
 /** "Dein Sternenglas ist voll!" — the child picks one of (up to) three items. */
 export function RewardPicker({ offer, onChoose }: Props) {
   useEffect(() => {
-    speech().speak(offer.length > 0 ? de.rewards.speakPick : de.rewards.allCollected);
+    playFanfare();
+    // Let the fanfare play first, then talk.
+    const id = window.setTimeout(() => speech().speak(offer.length > 0 ? de.rewards.speakPick : de.rewards.allCollected), 1200);
+    return () => window.clearTimeout(id);
   }, [offer.length]);
 
   return (
@@ -32,6 +36,7 @@ export function RewardPicker({ offer, onChoose }: Props) {
                   key={item.id}
                   className="card reward-card"
                   onClick={() => {
+                    playPling();
                     speech().speak(de.rewards.thanks);
                     onChoose(item.id);
                   }}

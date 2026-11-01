@@ -136,5 +136,6 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Views with own answers | `ChallengeViewEntry.ownsChoices` in `src/ui/challenges/index.ts` (compare, pattern); `ChallengeInstance.promptDisplay` hides spoken answers | `?challenge=<typeId>` limits chests to one type (review/E2E) |
 | German word bank | `src/content/de/words.ts` (word, emoji, syllables, initial, rhyme) used by `src/modules/challenges/german-*` | modules may read content data; consistency tests in `words.test.ts`; save v6 adds `disabledChallenges` |
 | PWA / offline | `vite.config.ts` (`vite-plugin-pwa`), `public/icons/`, clip fetch in `src/audio/speech.ts` | ADR-0008; no service worker on PR previews |
+| Sound effects | `src/audio/sfx.ts` (Web Audio synth: jingles, fanfare, bloop, pling) | no audio files; `settings.sfx` toggle |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

@@ -124,6 +124,7 @@ export const de = {
     readingNote: 'Tipp: „Wörter lesen“ ausschalten, solange Ihr Kind noch nicht liest.',
     settings: 'Einstellungen',
     speech: 'Aufgaben vorlesen',
+    sfx: 'Töne und Jubel-Melodien',
     sessionLimit: 'Spielzeit pro Sitzung',
     sessionOff: 'unbegrenzt',
     sessionMinutes: (m: number) => `${m} Minuten`,
@@ -198,6 +199,8 @@ export const de = {
     'german.read-word': 'Wörter lesen',
   } as Record<string, string>,
   challenge: {
+    /** Shown (with a jingle and confetti) after a correct answer; picked at random. */
+    praise: ['Toll!', 'Super!', 'Klasse!', 'Spitze!', 'Wow!', 'Prima!', 'Juhu!', 'Stark!', 'Bravo!'] as const,
     listen: 'Nochmal hören',
     skip: 'Überspringen',
     skipQuestion: 'Möchtest du diese Aufgabe wirklich überspringen?',

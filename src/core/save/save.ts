@@ -13,9 +13,11 @@ export interface Settings {
   speech: boolean;
   /** Optional play-time limit per session in minutes; 0 = off (game-design §8). */
   sessionMinutes: number;
+  /** Jingles and sound effects. */
+  sfx: boolean;
 }
 
-export const DEFAULT_SETTINGS: Settings = { speech: true, sessionMinutes: 0 };
+export const DEFAULT_SETTINGS: Settings = { speech: true, sessionMinutes: 0, sfx: true };
 
 export interface SaveDoc {
   version: typeof SAVE_VERSION;

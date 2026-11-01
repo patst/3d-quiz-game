@@ -92,7 +92,7 @@ export class MazeView {
     this.buildMaze();
 
     this.avatar = buildAnimal(opts.avatar, opts.equipped);
-    this.trail = new TrailEmitter(this.scene, opts.equipped.trail);
+    this.trail = new TrailEmitter(this.scene, opts.equipped.trail, this.camera);
     this.avatar.position.set(this.tile.x, 0, this.tile.y);
     this.scene.add(this.avatar);
 

@@ -97,7 +97,6 @@ export const speechTemplates: Record<string, Template> = {
     render: (p) => `Das Wort heißt ${p.word}.`,
     variants: () => WORDS.map((w) => ({ word: w.word })),
   },
-  'feedback.correct': { render: () => 'Super gemacht!', variants: none },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
   'feedback.skipQuestion': { render: () => 'Möchtest du diese Aufgabe wirklich überspringen?', variants: none },

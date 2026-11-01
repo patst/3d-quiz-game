@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { playPling } from '../../audio/sfx';
 import { speech } from '../../audio/speech';
 import { de } from '../../content/de/strings';
 import { generateMaze } from '../../core/maze/generate';
@@ -145,6 +146,7 @@ export function GameScreen({
       pet: petRef.current,
       onEvent: (ev) => {
         if (ev.type === 'chestReached') {
+          playPling();
           view.setPaused(true);
           setOpenChest({ chest: session.chest(ev.chestId), visit: ++visits });
         } else if (ev.type === 'goalReached') {

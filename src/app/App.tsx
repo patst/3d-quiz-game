@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { setSfxEnabled } from '../audio/sfx';
 import { setSpeechEnabled } from '../audio/speech';
 import { ParentGate } from '../ui/parents/ParentGate';
 import { ParentsArea } from '../ui/parents/ParentsArea';
@@ -40,6 +41,8 @@ export function App() {
   const speechOn = doc?.settings.speech ?? true;
 
   useEffect(() => setSpeechEnabled(speechOn), [speechOn]);
+  const sfxOn = doc?.settings.sfx ?? true;
+  useEffect(() => setSfxEnabled(sfxOn), [sfxOn]);
 
   if (!doc) return <div className="loading" />;
 
@@ -62,6 +65,7 @@ export function App() {
         }
         onDelete={(id) => update((d) => removeProfile(d, id))}
         onSpeech={(on) => update((d) => updateSettings(d, { speech: on }))}
+        onSfx={(on) => update((d) => updateSettings(d, { sfx: on }))}
         onSessionMinutes={(minutes) => update((d) => updateSettings(d, { sessionMinutes: minutes }))}
         onEndBreak={() => {
           setSessionStart(null);

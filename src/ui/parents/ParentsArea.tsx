@@ -12,6 +12,7 @@ interface Props {
   onToggleChallenge: (id: string, typeId: string, enabled: boolean) => void;
   onDelete: (id: string) => void;
   onSpeech: (on: boolean) => void;
+  onSfx: (on: boolean) => void;
   onSessionMinutes: (minutes: number) => void;
   onEndBreak: () => void;
   onImport: (raw: unknown) => void;
@@ -42,6 +43,7 @@ export function ParentsArea({
   onToggleChallenge,
   onDelete,
   onSpeech,
+  onSfx,
   onSessionMinutes,
   onEndBreak,
   onImport,
@@ -148,6 +150,10 @@ export function ParentsArea({
         <label className="toggle">
           <input type="checkbox" checked={doc.settings.speech} onChange={(e) => onSpeech(e.target.checked)} />
           {de.parents.speech}
+        </label>
+        <label className="toggle">
+          <input type="checkbox" checked={doc.settings.sfx} onChange={(e) => onSfx(e.target.checked)} />
+          {de.parents.sfx}
         </label>
         <label className="toggle">
           {de.parents.sessionLimit}

@@ -1,7 +1,17 @@
 import type { FindNumberData } from '../../modules/challenges/math-find-number';
 import type { ChallengeViewProps } from './types';
 
-/** Big ear; hint shows the amount as tens bars and ones dots; solved shows the digits. */
+function DotRow({ filled, kind }: { filled: number; kind: 'ten' | 'one' }) {
+  return (
+    <span className={`dot-row ${kind}`}>
+      {Array.from({ length: 10 }, (_, j) => (
+        <span key={j} className={`unit-dot ${j < filled ? 'filled' : 'empty'}`} />
+      ))}
+    </span>
+  );
+}
+
+/** Big ear; hint shows the amount in rows of ten; solved shows the digits. */
 export function FindNumberView({ data, hint, solved }: ChallengeViewProps<FindNumberData>) {
   const tens = Math.floor(data.number / 10);
   const ones = data.number % 10;
@@ -15,19 +25,13 @@ export function FindNumberView({ data, hint, solved }: ChallengeViewProps<FindNu
         </div>
       )}
       {(hint || solved) && (
-        <div className="place-value" aria-hidden>
+        // One row per ten (10 dots, grouped 5 + 5 like a ten-frame), ones in the last row:
+        // everything reads left to right, top to bottom.
+        <div className="place-value" aria-hidden data-testid="place-value">
           {Array.from({ length: tens }, (_, i) => (
-            <span key={`t${i}`} className="ten-bar">
-              {Array.from({ length: 10 }, (_, j) => (
-                <span key={j} className="unit-dot" />
-              ))}
-            </span>
+            <DotRow key={`t${i}`} filled={10} kind="ten" />
           ))}
-          <span className="ones">
-            {Array.from({ length: ones }, (_, i) => (
-              <span key={i} className="unit-dot" />
-            ))}
-          </span>
+          {ones > 0 && <DotRow filled={ones} kind="one" />}
         </div>
       )}
     </div>

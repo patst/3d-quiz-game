@@ -1,6 +1,6 @@
 # ADR-0009: Learner stage on the profile, curriculum tags on challenge levels
 
-- **Status:** Proposed
+- **Status:** Accepted (owner, 2026-11-01)
 - **Date:** 2026-11-01
 - **Deciders:** owner / agent
 
@@ -36,7 +36,7 @@ Facts that shape the design:
    competency ids.** Pros: fits the generator model; one place per type; competency ids make
    coverage measurable and allow other curricula later.
 
-## Decision (proposed)
+## Decision
 Options **3 + 5**.
 
 ### 1. Learner stage (core, pure TS)
@@ -159,6 +159,12 @@ templates and clips (ADR-0007).
   grows with every new sentence, so audio generation time rises; consider batching.
 - The world config loses `startLevel`, so architecture §3.1 and the design doc must be
   updated in the same PR as M13a.
-- Open: owner decisions in `open-questions.md` #3. The KC versions in force (2017) were
-  verified on 2026-11-01. The 2024 drafts are only used to order content within the 2017
-  goals.
+- Owner decisions (2026-11-01):
+  - Parents choose the **school stage**, not the age.
+  - The stage question is shown to a grown-up **without the parent gate**. It can be skipped
+    and changed later in the Parents area.
+  - Build order: M13a → M13b preschool → M13c grade 1–2 math → M13d grade 1–2 German.
+  - Content scope: **kita up to grade 2**. Grades 3–4 stay in the stage model, but no content
+    is planned for them yet.
+- The KC versions in force (2017) were verified against the ministry PDFs on 2026-11-01. The
+  2024 drafts are only used to order content within the 2017 goals.

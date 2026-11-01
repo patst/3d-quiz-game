@@ -24,7 +24,7 @@ voice → Thorsten high).
 | **M9 Underwater world** | Second world with guide Ida, coral maze, sea friends; world selection | ✅ PR |
 | **M10 Tree house** | Home base: decorations as rewards, place them, rescued friends live there | ✅ PR |
 | **M11 New categories** | a) Olli zeigt den Weg · b) Wissen: Tiernamen, Tierbabys, Farben & Formen, Jahreszeiten & Wetter, Was gehört nicht dazu? · c) child chooses subjects per session within parents' selection | ✅ PRs |
-| **M13 Curriculum stages** | Learner stage on the profile, stage + competency tags on challenge levels (ADR-0009, proposed); content packs: a) stage model + migration, b) preschool pack, c) grade 1–2 math (KC), d) grade 1–2 German (KC). Research: `docs/curriculum/niedersachsen.md` | proposal — awaiting owner decisions |
+| **M13 Curriculum stages** | Learner stage on the profile, stage + competency tags on challenge levels (ADR-0009); content packs: a) stage model + migration, b) preschool pack, c) grade 1–2 math (KC), d) grade 1–2 German (KC). Research: `docs/curriculum/niedersachsen.md` | accepted 2026-11-01; scope kita – grade 2; order a → b → c → d |
 | **M12 Voice upgrade** | Paid/licensed TTS at build time (e.g. Azure; child voice "Gisela"), letter sounds | parked — owner keeps it in mind |
 
 Further ideas: "Olli zeigt den Weg" (hint arrow towards the goal in big mazes), word bank → 150 words, parents' progress over time, world map / journey.

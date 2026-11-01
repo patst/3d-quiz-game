@@ -329,6 +329,16 @@ export const de = {
     'knowledge.colors': 'Farben und Formen',
     'knowledge.seasons': 'Jahreszeiten und Wetter',
     'knowledge.odd-one-out': 'Was gehört nicht dazu?',
+    'math.dice': 'Würfelbilder',
+    'math.neighbors': 'Nachbarzahlen',
+    'math.position': 'Oben, unten, neben',
+    'math.sizes': 'Groß und klein',
+    'german.same-start': 'Anfänge hören',
+    'german.syllable-blend': 'Silben zusammensetzen',
+    'german.opposites': 'Gegenteile',
+    'knowledge.habitat': 'Wo lebt das Tier?',
+    'knowledge.body': 'Körper und Sinne',
+    'knowledge.sequence': 'Was kommt zuerst?',
   } as Record<string, string>,
   challenge: {
     /** Shown (with a jingle and confetti) after a correct answer; picked at random. */

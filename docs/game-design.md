@@ -105,6 +105,29 @@ All fully auto-generated with a seeded RNG.
 3rd wrong → solution is shown and explained; **1 star** for effort regardless of tier.
 All outcomes feed the skill model.
 
+### 6.5 Curriculum packs (M13, ADR-0009)
+Content is aligned with the Niedersachsen frameworks (`docs/curriculum/niedersachsen.md`).
+Stages in brackets are where a type starts. Everything is spoken; preschool tasks need no
+reading.
+
+**Preschool pack (M13b)**
+
+| Type | Example | Stages |
+|---|---|---|
+| Würfelbilder | dice face → "Wie viele Punkte?"; two dice; ten-frames to 20 | Kita → 2. Kl. |
+| Nachbarzahlen | "Welche Zahl kommt nach 4?" / "vor …" (to 10, 20, 100) | Vorschule → 2. Kl. |
+| Oben, unten, neben | "Tippe auf das Bild: Der Ball ist unter der Kiste." (auf/unter/neben/zwischen) | Kita → 1. Kl. |
+| Groß und klein | "Tippe auf den größten Baum!" / "die kleinste Blume" (3, then 4 sizes) | Kita → 1. Kl. |
+| Anfänge hören | "Was fängt genauso an wie Mond?" (pictures, no letters) | Vorschule → 1. Kl. |
+| Silben zusammensetzen | "Hör gut zu: Ba, na, ne. Welches Bild ist das?" | Kita → 1. Kl. |
+| Gegenteile | "Was ist das Gegenteil von heiß?" | Kita → 2. Kl. |
+| Wo lebt das Tier? | fox → Wald / Meer / Bauernhof … | Kita → 2. Kl. |
+| Körper und Sinne | "Tippe auf die Nase!" → "Womit hörst du?" | Kita → 2. Kl. |
+| Was kommt zuerst? | Ei, Küken, Huhn: zuerst / zuletzt / in der Mitte | Kita → 2. Kl. |
+
+Single-sound tasks (Lautsynthese "M-au-s", final sounds) wait for a voice that can speak
+isolated sounds (M12).
+
 ## 7. Rewards & progression
 - **Stars:** bronze 1 · silver 2 · gold 3 (solved with ≤ 1 wrong try), otherwise 1.
   Skipped = 0.
@@ -143,6 +166,7 @@ German challenges (planned next), more worlds/scenarios, multiplayer, teacher mo
 cloud sync, other languages, speech-recognition answers.
 
 ## Changelog
+- v1.21 (2026-11-01): M13b — preschool pack, 10 new challenge types (§6.5), picture- and sound-based, tagged for Kita/Vorschule (ADR-0009).
 - v1.20 (2026-11-01): M13a (owner-approved ADR-0009) — learner stage per profile (Kindergarten, Vorschule, 1.–4. Klasse), asked once by a grown-up and editable in the parents area; challenge levels carry stage ranges and curriculum competencies; chests only offer types and levels that fit the stage.
 - v1.19 (2026-11-01): M11c — the child chooses today's subjects on the hub ("Heute spiele ich: 🔢 Mathe · 🔤 Deutsch · 🐾 Wissen"), within what parents allow (subjects with all types switched off are not offered); at least one stays on; the choice lasts for the session and resets when switching profiles. Chests only contain the chosen subjects.
 - v1.18 (2026-11-01): M11b new subject "Wissen" with 5 challenge types: Tiere benennen (picture → name, 2–4 names, each with 🔊), Tierbabys ("Wie heißt das Baby vom Schaf?"), Farben und Formen ("Tippe auf Rot!" → "Tippe auf den blauen Kreis!"), Jahreszeiten und Wetter ("Wann fällt Schnee?" → "Was brauchst du, wenn es regnet?"), Was gehört nicht dazu? (3–4 of a kind + 1; level 2 uses close categories like Obst/Gemüse). Parents can switch them per child like the other types.

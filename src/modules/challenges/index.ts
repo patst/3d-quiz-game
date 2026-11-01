@@ -16,6 +16,18 @@ import { mathCount } from './math-count';
 import { mathFindNumber } from './math-find-number';
 import { mathPattern } from './math-pattern';
 import { mathSubtraction } from './math-subtraction';
+import { mathDice } from './math-dice';
+import { mathNeighbors } from './math-neighbors';
+import { mathPosition } from './math-position';
+import {
+  germanOpposites,
+  germanSameStart,
+  germanSyllableBlend,
+  knowledgeBody,
+  knowledgeHabitat,
+  knowledgeSequence,
+  mathSizes,
+} from './preschool';
 
 /**
  * Registry of all challenge types (architecture §3.1).
@@ -30,15 +42,25 @@ export const challengeTypes: readonly ChallengeType[] = [
   mathAddition,
   mathSubtraction,
   mathPattern,
+  mathDice,
+  mathNeighbors,
+  mathPosition,
+  mathSizes,
   germanInitialSound,
   germanSyllables,
   germanRhyme,
   germanReadWord,
+  germanSameStart,
+  germanSyllableBlend,
+  germanOpposites,
   knowledgeAnimalName,
   knowledgeAnimalBaby,
   knowledgeColors,
   knowledgeSeasons,
   knowledgeOddOneOut,
+  knowledgeHabitat,
+  knowledgeBody,
+  knowledgeSequence,
 ] as ChallengeType[];
 
 export function getChallengeType(id: string): ChallengeType {

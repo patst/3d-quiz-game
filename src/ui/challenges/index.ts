@@ -1,6 +1,9 @@
 import { AdditionView } from './AdditionView';
 import { CompareView } from './CompareView';
 import { CountView } from './CountView';
+import { DiceView } from './DiceView';
+import { NeighborsView } from './NeighborsView';
+import { PositionView } from './PositionView';
 import { FindNumberView } from './FindNumberView';
 import { InitialSoundView } from './InitialSoundView';
 import { KnowledgeView } from './KnowledgeView';
@@ -28,4 +31,15 @@ export const challengeViews: Record<string, ChallengeViewEntry> = {
   'knowledge.colors': { View: KnowledgeView as ChallengeView, ownsChoices: true },
   'knowledge.seasons': { View: KnowledgeView as ChallengeView, ownsChoices: true },
   'knowledge.odd-one-out': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  // Preschool pack (M13b)
+  'math.dice': { View: DiceView as ChallengeView },
+  'math.neighbors': { View: NeighborsView as ChallengeView },
+  'math.position': { View: PositionView as ChallengeView, ownsChoices: true },
+  'math.sizes': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.same-start': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.syllable-blend': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.opposites': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.habitat': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.body': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'knowledge.sequence': { View: KnowledgeView as ChallengeView, ownsChoices: true },
 };

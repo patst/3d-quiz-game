@@ -16,6 +16,23 @@ import {
   WEATHER_ITEMS,
   WEATHER_QUESTIONS,
 } from './knowledge';
+import {
+  BODY_PARTS,
+  bodyAccusative,
+  bodyNominative,
+  HABITAT_ANIMALS,
+  HABITATS,
+  OPPOSITE_WORDS,
+  POSITION_OBJECTS,
+  POSITION_PHRASES,
+  POSITIONS,
+  SENSES,
+  SEQUENCES,
+  SIZE_ITEMS,
+  sizeAccusative,
+  sizeNominative,
+  type Position,
+} from './preschool';
 
 /** German names of countable objects: [singular, plural]. */
 export const objectNames: Record<CountObject, readonly [string, string]> = {
@@ -50,6 +67,28 @@ const additionPairs = () => range(1, 19).flatMap((a) => range(1, 20 - a).map((b)
 const color = (id: string | number | undefined) => COLORS.find((c) => c.id === id)!;
 const shape = (id: string | number | undefined) => SHAPES.find((s) => s.id === id)!;
 const colorName = (id: string | number | undefined) => color(id)?.name ?? '';
+// Preschool pack helpers (M13b).
+const soundWords = () => WORDS.filter((w) => w.initial && WORDS.some((o) => o.id !== w.id && o.initial === w.initial));
+const syllableWords = () => WORDS.filter((w) => w.syllables.length >= 2);
+/** Spoken syllables where written hyphenation sounds wrong ("Schne-cke" is spoken "Schnek-ke"). */
+const SPOKEN_SYLLABLES: Record<string, string> = { Schnecke: 'Schnek, ke' };
+const syllablesOf = (word: string | number | undefined) =>
+  SPOKEN_SYLLABLES[String(word)] ?? WORDS.find((w) => w.word === word)?.syllables.join(', ') ?? '';
+const sizeItem = (id: string | number | undefined) => SIZE_ITEMS.find((i) => i.id === id)!;
+const bigSmall = (ask: string | number | undefined) => (ask === 'small' ? 'small' : 'big');
+const sizeVariants = () => SIZE_ITEMS.flatMap((i) => ['big', 'small'].map((ask) => ({ item: i.id, ask })));
+const bodyPart = (id: string | number | undefined) => BODY_PARTS.find((b) => b.id === id)!;
+const habitatSentence = (id: string | number | undefined) => {
+  const animal = HABITAT_ANIMALS.find((a) => a.id === id);
+  const home = HABITATS.find((h) => h.id === animal?.habitat);
+  return animal && home ? `${capitalize(animal.name)} lebt ${home.phrase}.` : '';
+};
+const positionSentence = (p: Params) => {
+  const object = POSITION_OBJECTS.find((o) => o.id === p.object);
+  return `${object?.name ?? ''} ist ${POSITION_PHRASES[p.position as Position] ?? ''}.`;
+};
+const positionVariants = () => POSITION_OBJECTS.flatMap((o) => POSITIONS.map((position) => ({ object: o.id, position })));
+
 const colorShapePairs = () => COLORS.filter((c) => c.adj).flatMap((c) => SHAPES.map((s) => ({ color: c.id, shape: s.id })));
 
 /** Speech templates referenced by `SpeechLine.key`. */
@@ -173,6 +212,91 @@ export const speechTemplates: Record<string, Template> = {
         ODD_CATEGORIES.filter((o) => o.id !== cat.id).flatMap((o) => o.items.map((i) => ({ odd: i.id, category: cat.id }))),
       ),
   },
+  // ── Preschool pack (M13b) ──
+  'german.same-start.prompt': {
+    render: (p) => `Was fängt genauso an wie ${p.word}?`,
+    variants: () => soundWords().map((w) => ({ word: w.word })),
+  },
+  'german.same-start.explain': {
+    render: (p) => `${p.word} und ${p.match} fangen gleich an.`,
+    variants: () =>
+      soundWords().flatMap((a) =>
+        WORDS.filter((b) => b.initial === a.initial && b.id !== a.id).map((b) => ({ word: a.word, match: b.word })),
+      ),
+  },
+  'german.syllable-blend.prompt': {
+    render: (p) => `Hör gut zu: ${syllablesOf(p.word)}. Welches Bild ist das?`,
+    variants: () => syllableWords().map((w) => ({ word: w.word })),
+  },
+  'german.syllable-blend.explain': {
+    render: (p) => `${syllablesOf(p.word)}: ${p.word}.`,
+    variants: () => syllableWords().map((w) => ({ word: w.word })),
+  },
+  'german.opposites.prompt': {
+    render: (p) => `Was ist das Gegenteil von ${p.word}?`,
+    variants: () => OPPOSITE_WORDS.map((w) => ({ word: w.word })),
+  },
+  'german.opposites.explain': {
+    render: (p) => `Das Gegenteil von ${p.word} ist ${p.opposite}.`,
+    variants: () => OPPOSITE_WORDS.map((w) => ({ word: w.word, opposite: w.partner.word })),
+  },
+  'math.sizes.prompt': {
+    render: (p) => `Tippe auf ${sizeAccusative(sizeItem(p.item), bigSmall(p.ask))}!`,
+    variants: sizeVariants,
+  },
+  'math.sizes.explain': {
+    render: (p) => `Schau, das ist ${sizeNominative(sizeItem(p.item), bigSmall(p.ask))}.`,
+    variants: sizeVariants,
+  },
+  'knowledge.habitat.prompt': { render: () => 'Wo lebt das Tier?', variants: none },
+  'knowledge.habitat.explain': {
+    render: (p) => habitatSentence(p.animal),
+    variants: () => HABITAT_ANIMALS.map((a) => ({ animal: a.id })),
+  },
+  'knowledge.body.prompt': {
+    render: (p) => `Tippe auf ${bodyAccusative(bodyPart(p.part))}!`,
+    variants: () => BODY_PARTS.map((b) => ({ part: b.id })),
+  },
+  'knowledge.body.explain': {
+    render: (p) => `Schau, das ist ${bodyNominative(bodyPart(p.part))}.`,
+    variants: () => BODY_PARTS.map((b) => ({ part: b.id })),
+  },
+  'knowledge.sense.prompt': {
+    render: (p) => SENSES.find((s) => s.id === p.sense)?.question ?? '',
+    variants: () => SENSES.map((s) => ({ sense: s.id })),
+  },
+  'knowledge.sense.explain': {
+    render: (p) => SENSES.find((s) => s.id === p.sense)?.answer ?? '',
+    variants: () => SENSES.map((s) => ({ sense: s.id })),
+  },
+  'knowledge.sequence.prompt': {
+    render: (p) => (p.ask === 'last' ? 'Was kommt zuletzt?' : p.ask === 'middle' ? 'Was kommt in der Mitte?' : 'Was kommt zuerst?'),
+    variants: () => ['first', 'last', 'middle'].map((ask) => ({ ask })),
+  },
+  'knowledge.sequence.explain': {
+    render: (p) => {
+      const steps = SEQUENCES.find((q) => q.id === p.sequence)?.steps;
+      return steps ? `Zuerst ${steps[0].name}, dann ${steps[1].name}, dann ${steps[2].name}.` : '';
+    },
+    variants: () => SEQUENCES.map((q) => ({ sequence: q.id })),
+  },
+  'math.dice.prompt': { render: () => 'Wie viele Punkte siehst du?', variants: none },
+  'math.dice.explain': {
+    render: (p) => (p.n === 1 ? 'Das ist ein Punkt.' : `Das sind ${p.n} Punkte.`),
+    variants: () => range(1, 20).map((n) => ({ n })),
+  },
+  'math.neighbors.prompt-after': { render: (p) => `Welche Zahl kommt nach ${p.n}?`, variants: () => range(1, 99).map((n) => ({ n })) },
+  'math.neighbors.prompt-before': { render: (p) => `Welche Zahl kommt vor ${p.n}?`, variants: () => range(2, 100).map((n) => ({ n })) },
+  'math.neighbors.explain-after': {
+    render: (p) => `Nach ${p.n} kommt ${p.m}.`,
+    variants: () => range(1, 99).map((n) => ({ n, m: n + 1 })),
+  },
+  'math.neighbors.explain-before': {
+    render: (p) => `Vor ${p.n} kommt ${p.m}.`,
+    variants: () => range(2, 100).map((n) => ({ n, m: n - 1 })),
+  },
+  'math.position.prompt': { render: (p) => `Tippe auf das Bild: ${positionSentence(p)}`, variants: positionVariants },
+  'math.position.explain': { render: (p) => `Schau: ${positionSentence(p)}`, variants: positionVariants },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
   'feedback.skipQuestion': { render: () => 'Möchtest du diese Aufgabe wirklich überspringen?', variants: none },
@@ -215,6 +339,11 @@ export const staticSpokenTexts: readonly string[] = [
   ...SEASONS.map((s) => s.name),
   ...WEATHER_ITEMS.map((i) => i.name),
   ...ODD_CATEGORIES.flatMap((c) => c.items.map((i) => i.name)),
+  // Preschool pack: speaker buttons on answer cards.
+  ...OPPOSITE_WORDS.map((w) => w.word),
+  ...HABITATS.map((h) => h.name),
+  ...SEQUENCES.flatMap((q) => q.steps.map((s) => s.name)),
+  ...BODY_PARTS.map((b) => b.word),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

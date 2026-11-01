@@ -18,6 +18,11 @@ for (const type of [
   'knowledge.colors',
   'knowledge.seasons',
   'knowledge.odd-one-out',
+  // Preschool pack (M13b): one per new view, plus a quiz type.
+  'math.dice',
+  'math.neighbors',
+  'math.position',
+  'knowledge.habitat',
 ]) {
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');

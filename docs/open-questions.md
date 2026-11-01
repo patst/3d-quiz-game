@@ -12,8 +12,6 @@ the question here. Rounds 1–2 answered on 2026-10-31.
    a) Ask parents for the **stage** (Kindergarten / Vorschule / 1.–4. Klasse, advancing every
       1 August) instead of the age? Recommended, because age does not determine the school
       year (Stichtag 30.09., deferrals, Kann-Kinder).
-   b) May the sandbox reach `mk.niedersachsen.de`, `cuvo.nibis.de` and
-      `bildungsportal-niedersachsen.de`, so that agents can verify the KC PDFs
-      (`docs/curriculum/niedersachsen.md`, items marked unverified)?
+   b) *(done: `mk.niedersachsen.de` allowed, KC PDFs verified 2026-11-01)*
    c) Order of the content packs: preschool (M13b) → grade 1–2 math (M13c) → grade 1–2
       German (M13d)?

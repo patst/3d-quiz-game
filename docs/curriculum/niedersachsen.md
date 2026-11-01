@@ -1,208 +1,182 @@
 # Curriculum research: Niedersachsen (Lower Saxony)
 
-**Status:** research notes, 2026-11-01. Input for ADR-0009 and the content roadmap (M13+).
+**Status:** research notes. Version 2 (2026-11-01) was **verified against the primary ministry
+PDFs** downloaded from `www.mk.niedersachsen.de`. This document feeds ADR-0009 and the content
+roadmap (M13).
 
-**Caveat:** the sandbox could not reach the ministry and state hosts (`mk.niedersachsen.de`,
-`cuvo.nibis.de`, `bildungsportal-niedersachsen.de`, `bildungsserver.de`). The facts below come
-from search-engine excerpts of those documents, from publishers' syllabus plans (Westermann
-Stoffverteilungspläne and Lehrplansynopsen) and from secondary sources. Items marked
-**(unverified)** need a check against the primary PDF before we cite them as "KC says". If
-the owner allows those hosts (see `open-questions.md`), an agent can verify them.
+## 0. Primary sources (all read in full or in the relevant chapters)
 
-## 1. Stages and the school-entry rule
+| Short name | Document | Status of the document |
+|---|---|---|
+| **Einschulung** | [Informationsblatt zur Flexibilisierung des Einschulungstermins](https://www.mk.niedersachsen.de/download/128260/Informationsblatt_zum_Einschulungstermin.pdf) | in force |
+| **OP** | [Orientierungsplan für Bildung und Erziehung im Elementarbereich, Gesamtausgabe 2023](https://www.mk.niedersachsen.de/download/4491/Orientierungsplan_fuer_Bildung_und_Erziehung_-_Gesamtausgabe_aktualisiert_2023.pdf) | in force (Kita) |
+| **KC Ma 2017** | [Kerncurriculum Grundschule Mathematik (2017)](https://www.mk.niedersachsen.de/download/120954/Kerncurriculum_Mathematik.pdf) | in force |
+| **KC Ma 2024** | [KC Mathematik für die Grundschule, *Anhörfassung* 24.10.2024](https://www.mk.niedersachsen.de/download/211766/KC_Mathematik_fuer_die_Grundschule.pdf) | draft; shows where things are heading |
+| **KC De 2017** | [Kerncurriculum Grundschule Deutsch (2017)](https://www.mk.niedersachsen.de/download/120953/Kerncurriculum_Deutsch.pdf) | in force |
+| **KC De 2024** | [KC Deutsch für die Grundschule, *Arbeitsfassung* 21.05.2024](https://www.mk.niedersachsen.de/download/207512/Kerncurriculum_Deutsch_fuer_die_Grundschule.pdf) | draft |
 
-| Stage id | German name | Typical age | Framework |
+Secondary source, not re-verified (that host is still blocked):
+[KC Sachunterricht (copy)](https://ltdata1.informatik.uni-hamburg.de/HCDS/EDU/pdfs/SU_0901_NI_GrS.pdf).
+
+**Design rule derived from this:** we align with the KC versions **in force (2017)**. Where the
+2024 drafts are more concrete, for example the "Kernaufgaben" lists, we use them for
+sequencing. Both drafts agree with the 2017 goals on everything we build.
+
+## 1. Stages and the school-entry rule (Einschulung, verified)
+
+- Compulsory schooling starts in the school year in which a child turns **6 by
+  30 September**.
+- Children who turn 6 between **1 July and 30 September** may have school entry **deferred by
+  one year**. The parents decide and do not have to give a reason.
+- **"Kann-Kinder"** (turning 6 after 30 September) may start early.
+- The school year starts on 1 August. The KC states its goals **per double year: end of Jg. 2
+  and end of Jg. 4** (KC Ma and KC De, all tables). There are no separate goals for Jg. 1 or
+  Jg. 3.
+
+→ **Age does not determine the school year.** For a child born in August, the parents choose.
+Early starters and repeaters make the mapping fuzzier still.
+
+| Stage id | German label | Typical age | Framework |
 |---|---|---|---|
-| `kita` | Kindergarten | 3–5 | Orientierungsplan für Bildung und Erziehung (Elementarbereich) |
-| `preschool` | Vorschuljahr (last Kita year) | 5–6 | Orientierungsplan; school-readiness focus |
-| `grade1` | 1. Klasse | 6–7 | Kerncurriculum (KC) Grundschule, competences "Ende Jg. 2" |
-| `grade2` | 2. Klasse | 7–8 | KC, competences "Ende Jg. 2" |
-| `grade3` | 3. Klasse | 8–9 | KC, competences "Ende Jg. 4" |
-| `grade4` | 4. Klasse | 9–10 | KC, competences "Ende Jg. 4" |
+| `kita` | Kindergarten | 3–5 | OP |
+| `preschool` | Vorschulkind (last year before school) | 5–6 | OP + KC De 2024 annex A2 ("Vorschulischer Bereich und Anfangsunterricht") |
+| `grade1`, `grade2` | 1. / 2. Klasse | 6–8 | KC goals for the "end of Jg. 2" |
+| `grade3`, `grade4` | 3. / 4. Klasse | 8–10 | KC goals for the "end of Jg. 4" (out of scope for v1) |
 
-- **Stichtag 30 September:** a child who turns 6 by 30 September starts school on 1 August of
-  that year. Parents of children born between 1 July and 30 September may defer school entry by
-  one year. Children who are younger may start early as "Kann-Kinder" on request.
-  ([Informationsblatt Einschulungstermin](https://www.mk.niedersachsen.de/download/128260/Informationsblatt_zum_Einschulungstermin.pdf),
-  [Bildungsserver: Stichtagsregelungen](https://www.bildungsserver.de/elementarbildung/wann-kommt-mein-kind-in-die-schule-einschulung-und-stichtagsregelungen-12554-de.html))
-- **Consequence for the game:** age alone does not give the school year. Children born in the
-  same month can be in different school years because of deferrals, early entry and repeated
-  years. The KC also states its competences **per double year**: end of Jg. 2 and end of Jg. 4.
-  Jg. 1 and 2 form the "Schuleingangsstufe", which some schools teach in mixed-age classes.
-- The school year starts on **1 August**, so a stage can advance automatically on that date.
+## 2. Preschool
 
-## 2. Preschool (Orientierungsplan, Elementarbereich)
+### 2.1 Mathematisches Grundverständnis (OP, chapter 6, verified)
+The OP explicitly says it does **not** matter that children learn to count quickly. What
+matters is that they:
+- **capture and compare quantities** ("Mengen zu erfassen und zu vergleichen")
+- recognise and name **spatial relations** ("Raum-Lage-Beziehungen")
+- learn the words for them: *mehr – weniger, oben – unten, groß – klein, hoch, höchster
+  Punkt, Ecke – Mitte*
+- have fundamental hands-on experiences: **adding, taking away, sharing out and distributing**
+  ("Hinzufügen oder Hinwegnehmen, das Aufteilen oder Verteilen")
+- **sort, classify, quantify, order, compare and measure**
+- explore **solids** (Würfel, Quader, Kugel) and **flat shapes** (Quadrat, Rechteck, Dreieck)
+- meet **time** through their own life: "wie alt bin ich, was mache ich heute, was habe ich
+  gestern erlebt". Days of the week and months are introduced gradually.
+- **build up counting** through games and counting rhymes, and tell number symbols apart from
+  letters
 
-Sources:
-- [Orientierungsplan, Gesamtausgabe 2023](https://www.mk.niedersachsen.de/download/4491/Orientierungsplan_fuer_Bildung_und_Erziehung_-_Gesamtausgabe_aktualisiert_2023.pdf)
-- [nifbe copy](https://nifbe.de/wp-content/uploads/2025/01/Orientierungsplan.pdf)
-- [Elterninformation](https://www.mk.niedersachsen.de/download/4492/Elterninformation_Orientierungsplan_fuer_Bildung_und_Erziehung_.pdf)
-- [Loges, Mathematische Frühbildung (KiTa Fachtexte)](https://www.kita-fachtexte.de/fileadmin/Redaktion/Publikationen/KiTaFT_Loges_mathematischeFruehbildung_2016.pdf)
+### 2.2 Phonologische Bewusstheit (KC De 2024, annex A2, verified)
+Annex A2 lists the competences of the *"Vorschulischer Bereich und Anfangsunterricht"*:
 
-The plan has no grade targets. It describes learning areas ("Lernbereiche"), and the ones
-relevant to us are:
-- **Sprache und Sprechen**
-- **Mathematisches Grundverständnis**
-- **Natur und Lebenswelt**
-
-The plan stresses learning through everyday experience, play and talk rather than drills.
-For us that means picture-based tasks, everything spoken, no reading or writing needed, and
-very forgiving feedback.
-
-**Mathematisches Grundverständnis.** Experience areas named in the plan and in secondary
-literature:
-
-| Area | Examples that suit a tap-to-answer game |
-|---|---|
-| Sortieren und Klassifizieren | odd one out, sort by colour, shape or size, find the matching pair |
-| Muster und Symmetrie | continue AB, AAB and ABC patterns; complete a mirrored picture |
-| Zahl und Menge | count up to 10; see small quantities at a glance (dice faces, fingers); compare quantities (more, fewer, same); match a quantity to a numeral; number before and after |
-| Raum und Geometrie | position words (oben, unten, neben, vor, hinter, links, rechts); basic shapes |
-| Größen und Messen | big and small, long and short, full and empty; order by size |
-| Zeit | daily routine (morning, noon, evening), what comes first |
-
-**Sprache und Sprechen.** The plan names phonological awareness, the precursor skill for
-reading, as a goal: rhymes, syllables, initial sounds, and listening for sounds in words
-**(unverified wording)**. This is also the standard Vorschule practice (for example
-"Hören, lauschen, lernen" programmes). Suitable tasks:
-- Rhymes (already in the game)
-- Clapping syllables (already in the game)
-- Initial sound **heard, not read**: "Welches Bild beginnt mit /m/?", choosing between pictures
-- Final sound
-- Sound blending: "M-a-u-s → Maus?" with pictures
-- Word length: which word is longer?
-- Opposites
-- Category names (Oberbegriffe), vocabulary
-- Listening comprehension: a short spoken sentence and a matching picture
-
-## 3. Grundschule: Mathematik (KC Mathematik)
-
-Sources:
-- [KC Mathematik (older edition)](https://www.mk.niedersachsen.de/download/120954/Kerncurriculum_Mathematik.pdf)
-- [KC Mathematik für die Grundschule (newer)](https://www.mk.niedersachsen.de/download/211766/KC_Mathematik_fuer_die_Grundschule.pdf)
-- [Anhörfassung 12/2024](https://nds.grundschulverband.de/wp-content/uploads/sites/5/2026/02/2024-12-12-Anhoerfassung-KC-Mathematik.pdf)
-- [KC 2025 excerpt (Studocu)](https://www.studocu.com/de/document/carl-von-ossietzky-universitat-oldenburg/vorlesung-grundlagen-der-mathematikdidaktik/kc-mathematik-grundschule-2025-kerncurriculum-fur-jahrgange-1-4/159324008)
-- [Westermann Stoffverteilungsplan Kl. 4 NDS](https://c.wgr.de/d/0191de3d2bf1e7cf3e8c8d6e9e63d0b432b6864285bc43e6274ae0393ad6ab15.pdf/314_106174_Stoffverteilungsplan_Kl4_Niedersachsen.pdf)
-- Ministry press release on written division:
-  [MK Niedersachsen](https://www.mk.niedersachsen.de/startseite/aktuelles/presseinformationen/niedersachsen-schafft-die-schriftliche-division-nicht-ab-land-setzt-kmk-vorgaben-mathematik-um-247783.html),
-  [news4teachers](https://www.news4teachers.de/2025/12/bildungsreform-warum-grundschueler-kuenftig-kein-schriftliches-dividieren-mehr-lernen/?amp=1)
-
-The KC is organised by content areas, called Leitideen: Zahlen und Operationen; Größen und
-Messen; Raum und Form; Muster und Strukturen; Daten und Zufall. It also lists process skills
-such as Problemlösen, Kommunizieren, Argumentieren, Modellieren and Darstellen.
-
-### End of Jg. 2 (target for `grade1`/`grade2`)
-
-| Leitidee | Competences (from KC excerpts) | What we can build |
+| Competence (KC wording) | Suggested exercises in the KC | Game task |
 |---|---|---|
-| Zahlen und Operationen | Number range up to 100: say, read and write numbers; number aspects; several representations such as the 20 field, 100 field and number line; counting forwards, backwards and in steps; comparing; decomposing numbers; doubling and halving; addition and subtraction up to 100; core multiplication facts (Kernaufgaben of the times tables); arithmetic laws | neighbour numbers; decomposing ("Zahlenhaus", number bonds to 10); making up to 10 or 100; doubling and halving; tens and ones; number line; ± up to 20, then up to 100; times tables ×2, ×5, ×10 (Kernaufgaben); "Rechenketten" |
-| Größen und Messen | Money: € and ct, comparing and exchanging amounts. Length: cm and m. Time: reading analogue and digital clocks in quarter-hour steps. Conversions such as 1 € = 100 ct, 1 m = 100 cm, 1 h = 60 min | coins and notes ("Wie viel Geld ist das?"), reading the clock (full hour → half hour → quarter hours), longer and shorter |
-| Raum und Form | Plane shapes and solids, symmetry, orientation in space | shape names, axis of symmetry, solids (cube, sphere) |
-| Muster und Strukturen | Number and shape patterns, structured representations | number sequences (+2, +5), patterns |
-| Daten und Zufall | Simple tables and pictograms **(unverified for Jg. 2)** | reading a picture chart |
+| hear and compare **initial and final sounds** (An- und Endlaute), analyse inner sounds (→ Lautanalyse) | Anlautbilder ordnen, Wörter zu Anlauten finden | **"Welches Bild beginnt mit /m/?"** (by sound, no letters); final sound |
+| recognise and tell apart sounds and sound combinations (→ Lautdifferenzierung) | Geräuschspiele | "Hörst du /sch/ in Schuh?" |
+| recognise and say the complete sound sequence in a phonetically regular word (→ Wortdurchgliederung) | Lautbilder | count the sounds; where is the /a/ (beginning, middle or end)? |
+| **recognise and master rhymes** (→ Reimschema) | Reim-Memory, Reimwörter finden | exists: `german.rhyme` |
+| **split words into syllables** (→ Silbengliederung) | Silben klatschen, Silbenbögen | exists: `german.syllables` |
+| **build words from syllables** (→ Synthese) | Wörter mit Bildern verknüpfen | "Ba – na – ne": which picture? |
+| **blend sounds into a word** (→ Lautsynthese) | Lautieren | "M – au – s": which picture? |
+| match a sound to a letter (→ Laut-Buchstaben-Zuordnung) | Anlauttabelle | exists: `german.initial-sound` (letters, late preschool → grade 1) |
+| visual skills: Figur-Grund, Raumlage (b/d, u/n), Formkonstanz, visual differentiation, **Serialität: continue patterns** | Muster fortsetzen, Fehlerbilder | find the differences; mirrored or not; patterns (exists) |
+| auditory memory | Reime auswendig | "Was hast du gehört?" sequence |
 
-### End of Jg. 4 (target for `grade3`/`grade4`, out of scope for v1)
+The OP (chapter 4, Sprache und Sprechen) adds **Literacy**: rhymes, songs, picture books, and
+understanding that letters and signs "mean" something. Vocabulary is also part of it, both
+active and passive.
 
-- Number range up to **1,000,000**.
-- All four written methods ("schriftliche Rechenverfahren"). Niedersachsen keeps written
-  division but only introduces it; the KMK framework is moving it out of primary school.
-- The full times tables and division.
-- Units of length, weight, time and volume.
-- The clock to the minute.
-- Probability ("sicher, möglich, unmöglich").
+## 3. Grundschule Mathematik: end of Jg. 2 (KC Ma 2017, verified; 2024 draft additions marked ⁺)
 
-## 4. Grundschule: Deutsch (KC Deutsch)
-
-Sources:
-- [KC Deutsch (older)](https://www.mk.niedersachsen.de/download/120953/Kerncurriculum_Deutsch.pdf)
-- [KC Deutsch für die Grundschule (2024)](https://www.mk.niedersachsen.de/download/207512/Kerncurriculum_Deutsch_fuer_die_Grundschule.pdf)
-- [Bildungsportal: Deutsch](https://bildungsportal-niedersachsen.de/unterricht-mehr/unterrichtsfaecher/deutsch)
-- [Westermann Karibu Lehrplansynopse NDS Kl. 2](https://c.wgr.de/d/bdaf778e511393934b081990e7c191a2e0c66967c8e344104867123d53f0abf8.pdf/karibulehrplansynopse_nds_2.pdf)
-
-Kompetenzbereiche: Sprechen und Zuhören; Schreiben; Lesen – mit Texten und Medien umgehen;
-Sprache und Sprachgebrauch untersuchen. The 2024 Arbeitsfassung splits these into five
-areas **(unverified which five)**.
-
-### End of Jg. 2
-
-| Area | Competences (KC excerpts / synopsis) | What we can build |
+| Area | Competences (condensed KC wording) | Game tasks |
 |---|---|---|
-| Schreiben, Rechtschreiben | Knows all letter–sound correspondences ("Laut-Buchstaben-Zuordnungen"); writes phonetically regular words correctly; writes a limited set of practised words (Lernwörter) correctly; capitalises sentence beginnings and nouns; corrects selected errors with guidance | letter for a heard sound (lower and upper case); fill in the missing letter; choose the correct spelling of a Lernwort; capital or small letter? |
-| Lesen | Reads words and short texts and understands them; reads aloud; finds information in a text | read a word and choose the picture (exists); read a sentence and choose the picture; true or false for a sentence and a picture |
-| Sprache untersuchen | Knows some word classes and their features: nouns with articles, verbs, adjectives; singular and plural; the alphabet; syllables | **der, die or das?**; singular → plural; which word is a noun, verb or adjective ("Tunwort", "Wiewort"); ABC order (what comes next?); opposites; word families |
-| Sprechen und Zuhören | Listens closely and understands spoken instructions | listening tasks (spoken instruction → picture) |
+| **Zahlen und Operationen** | say, read and write numbers up to **100**; number aspects; place value ("Bündeln", tens and ones; ⁺"Stufenschrift 46 → 4Z 6E"); structured representations (⁺quick grasp of structured quantities up to 100, "quasi-simultan"); flexible counting (forwards, backwards, from any start, in steps); ordering and comparing (**smaller or greater, predecessor and successor, neighbouring tens**); **decomposing numbers** (⁺part–whole); **half and double**; number sequences; ⁺**even and odd** | find a number up to 100, neighbouring numbers and tens, Zahlenhaus, tens and ones, doubling and halving, sequences, even or odd, dot fields |
+| Operationen | match situations to + and − (adding, combining, taking away, making up to a total) and to × and ÷ (repeated adding, sharing out, distributing); commutative law ("Tauschaufgabe") | picture stories → which sum? Groups of equal size ("3 Vierer") |
+| **Rechnen** | **number bonds up to 10 by heart**; ⁺**Kernaufgaben 1+1**: adding 0, 1, 5 or 10, doubles, bonds of 10; all 1+1 facts up to 20; **Kernaufgaben 1×1** (⁺factors 1, 2, 5, 10 and squares); + and − up to 100 mentally or with written steps; inverse operation; spotting arithmetic mistakes | Kernaufgaben drills (± up to 20, × with 2, 5, 10), ± up to 100, "Rechenfehler finden" (find the wrong one) |
+| Sachrechnen | number stories, word problems with pictures ("Bildsachaufgaben"); simple combinatorics | picture stories |
+| **Raum und Form** | position: *links/rechts von mir, vor, hinter, neben, über, unter, zwischen*; solids: **cube, cuboid, sphere, cylinder** (sorted by properties: rolls, tips over); flat shapes: **rectangle, square, triangle, circle**; continue geometric patterns; **line symmetry** (mirror; recognising symmetrical figures); simple strip patterns | position, shapes and solids, "is it symmetrical?", complete the mirror image |
+| **Größen und Messen** | compare and order lengths and time spans; **money: count, show, exchange and compare amounts (€, ct)**; **clock: read and set times digitally and analogue (full hour, half past, quarter past, quarter to)**; units € ct, cm m, minute … year; 1 h = 60 min, 1 € = 100 ct, 1 m = 100 cm; "je mehr, desto mehr" (more items, higher price) | how much money?, read the clock (sequence: full hour → half past → quarter hours), longer or shorter |
+| **Daten und Zufall** | tally charts, timetables; first conclusions; probability: **certain, possible, impossible** | read a tally chart; "sicher, möglich, unmöglich?" |
 
-### End of Jg. 4 (out of scope for v1)
+End of Jg. 4 (later): numbers up to 1,000,000; written addition, subtraction and
+multiplication; written division with a one-digit divisor (KC Ma 2017, still listed); the
+full 1×1; units mm…km, g…t, ml…l; plans and grids; area and perimeter.
 
-- Tenses: present, simple past and perfect.
-- Sentence parts (Satzglieder): subject and predicate.
-- Spelling strategies:
-  - long vowel spelled "ie"
-  - double consonants
-  - "ck" and "tz"
-  - final-consonant devoicing (Auslautverhärtung): "Hund" because of "Hunde"
-- Word families, compound words.
-- Punctuation in direct speech.
+## 4. Grundschule Deutsch: end of Jg. 2 (KC De 2017, verified)
 
-## 5. Grundschule: Sachunterricht (for the "Wissen" subject)
+The KC De 2017 has four Kompetenzbereiche. The 2024 draft has **five**: Sprechen und Zuhören;
+Schreiben; Lesen; Sich mit Texten und anderen Medien auseinandersetzen; Sprache und
+Sprachgebrauch untersuchen.
 
-Source: [KC Sachunterricht (copy)](https://ltdata1.informatik.uni-hamburg.de/HCDS/EDU/pdfs/SU_0901_NI_GrS.pdf)
+| Area | Competences (condensed KC wording) | Game tasks |
+|---|---|---|
+| **Lesen – Lesefertigkeiten** | names **all letter–sound correspondences**; grasps **syllables, frequent morphemes and familiar words at a glance** ("Sichtwortschatz"); applies **blending** ("Syntheseprinzip"), starting with simple syllables (mo, ma); reads words, sentences and short texts increasingly fluently; links information **at sentence level** | letter ↔ sound, syllable reading, "Blitzlesen" of frequent words, read a word → picture (exists), **read a sentence → picture**, true or false |
+| Lesen – Texte | fairy tales and poems; reads simple task instructions; takes information from simple tables (day plan, calendar) | "Was passt?" short text; reading a calendar |
+| **Richtig schreiben** | spells sounds and sound sequences in phonetically regular words correctly; special letters and letter groups **<-en, -er, -el>, <ch, sch, -ng, -nk, au, ei, eu, qu, sp, st, z>**; first syllable splitting; common words with **double consonants** in the middle; **final-consonant devoicing (Auslautverhärtung) d/t, g/k, b/p** by lengthening the word (Hund – Hunde); a/ä, au/äu; word families; compound nouns; the prefixes **vor-, ver-**; endings **-ig, -lich**; a limited set of practised words ("Merkwörter"); **capital letters for concrete nouns and at the start of a sentence**; full stop, question mark and exclamation mark; using the **alphabet** in word lists | missing letter (sch, ei, au …), d or t?, which spelling is right?, capital or small?, which sentence mark?, ABC order |
+| **Sprache untersuchen** | splits words into syllables, builds words from syllables; **names the vowel in a syllable**; tells sound and letter apart; tells similar sounds apart; word stem in a word family; frequent building blocks (ver-, vor-, -en, -er, -el); strategies to recognise **nouns, verbs and adjectives** (plural test: "ein Hund – viele Hunde"); compound nouns; verbs in the right personal form; adjectives for precise description; **collecting and ordering words (ABC, Oberbegriffe, Wortfelder)**; sentence as a unit of meaning; sentence structure (subject, predicate) in play | which word is a noun, verb or adjective?, **singular → plural**, **der, die or das** (via nouns and articles), compound nouns (Haus + Tür), Oberbegriffe, opposites, **"Welches Wort passt in den Satz?"** |
 
-The KC has perspectives on Natur, Technik, Raum, Gesellschaft und Politik, Zeit und
-Geschichte, and Zusammen leben und lernen **(unverified naming)**. Topics typical of
-Jg. 1–2:
-- animals and plants of the home region
+End of Jg. 4 (later): tenses (Präsens, Präteritum, Perfekt, Futur I); sentence types;
+Satzglieder; ck and tz; long-vowel spellings with "h"; s, ss and ß; direct speech; working
+with a dictionary.
+
+## 5. Sachunterricht (for "Wissen"; secondary source, not re-verified)
+Perspectives: nature, technology, space, society, time, living together. Typical Jg. 1–2
+topics:
+- animals and plants
 - seasons and weather
 - the body and senses
 - healthy food
 - road safety
-- time: day, week, month, year
+- days of the week and months
 
-Our "Wissen" types already cover animals, seasons and weather. Days of the week, months,
-body parts, healthy food and road signs would extend it naturally.
+The last item also overlaps with the time topics in the OP and KC Ma.
 
-## 6. Gap analysis: current game vs. curriculum
+## 6. Gap analysis
 
-Current types and the stages they fit:
-
-| Type | Fits stage | Notes |
+| Existing type | Stages it fits | Notes |
 |---|---|---|
-| math.count | preschool → grade1 | KC-aligned (Zahl und Menge) |
-| math.find-number | preschool (1–10) → grade2 (up to 100) | |
-| math.compare | preschool (quantities) → grade1 (numerals) | |
-| math.addition / subtraction | grade1 (up to 20); levels 1–2 also suit late preschool | needs up to 100 for grade 2 |
-| math.pattern | preschool → grade1 | |
-| german.initial-sound | grade1 (letters) | preschool needs a **picture/sound** variant |
-| german.syllables, german.rhyme | preschool → grade1 | |
-| german.read-word | grade1 → grade2 | |
-| knowledge.* | kita → grade2 | |
+| math.count | kita → grade1 | OP Mengen erfassen |
+| math.find-number | preschool (1–10) → grade2 (100) | KC Zahlen bis 100 |
+| math.compare | kita (quantities) → grade1 | OP mehr/weniger, KC größer/kleiner |
+| math.addition / subtraction | preschool L1–2 (pictures, ≤ 5/10); grade1 L3–5 (≤ 20) | missing: Kernaufgaben, up to 100 |
+| math.pattern | kita → grade1 | OP Muster, A2 Serialität |
+| german.syllables, german.rhyme | kita → grade1 | A2 |
+| german.initial-sound | late preschool → grade1 | uses letters; A2 also needs a sound-only variant |
+| german.read-word | grade1 → grade2 | KC Lesen |
+| knowledge.* | kita → grade2 | OP / Sachunterricht |
 
-**Missing for preschool** (Orientierungsplan; highest priority because the main
-playtester is 5):
-- dice and finger patterns at a glance
-- number before and after
-- position words
-- big and small, ordering by size
-- shapes on their own
-- initial sound by picture
-- sound blending
+**Missing for preschool (highest priority)** (OP ch. 6, KC De A2):
+- Anlaut and Endlaut by **picture and sound**
+- **Lautsynthese** and **Silbensynthese** → picture
+- hearing a sound in a word
+- **Raumlage words** (oben, unten, vor, hinter, neben, zwischen)
+- **groß/klein**, ordering by size
+- dot and finger patterns at a glance
+- quantity ↔ numeral
+- **predecessor and successor**
+- sharing out and distributing (fair share)
+- shapes and solids
+- daily routine and before/after (time)
+- spotting differences (visual differentiation)
 - opposites
-- daily routine
-- quantity ↔ numeral matching
+- Oberbegriffe
 
-**Missing for grade 1–2** (KC):
-- number bonds and making up to 10 (Zahlenhaus)
-- doubling and halving
-- tens and ones
-- ± up to 100
-- core times tables (×2, ×5, ×10)
-- money
-- the clock
-- symmetry
-- der, die or das
-- singular and plural
-- word types
-- missing letter
-- capital or small letter
-- sentence → picture
-- ABC order
+**Missing for grade 1–2** (KC Ma, KC De):
+- **Math:**
+  - Zahlenhaus (decomposing numbers)
+  - Kernaufgaben 1+1
+  - doubling and halving
+  - tens and ones
+  - even or odd
+  - ± up to 100
+  - Kernaufgaben 1×1
+  - money
+  - the clock
+  - symmetry
+  - certain, possible, impossible
+- **German:**
+  - der, die or das
+  - singular and plural
+  - word types
+  - missing letter group
+  - d or t
+  - capital or small letter
+  - sentence → picture
+  - word that fits the sentence
+  - ABC order
+  - compound nouns

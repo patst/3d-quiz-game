@@ -6,8 +6,8 @@
 
 ## Context
 The owner wants more questions, an age on the player profile, and questions tagged with
-the age they suit. Math and German should follow the Niedersachsen curriculum (research:
-`docs/curriculum/niedersachsen.md`). Preschool (age 5) needs much more content. The design
+the age they suit. Math and German should follow the Niedersachsen curriculum (research, verified
+against the ministry PDFs: `docs/curriculum/niedersachsen.md`). Preschool (age 5) needs much more content. The design
 must stay extensible, for other federal states, grades 3–4 and new subjects.
 
 Facts that shape the design:
@@ -109,35 +109,44 @@ registered types
 ### 4. Content roadmap (separate PRs after approval)
 - **M13a:** stage model, migration v9, stage picker (create, first open, Parents area),
   `levelInfo` for all 15 existing types, selection pipeline.
-- **M13b, preschool pack:**
+- **M13b, preschool pack** (OP ch. 6, KC De annex A2):
+  - Anlaut/Endlaut by picture (sound, no letters)
+  - Laut- and Silbensynthese
+  - Raumlage
+  - groß/klein, ordering by size
   - Würfelbilder / fingers at a glance
-  - Nachbarzahlen
-  - Raumlage (oben/unten/vor/hinter/neben)
-  - Größen ordnen
-  - Anlaut by picture (sound, no letters)
-  - Lautsynthese
-  - Gegenteile
-  - Tagesablauf
   - Menge ↔ Zahl
+  - Vorgänger/Nachfolger
+  - Verteilen
+  - shapes and solids
+  - Tagesablauf / vorher–nachher
+  - Unterschiede finden
+  - Gegenteile
+  - Oberbegriffe
   - more words with `minStage: 'kita'`
 - **M13c, grade 1–2 math (KC):**
   - Zahlenhaus / Zerlegen
+  - Kernaufgaben 1+1
   - Verdoppeln / Halbieren
   - Zehner und Einer
+  - gerade/ungerade
   - ± up to 100
-  - Kernaufgaben ×2/×5/×10
+  - Kernaufgaben 1×1 (×1, ×2, ×5, ×10, squares)
   - Geld
   - Uhr (volle → halbe → Viertelstunde)
   - Symmetrie
+  - sicher/möglich/unmöglich
 - **M13d, grade 1–2 German (KC):**
   - der/die/das
   - Einzahl/Mehrzahl
   - Wortarten
-  - fehlender Buchstabe
+  - fehlende Buchstabengruppe (sch, ei, au …)
+  - d oder t?
   - groß oder klein
   - Satz lesen → Bild
+  - Wort passt in den Satz
   - ABC
-  - Lernwörter spelling choice
+  - zusammengesetzte Nomen
 
 Each new type follows the existing plug-in contract (architecture §3.1) and adds speech
 templates and clips (ADR-0007).
@@ -150,5 +159,6 @@ templates and clips (ADR-0007).
   grows with every new sentence, so audio generation time rises; consider batching.
 - The world config loses `startLevel`, so architecture §3.1 and the design doc must be
   updated in the same PR as M13a.
-- Open: whether to ask for age or school year (see `open-questions.md`); verifying the
-  primary KC PDFs.
+- Open: owner decisions in `open-questions.md` #3. The KC versions in force (2017) were
+  verified on 2026-11-01. The 2024 drafts are only used to order content within the 2017
+  goals.

@@ -6,7 +6,7 @@ async function createProfile(page: Page) {
   await page.getByRole('radio', { name: /Frosch/ }).click();
   await page.getByRole('button', { name: "Los geht's!" }).click();
   // A grown-up answers "Kindergarten oder Schule?" (ADR-0009).
-  await page.getByTestId('stage-screen').getByRole('button', { name: /Vorschule/ }).click();
+  await page.getByTestId('stage-screen').locator('[data-stage="preschool"]').click();
   await expect(page.getByTestId('game-canvas').locator('canvas')).toBeVisible();
 }
 

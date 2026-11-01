@@ -23,6 +23,11 @@ for (const type of [
   'math.neighbors',
   'math.position',
   'knowledge.habitat',
+  // Grade 1–2 math pack (M13c)
+  'math.number-bonds',
+  'math.money',
+  'math.clock',
+  'math.symmetry',
 ]) {
   test(`${type}: open a chest and answer until finished`, async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop', 'one viewport is enough per type');

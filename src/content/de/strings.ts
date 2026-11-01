@@ -313,6 +313,13 @@ export const de = {
     } as Record<string, string>,
   },
   /** Challenge type names for the parents area. */
+  /** Grade 1–2 math pack (M13c): short labels inside task pictures. */
+  placeValue: { short: (tens: number, ones: number) => `${tens} Z ${ones} E` },
+  money: { euro: (n: number) => `${n}\u00a0€`, cent: (n: number) => `${n}\u00a0ct` },
+  chance: {
+    answers: { certain: 'sicher', possible: 'möglich', impossible: 'unmöglich' },
+    colours: { red: 'rot', blue: 'blau', yellow: 'gelb', green: 'grün' } as Record<string, string>,
+  },
   challengeNames: {
     'math.count': 'Zählen',
     'math.find-number': 'Zahlen erkennen',
@@ -339,6 +346,15 @@ export const de = {
     'knowledge.habitat': 'Wo lebt das Tier?',
     'knowledge.body': 'Körper und Sinne',
     'knowledge.sequence': 'Was kommt zuerst?',
+    'math.number-bonds': 'Zahlenhaus',
+    'math.double-half': 'Verdoppeln und Halbieren',
+    'math.place-value': 'Zehner und Einer',
+    'math.even-odd': 'Gerade und ungerade',
+    'math.times': 'Einmaleins',
+    'math.money': 'Geld',
+    'math.clock': 'Uhrzeit',
+    'math.symmetry': 'Spiegelbild',
+    'math.chance': 'Sicher, möglich, unmöglich',
   } as Record<string, string>,
   challenge: {
     /** Shown (with a jingle and confetti) after a correct answer; picked at random. */

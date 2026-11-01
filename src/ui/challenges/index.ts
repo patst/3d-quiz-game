@@ -2,6 +2,14 @@ import { AdditionView } from './AdditionView';
 import { CompareView } from './CompareView';
 import { CountView } from './CountView';
 import { DiceView } from './DiceView';
+import { ChanceView } from './ChanceView';
+import { ClockView } from './ClockView';
+import { DoubleHalfView } from './DoubleHalfView';
+import { MoneyView } from './MoneyView';
+import { NumberBondsView } from './NumberBondsView';
+import { PlaceValueView } from './PlaceValueView';
+import { SymmetryView } from './SymmetryView';
+import { TimesView } from './TimesView';
 import { NeighborsView } from './NeighborsView';
 import { PositionView } from './PositionView';
 import { FindNumberView } from './FindNumberView';
@@ -42,4 +50,14 @@ export const challengeViews: Record<string, ChallengeViewEntry> = {
   'knowledge.habitat': { View: KnowledgeView as ChallengeView, ownsChoices: true },
   'knowledge.body': { View: KnowledgeView as ChallengeView, ownsChoices: true },
   'knowledge.sequence': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  // Grade 1–2 math pack (M13c)
+  'math.number-bonds': { View: NumberBondsView as ChallengeView },
+  'math.double-half': { View: DoubleHalfView as ChallengeView },
+  'math.place-value': { View: PlaceValueView as ChallengeView },
+  'math.even-odd': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'math.times': { View: TimesView as ChallengeView },
+  'math.money': { View: MoneyView as ChallengeView },
+  'math.clock': { View: ClockView as ChallengeView, ownsChoices: true },
+  'math.symmetry': { View: SymmetryView as ChallengeView, ownsChoices: true },
+  'math.chance': { View: ChanceView as ChallengeView },
 };

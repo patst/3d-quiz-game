@@ -72,6 +72,12 @@ const list: Competency[] = [
   { id: 'ni.de2.silben', source: DE, until: 'grade2', subject: 'german', text: 'Wörter in Silben gliedern' },
   { id: 'ni.de2.laut-buchstabe', source: DE, until: 'grade2', subject: 'german', text: 'Laute und Buchstaben unterscheiden und zuordnen' },
   { id: 'ni.de2.lesen', source: DE, until: 'grade2', subject: 'german', text: 'Wörter erlesen (Syntheseprinzip, Sichtwortschatz)' },
+  { id: 'ni.de2.wortarten', source: DE, until: 'grade2', subject: 'german', text: 'Nomen, Verben und Adjektive erkennen; Einzahl/Mehrzahl, Artikel' },
+  { id: 'ni.de2.rechtschreiben', source: DE, until: 'grade2', subject: 'german', text: 'Besondere Buchstabenfolgen kennen (ch, sch, ng, nk, au, ei, eu, ie …)' },
+  { id: 'ni.de2.lesen-saetze', source: DE, until: 'grade2', subject: 'german', text: 'Sätze und kurze Texte sinnverstehend lesen' },
+  { id: 'ni.de2.satzzeichen', source: DE, until: 'grade2', subject: 'german', text: 'Satzschlusszeichen setzen' },
+  { id: 'ni.de2.alphabet', source: DE, until: 'grade2', subject: 'german', text: 'Das Alphabet kennen und Wörter danach ordnen' },
+  { id: 'ni.de2.wortbildung', source: DE, until: 'grade2', subject: 'german', text: 'Zusammengesetzte Nomen bilden' },
   { id: 'ni.de2.wortschatz', source: DE, until: 'grade2', subject: 'german', text: 'Einen angemessenen Wortschatz verwenden' },
   { id: 'ni.de2.woerter-ordnen', source: DE, until: 'grade2', subject: 'german', text: 'Wörter sammeln und ordnen (Oberbegriffe)' },
   // KC Sachunterricht 2017, Ende Schuljahrgang 2

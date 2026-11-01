@@ -33,6 +33,19 @@ import {
   sizeNominative,
   type Position,
 } from './preschool';
+import {
+  COMPOUNDS,
+  END_SENTENCES,
+  GAP_SENTENCES,
+  gapSentence,
+  GAP_WORDS,
+  NOUNS,
+  PLURAL_NOUNS,
+  RIDDLES,
+  VERBS,
+  ADJECTIVES,
+  withArticle,
+} from './grammar';
 import { ALL_CLOCK_TIMES, clockSpoken, type ClockMinute } from './clock';
 import { timesPairs } from '../../modules/challenges/math-times';
 
@@ -102,6 +115,16 @@ const onesPhrase = (ones: number) => (ones === 0 ? 'keine Einer' : ones === 1 ? 
 const tensPhrase = (tens: number) => (tens === 1 ? 'ein Zehner' : `${tens} Zehner`);
 const chanceColours = () => Object.keys(de.chance.colours).map((colour) => ({ colour }));
 const colourWord = (c: string | number | undefined) => de.chance.colours[String(c)] ?? '';
+
+// Grade 1–2 German pack helpers (M13d).
+const noun = (word: string | number | undefined) => NOUNS.find((n) => n.word === word)!;
+const pluralNouns = () => PLURAL_NOUNS;
+const WORD_TYPE_NAMES: Record<string, string> = {
+  noun: 'ein Nomen, ein Namenwort',
+  verb: 'ein Verb, ein Tunwort',
+  adjective: 'ein Adjektiv, ein Wiewort',
+};
+const abcLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 const colorShapePairs = () => COLORS.filter((c) => c.adj).flatMap((c) => SHAPES.map((s) => ({ color: c.id, shape: s.id })));
 
@@ -370,6 +393,104 @@ export const speechTemplates: Record<string, Template> = {
   'math.chance.explain-certain': { render: (p) => `Es ist sicher, denn alle Kugeln sind ${colourWord(p.colour)}.`, variants: chanceColours },
   'math.chance.explain-possible': { render: (p) => `Es ist möglich, denn manche Kugeln sind ${colourWord(p.colour)}.`, variants: chanceColours },
   'math.chance.explain-impossible': { render: (p) => `Es ist unmöglich, denn keine Kugel ist ${colourWord(p.colour)}.`, variants: chanceColours },
+  // ── Grade 1–2 German pack (M13d) ──
+  'german.article.prompt': {
+    render: (p) => `Der, die oder das? Welcher Begleiter passt zu ${p.word}?`,
+    variants: () => NOUNS.map((n) => ({ word: n.word })),
+  },
+  'german.article.explain': {
+    render: (p) => `Es heißt ${withArticle(noun(p.word))}.`,
+    variants: () => NOUNS.map((n) => ({ word: n.word })),
+  },
+  'german.plural.prompt': {
+    render: (p) => `Wie heißt die Mehrzahl von ${p.word}?`,
+    variants: () => pluralNouns().map((n) => ({ word: n.word })),
+  },
+  'german.plural.explain': {
+    render: (p) => `Es heißt ${withArticle(noun(p.word))} und die ${noun(p.word).plural}.`,
+    variants: () => pluralNouns().map((n) => ({ word: n.word })),
+  },
+  'german.word-type.prompt': {
+    render: (p) => `Welches Wort ist ${WORD_TYPE_NAMES[String(p.type)] ?? ''}?`,
+    variants: () => Object.keys(WORD_TYPE_NAMES).map((type) => ({ type })),
+  },
+  'german.word-type.explain': {
+    render: (p) => `${p.word} ist ${WORD_TYPE_NAMES[String(p.type)] ?? ''}.`,
+    variants: () => [
+      ...NOUNS.map((n) => ({ type: 'noun', word: n.word })),
+      ...VERBS.map((word) => ({ type: 'verb', word })),
+      ...ADJECTIVES.map((word) => ({ type: 'adjective', word })),
+    ],
+  },
+  'german.missing-letters.prompt': {
+    render: (p) => `Welche Buchstaben fehlen? Hör genau: ${p.word}.`,
+    variants: () => [...new Set(GAP_WORDS.map((g) => g.word.word))].map((word) => ({ word })),
+  },
+  'german.missing-letters.explain': {
+    render: (p) => `So schreibt man ${p.word}.`,
+    variants: () => [...new Set(GAP_WORDS.map((g) => g.word.word))].map((word) => ({ word })),
+  },
+  'german.riddle.prompt': { render: () => 'Lies das Rätsel. Was ist das?', variants: none },
+  'german.riddle.explain': {
+    render: (p) => {
+      const r = RIDDLES.find((x) => x.id === p.riddle);
+      return r ? `Die Lösung ist: ${withArticle(noun(r.answer))}.` : '';
+    },
+    variants: () => RIDDLES.map((r) => ({ riddle: r.id })),
+  },
+  'german.fill-word.prompt': { render: () => 'Lies den Satz. Welches Wort passt in die Lücke?', variants: none },
+  'german.fill-word.explain': {
+    render: (p) => {
+      const s = GAP_SENTENCES.find((x) => x.id === p.sentence);
+      return s ? gapSentence(s) : '';
+    },
+    variants: () => GAP_SENTENCES.map((s) => ({ sentence: s.id })),
+  },
+  'german.sentence-end.prompt': { render: () => 'Lies den Satz. Welches Zeichen gehört an das Ende?', variants: none },
+  'german.sentence-end.explain': {
+    render: (p) => {
+      const s = END_SENTENCES.find((x) => x.id === p.sentence);
+      if (!s) return '';
+      const name = s.mark === '?' ? 'ein Fragezeichen' : s.mark === '!' ? 'ein Ausrufezeichen' : 'ein Punkt';
+      return `${s.text}${s.mark} Hier gehört ${name} hin.`;
+    },
+    variants: () => END_SENTENCES.map((s) => ({ sentence: s.id })),
+  },
+  'german.abc.prompt-after': {
+    render: (p) => `Welcher Buchstabe kommt im ABC nach ${p.letter}?`,
+    variants: () => abcLetters.slice(0, 25).map((letter) => ({ letter })),
+  },
+  'german.abc.prompt-before': {
+    render: (p) => `Welcher Buchstabe kommt im ABC vor ${p.letter}?`,
+    variants: () => abcLetters.slice(1).map((letter) => ({ letter })),
+  },
+  'german.abc.explain-after': {
+    render: (p) => `Nach ${p.letter} kommt ${p.answer}.`,
+    variants: () => abcLetters.slice(0, 25).map((letter, i) => ({ letter, answer: abcLetters[i + 1]! })),
+  },
+  'german.abc.explain-before': {
+    render: (p) => `Vor ${p.letter} kommt ${p.answer}.`,
+    variants: () => abcLetters.slice(1).map((letter, i) => ({ letter, answer: abcLetters[i]! })),
+  },
+  'german.abc.prompt-words': { render: () => 'Welches Wort kommt im ABC zuerst?', variants: none },
+  'german.abc.explain-words': {
+    render: (p) => `${p.word} kommt im ABC zuerst.`,
+    variants: () => NOUNS.map((n) => ({ word: n.word })),
+  },
+  'german.compound.prompt': {
+    render: (p) => {
+      const c = COMPOUNDS.find((x) => x.id === p.compound);
+      return c ? `${c.a.word} und ${c.b.word}. Welches Wort entsteht?` : '';
+    },
+    variants: () => COMPOUNDS.map((c) => ({ compound: c.id })),
+  },
+  'german.compound.explain': {
+    render: (p) => {
+      const c = COMPOUNDS.find((x) => x.id === p.compound);
+      return c ? `${c.a.word} und ${c.b.word}: ${c.word}.` : '';
+    },
+    variants: () => COMPOUNDS.map((c) => ({ compound: c.id })),
+  },
   'feedback.tryAgain': { render: () => 'Fast! Versuch es nochmal.', variants: none },
   'feedback.hint': { render: () => 'Ich helfe dir. Schau genau hin!', variants: none },
   'feedback.skipQuestion': { render: () => 'Möchtest du diese Aufgabe wirklich überspringen?', variants: none },
@@ -419,6 +540,11 @@ export const staticSpokenTexts: readonly string[] = [
   ...BODY_PARTS.map((b) => b.word),
   // Grade 1–2 math pack: clock answer cards.
   ...ALL_CLOCK_TIMES.map((t) => clockSpoken(t.hour, t.minute)),
+  // Grade 1–2 German pack: speaker buttons on word cards.
+  ...VERBS,
+  ...ADJECTIVES,
+  ...GAP_SENTENCES.flatMap((s) => s.options),
+  ...COMPOUNDS.map((c) => c.word),
 ];
 
 /** Every sentence the game can speak; input for the audio clip generator. */

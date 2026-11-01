@@ -26,7 +26,8 @@ export function KnowledgeView({ data, hint, solved, answers }: ChallengeViewProp
   return (
     <div className="rhyme-wrap" data-testid="task-area">
       {data.picture && (
-        <div className="task-area quiz-picture" aria-hidden>
+        // Several emoji (🌹🌹🌹, 🔥 + 🛡️) are drawn smaller so they fit on one line.
+        <div className={`task-area quiz-picture ${[...data.picture].length > 2 ? 'multi' : ''}`} aria-hidden>
           {data.picture}
         </div>
       )}

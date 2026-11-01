@@ -46,6 +46,16 @@ export const forestWorld: WorldTheme = {
       'math.clock',
       'math.symmetry',
       'math.chance',
+      // Grade 1–2 German pack (M13d)
+      'german.article',
+      'german.plural',
+      'german.word-type',
+      'german.missing-letters',
+      'german.riddle',
+      'german.fill-word',
+      'german.sentence-end',
+      'german.abc',
+      'german.compound',
     ],
   },
   colors: {

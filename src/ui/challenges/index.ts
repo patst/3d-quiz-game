@@ -60,4 +60,14 @@ export const challengeViews: Record<string, ChallengeViewEntry> = {
   'math.clock': { View: ClockView as ChallengeView, ownsChoices: true },
   'math.symmetry': { View: SymmetryView as ChallengeView, ownsChoices: true },
   'math.chance': { View: ChanceView as ChallengeView },
+  // Grade 1–2 German pack (M13d): all quiz cards
+  'german.article': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.plural': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.word-type': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.missing-letters': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.riddle': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.fill-word': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.sentence-end': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.abc': { View: KnowledgeView as ChallengeView, ownsChoices: true },
+  'german.compound': { View: KnowledgeView as ChallengeView, ownsChoices: true },
 };

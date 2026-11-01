@@ -66,6 +66,10 @@ export class MazeView {
   private markerAge = Infinity;
   private disposed = false;
   private paused = false;
+  private readonly seaweed: THREE.Mesh[] = [];
+  private readonly bubbles: THREE.Mesh[] = [];
+  private readonly bubbleGeo = new THREE.SphereGeometry(0.09, 10, 8);
+  private bubbleTimer = 0;
   private readonly trail: TrailEmitter;
   private petModel: THREE.Group | null = null;
   /** Tile the avatar was on before the current one (the pet walks there). */
@@ -87,7 +91,7 @@ export class MazeView {
     container.appendChild(this.renderer.domElement);
 
     this.scene.background = new THREE.Color(world.colors.sky);
-    this.scene.fog = new THREE.Fog(world.colors.sky, 18, 40);
+    this.scene.fog = world.style === 'coral' ? new THREE.Fog(world.colors.sky, 7, 28) : new THREE.Fog(world.colors.sky, 18, 40);
     this.buildLights();
     this.buildMaze();
 
@@ -149,6 +153,8 @@ export class MazeView {
     window.removeEventListener('keyup', this.onKeyUp);
     window.removeEventListener('blur', this.onBlur);
     this.trail.dispose();
+    for (const b of this.bubbles) (b.material as THREE.Material).dispose();
+    this.bubbleGeo.dispose();
     this.setPet(null);
     disposeObject(this.scene);
     this.renderer.dispose();
@@ -191,7 +197,8 @@ export class MazeView {
   }
 
   private buildLights(): void {
-    this.scene.add(new THREE.HemisphereLight('#ffffff', '#6b8f4e', 1.6));
+    const underwater = this.opts.world.style === 'coral';
+    this.scene.add(new THREE.HemisphereLight(underwater ? '#cdefff' : '#ffffff', underwater ? '#3b6f8f' : '#6b8f4e', 1.6));
     const sun = new THREE.DirectionalLight('#ffffff', 2.2);
     const { width, height } = this.opts.session.maze;
     sun.position.set(width / 2 + 6, 14, height / 2 + 8);
@@ -235,8 +242,10 @@ export class MazeView {
     this.scene.add(pathMesh);
 
     // Hedges with outline hull.
-    const hedgeGeo = new RoundedBoxGeometry(1, HEDGE_HEIGHT, 1, 3, 0.16);
-    const hedges = new THREE.InstancedMesh(hedgeGeo, toonMaterial(colors.wall), walls.length);
+    const coral = this.opts.world.style === 'coral';
+    // Coral: rounder rocks with varied colours and heights (per-instance colour).
+    const hedgeGeo = coral ? new RoundedBoxGeometry(0.98, HEDGE_HEIGHT, 0.98, 4, 0.3) : new RoundedBoxGeometry(1, HEDGE_HEIGHT, 1, 3, 0.16);
+    const hedges = new THREE.InstancedMesh(hedgeGeo, toonMaterial(coral ? '#ffffff' : colors.wall), walls.length);
     const hedgeOutline = new THREE.InstancedMesh(
       hedgeGeo,
       new THREE.MeshBasicMaterial({ color: OUTLINE_COLOR, side: THREE.BackSide }),
@@ -247,7 +256,8 @@ export class MazeView {
     hedges.receiveShadow = true;
     const scale = new THREE.Matrix4();
     walls.forEach((t, i) => {
-      const h = 0.92 + rng.next() * 0.16;
+      const h = coral ? 0.8 + rng.next() * 0.5 : 0.92 + rng.next() * 0.16;
+      if (coral && colors.wallVariants) hedges.setColorAt(i, new THREE.Color(rng.pick(colors.wallVariants)));
       m.makeTranslation(t.x, (HEDGE_HEIGHT * h) / 2, t.y).multiply(scale.makeScale(1, h, 1));
       hedges.setMatrixAt(i, m);
       m.makeTranslation(t.x, (HEDGE_HEIGHT * h) / 2, t.y).multiply(scale.makeScale(1.04, h * 1.03, 1.04));
@@ -255,13 +265,17 @@ export class MazeView {
     });
     this.scene.add(hedges, hedgeOutline);
 
+    if (coral) {
+      this.buildSeaweed(walls, rng);
+      // Flowers become small shells/pearls on the coral.
+    }
     // Flowers on hedges.
-    const flowerTiles = walls.filter(() => rng.next() < 0.3);
+    const flowerTiles = walls.filter(() => rng.next() < (coral ? 0.15 : 0.3));
     const flowers = new THREE.InstancedMesh(new THREE.SphereGeometry(0.09, 10, 8), toonMaterial('#ffffff'), flowerTiles.length);
     flowerTiles.forEach((t, i) => {
-      m.makeTranslation(t.x + (rng.next() - 0.5) * 0.6, HEDGE_HEIGHT + 0.08, t.y + (rng.next() - 0.5) * 0.6);
+      m.makeTranslation(t.x + (rng.next() - 0.5) * 0.6, HEDGE_HEIGHT * (coral ? 0.85 : 1) + 0.08, t.y + (rng.next() - 0.5) * 0.6);
       flowers.setMatrixAt(i, m);
-      flowers.setColorAt(i, new THREE.Color(rng.pick(colors.decorations)));
+      flowers.setColorAt(i, new THREE.Color(coral ? rng.pick(['#ffffff', '#ffe8f0', '#fff3c4']) : rng.pick(colors.decorations)));
     });
     this.scene.add(flowers);
 
@@ -273,6 +287,62 @@ export class MazeView {
     ring.rotation.x = -Math.PI / 2;
     ring.position.set(maze.goal.x, 0.04, maze.goal.y);
     this.scene.add(ring);
+  }
+
+  /** Swaying seaweed between coral rocks (underwater world). */
+  private buildSeaweed(walls: Tile[], rng: { next(): number; pick<T>(a: readonly T[]): T }): void {
+    const { colors } = this.opts.world;
+    const geo = new THREE.CapsuleGeometry(0.08, 0.55, 4, 8);
+    geo.translate(0, 0.32, 0);
+    for (const t of walls) {
+      if (rng.next() > 0.45) continue;
+      const blade = new THREE.Mesh(geo, toonMaterial(rng.pick(colors.decorations)));
+      blade.position.set(t.x + (rng.next() - 0.5) * 0.7, 0, t.y + (rng.next() - 0.5) * 0.7);
+      // Tall enough to stick out of the coral rocks.
+      blade.scale.set(1, 1.4 + rng.next() * 0.7, 1);
+      blade.userData.phase = rng.next() * Math.PI * 2;
+      this.seaweed.push(blade);
+      this.scene.add(blade);
+    }
+  }
+
+  /** Ambient bubbles rising through the water (underwater world). */
+  private updateAmbient(dt: number): void {
+    for (const blade of this.seaweed) {
+      blade.rotation.z = Math.sin(this.elapsed * 1.6 + (blade.userData.phase as number)) * 0.18;
+      blade.rotation.x = Math.cos(this.elapsed * 1.3 + (blade.userData.phase as number)) * 0.1;
+    }
+    if (this.opts.world.style !== 'coral') return;
+    this.bubbleTimer += dt;
+    const { width, height } = this.opts.session.maze;
+    if (this.bubbleTimer > 0.12) {
+      this.bubbleTimer = 0;
+      const bubble = new THREE.Mesh(
+        this.bubbleGeo,
+        new THREE.MeshBasicMaterial({ color: '#eaf9ff', transparent: true, opacity: 0.85, depthWrite: false }),
+      );
+      // Mostly near the avatar so they are on screen.
+      const near = Math.random() < 0.7;
+      bubble.position.set(
+        near ? this.avatar.position.x + (Math.random() - 0.5) * 8 : Math.random() * width,
+        0.1,
+        near ? this.avatar.position.z + (Math.random() - 0.5) * 8 : Math.random() * height,
+      );
+      bubble.scale.setScalar(0.5 + Math.random());
+      bubble.userData.speed = 0.5 + Math.random() * 0.6;
+      this.bubbles.push(bubble);
+      this.scene.add(bubble);
+    }
+    for (let i = this.bubbles.length - 1; i >= 0; i--) {
+      const b = this.bubbles[i]!;
+      b.position.y += (b.userData.speed as number) * dt;
+      b.position.x += Math.sin(this.elapsed * 3 + i) * 0.003;
+      if (b.position.y > 4) {
+        this.scene.remove(b);
+        (b.material as THREE.Material).dispose();
+        this.bubbles.splice(i, 1);
+      }
+    }
   }
 
   // ---------- input ----------
@@ -339,6 +409,7 @@ export class MazeView {
     this.chick.position.y = Math.abs(Math.sin(this.elapsed * 4)) * 0.12;
     this.chick.rotation.y = Math.sin(this.elapsed * 1.5) * 0.6;
     this.animateChests(dt);
+    this.updateAmbient(dt);
     this.trail.update(dt, this.avatar.position, this.path.length > 0);
     this.updatePet(dt);
 

@@ -40,5 +40,6 @@ test('rescued friends appear in the wardrobe and can be chosen as pet', async ({
   await friends.getByRole('button', { name: 'Ferkel' }).click();
   await expect(friends.getByRole('button', { name: 'Ferkel' })).toHaveAttribute('aria-pressed', 'true');
   await expect(friends.getByRole('button', { name: 'Küken' })).toHaveAttribute('aria-pressed', 'false');
-  await expect(friends.locator('.wardrobe-item.locked')).toHaveCount(4);
+  // 6 forest + 6 sea friends, 2 rescued.
+  await expect(friends.locator('.wardrobe-item.locked')).toHaveCount(10);
 });

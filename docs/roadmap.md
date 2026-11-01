@@ -21,7 +21,7 @@ voice → Thorsten high).
 | Milestone | Goal | Status |
 |---|---|---|
 | **M8 Maze levels** | Visible level counter per child; mazes grow with the level | ✅ PR |
-| **M9 Underwater world** | Second world with guide Ida, coral maze, sea friends; world selection | in progress |
+| **M9 Underwater world** | Second world with guide Ida, coral maze, sea friends; world selection | ✅ PR |
 | **M10 Tree house** | Home base: decorations as rewards, place them, rescued friends live there | in progress |
 | **M11 New categories** | e.g. "Wie heißt das Tier?", basic trivia (Sachkunde); choose categories per session | planned — design with owner first |
 | **M12 Voice upgrade** | Paid/licensed TTS at build time (e.g. Azure; child voice "Gisela"), letter sounds | parked — owner keeps it in mind |

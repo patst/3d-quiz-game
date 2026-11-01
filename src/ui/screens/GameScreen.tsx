@@ -18,12 +18,13 @@ import { MazeSession, type Chest } from '../../core/session/mazeSession';
 import { currentLevel, levelSpec } from '../../core/progress/levels';
 import { planChests, type ChallengeOutcome } from '../../core/skills/skillModel';
 import { getChallengeType } from '../../modules/challenges';
-import { getWorld } from '../../modules/worlds';
+import { getWorld, worlds } from '../../modules/worlds';
 import { MazeView } from '../../render/MazeView';
 import { ChallengeDialog } from '../challenges/ChallengeDialog';
 
 interface Props {
   profile: Profile;
+  worldId: string;
   /** Parent-set play time is over: show the break screen (after a running challenge). */
   breakDue: boolean;
   onHome: () => void;
@@ -55,6 +56,7 @@ function route(path: Tile[]): string {
 
 export function GameScreen({
   profile,
+  worldId,
   breakDue,
   onHome,
   onStars,
@@ -80,6 +82,8 @@ export function GameScreen({
     levelsRef.current = profile.levels;
   }, [profile.levels]);
   const [level, setLevel] = useState(1);
+  const [guide, setGuide] = useState<string>('olli');
+  const [newWorld, setNewWorld] = useState<string | null>(null);
   const disabledRef = useRef(profile.disabledChallenges);
   useEffect(() => {
     disabledRef.current = profile.disabledChallenges;
@@ -111,12 +115,13 @@ export function GameScreen({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    const world = getWorld('forest');
+    const world = getWorld(worldId);
     const spec = levelSpec(currentLevel(levelsRef.current[world.id]));
     setLevel(spec.level);
     const forced = seedFromUrl();
     const seed = forced !== null ? forced + round : randomSeed();
-    const animal = nextLostAnimal(rescuedRef.current, createRng(seed));
+    const animal = nextLostAnimal(rescuedRef.current, createRng(seed), world.lostAnimals);
+    setGuide(world.guide);
     setLostAnimal(animal);
     // ?challenge=<typeId> puts only that type into the chests (review / E2E tests).
     const only = new URLSearchParams(window.location.search).get('challenge');
@@ -162,7 +167,11 @@ export function GameScreen({
         } else if (ev.type === 'goalReached') {
           setGoalStars(session.starsEarned);
           playFanfare();
-          speech().speak(de.lostAnimals[animal].speakGoal);
+          // Did this maze unlock another world?
+          const finished = (levelsRef.current[world.id] ?? 0) + 1;
+          const unlocked = worlds.find((w) => w.unlock?.world === world.id && w.unlock.mazes === finished);
+          setNewWorld(unlocked?.id ?? null);
+          speech().speak(unlocked ? de.worldSelect.speakUnlocked : de.lostAnimals[animal].speakGoal);
           callbacks.current.onRescue(animal);
           callbacks.current.onMazeCompleted(world.id);
         }
@@ -176,7 +185,7 @@ export function GameScreen({
       sessionRef.current = null;
       speech().stop();
     };
-  }, [profile.avatar, round]);
+  }, [profile.avatar, round, worldId]);
 
   const closeChest = () => setOpenChest(null);
 
@@ -207,7 +216,7 @@ export function GameScreen({
           <span className="level-pill" data-testid="level">
             {de.levels.badge(level)}
           </span>
-          <span aria-hidden>🦉</span> {de.lostAnimals[lostAnimal].hint}
+          <span aria-hidden>{de.guideIcons[guide]}</span> {de.lostAnimals[lostAnimal].hint}
         </button>
         <div className="hud-right">
           <StarJar jar={profile.jar} />
@@ -267,6 +276,11 @@ export function GameScreen({
             <h2>{de.game.goalTitle}</h2>
             <p>{de.lostAnimals[lostAnimal].goalText}</p>
             <p className="level-done">🏆 {de.levels.done(level)}</p>
+            {newWorld && (
+              <p className="new-world" data-testid="new-world">
+                {de.worlds[newWorld]?.icon} {de.worldSelect.unlocked}
+              </p>
+            )}
             {levelSpec(level + 1).cols * levelSpec(level + 1).rows > levelSpec(level).cols * levelSpec(level).rows && (
               <p className="hint-text">{de.levels.bigger}</p>
             )}

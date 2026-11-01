@@ -9,7 +9,9 @@ import { MAX_NAME_LENGTH } from '../core/profile/profile';
 import { fillJar, toggleEquip } from '../core/rewards/rewards';
 import { initialSkill, recordOutcome } from '../core/skills/skillModel';
 import { getChallengeType } from '../modules/challenges';
-import { getWorld } from '../modules/worlds';
+import { getWorld, worlds } from '../modules/worlds';
+import { isUnlocked } from '../core/progress/worlds';
+import { WorldSelectScreen } from '../ui/worlds/WorldSelectScreen';
 import { getRewardItem } from '../modules/rewards/catalog';
 import { CreateProfileScreen } from '../ui/screens/CreateProfileScreen';
 import { GameScreen } from '../ui/screens/GameScreen';
@@ -17,7 +19,7 @@ import { ProfileSelectScreen } from '../ui/screens/ProfileSelectScreen';
 import { createIdbStore, newId } from './storage';
 import { useSave } from './useSave';
 
-type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'game' } | { name: 'parents' };
+type Screen = { name: 'profiles' } | { name: 'create' } | { name: 'worlds' } | { name: 'game'; worldId: string } | { name: 'parents' };
 
 export function App() {
   const store = useMemo(() => createIdbStore(), []);
@@ -28,9 +30,9 @@ export function App() {
   const [sessionStart, setSessionStart] = useState<number | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const limitMinutes = doc?.settings.sessionMinutes ?? 0;
-  const startGame = () => {
+  const startGame = (worldId = 'forest') => {
     setSessionStart((s) => s ?? Date.now());
-    setScreen({ name: 'game' });
+    setScreen({ name: 'game', worldId });
   };
   useEffect(() => {
     if (!limitMinutes) return;
@@ -92,10 +94,15 @@ export function App() {
     );
   }
 
+  if (screen.name === 'worlds' && active) {
+    return <WorldSelectScreen profile={active} onChoose={(worldId) => startGame(worldId)} onBack={() => setScreen({ name: 'profiles' })} />;
+  }
+
   if (screen.name === 'game' && active) {
     return (
       <GameScreen
         profile={active}
+        worldId={screen.worldId}
         breakDue={breakDue}
         onHome={() => setScreen({ name: 'profiles' })}
         onStars={(stars) =>
@@ -169,7 +176,10 @@ export function App() {
       profiles={doc.profiles}
       onSelect={(id) => {
         update((d) => setActiveProfile(d, id));
-        startGame();
+        // A world picker once more than one world is open; otherwise straight into the forest.
+        const p = doc.profiles.find((x) => x.id === id);
+        if (p && worlds.some((w) => w.unlock && isUnlocked(w.unlock, p.levels))) setScreen({ name: 'worlds' });
+        else startGame();
       }}
       onNew={() => setScreen({ name: 'create' })}
       onParents={() => setGateOpen(true)}

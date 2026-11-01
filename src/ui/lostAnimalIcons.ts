@@ -8,4 +8,10 @@ export const lostAnimalIcons: Record<LostAnimal, string> = {
   lamb: '🐑',
   'bunny-baby': '🐰',
   kitten: '🐱',
+  turtle: '🐢',
+  octopus: '🐙',
+  crab: '🦀',
+  pufferfish: '🐡',
+  'whale-baby': '🐳',
+  clownfish: '🐠',
 };

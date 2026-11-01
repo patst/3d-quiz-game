@@ -7,9 +7,10 @@ interface Props {
   profiles: readonly Profile[];
   onSelect: (id: string) => void;
   onNew: () => void;
+  onParents: () => void;
 }
 
-export function ProfileSelectScreen({ profiles, onSelect, onNew }: Props) {
+export function ProfileSelectScreen({ profiles, onSelect, onNew, onParents }: Props) {
   return (
     <main className="screen menu-screen">
       <h1 className="title">{de.profiles.whoIsPlaying}</h1>
@@ -35,6 +36,9 @@ export function ProfileSelectScreen({ profiles, onSelect, onNew }: Props) {
           </li>
         )}
       </ul>
+      <button className="parents-button" onClick={onParents}>
+        🔒 {de.parents.button}
+      </button>
     </main>
   );
 }

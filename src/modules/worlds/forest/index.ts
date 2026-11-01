@@ -7,10 +7,17 @@ export const forestWorld: WorldTheme = {
   chests: {
     count: 3,
     challenges: [
-      { typeId: 'math.count', level: 2 }, // 1–10 objects
-      { typeId: 'math.addition', level: 2 }, // sum ≤ 10 with pictures
+      { typeId: 'math.count', startLevel: 2 }, // 1–10 objects
+      { typeId: 'math.find-number', startLevel: 1 }, // 1–10
+      { typeId: 'math.compare', startLevel: 1 }, // 1–5, clear difference
+      { typeId: 'math.addition', startLevel: 1 }, // sum ≤ 5 with pictures
+      { typeId: 'math.subtraction', startLevel: 1 }, // ≤ 5 with pictures
+      { typeId: 'math.pattern', startLevel: 1 }, // AB AB
+      { typeId: 'german.initial-sound', startLevel: 1 }, // consonant vs vowel
+      { typeId: 'german.syllables', startLevel: 1 }, // 1–2 syllables
+      { typeId: 'german.rhyme', startLevel: 1 },
+      { typeId: 'german.read-word', startLevel: 1 }, // 2–3 letter words in capitals
     ],
-    stars: 2,
   },
   colors: {
     sky: '#bfe8ff',

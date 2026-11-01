@@ -4,11 +4,14 @@ import { speechText } from '../../content/de/speech';
 import { de } from '../../content/de/strings';
 import { initialAttempt, submitAnswer, type AttemptFeedback, type AttemptState } from '../../core/challenges/attempt';
 import type { Chest } from '../../core/session/mazeSession';
+import type { ChallengeOutcome } from '../../core/skills/skillModel';
 import { challengeViews } from '.';
+
+const TIER_ICONS = { bronze: '🥉', silver: '🥈', gold: '🥇' } as const;
 
 interface Props {
   chest: Chest;
-  onSolved: (stars: number) => void;
+  onSolved: (stars: number, outcome: ChallengeOutcome) => void;
   onSkip: () => void;
 }
 
@@ -18,7 +21,8 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
   const [attempt, setAttempt] = useState<AttemptState>(initialAttempt);
   const [feedback, setFeedback] = useState<AttemptFeedback | null>(null);
   const [confirmSkip, setConfirmSkip] = useState(false);
-  const View = challengeViews[challenge.typeId];
+  const entry = challengeViews[challenge.typeId];
+  const View = entry?.View;
 
   const sayPrompt = () => speech().speak(speechText(challenge.prompt));
   useEffect(() => {
@@ -35,18 +39,38 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
   };
 
   const finished = attempt.finished;
-  const correctValue = challenge.choices.find((c) => c.id === challenge.correctChoiceId)?.value;
+  const correctChoice = challenge.choices.find((c) => c.id === challenge.correctChoiceId);
+  const correctValue = correctChoice?.label ?? correctChoice?.value;
 
   return (
     <div className="overlay challenge-overlay" role="dialog" aria-modal data-testid="challenge">
-      <div className="dialog challenge-dialog">
+      <div className={`dialog challenge-dialog tier-${chest.tier}`} data-tier={chest.tier}>
+        <span className="tier-badge" aria-hidden>
+          {TIER_ICONS[chest.tier]}
+        </span>
         <button className="prompt" onClick={sayPrompt} aria-label={de.challenge.listen}>
-          <span aria-hidden>🔊</span> {speechText(challenge.prompt)}
+          <span aria-hidden>🔊</span> {speechText(challenge.promptDisplay ?? challenge.prompt)}
         </button>
 
-        {View && <View data={challenge.data} hint={feedback === 'hint' || feedback === 'reveal'} solved={finished} />}
+        {View && (
+          <View
+            data={challenge.data}
+            hint={feedback === 'hint' || feedback === 'reveal'}
+            solved={finished}
+            answers={
+              entry.ownsChoices
+                ? {
+                    choices: challenge.choices,
+                    wrongChoiceIds: attempt.wrongChoiceIds,
+                    correctChoiceId: challenge.correctChoiceId,
+                    onChoose: choose,
+                  }
+                : undefined
+            }
+          />
+        )}
 
-        {!finished && (
+        {!finished && !entry?.ownsChoices && (
           <div className="choice-buttons">
             {challenge.choices.map((c) => {
               const wrong = attempt.wrongChoiceIds.includes(c.id);
@@ -57,7 +81,7 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
                   disabled={wrong}
                   onClick={() => choose(c.id)}
                 >
-                  {c.value}
+                  {c.label ?? c.value}
                 </button>
               );
             })}
@@ -76,11 +100,19 @@ export function ChallengeDialog({ chest, onSolved, onSkip }: Props) {
               <p className="feedback reveal">{speechText(challenge.explanation)}</p>
             ) : (
               <p className="feedback correct">
-                {speechText({ key: 'feedback.correct' })} <strong>{correctValue}</strong>
+                {speechText({ key: 'feedback.correct' })} {!entry?.ownsChoices && <strong>{correctValue}</strong>}
               </p>
             )}
             <p className="stars-won">⭐ {de.challenge.starsWon(attempt.stars)}</p>
-            <button className="button primary" onClick={() => onSolved(attempt.stars)}>
+            <button
+              className="button primary"
+              onClick={() =>
+                onSolved(
+                  attempt.stars,
+                  feedback === 'reveal' ? { kind: 'revealed' } : { kind: 'solved', wrongTries: attempt.wrongChoiceIds.length },
+                )
+              }
+            >
               {de.challenge.continue}
             </button>
           </div>

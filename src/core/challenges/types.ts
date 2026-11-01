@@ -15,8 +15,10 @@ export interface SpeechLine {
 /** One tappable answer button. */
 export interface Choice {
   id: string;
-  /** The number shown on the button (all M2 challenges are number choices). */
+  /** Number shown on the button, or an index into type-specific data (symbols, words). */
   value: number;
+  /** Shown instead of `value` on the default buttons (e.g. a letter "M"). */
+  label?: string;
 }
 
 /** A generated, ready-to-show challenge. Pure data, serialisable. */
@@ -28,6 +30,11 @@ export interface ChallengeInstance<TData = unknown> {
   choices: readonly Choice[];
   correctChoiceId: string;
   prompt: SpeechLine;
+  /**
+   * Text shown instead of the spoken prompt, when showing it would give the answer away
+   * (e.g. "Tippe auf die 7" is spoken, "Welche Zahl hörst du?" is shown).
+   */
+  promptDisplay?: SpeechLine;
   /** Spoken when the solution is revealed after the last wrong try. */
   explanation: SpeechLine;
 }

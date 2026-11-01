@@ -12,7 +12,7 @@
 | State | React state + `useSave` hook; add a store (Zustand) only when screens need shared state |
 | Persistence | IndexedDB (via `idb-keyval`), versioned save format with migrations |
 | Audio | `SpeechProvider` interface; pre-generated clips (M2) + Web Speech fallback (ADR-0003) |
-| Offline / install | PWA via `vite-plugin-pwa` |
+| Offline / install | PWA via `vite-plugin-pwa` (ADR-0008) |
 | Tests | Vitest (unit, core logic), Playwright (E2E smoke on mobile + desktop viewports) |
 | Lint | ESLint (flat config) incl. an import guard that keeps `core/` free of Three.js/React |
 | CI/CD | GitHub Actions → GitHub Pages, preview per PR (ADR-0005) |
@@ -129,5 +129,12 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | Chests | `MazeSession` (`chests`, `solveChest`, `skipChest`), `src/render/props.ts`, world `chests` config | placed in dead ends; fixed levels until M4 |
 | Challenge UI | `src/ui/challenges/` (`ChallengeDialog`, view registry, `CountView`, `AdditionView`) | answer buttons sorted ascending (number line) |
 | Test hooks | `data-test-route-chest`, `data-test-route-goal` (only with `?seed=`) | arrow-key routes for E2E |
+| Rewards | `src/core/rewards/rewards.ts` (jar, offer, equip), `src/modules/rewards/catalog.ts`, `src/render/avatars/accessories.ts`, `src/render/trails.ts`, `src/ui/rewards/` | save v2 adds jar, pendingRewards, inventory, equipped |
+| Animal friends | `src/core/profile/lostAnimals.ts`, `src/render/avatars/lostAnimals.ts`, pet following in `MazeView.updatePet` | save v3 adds rescued, pet |
+| Parents area | `src/ui/parents/` (`ParentGate`, `ParentsArea`), `content/de/numbers.ts` | save v4 adds `settings` (speech); `setSpeechEnabled` in audio |
+| Adaptive difficulty | `src/core/skills/skillModel.ts` (`recordOutcome`, `planChests`, tiers) | save v5 adds `skills` per challenge type; world config holds start levels |
+| Views with own answers | `ChallengeViewEntry.ownsChoices` in `src/ui/challenges/index.ts` (compare, pattern); `ChallengeInstance.promptDisplay` hides spoken answers | `?challenge=<typeId>` limits chests to one type (review/E2E) |
+| German word bank | `src/content/de/words.ts` (word, emoji, syllables, initial, rhyme) used by `src/modules/challenges/german-*` | modules may read content data; consistency tests in `words.test.ts`; save v6 adds `disabledChallenges` |
+| PWA / offline | `vite.config.ts` (`vite-plugin-pwa`), `public/icons/`, clip fetch in `src/audio/speech.ts` | ADR-0008; no service worker on PR previews |
 | Camera | `MazeView.updateCamera` | follows the avatar, clamped to the maze so no empty grass is shown |
 | Test hooks | `data-avatar-tile`, `data-goal-tile` on the canvas container; `?seed=N` URL param | used by E2E tests and bug reports |

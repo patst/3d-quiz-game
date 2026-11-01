@@ -1,12 +1,14 @@
 import * as THREE from 'three';
 import type { Avatar, AvatarAnimal } from '../../core/profile/profile';
+import type { Equipped } from '../../core/rewards/rewards';
 import { addOutlines, toonMaterial } from '../toon';
+import { buildOutfit } from './accessories';
 
 /**
  * Builds a chunky comic animal from primitives (no external model files needed).
  * The returned group stands on y=0, faces +z and is about 1 unit tall.
  */
-export function buildAnimal(avatar: Avatar): THREE.Group {
+export function buildAnimal(avatar: Avatar, equipped: Equipped = {}): THREE.Group {
   const root = new THREE.Group();
   const body = toonMaterial(avatar.color);
   const light = toonMaterial(lighten(avatar.color, 0.55));
@@ -47,6 +49,7 @@ export function buildAnimal(avatar: Avatar): THREE.Group {
   root.traverse((o) => {
     o.castShadow = true;
   });
+  root.add(buildOutfit(avatar.animal, equipped));
   return root;
 }
 

@@ -87,7 +87,8 @@ describe('chests', () => {
       explanation: { key: 'e' },
     }),
   };
-  const plan = { count: 3, challenges: [{ type: fakeType, level: 1 }], stars: 2 };
+  const chest = { type: fakeType, level: 1, tier: 'silver' as const, stars: 2 };
+  const plan = { chests: [chest, chest, chest] };
 
   it('places chests on distinct floor tiles that are not start or goal', () => {
     for (let seed = 1; seed <= 100; seed++) {

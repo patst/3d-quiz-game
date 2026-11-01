@@ -2,11 +2,17 @@ import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { addOutlines, toonMaterial } from './toon';
 
-/** A comic treasure chest. Children: `lid` (pivot at the back edge) and `beacon` (floating star). */
-export function buildChest(): THREE.Group {
+/** Metal colour per chest tier (bronze/silver/gold, game-design §6.2). */
+const TIER_METAL: Record<string, string> = { bronze: '#d08a4a', silver: '#d6dde6', gold: '#ffd93d' };
+
+/**
+ * A comic treasure chest. Children: `lid` (pivot at the back edge) and `beacon` (floating
+ * star). Straps, lock and star use the tier's metal colour; gold chests are a bit larger.
+ */
+export function buildChest(tier: string = 'gold'): THREE.Group {
   const root = new THREE.Group();
   const wood = toonMaterial('#b5651d');
-  const gold = toonMaterial('#ffd93d');
+  const gold = toonMaterial(TIER_METAL[tier] ?? TIER_METAL.gold!);
   const W = 0.62;
   const D = 0.44;
   const H = 0.32;
@@ -40,7 +46,7 @@ export function buildChest(): THREE.Group {
 
   addOutlines(root, 0.03);
 
-  const beacon = new THREE.Mesh(starGeometry(0.16, 0.07, 0.06), toonMaterial('#ffd93d'));
+  const beacon = new THREE.Mesh(starGeometry(0.16, 0.07, 0.06), toonMaterial(TIER_METAL[tier] ?? '#ffd93d'));
   beacon.name = 'beacon';
   beacon.position.y = 1.0;
   addOutlines(beacon, 0.02);
@@ -49,10 +55,11 @@ export function buildChest(): THREE.Group {
   root.traverse((o) => {
     o.castShadow = true;
   });
+  root.scale.setScalar(tier === 'gold' ? 1.15 : tier === 'bronze' ? 0.9 : 1);
   return root;
 }
 
-function starGeometry(outer: number, inner: number, depth: number): THREE.ExtrudeGeometry {
+export function starGeometry(outer: number, inner: number, depth: number): THREE.ExtrudeGeometry {
   const shape = new THREE.Shape();
   for (let i = 0; i < 10; i++) {
     const r = i % 2 === 0 ? outer : inner;

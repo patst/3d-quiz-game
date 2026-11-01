@@ -24,7 +24,9 @@ if (!model || !existsSync(model)) {
 /** >1 = slower. 1.05 = lively but clear (owner feedback: "faster and more cheerful"). */
 const LENGTH_SCALE = 1.05;
 /** Speaker of multi-speaker voices; thorsten_emotional: 0 = "amused" (cheerful). */
-const SPEAKER = process.env.PIPER_SPEAKER ?? '0';
+const numSpeakers = (JSON.parse(readFileSync(`${model}.json`, 'utf8')) as { num_speakers?: number }).num_speakers ?? 1;
+// Single-speaker voices (e.g. thorsten-high) take no speaker id.
+const SPEAKER = process.env.PIPER_SPEAKER ?? (numSpeakers > 1 ? '0' : '');
 // The manifest's voice id includes the settings, so changing them regenerates every clip.
 const voiceName = `${model.split('/').pop()!.replace(/\.onnx$/, '')}#${SPEAKER}@${LENGTH_SCALE}`;
 

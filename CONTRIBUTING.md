@@ -29,7 +29,7 @@ npm run dev             # http://localhost:5173
 npm run check           # lint + typecheck + unit tests + audio check
 CI=1 npm run e2e        # Playwright, desktop + phone (first run: npx playwright install chromium)
 ```
-New spoken sentences need audio clips generated with Piper (see [`docs/audio.md`](docs/audio.md)).
+New spoken sentences need audio clips generated with the project's voice (Qwen3-TTS, see [`docs/audio.md`](docs/audio.md)).
 If you can't run it, say so in the PR and a maintainer will add the clips.
 
 Open a pull request against `main` and fill in the template. Visible changes need a phone-width

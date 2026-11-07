@@ -151,3 +151,8 @@ vite.config.ts.timestamp-*
 # Project
 playwright-report/
 test-results/
+
+# Speech clip generator (scripts/generate-audio.ts)
+scripts/.audio-progress.json
+audio-review.txt
+__pycache__/

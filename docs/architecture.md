@@ -88,8 +88,8 @@ challenges or rewards.
 ## 4. Content pipeline
 - `content/de/strings.ts` — every UI/speech text, keyed.
 - `content/words/*.json` — word bank: `{ word, syllables, initialSound, rhymeGroup, image, audio }`.
-- Speech audio is **generated at build time** by an offline neural TTS (Piper, German
-  voice) into `public/audio/`, listed in a manifest. Generated prompts are composed from
+- Speech audio is **generated at build time** by an offline neural TTS (a designed German
+  voice, Qwen3-TTS, ADR-0015) into `public/audio/`, listed in a manifest. Generated prompts are composed from
   fixed sentence templates + number/word clips so every possible sentence has audio.
   Fallback: browser `speechSynthesis` with a local German voice. All behind one
   `SpeechProvider` interface so in-browser neural TTS can be added later. (ADR-0003)
@@ -129,7 +129,7 @@ docs/ (game-design, architecture, adr/, roadmap, open-questions)
 | 3D view | `src/render/MazeView.ts` | instanced hedges, inverted-hull outlines, toon gradient, tap-to-walk + keys, camera follow |
 | Avatars | `src/render/avatars/animals.ts`, `src/render/avatars/models.ts`, `public/models/*.glb` | glTF model per animal where one exists (cat), loaded in the background and swapped in place; procedural animals as fallback (ADR-0006, ADR-0014) |
 | Speech | `src/audio/speech.ts`, `src/audio/clipId.ts`, `public/audio/de/` | pre-generated whole-sentence clips (ADR-0007) → local Web Speech fallback |
-| Audio pipeline | `scripts/generate-audio.ts`, `scripts/check-audio.ts`, `docs/audio.md` | Piper, run locally; CI checks completeness |
+| Audio pipeline | `scripts/generate-audio.ts` + `scripts/qwen_batch.py`, `scripts/voice/`, `src/content/de/spokenForm.ts`, `src/audio/transcriptMatch.ts`, `scripts/check-audio.ts`, `docs/audio.md` | Qwen3-TTS designed voice cloned from a committed reference, every clip checked by Whisper, run locally on a GPU (ADR-0015); CI checks completeness |
 | World | `src/modules/worlds/forest` | theme colours + maze size |
 | Challenges | `src/core/challenges`, `src/modules/challenges/{math-count,math-addition}` | logic + generic answer flow |
 | Chests | `MazeSession` (`chests`, `solveChest`, `skipChest`), `src/render/props.ts`, world `chests` config | placed in dead ends; fixed levels until M4 |

@@ -20,7 +20,7 @@ animal friends). Play it: https://patst.github.io/3d-quiz-game/
 |---|---|---|
 | Game design (what we build) | `docs/game-design.md` | APPROVED, changes need owner sign-off (changelog at the end) |
 | Architecture (how we build it) | `docs/architecture.md` | APPROVED; §8 "As built" is the current state |
-| Decisions and their reasons | `docs/adr/` (0001–0014) | status in each ADR |
+| Decisions and their reasons | `docs/adr/` (0001–0015) | status in each ADR |
 | Roadmap / milestones | `docs/roadmap.md` | living |
 | Open questions for the owner | `docs/open-questions.md` | living |
 | Speech audio how-to | `docs/audio.md` | |
@@ -28,7 +28,7 @@ animal friends). Play it: https://patst.github.io/3d-quiz-game/
 | Asset licences | `ASSETS.md` | |
 | Step-by-step recipes (skills) | `.claude/skills/*/SKILL.md` | see §7 |
 
-The ADRs you will need most: ADR-0003/0007 (audio), ADR-0004 (local only, no tracking),
+The ADRs you will need most: ADR-0003/0007/0015 (audio), ADR-0004 (local only, no tracking),
 ADR-0009 (learner stage and curriculum tags), ADR-0010 (activities), ADR-0011 (Rätselpfad).
 
 ## 3. Rules (non-negotiable)
@@ -62,7 +62,7 @@ npm run dev             # dev server, http://localhost:5173
 npm run check           # lint + typecheck + unit tests + audio check — before every push
 CI=1 npm run e2e        # Playwright (desktop + phone viewport) like CI; CI=1 builds a fresh server
 npm run build           # production build; BASE_PATH sets the deploy sub-path
-npm run audio:generate  # (re)generate speech clips — needs Piper, see docs/audio.md
+npm run audio:generate  # (re)generate speech clips — needs Python + Qwen3-TTS (GPU ideal), see docs/audio.md
 npm run curriculum:sources -- --fetch   # re-download curriculum PDFs; then git diff docs/curriculum/sources/text
 ```
 First e2e run on a new machine: `npx playwright install chromium`.
@@ -122,8 +122,8 @@ the owner first; logic in `core/activities/`, module in `modules/activities/<id>
 **Anything spoken** — `.claude/skills/add-speech/`. Sentences go into
 `src/content/de/speech.ts` (templates with `render` + `variants`, or `staticSpokenTexts`), then
 `npm run audio:generate` and **commit the clips** in `public/audio/de/`. `npm run check` fails
-when a sentence has no clip. If you cannot run Piper, say so in the PR — a maintainer generates
-the clips (CI cannot).
+when a sentence has no clip. If you cannot run the voice generator, say so in the PR — a maintainer
+generates the clips (CI cannot).
 
 ## 7. Skills
 Agent skills live in `.claude/skills/<name>/SKILL.md`. Claude Code loads them automatically;

@@ -1,0 +1,29 @@
+{
+ "id": "qwen3-1.7b-base+warm-v1",
+ "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+ "refAudio": "warm.wav",
+ "refText": "Hallo! Schön, dass du da bist. Heute suchen wir zusammen die Schatzkisten im Wald. Hör gut zu, dann zeige ich dir den Weg.",
+ "designModel": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+ "designPrompt": "Eine warme, ruhige Frauenstimme um die 35, freundlich und geduldig, wie eine Erzieherin, die Kindern etwas erklärt. Klares Hochdeutsch, mittleres Tempo.",
+ "seed": 1,
+ "generate": {},
+ "candidates": {
+  "warm": {
+   "refAudio": "warm.wav",
+   "designPrompt": "Eine warme, ruhige Frauenstimme um die 35, freundlich und geduldig, wie eine Erzieherin, die Kindern etwas erklärt. Klares Hochdeutsch, mittleres Tempo."
+  },
+  "froh": {
+   "refAudio": "froh.wav",
+   "designPrompt": "Eine helle, fröhliche junge Frauenstimme, lebendig und begeistert, wie eine Vorleserin von Kinderbüchern. Klares Hochdeutsch, deutlich artikuliert."
+  },
+  "sanft": {
+   "refAudio": "sanft.wav",
+   "designPrompt": "Eine sanfte, weiche Frauenstimme mit einem Lächeln, wie eine Hörbuch-Erzählerin für kleine Kinder. Ruhig und sehr deutlich, Hochdeutsch."
+  },
+  "lehrerin": {
+   "refAudio": "lehrerin.wav",
+   "designPrompt": "Eine klare, freundliche Frauenstimme wie eine Grundschullehrerin, aufmerksam und ermutigend, sehr deutliche Aussprache, Hochdeutsch."
+  }
+ },
+ "note": "Designed with designModel + designPrompt (seed 7) from refText. To switch voice: set refAudio/designPrompt to a candidate and bump id (owner decision, ADR-0015)."
+}

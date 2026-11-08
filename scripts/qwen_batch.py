@@ -25,7 +25,8 @@ items = [json.loads(line) for line in sys.stdin if line.strip()]
 
 gpu = torch.cuda.is_available()
 device = "cuda:0" if gpu else "cpu"
-dtype = torch.bfloat16 if gpu else torch.float32
+# bfloat16 where the GPU supports it natively (AMD RDNA3, NVIDIA RTX 30+), else float16.
+dtype = (torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16) if gpu else torch.float32
 batch_size = int(os.environ.get("QWEN_BATCH", "8" if gpu else "1"))
 log = lambda *a: print(*a, file=sys.stderr, flush=True)  # noqa: E731
 log(f"qwen_batch: {len(items)} sentences on {torch.cuda.get_device_name(0) if gpu else 'CPU'}, batch {batch_size}")

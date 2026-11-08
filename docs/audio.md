@@ -33,7 +33,28 @@ install AMD's PyTorch build for Windows (see AMD's "ROCm on Radeon" documentatio
 Windows venv and then `pip install qwen-tts`. Check with the same `torch.cuda.is_available()`
 line.
 
-### NVIDIA GPU or CPU only
+### NVIDIA GPU (Windows or Linux)
+Install a current NVIDIA driver (the CUDA toolkit is not needed; PyTorch brings its own).
+
+Linux / WSL2:
+```bash
+python3.12 -m venv ~/qwen-venv
+~/qwen-venv/bin/pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+~/qwen-venv/bin/pip install qwen-tts
+~/qwen-venv/bin/python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+```
+Windows (PowerShell, Python 3.12 from python.org, `winget install ffmpeg`):
+```powershell
+py -3.12 -m venv $HOME\qwen-venv
+& $HOME\qwen-venv\Scripts\pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+& $HOME\qwen-venv\Scripts\pip install qwen-tts
+& $HOME\qwen-venv\Scripts\python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+$env:QWEN_PYTHON = "$HOME\qwen-venv\Scripts\python.exe"; npm run audio:generate
+```
+Laptop GPUs often have 4–8 GB of memory. With 8 GB the defaults work; with 6 GB use
+`QWEN_BATCH=2`; with 4 GB also `ASR_MODEL=openai/whisper-small`.
+
+### CPU only
 ```bash
 python3.12 -m venv ~/qwen-venv
 ~/qwen-venv/bin/pip install torch torchaudio qwen-tts

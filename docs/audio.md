@@ -51,6 +51,9 @@ py -3.12 -m venv $HOME\qwen-venv
 & $HOME\qwen-venv\Scripts\python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
 $env:QWEN_PYTHON = "$HOME\qwen-venv\Scripts\python.exe"; npm run audio:generate
 ```
+Harmless messages at start: "SoX could not be found!" (`qwen-tts` checks for it but the
+generator doesn't use it; `apt install sox` silences it) and "flash-attn is not installed".
+
 Laptop GPUs often have 4–8 GB of memory. With 8 GB the defaults work; with 6 GB use
 `QWEN_BATCH=2`; with 4 GB also `ASR_MODEL=openai/whisper-small`.
 
